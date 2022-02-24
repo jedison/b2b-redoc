@@ -21283,6 +21283,7 @@ components:
 
 
 tags:
+#DOCUMENTATION ===============================================
 - name: Introduction
   description: |
         <p>StitchCredit’s B2B API offering performs credit checks for your company. The B2B API allows you to gain insight into a business’ financial stability, allowing you to make quick and informed business decisions. Get a detailed financial picture of any customer or supplier before you decide to work with them. B2B Credit Checks protect your business from late payments. </p>
@@ -21587,6 +21588,7 @@ tags:
 
 - name: Integration Options
   description: |
+        <h2>API Request/Response</h2>
         <p>StitchCredit APIs support both JSON and XML requests as well as JSON and XML responses. &nbsp;For details of the API, refer to the the endpoints and request/response models at <span url="https://mware-dev.crscreditapi.com/api/swagger-ui.html" data="null" contenteditable="false" draggable="true">
         <span>
         <span class="card">
@@ -21599,24 +21601,24 @@ tags:
         </span>
         </span> .&nbsp;</p>
         <p>Unfortunately, MCL is excluded from this preview due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please contact us and we can provide you with the necessary integration details.</p>
-        <h2>Getting Started</h2>
+        <h2>API Endpoints</h2>
         <p>Each StitchCredit B2B API endpoint has a different request/response. However, the integration steps are the same: authentication than request the product.</p>
         <p>
         <hr>
 
 - name: Developer Tools
   description: |
-        <h3>Postman Collections</h3>
+        <h2>Postman Collections</h2>
         <p>The Postman Environment is pre-configured to allow you to use the scripts and walk through the Postman Scripts with minimal intervention to aid in understanding the API call structure.</p>
-        <u>Postman Collections</u>
-        </a> include pre-defined API calls to help you understand and develop your solution. </p>
-        <h3>Sandbox</h3>
+        The Postman Collections include pre-defined API calls to help you understand and develop your solution. </p>
+        <h2>Sandbox</h2>
         <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the StitchCredit B2B APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
         <hr>
 
-- name:  Steps to integrate
+- name:  Integration
   description: |
-        <h3>Step 1: Authentication&nbsp;</h3>
+        <h2>Required steps</h2>
+        <h3>Step 1: Authentication</h3>
         <p>Authentication returns a Bearer token that can be used for any number of subsequent requests for 15 minutes at which point the token expires, and a new token must be retrieved by sending an Authentication request again.</p>
         <p>The postman test script for this request saves this token as a collection variable that is being used as a bearer authorization header for the other postman requests.</p>
         <p>The “User Login” request ( /users/login ) returns a token that is required for authenticating all other requests (bearer authentication).&nbsp;</p>
@@ -21624,7 +21626,11 @@ tags:
         <h3>Step 2: Request Products</h3>
         <p>StitchCredit B2B API supports reports and verification through various API endpoints. Those endpoint are described below. </p>
         <p>Each API endpoint has a different request/response. However, the integration steps are the same: authentication and then request the product through the specific API endpoint.</p>
-        <h3>Products</h3>
+        <hr>
+
+- name:  Integration to reports and verification
+  description: |
+        <h2>Products</h2>
         <p>The following different report and verification products can be requested via the StitchCredit B2B API.</p>
         <h3>Identity Verification </h3>
         <p>Currently the Identity Verification options from StitchCredit B2B API are TransUnion, LexisNexis and Experian.</p>
@@ -22400,14 +22406,11 @@ tags:
 
 - name: Integration methods
   description: |
-        <h3>APIs</h3>
-        <p>Swagger documentation <a href="https://mware-dev.crscreditapi.com/api/swagger-ui/index.html?configUrl=/api/mware-docs/swagger-config#/">here</a>
-        </p>
+        <p>This documentation contains documentation of all StitchCredit B2B APIs.</p>
         <h3>APIs not included in Swagger documentation</h3>
         <p>Unfortunately, MCL SmartAPI is excluded from the Swagger documentation due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please contact us and we can provide you with the necessary integration details. </p>
         <p>Requests sent to the StitchCredit middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
-        <u>https://mware-dev.crscreditapi.com/api/mcl/request</u>
-        </a>, will return data from MCL.</p>
+        <u>https://mware-dev.crscreditapi.com/api/mcl/request</u></a>, will return data from MCL.</p>
         <p>This endpoint can be used to interact with MCL’s SmartAPI to retrieve MCL products using JSON (for both requests and responses).&nbsp;If you would rather receive XML, then we can provide credentials that can be used to connect directly to MCL’s SmartAPI (not going through StitchCredit API) for XML responses.</p>
         <p>The MCL SmartAPI documentation can be referenced for basic guidance from <a href="https://docsend.com/view/s/rjsnmxftw59isyiv">SmartAPI documentation</a>. </p>
         <p>These same principles apply for a JSON-based connection via StitchCredit’s Middleware.&nbsp; </p>
@@ -22427,13 +22430,9 @@ tags:
   description: |
       REST API for Transunion data
 
-- name: LexisNexis RiskView
+- name: LexisNexis
   description: |
-      REST API for LexisNexis RiskView
-
-- name: LexisNexis VFPS
-  description: |
-      REST API for LexisNexis VFPS
+      REST API for LexisNexis
 
 - name: PitchPoint
   description: |
@@ -22476,6 +22475,7 @@ tags:
         </p>
         <hr>
 
+## x-tags: what to show, where
 x-tagGroups:
   - name: StitchCredit B2B APIs
     tags:
@@ -22487,7 +22487,8 @@ x-tagGroups:
       - Developer Tools
   - name: Integration Guide
     tags:
-      - Steps to integrate
+      - Integration
+      - Integration to reports and verification
       - Integration methods
   - name: APIs
     tags:
