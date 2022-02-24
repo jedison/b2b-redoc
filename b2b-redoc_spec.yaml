@@ -8,7 +8,7 @@ info:
     url: https://mware-dev.crscreditapi.com/api/swagger-ui/index.html?configUrl=/api/mware-docs/swagger-config#/
 
   x-logo:
-    url: 'https://user-images.githubusercontent.com/76128486/105094491-5b54fc80-5a72-11eb-9d24-bdb4e18cfb7f.png'
+    url: 'https://github.com/jedisonbru/b2b-redoc/blob/24080eaa16df2dfacc73270cc3d8e40dfc9426c4/StitchCredit_color-square.png'
     altText: CRS logo
 
   description: |    
@@ -870,7 +870,7 @@ paths:
   /iid/new-request:
     post:
       tags:
-        - iid-controller
+        - LexisNexis
       summary: Instant ID (IID)
       description: |
         <h2>/iid/new-request</h2>
@@ -894,7 +894,7 @@ paths:
   /gwls:
     post:
       tags:
-        - gwls-controller
+        - Global WatchList
       summary: Global Watchlist Search
       description: |
         <h2>/gwls</h2>
@@ -922,7 +922,7 @@ paths:
   /gwls/ofaclist:
     post:
       tags:
-        - gwls-controller
+        - Global WatchList
       summary: OFAC Watchlist Search
       description: |
         <h2>/gwls/ofaclist</h2>
@@ -950,7 +950,7 @@ paths:
   /gwls/ofac:
     post:
       tags:
-        - gwls-controller
+        - Global WatchList
       summary: OFAC Watchlist Search
       description: |
         <h2>/gwls/ofac</h2>
@@ -978,7 +978,7 @@ paths:
   /gwls/batch:
     post:
       tags:
-        - gwls-controller
+        - Global WatchList
       summary: Global Watchlist Batch
       description: |
         <h2>/gwls/batch</h2>
@@ -3114,10 +3114,11 @@ paths:
   /biid/new-request:
     post:
       tags:
-        - biid-controller
+        - LexisNexis
       summary: Business Instant ID (BIID)
       description: |
         <h2>/biid/new-request</h2>
+        Executes a Business Instant ID2 verification on the provided business and associated subjects
       operationId: newRequest_3
       requestBody:
         content:
@@ -21306,9 +21307,8 @@ tags:
         <p>The B2B APIs allow you to make informed decisions that bring value to your business.</p>
         <hr>
 
-- name: StitchCredit B2B APIs
+- name: Overview
   description: |
-        <h2>Overview</h2>
         <p>StitchCredit B2B API Offering: StitchCredit has created a middleware product to connect to existing Credit Reporting APIs, as well as providing monitoring and business intelligence reports. The StitchCredit B2B API hides the complexity of the underlying API requests and responses. In addition, StitchCredit guides you through the compliance requirements to access the APIs with less regulatory nightmares. </p>
         <ul>
         <li>
@@ -21325,7 +21325,9 @@ tags:
         </li>
         </ul>
         <p>StitchCredit will help you get up and running more quickly and easily.</p>
-        <h2>What we do</h2>
+
+- name: What we do
+  description: |
         <p>StitchCredit B2B APIs wrap numerous APIs from Experian + Equifax + TransUnion + LexisNexis + CIC + more. It provides a set of StitchCredit APIs for customers to access features from all vendors. It allows access to numerous verification and report services through a single set of APIs. </p>
         <p>StitchCredit B2B APIs are integrated to request credit verification information from numerous service providers. Via StitchCredit B2B APIs, you send requests to the StitchCredit B2B APIs and receive a response from the third-party verification service that is appropriate for the request. </p>
         <h3>Types of Verification and Reports</h3>
@@ -21583,9 +21585,8 @@ tags:
         </ul>
         <hr>
 
-- name: Quick Start
+- name: Integration Options
   description: |
-        <h2>Integration Options</h2>
         <p>StitchCredit APIs support both JSON and XML requests as well as JSON and XML responses. &nbsp;For details of the API, refer to the the endpoints and request/response models at <span url="https://mware-dev.crscreditapi.com/api/swagger-ui.html" data="null" contenteditable="false" draggable="true">
         <span>
         <span class="card">
@@ -21605,17 +21606,16 @@ tags:
 
 - name: Developer Tools
   description: |
-        <h2>Postman Collections</h2>
+        <h3>Postman Collections</h3>
         <p>The Postman Environment is pre-configured to allow you to use the scripts and walk through the Postman Scripts with minimal intervention to aid in understanding the API call structure.</p>
         <u>Postman Collections</u>
         </a> include pre-defined API calls to help you understand and develop your solution. </p>
-        <h2>Sandbox</h2>
+        <h3>Sandbox</h3>
         <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the StitchCredit B2B APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
         <hr>
 
-- name: Integration Guide
+- name:  Steps to integrate
   description: |
-        <h2>Steps to integrate</h2>
         <h3>Step 1: Authentication&nbsp;</h3>
         <p>Authentication returns a Bearer token that can be used for any number of subsequent requests for 15 minutes at which point the token expires, and a new token must be retrieved by sending an Authentication request again.</p>
         <p>The postman test script for this request saves this token as a collection variable that is being used as a bearer authorization header for the other postman requests.</p>
@@ -21624,7 +21624,7 @@ tags:
         <h3>Step 2: Request Products</h3>
         <p>StitchCredit B2B API supports reports and verification through various API endpoints. Those endpoint are described below. </p>
         <p>Each API endpoint has a different request/response. However, the integration steps are the same: authentication and then request the product through the specific API endpoint.</p>
-        <h2>Products</h2>
+        <h3>Products</h3>
         <p>The following different report and verification products can be requested via the StitchCredit B2B API.</p>
         <h3>Identity Verification </h3>
         <p>Currently the Identity Verification options from StitchCredit B2B API are TransUnion, LexisNexis and Experian.</p>
@@ -22363,9 +22363,8 @@ tags:
         </ul>
         </li>
         </ul>
-        <h2>Management of Users</h2>
+        <h3>Management of Users</h3>
         <p>StitchCredit B2B APIs provides endpoints for the management of users.</p>
-        <h3>DETAILS TO BE PROVIDED (KEVIN? ELYSE?)</h3>
         <ul>
         <li>
         <p>​/users</p>
@@ -22401,10 +22400,10 @@ tags:
 
 - name: Integration methods
   description: |
-        <h2>APIs</h2>
+        <h3>APIs</h3>
         <p>Swagger documentation <a href="https://mware-dev.crscreditapi.com/api/swagger-ui/index.html?configUrl=/api/mware-docs/swagger-config#/">here</a>
         </p>
-        <h2>APIs not included in Swagger documentation</h2>
+        <h3>APIs not included in Swagger documentation</h3>
         <p>Unfortunately, MCL SmartAPI is excluded from the Swagger documentation due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please contact us and we can provide you with the necessary integration details. </p>
         <p>Requests sent to the StitchCredit middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
         <u>https://mware-dev.crscreditapi.com/api/mcl/request</u>
@@ -22478,26 +22477,41 @@ tags:
         <hr>
 
 x-tagGroups:
-  - name: Getting Started
+  - name: StitchCredit B2B APIs
     tags:
       - Introduction
-      - StitchCredit B2B APIs
-      - Quick Start
+      - Overview
+  - name: Getting Started
+    tags:
+      - Integration Options
       - Developer Tools
-      - Integration Guide
+  - name: Integration Guide
+    tags:
+      - Steps to integrate
       - Integration methods
   - name: APIs
     tags:
       - Equifax
       - Experian
       - Transunion
-      - LexisNexis RiskView
-      - LexisNexis VFPS
+      - LexisNexis
       - PitchPoint
+      - Global WatchList
       - Criminal
       - Eviction
       - User
-  - name: In addition
+      - system-controller
+      - roles-controller
+  - name: APIs under development
+    tags:      
+      - xgs-controller
+      - mvs-controller
+      - mvr-controller
+      - ljs-controller
+      - ljr-controller
+      - bankruptcy-s-controller
+      - bankruptcy-r-controller
+  - name: Additional reference
     tags:
       - Sandbox
       - Security
