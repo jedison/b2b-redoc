@@ -1,0 +1,55 @@
+## x-tags: what to show, where
+x-tagGroups:
+  - name: StitchCredit B2B APIs
+    tags:
+      - Introduction
+      - Overview
+      - What we do
+      - Types of Verification and Reports
+      - Verification and Report Sources
+      - Types of Requests and Data Sources
+
+  - name: Getting Started
+    tags:
+      - Integration Options
+      - Developer Tools
+      
+  - name: Integration Guide
+    tags:
+      - Integration
+      - Integration to reports and verification
+      - Identity Verification
+      - Credit Reports
+      - Other Reports
+      - Management of Users
+      - Integration methods
+      
+  - name: APIs
+    tags:
+      - Overview of APIs
+      - Equifax
+      - Experian
+      - Transunion
+      - LexisNexis
+      - PitchPoint
+      - Global WatchList
+      - Criminal
+      - Eviction
+      - User
+      - system-controller
+      - roles-controller
+      
+  - name: APIs under development
+    tags:      
+      - xgs-controller
+      - mvs-controller
+      - mvr-controller
+      - ljs-controller
+      - ljr-controller
+      - bankruptcy-s-controller
+      - bankruptcy-r-controller
+      
+  - name: Additional reference
+    tags:
+      - Sandbox
+      - Security

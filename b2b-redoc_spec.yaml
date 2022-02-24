@@ -21424,6 +21424,7 @@ tags:
         </li>
         </ul>
         </li>
+        <br />
         <li>
         <p>Credit Reports: </p>
         <ul>
@@ -21441,6 +21442,7 @@ tags:
         </li>
         </ul>
         </li>
+        <br />
         <li>
         <p>Criminal &amp; Eviction reports: </p>
         <ul>
@@ -21449,6 +21451,7 @@ tags:
         </li>
         </ul>
         </li>
+        <br />
         <li>
         <p>Financial Sanctions Watchlist Verification</p>
         <ul>
@@ -21460,6 +21463,7 @@ tags:
         </li>
         </ul>
         </li>
+        <br />
         <li>
         <p>Property Verification</p>
         <ul>
@@ -21474,6 +21478,7 @@ tags:
         </li>
         </ul>
         </li>
+        <br />
         <li>
         <p>Employment Verification (VOE)</p>
         <ul>
@@ -21494,6 +21499,7 @@ tags:
         </li>
         </ul>
         </li>
+        <br />
         <li>
         <p>Undisclosed Debt Notifications</p>
         <ul>
@@ -21505,6 +21511,7 @@ tags:
         </li>
         </ul>
         </li>
+        <br />
         <li>
         <p>Income Verification</p>
         <ul>
@@ -21519,6 +21526,7 @@ tags:
         </li>
         </ul>
         </li>
+        <br />
         <li>
         <p>Asset Verification</p>
         <ul>
@@ -21533,6 +21541,7 @@ tags:
         </li>
         </ul>
         </li>
+        <br />
         <li>
         <p>Deposit Verification are manually processed by the verification service provider</p>
         <ul>
@@ -21541,6 +21550,7 @@ tags:
         </li>
         </ul>
         </li>
+        <br />
         <li>
         <p>Motor Vehicles</p>
         <ul>
@@ -21549,6 +21559,7 @@ tags:
         </li>
         </ul>
         </li>
+        <br />
         <li>
         <p>Bankruptcy Report</p>
         <ul>
@@ -21557,6 +21568,7 @@ tags:
         </li>
         </ul>
         </li>
+        <br />
         <li>
         <p>Customizable fraud detection reports: product that supports verification across three types of entities typically involved in a loan: the borrower(s), the subject property, and any non-borrower participants (e.g. loan officer, underwriter, etc). Various services are used to generate these reports, some of which include: Lexis Nexis, Equifax, Experian, MERS, MCL Integration, CreditData and watchlists.</p>
         <ul>
@@ -21565,6 +21577,7 @@ tags:
         </li>
         </ul>
         </li>
+        <br />
         <li>
         <p>Mortgage Electronic Registration Systems (MERS) reports, which provide a list of all mortgages associated with a consumer</p>
         <ul>
@@ -21573,6 +21586,7 @@ tags:
         </li>
         </ul>
         </li>
+        <br />
         <li>
         <p>Mortgage Participant Verification (MPV): to be used to check loan participants (e.g. loan officer, brokerage, appraiser, etc.) against various financial sanctions watchlists</p>
         <ul>
@@ -21581,6 +21595,7 @@ tags:
         </li>
         </ul>
         </li>
+        <br />
         <li>
         <p>Management of Users</p>
         <ul>
@@ -21595,17 +21610,7 @@ tags:
 - name: Integration Options
   description: |
         <h2>API Request/Response</h2>
-        <p>StitchCredit APIs support both JSON and XML requests as well as JSON and XML responses. &nbsp;For details of the API, refer to the the endpoints and request/response models at <span url="https://mware-dev.crscreditapi.com/api/swagger-ui.html" data="null" contenteditable="false" draggable="true">
-        <span>
-        <span class="card">
-        <span class="loader-wrapper">
-        <span>
-        <a href="https://mware-dev.crscreditapi.com/api/swagger-ui.html">https://mware-dev.crscreditapi.com/api/swagger-ui.html</a>
-        </span>
-        </span>
-        </span>
-        </span>
-        </span> .&nbsp;</p>
+        <p>StitchCredit APIs support both JSON and XML requests as well as JSON and XML responses. &nbsp;For details of the API, refer to the endpoints and request/response models in this documentation.</p>
         <p>Unfortunately, MCL is excluded from this preview due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please contact us and we can provide you with the necessary integration details.</p>
         <h2>API Endpoints</h2>
         <p>Each StitchCredit B2B API endpoint has a different request/response. However, the integration steps are the same: authentication than request the product.</p>
@@ -21664,7 +21669,7 @@ tags:
         <p>Reverse Phone Append (rpa)</p>
         </li>
         </ol>
-        <h3>Initial Request</h>
+        <h3>Initial Request</h3>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/initial">https://mware-dev.crscreditapi.com/api/experian/cc2/initial</a>
@@ -22007,13 +22012,13 @@ tags:
         </ul>
         </li>
         </ul>
-        <h5>Credit Profile</h5>
+        <h3>Credit Profile</h3>
         <ul>
         <li>
         <p>If unable to get a credit report from Experian for this consumer, then we will automatically cascade to another view for this consumer and return back available information.</p>
         </li>
         </ul>
-        <h5>TEC Connect Credit Profile</h5>
+        <h3>TEC Connect Credit Profile</h3>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/tec-connect-credit">https://mware-dev.crscreditapi.com/api/experian/credit-profile/tec-connect-credit</a>
@@ -22023,7 +22028,7 @@ tags:
         <p>TEC Connect is designed to evaluate consumer risk within the telecommunications, energy and cable (TEC) space. An empirically-driven, statistically sound risk prediction model, TEC Connect leverages a consumer's actual service payment history, predicting the likelihood of serious delinquent/derogatory behavior over the next 12 months. Utilizing the latest data assets and Experian's best-in-class analytics, TEC Connect empowers lenders to set security deposits, grant firm credit offers and even pre-screen profitable consumers before the competition. TEC Connect even enables lenders to rank-order consumers by their potential risk for seriously derogatory behavior.</p>
         </li>
         </ul>
-        <h5>Healthcare Profile</h5>
+        <h3>Healthcare Profile</h3>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/healthcare-credit-profile">https://mware-dev.crscreditapi.com/api/experian/credit-profile/healthcare-credit-profile</a>
@@ -22033,7 +22038,7 @@ tags:
         <p>The Healthcare Profile is a credit profile report designed specifically for the healthcare industry. It consists of a standard credit report in which unused fields are suppressed plus an optional Healthcare Summary segment.</p>
         </li>
         </ul>
-        <h5>Automotive Credit Profile</h5>
+        <h3>Automotive Credit Profile</h3>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/automotive-credit">https://mware-dev.crscreditapi.com/api/experian/credit-profile/automotive-credit</a>
@@ -22043,7 +22048,7 @@ tags:
         <p>The Automotive Profile Summary is geared toward helping automotive lenders' and dealers' credit decisions. This feature is available on Experian's Credit Profile and provides a fast at-a-glance analysis of a consumers automotive finance history.</p>
         </li>
         </ul>
-        <h5>Extended View Score Only</h5>
+        <h3>Extended View Score Only</h3>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-score">https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-score</a>
@@ -22053,7 +22058,7 @@ tags:
         <p>Retrieves a credit profile with scores and addons requested. If unable to get a credit report from Experian for this consumer, then we will automatically waterfall to Extended View Scoring for this consumer and return back the Extended View Score.</p>
         </li>
         </ul>
-        <h5>Extended View Attributes Only</h5>
+        <h3>Extended View Attributes Only</h3>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes">https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes</a>
@@ -22063,7 +22068,7 @@ tags:
         <p>Retrieves a credit profile with scores and addons requested. If unable to get a credit report from Experian for this consumer, then we will automatically waterfall to Extended View module for this consumer and return back the Extended View Attributes.</p>
         </li>
         </ul>
-        <h5>Extended View Attributes Only And Score</h5>
+        <h3>Extended View Attributes Only And Score</h3>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes-and-score">https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes-and-score</a>
@@ -22073,7 +22078,7 @@ tags:
         <p>Retrieves a credit profile with scores and addons requested. If unable to get a credit report from Experian for this consumer, then we will automatically waterfall to Extended View module for this consumer and return back the Extended View Attributes and Score.</p>
         </li>
         </ul>
-        <h5>Employment Insight</h5>
+        <h3>Employment Insight</h3>
         <ul>
         <li>
         <p>URL: <a href="#">https://mware-dev.crscreditapi.com/api ​/experian​/credit-profile​/employment-insight</a>
@@ -22083,7 +22088,7 @@ tags:
         <p>Employment Insight, a slightly modified version of the Experian Credit Profile report, contains consumer identification, employment history, and credit information used to substantiate information during the hiring or promotion process. As a verification tool, it is used to spot inconsistencies in address and employment information, confirm Social Security numbers, and reveal other names used. Credit information provided may provide insight on an applicant's responsibility toward his/her obligations.</p>
         </li>
         </ul>
-        <h5>Credit Report</h5>
+        <h3>Credit Report</h3>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/credit-report">https://mware-dev.crscreditapi.com/api/experian/credit-profile/credit-report</a>
@@ -22093,7 +22098,7 @@ tags:
         <p>Retrieves a credit profile with scores and addons requested. This is CR API Version 2.</p>
         </li>
         </ul>
-        <h5>Connect Check Credit Profile</h5>
+        <h3>Connect Check Credit Profile</h3>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/connect-check">https://mware-dev.crscreditapi.com/api/experian/credit-profile/connect-check</a>
@@ -22105,7 +22110,7 @@ tags:
         </ul>
         <p>
         </p>
-        <h4>Credit Reports via Meridian Credit Link (MCL)</h4>
+        <h2>Credit Reports via Meridian Credit Link (MCL)</h2>
         <ul>
         <li>
         <p>URL:&nbsp; <a href="https://mware-dev.crscreditapi.com/api/mcl/request">https://mware-dev.crscreditapi.com/api/mcl/request</a>
@@ -22419,7 +22424,7 @@ tags:
 
 - name: Integration methods
   description: |
-        <p>This documentation contains documentation of all StitchCredit B2B APIs.</p>
+        <p>This documentation contains details of all StitchCredit B2B APIs.</p>
         <p></p>
         <h3>APIs not included in Swagger documentation</h3>
         <p>Unfortunately, MCL SmartAPI is excluded from the Swagger documentation due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please contact us and we can provide you with the necessary integration details. </p>
@@ -22431,6 +22436,11 @@ tags:
         <p>
         </p>
         <hr>
+
+- name: Overview of APIs
+  description: |
+        StitchCredit APIs support both JSON and XML requests as well as JSON and XML responses. 
+        For details of the APIs, refer to the endpoints and request/response models in this section.
 
 - name: Equifax
   description: |
@@ -22517,6 +22527,7 @@ x-tagGroups:
       
   - name: APIs
     tags:
+      - Overview of APIs
       - Equifax
       - Experian
       - Transunion
