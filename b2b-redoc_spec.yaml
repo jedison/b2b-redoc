@@ -8,7 +8,7 @@ info:
     url: https://mware-dev.crscreditapi.com/api/swagger-ui/index.html?configUrl=/api/mware-docs/swagger-config#/
 
   x-logo:
-    url: 'https://github.com/jedisonbru/b2b-redoc/blob/24080eaa16df2dfacc73270cc3d8e40dfc9426c4/StitchCredit_color-square.png'
+    url: 'https://raw.githubusercontent.com/jedisonbru/b2b-redoc/main/StitchCredit_color-square.png?token=GHSAT0AAAAAABR5OKGLAUAMEUZ2YZ2GLNOEYQYAHHQ'
     altText: CRS logo
 
   description: |    
@@ -21331,7 +21331,9 @@ tags:
   description: |
         <p>StitchCredit B2B APIs wrap numerous APIs from Experian + Equifax + TransUnion + LexisNexis + CIC + more. It provides a set of StitchCredit APIs for customers to access features from all vendors. It allows access to numerous verification and report services through a single set of APIs. </p>
         <p>StitchCredit B2B APIs are integrated to request credit verification information from numerous service providers. Via StitchCredit B2B APIs, you send requests to the StitchCredit B2B APIs and receive a response from the third-party verification service that is appropriate for the request. </p>
-        <h3>Types of Verification and Reports</h3>
+
+- name: Types of Verification and Reports
+  description: |
         <p>StitchCredit B2B APIs support reports and verification for various aspects, such as, but not limited to:</p>
         <ul>
         <li>
@@ -21371,7 +21373,9 @@ tags:
         <p>Mortgage Participant Verification (MPV)</p>
         </li>
         </ul>
-        <h3>Verification and Report Sources</h3>
+
+- name: Verification and Report Sources
+  description: |
         <p>StitchCredit B2B APIs support reports and verification by:</p>
         <ul>
         <li>
@@ -21402,7 +21406,9 @@ tags:
         <p>MCL Undisclosed Debt Notifications, Income Verification, Asset Verification, Deposit Verification, Property Verification, Customizable fraud detection reports, Mortgage Electronic Registration Systems (MERS) reports, and Mortgage Participant Verification (MPV)</p>
         </li>
         </ul>
-        <h3>Types of Requests and Data Sources</h3>
+
+- name: Types of Requests and Data Sources
+  description: |
         <ul>
         <li>
         <p>Identity Verification, Validation, and Authentication: </p>
@@ -21630,11 +21636,12 @@ tags:
 
 - name:  Integration to reports and verification
   description: |
-        <h2>Products</h2>
-        <p>The following different report and verification products can be requested via the StitchCredit B2B API.</p>
-        <h3>Identity Verification </h3>
+        <p>Different report and verification products can be requested via the StitchCredit B2B API.</p>
+
+- name: Identity Verification
+  description: |
         <p>Currently the Identity Verification options from StitchCredit B2B API are TransUnion, LexisNexis and Experian.</p>
-        <h4>TransUnion id-search</h4>
+        <h2>TransUnion id-search</h2>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/transunion/id-search">https://mware-dev.crscreditapi.com/api/transunion/id-search</a>
@@ -21644,7 +21651,7 @@ tags:
         <p>ID Search is a specialized search based on input name and Social Security number. Input address information is optional. ID Search delivers name and address for up to eight subjects. Additionally, ID Search selects the subject that best matches the input data. ID Search also returns ID Mismatch Alert, TruValidate Fraud Alerts, and Phone Append (if the subscriber is authorized for these services). ID Search can return an FFR or a print image</p>
         </li>
         </ul>
-        <h4>Experian CrossCore2 Precise ID</h4>
+        <h2>Experian CrossCore2 Precise ID</h2>
         <p>This product has multiple pieces that can be used individually depending on your requirements.</p>
         <ol>
         <li>
@@ -21657,7 +21664,7 @@ tags:
         <p>Reverse Phone Append (rpa)</p>
         </li>
         </ol>
-        <h5>Initial Request</h5>
+        <h3>Initial Request</h>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/initial">https://mware-dev.crscreditapi.com/api/experian/cc2/initial</a>
@@ -21666,7 +21673,7 @@ tags:
         </ul>
         <p>First send the “Initial" request.</p>
         <p>OTP has a higher success rate, and should be the default flow unless the phone number provided in the "Initial" request can't be verified. If the phone number cannot be verified, the "Initial" response will contain four multiple choice KIQ questions in the "kba" object.&nbsp;</p>
-        <h5>KIQ Request</h5>
+        <h3>KIQ Request</h3>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/kiq">https://mware-dev.crscreditapi.com/api/experian/cc2/kiq</a>
@@ -21674,7 +21681,7 @@ tags:
         </li>
         </ul>
         <p>The questions have 5 answer choices numbers from 1 to 5 (not 0-4 as you might expect).&nbsp;Insert the answers to the questions into the request body of the "Final - KIQ" request. There is a limited amount of time to submit KIQ answers. The available time to complete the questions varies, but it is typically less than 10 minutes. </p>
-        <h5>One Time Passcode (OTP)</h5>
+        <h3>One Time Passcode (OTP)</h3>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/otp">https://mware-dev.crscreditapi.com/api/experian/cc2/otp</a>
@@ -21687,7 +21694,7 @@ tags:
         <p>More information equals higher quality results.&nbsp; It is better to add date of birth and/or full or partial Social Security Number (SSN) if multiple results are being returned frequently.&nbsp; </p>
         <p>**OTP ONLY - There will be a query telling PreciseID to send/resend the SMS code.</p>
         <p>The next query will be a submission of KIQ or OTP. If the results are sufficient, the final response will be returned.&nbsp;If the KIQ results are insufficient, you may be given additional questions to submit again, as well as OTP in the case of an incorrect code.&nbsp;Typically if too many questions are incorrectly answered a “fail” is immediately returned.&nbsp; Missing all the questions is indicative of an issue.&nbsp;For user integrity and integrity of the identity process, questions and answers shouldn't be retained.</p>
-        <h5>Reverse Phone Append (RPA)&nbsp;</h5>
+        <h3>Reverse Phone Append (RPA)&nbsp;</h3>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/rpa">https://mware-dev.crscreditapi.com/api/experian/rpa</a>
@@ -21696,28 +21703,28 @@ tags:
         </ul>
         <p>Returns a user's name and address based on a US telephone number.&nbsp; This returned information can be used to feed the input to PreciseID.</p>
         <p>This request attempts to match the provided phone number to return the associated name and address. This endpoint uses live data, so please be judicious.</p>
-        <h4>KEVIN: What are these for? What do they do?</h4>
-        <h5>raw</h5>
+        <h3>KEVIN: What are these for? What do they do?</h3>
+        <h4>raw</h4>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/raw">https://mware-dev.crscreditapi.com/api/experian/cc2/raw</a>
         </p>
         </li>
         </ul>
-        <h5>Screening</h5>
+        <h4>Screening</h4>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/screening">https://mware-dev.crscreditapi.com/api/experian/cc2/screening</a>
         </p>
         </li>
         </ul>
-        <h4>LexisNexis</h4>
+        <h2>LexisNexis</h2>
         <ul>
         <li>
         <p>Includes endpoints for Consumer Instant ID and Business Instant ID</p>
         </li>
         </ul>
-        <h5>Business Instant ID (BIID)</h5>
+        <h3>Business Instant ID (BIID)</h3>
         <ul>
         <li>
         <p>The VFPS Business Instant ID endpoints, <em>/vfps/biid2 </em>and<em> /vfps/biid2/pdf, </em>do not currently have a test case. </p>
@@ -21740,7 +21747,7 @@ tags:
         <p>Executes a Business Instant ID2 verification on the provided business and associated subjects</p>
         </li>
         </ul>
-        <h5>Instant ID (IID)</h5>
+        <h3>Instant ID (IID)</h3>
         <p>The StitchCredit middleware has the endpoint, <a href="https://mware-dev.crscreditapi.com/iid/new-request">
         <u>https://mware-dev.crscreditapi.com/iid/new-request</u>
         </a>, for retrieving instantID reports as JSON. </p>
@@ -21759,7 +21766,7 @@ tags:
         <p>InstantID was developed by LexisNexis to provide financial institutions with a means to compare an identity presented for account opening against all the reported identities from public record, national credit bureaus, utility sources, government sources, and institutional sources through an automated electronic interface. InstantID allows the automation of previously manually-conducted searches against electronic databases, using robust search and matching technology to replace human data entry and search term selection.</p>
         <p>
         </p>
-        <h6>NAS &amp; NAP Index value</h6>
+        <h4>NAS &amp; NAP Index value</h4>
         <p>The InstantID NAS index value is a numeric value that ranges from 0 to 12 and explicitly reports which of the following input identity elements were verified with an identity that is on record at LexisNexis: first name, last name, residential address, and SSN.&nbsp;An NAS index value of 12 indicates that all four elements were verified to an identity on record.&nbsp;An NAS index value of 0 indicates that none of the four elements were verified according to an identity on record.&nbsp;NAS reporting sources contributing to LexisNexis’s records include national credit bureau header records, utility source records, and public records.&nbsp;</p>
         <p>The InstantID NAP index value is also a numeric value that ranges from 0 to 12 and explicitly indicates the level of the match of the submitted name, address, and phone number. Reporting sources contributing to LexisNexis’s records include phone directory and utility records, and can also include contributed inquiry records from the LexisNexis Fraud Defense Network Event Activity data.&nbsp;Note that the NAP index provides very timely updates to name and address verification. While a phone number is also reported as a component of the NAP index, a phone number is not required to verify name and address through these sources. </p>
         <p>NAS uses name, address, and Social Security Number (SSN), while NAP uses name, address and Phone number.</p>
@@ -21903,14 +21910,16 @@ tags:
         </tr>
         </tbody>
         </table>
-        <h6>Comprehensive Verification Index (CVI)</h6>
+        <h4>Comprehensive Verification Index (CVI)</h4>
         <p>There are no other embedded risk models. The NAP, NAS, and CVI results are calculated using explicitly documented, rule-based logic, and do not rely on predictive algorithms. InstantID was developed in 2002. An enhanced version of InstantID was released in 2014 that allowed policy modifications to the logic that calculated the CVI. These parameter-based modifications gave the option to increment the CVI values of 10, 20 or 30 by 10 points if the input DOB or the input driver license were matched and verified to identity data on record at LexisNexis. CVI values can only increment by 10 points if the returned value has not been capped or overridden to the value by a high risk condition.</p>
         <p>A typical financial institution will consider a CVI value of 40 or 50 to be well verified. For this broad sample, 90.9 percent of the applications received a well-verified CVI value of 40 or 50. Most financial institutions consider a CVI value of 40 or higher to be electronically verified and require no additional documentation or authentication.&nbsp;</p>
         <p>
         </p>
-        <h3>Credit Reports</h3>
+
+- name: Credit Reports
+  description: |
         <p>Credit Reports from Equifax, Experian, or TransUnion can be requested.</p>
-        <h4>Equifax Credit Reports</h4>
+        <h2>Equifax Credit Reports</h2>
         <ul>
         <li>
         <p>
@@ -21952,13 +21961,13 @@ tags:
         </ul>
         <p>
         </p>
-        <h4>TransUnion Credit Reports</h4>
+        <h2>TransUnion Credit Reports</h2>
         <ul>
         <li>
         <p>Only available in the testing environment currently.</p>
         </li>
         </ul>
-        <h5>model-report</h5>
+        <h3>model-report</h3>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/transunion/model-report">https://mware-dev.crscreditapi.com/api/transunion/model-report</a>
@@ -21968,7 +21977,7 @@ tags:
         <p>The Model Report is designed for use by subscribers who do not want the detail supplied by the Credit Report and are primarily interested in summary information that helps to automate their decision-making process. Additionally, the Model Report allows the subscriber to define customized messages that are returned on the report. These customized messages are associated with specific thresholds based on the results of one or two models.</p>
         </li>
         </ul>
-        <h5>credit-report</h5>
+        <h3>credit-report</h3>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/transunion/credit-report">https://mware-dev.crscreditapi.com/api/transunion/credit-report</a>
@@ -21980,7 +21989,7 @@ tags:
         </ul>
         <p>
         </p>
-        <h4>Experian Credit Reports</h4>
+        <h2>Experian Credit Reports</h2>
         <ul>
         <li>
         <p>Only available in the testing environment currently.</p>
@@ -22128,9 +22137,11 @@ tags:
         </ol>
         <p>
         </p>
-        <h3>Other Reports</h3>
-        <h4>NOT CURRENTLY SUPPORTED: Experian Liens &amp; Judgements</h4>
-        <h5>ljs: Liens and Judgements Search</h5>
+
+- name: Other Reports
+  description: |
+        <h2>NOT CURRENTLY SUPPORTED: Experian Liens &amp; Judgements</h2>
+        <h3>ljs: Liens and Judgements Search</h3>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/ljs">https://mware-dev.crscreditapi.com/api/ljs</a>
@@ -22140,7 +22151,7 @@ tags:
         <p>Send a "Liens and Judgements Search" request </p>
         </li>
         </ul>
-        <h5>ljr: Liens and Judgements Report</h5>
+        <h3>ljr: Liens and Judgements Report</h3>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/ljr">https://mware-dev.crscreditapi.com/api/ljr</a>
@@ -22152,7 +22163,7 @@ tags:
         </ul>
         <p>
         </p>
-        <h4>CIC Criminal Reports</h4>
+        <h2>CIC Criminal Reports</h2>
         <ul>
         <li>
         <p>URL:&nbsp; <a href="https://mware-dev.crscreditapi.com/api/criminal/new-request">https://mware-dev.crscreditapi.com/api/criminal/new-request</a>
@@ -22168,7 +22179,7 @@ tags:
         <p>There is no exhaustive list of possible values for all these fields in the response because this data is reported slightly differently across jurisdictions.</p>
         </li>
         </ul>
-        <h4>CIC Eviction Reports</h4>
+        <h2>CIC Eviction Reports</h2>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/eviction/new-request">https://mware-dev.crscreditapi.com/api/eviction/new-request</a>
@@ -22183,7 +22194,7 @@ tags:
         </ul>
         <p>
         </p>
-        <h4>PitchPoint</h4>
+        <h2>PitchPoint</h2>
         <ul>
         <li>
         <p>URL: <a href="#">https://mware-dev.crscreditapi.com/api/pp​/property</a>
@@ -22231,8 +22242,8 @@ tags:
         </ul>
         <p>
         </p>
-        <h4>LexisNexis</h4>
-        <h5>LexisNexis Search Bridger Insight  (XGS)</h5>
+        <h2>LexisNexis</h2>
+        <h3>LexisNexis Search Bridger Insight  (XGS)</h3>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/xgs/search">https://mware-dev.crscreditapi.com/api/xgs/search</a>
@@ -22244,17 +22255,17 @@ tags:
         </ul>
         <p>
         </p>
-        <h5>mvs: LexisNexis Motor Vehicle search</h5>
+        <h3>mvs: LexisNexis Motor Vehicle search</h3>
         <p>LexisNexis provides Motor Vehicle Records (MVR) from all 50 states, the District of Columbia, Puerto Rico and the Canadian province of New Brunswick.</p>
         <p>First, run a Motor Vehicle Search, which produces the inputs needed to feed into the Motor Vehicle report. Then, retrieve the Motor Vehicle Report using the MVR API.</p>
-        <h6>mvs: LexisNexis Motor Vehicle search</h6>
+        <h4>mvs: LexisNexis Motor Vehicle search</h4>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/mvs">https://mware-dev.crscreditapi.com/api/mvs</a>
         </p>
         </li>
         </ul>
-        <h6>mvr: LexisNexis Motor Vehicle report</h6>
+        <h4>mvr: LexisNexis Motor Vehicle report</h4>
         <ul>
         <li>
         <p>URL: <a href="https://mware-dev.crscreditapi.com/api/mvr">https://mware-dev.crscreditapi.com/api/mvr</a>
@@ -22263,7 +22274,7 @@ tags:
         </ul>
         <p>
         </p>
-        <h5>Bankruptcy Search and Report</h5>
+        <h3>Bankruptcy Search and Report</h3>
         <p>First, run a Bankruptcy Search, which produces the inputs needed to feed into the Bankruptcy report, which contains comprehensive, accurate information on the latest bankruptcy case information. LexisNexis’s databases are updated daily with data sources directly from the courts. Bankruptcy records include the debtor's name, address and social security number, plus crucial information like case number and court chapter, date filed, discharged, dismissed and converted. Information about attorneys, trustees and judges is also available.</p>
         <ul>
         <li>
@@ -22289,7 +22300,7 @@ tags:
         </p>
         <p>
         </p>
-        <h4>Meridian Credit Link (MCL)</h4>
+        <h2>Meridian Credit Link (MCL)</h2>
         <ul>
         <li>
         <p>URL:&nbsp; <a href="https://mware-dev.crscreditapi.com/api/mcl/request">https://mware-dev.crscreditapi.com/api/mcl/request</a>
@@ -22300,12 +22311,12 @@ tags:
         <u>https://mware-dev.crscreditapi.com/api/mcl/request</u>
         </a>, will return data from MCL.</p>
         <p>For MCL requests, your MCL credentials are used in the background. An MCL Request can be created to specify any MCL product to which your MCL Credentials allow access. If your MCL credentials had InstantID enabled, you could retrieve InstantID through the middleware but MCL can only give you HTML and/or PDF.</p>
-        <h5>Background</h5>
+        <h3>Background</h3>
         <p>This endpoint can be used to interact with MCL’s SmartAPI to retrieve MCL products using JSON (for both requests and responses).&nbsp;If you would rather receive XML, then we can provide credentials that can be used to connect directly to MCL’s SmartAPI (not going through StitchCredit API) for XML responses.</p>
         <p>MCL offers various products that can be specified in the request body according to the permissions set for your credentials. Many MCL products utilize a polling workflow for retrieving data.</p>
         <p>The MCL SmartAPI documentation can be referenced for basic guidance from <a href="https://docsend.com/view/s/rjsnmxftw59isyiv">SmartAPI documentation</a>. </p>
         <p>These same principles apply for a JSON-based connection via StitchCredit’s Middleware.&nbsp; </p>
-        <h5>Reports available from MCL SmartAPI</h5>
+        <h3>Reports available from MCL SmartAPI</h3>
         <ul>
         <li>
         <p>MCL offers various products which can be specified in the request</p>
@@ -22369,7 +22380,9 @@ tags:
         </ul>
         </li>
         </ul>
-        <h3>Management of Users</h3>
+        
+- name: Management of Users
+  description: |
         <p>StitchCredit B2B APIs provides endpoints for the management of users.</p>
         <ul>
         <li>
@@ -22407,6 +22420,7 @@ tags:
 - name: Integration methods
   description: |
         <p>This documentation contains documentation of all StitchCredit B2B APIs.</p>
+        <p></p>
         <h3>APIs not included in Swagger documentation</h3>
         <p>Unfortunately, MCL SmartAPI is excluded from the Swagger documentation due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please contact us and we can provide you with the necessary integration details. </p>
         <p>Requests sent to the StitchCredit middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
@@ -22481,15 +22495,26 @@ x-tagGroups:
     tags:
       - Introduction
       - Overview
+      - What we do
+      - Types of Verification and Reports
+      - Verification and Report Sources
+      - Types of Requests and Data Sources
+
   - name: Getting Started
     tags:
       - Integration Options
       - Developer Tools
+      
   - name: Integration Guide
     tags:
       - Integration
       - Integration to reports and verification
+      - Identity Verification
+      - Credit Reports
+      - Other Reports
+      - Management of Users
       - Integration methods
+      
   - name: APIs
     tags:
       - Equifax
@@ -22503,6 +22528,7 @@ x-tagGroups:
       - User
       - system-controller
       - roles-controller
+      
   - name: APIs under development
     tags:      
       - xgs-controller
@@ -22512,6 +22538,7 @@ x-tagGroups:
       - ljr-controller
       - bankruptcy-s-controller
       - bankruptcy-r-controller
+      
   - name: Additional reference
     tags:
       - Sandbox
