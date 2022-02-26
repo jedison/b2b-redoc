@@ -21285,323 +21285,316 @@ components:
 
 tags:
 #DOCUMENTATION ===============================================
-- name: Introduction
+- name: StitchCredit B2B API
   description: |
+        <h2>Introduction</h2>
         <p>StitchCredit’s B2B API offering performs credit checks for your company. The B2B API allows you to gain insight into a business’ financial stability, allowing you to make quick and informed business decisions. Get a detailed financial picture of any customer or supplier before you decide to work with them. B2B Credit Checks protect your business from late payments. </p>
         <p>Organization are unique and there are many factors that combine to create an accurate representation of whether an organization will pay in a timely manner. </p>
         <ul>
         <li>
-        <p>Get to know an individual’s or company’s credit scores before you make a decision. </p>
+        Get to know an individual’s or company’s credit scores before you make a decision. 
         </li>
         <li>
-        <p>Understand their payment behavior.</p>
+        Understand their payment behavior.
         </li>
         <li>
-        <p>Perform due diligence checks.</p>
+        Perform due diligence checks.
         </li>
         <li>
-        <p>Avoid financial difficulties due to liabilities not being honored on time. </p>
+        Avoid financial difficulties due to liabilities not being honored on time. 
         </li>
         <li>
-        <p>Confirm a company's regulatory compliance. </p>
+        Confirm a company's regulatory compliance. 
         </li>
         </ul>
         <p>The B2B APIs allow you to make informed decisions that bring value to your business.</p>
         <hr>
-
-- name: Overview
-  description: |
+        <h2>Overview</h2>
         <p>StitchCredit B2B API Offering: StitchCredit has created a middleware product to connect to existing Credit Reporting APIs, as well as providing monitoring and business intelligence reports. The StitchCredit B2B API hides the complexity of the underlying API requests and responses. In addition, StitchCredit guides you through the compliance requirements to access the APIs with less regulatory nightmares. </p>
         <ul>
         <li>
-        <p>Single Connection to reach all sources</p>
+        Single Connection to reach all sources
         </li>
         <li>
-        <p>Shorter Time-to-market with single integration</p>
+        Shorter Time-to-market with single integration
         </li>
         <li>
-        <p>Easier Compliance with regulatory assistance</p>
+        Easier Compliance with regulatory assistance
         </li>
         <li>
-        <p>Business intelligence: Monitoring of status and reporting of usage</p>
+        Business intelligence: Monitoring of status and reporting of usage
         </li>
         </ul>
         <p>StitchCredit will help you get up and running more quickly and easily.</p>
 
-- name: What we do
-  description: |
+- name: B2B reports and verification
+        <h2>What we do</h2>
         <p>StitchCredit B2B APIs wrap numerous APIs from Experian + Equifax + TransUnion + LexisNexis + CIC + more. It provides a set of StitchCredit APIs for customers to access features from all vendors. It allows access to numerous verification and report services through a single set of APIs. </p>
         <p>StitchCredit B2B APIs are integrated to request credit verification information from numerous service providers. Via StitchCredit B2B APIs, you send requests to the StitchCredit B2B APIs and receive a response from the third-party verification service that is appropriate for the request. </p>
-
-- name: Types of Verification and Reports
-  description: |
+        <h2>Types of Verification and Reports</h2>
         <p>StitchCredit B2B APIs support reports and verification for various aspects, such as, but not limited to:</p>
         <ul>
         <li>
-        <p>Identity Verification, Validation, and Authentication</p>
+        Identity Verification, Validation, and Authentication
         </li>
         <li>
-        <p>Consumer and Business Credit Reports</p>
+        Consumer and Business Credit Reports
         </li>
         <li>
-        <p>Criminal Record Reports &amp; Eviction Reports </p>
+        Criminal Record Reports &amp; Eviction Reports 
         </li>
         <li>
-        <p>Financial Sanctions Watchlist Verification</p>
+        Financial Sanctions Watchlist Verification
         </li>
         <li>
-        <p>Property Verification</p>
+        Property Verification
         </li>
         <li>
-        <p>Employment Verification (VOE)</p>
+        Employment Verification (VOE)
         </li>
         <li>
-        <p>Undisclosed Debt Notifications</p>
+        Undisclosed Debt Notifications
         </li>
         <li>
-        <p>Income Verification</p>
+        Income Verification
         </li>
         <li>
-        <p>Asset Verification and Deposit Verification</p>
+        Asset Verification and Deposit Verification
         </li>
         <li>
-        <p>Customizable fraud detection reports</p>
+        Customizable fraud detection reports
         </li>
         <li>
-        <p>Mortgage Electronic Registration Systems (MERS) reports</p>
+        Mortgage Electronic Registration Systems (MERS) reports
         </li>
         <li>
-        <p>Mortgage Participant Verification (MPV)</p>
+        Mortgage Participant Verification (MPV)
         </li>
         </ul>
-
-- name: Verification and Report Sources
-  description: |
+        <h2>Verification and Report Sources</h2>
         <p>StitchCredit B2B APIs support reports and verification by:</p>
         <ul>
         <li>
-        <p>LexisNexis Instant ID: both Consumer and Business</p>
+        LexisNexis Instant ID: both Consumer and Business
         </li>
         <li>
-        <p>Experian Precise ID: Knowledge-Based Authentication, Reverse Phone Append (RPA), and One-Time Passcodes</p>
+        Experian Precise ID: Knowledge-Based Authentication, Reverse Phone Append (RPA), and One-Time Passcodes
         </li>
         <li>
-        <p>TransUnion ID Search</p>
+        TransUnion ID Search
         </li>
         <li>
-        <p>Equifax, Experian, and TransUnion Credit Reports</p>
+        Equifax, Experian, and TransUnion Credit Reports
         </li>
         <li>
-        <p>Experian Liens &amp; Judgements Reports</p>
+        Experian Liens &amp; Judgements Reports
         </li>
         <li>
-        <p>Experian Employment Insights and MCL Employment Verification (VOE)</p>
+        Experian Employment Insights and MCL Employment Verification (VOE)
         </li>
         <li>
-        <p>CIC Criminal Reports &amp; Eviction Reports</p>
+        CIC Criminal Reports &amp; Eviction Reports
         </li>
         <li>
-        <p>PitchPoint Property Verification</p>
+        PitchPoint Property Verification
         </li>
         <li>
-        <p>MCL Undisclosed Debt Notifications, Income Verification, Asset Verification, Deposit Verification, Property Verification, Customizable fraud detection reports, Mortgage Electronic Registration Systems (MERS) reports, and Mortgage Participant Verification (MPV)</p>
+        MCL Undisclosed Debt Notifications, Income Verification, Asset Verification, Deposit Verification, Property Verification, Customizable fraud detection reports, Mortgage Electronic Registration Systems (MERS) reports, and Mortgage Participant Verification (MPV)
         </li>
         </ul>
-
-- name: Types of Requests and Data Sources
-  description: |
+        <h2>Types of Requests and Data Sources</h2>
         <ul>
         <li>
-        <p>Identity Verification, Validation, and Authentication: </p>
+        Identity Verification, Validation, and Authentication:
         <ul>
         <li>
-        <p>LexisNexis InstantID data and report which identity verification and risk assessment with regards to fraud and identity theft.</p>
+        LexisNexis InstantID data and report which identity verification and risk assessment with regards to fraud and identity theft.
         </li>
         <li>
-        <p>Experian CrossCore2 (CC2) Precise ID’s Knowledge IQ (KIQ) knowledge-based authentication products where an applicant must answer a series of questions, Reverse Phone Append (rpa), and One-Time Passcode (OTP)</p>
+        Experian CrossCore2 (CC2) Precise ID’s Knowledge IQ (KIQ) knowledge-based authentication products where an applicant must answer a series of questions, Reverse Phone Append (rpa), and One-Time Passcode (OTP)
         </li>
         <li>
-        <p>TransUnion ID Search</p>
+        TransUnion ID Search
         </li>
         </ul>
         </li>
         <br />
         <li>
-        <p>Credit Reports: </p>
+        Credit Reports:
         <ul>
         <li>
-        <p>Consumer credit reports and Business credit reports to pull data on legal entities</p>
+        Consumer credit reports and Business credit reports to pull data on legal entities
         </li>
         <li>
-        <p>Equifax Credit Reports: including TEC Connect Credit, Connect Check Credit, Automotive Credit Profile, and Healthcare Profile</p>
+        Equifax Credit Reports: including TEC Connect Credit, Connect Check Credit, Automotive Credit Profile, and Healthcare Profile
         </li>
         <li>
-        <p>Experian Credit Reports</p>
+        Experian Credit Reports
         </li>
         <li>
-        <p>TransUnion Credit Reports</p>
+        TransUnion Credit Reports
         </li>
         </ul>
         </li>
         <br />
         <li>
-        <p>Criminal &amp; Eviction reports: </p>
+        Criminal &amp; Eviction reports:
         <ul>
         <li>
-        <p>Contemporary Information Corp (CIC) Criminal Record Reports &amp; Eviction Reports </p>
+        Contemporary Information Corp (CIC) Criminal Record Reports &amp; Eviction Reports
         </li>
         </ul>
         </li>
         <br />
         <li>
-        <p>Financial Sanctions Watchlist Verification</p>
+        Financial Sanctions Watchlist Verification
         <ul>
         <li>
-        <p>LexisNexis Global Watch List (GWLS) via Bridger Insight XG</p>
+        LexisNexis Global Watch List (GWLS) via Bridger Insight XG
         </li>
         <li>
-        <p>Experian CrossCore2 (CC2) Screening</p>
+        Experian CrossCore2 (CC2) Screening
         </li>
         </ul>
         </li>
         <br />
         <li>
-        <p>Property Verification</p>
+        Property Verification
         <ul>
         <li>
-        <p>PitchPoint Property Report</p>
+        PitchPoint Property Report
         </li>
         <li>
-        <p>Flood zone determination through various providers</p>
+        Flood zone determination through various providers
         </li>
         <li>
-        <p>Automated Valuation Models: PASS, Home Value Explorer (HVE), IVAL, GeoAVM, and the Property and Market Condition (PMC) reports. </p>
+        Automated Valuation Models: PASS, Home Value Explorer (HVE), IVAL, GeoAVM, and the Property and Market Condition (PMC) reports. 
         </li>
         </ul>
         </li>
         <br />
         <li>
-        <p>Employment Verification (VOE)</p>
+        Employment Verification (VOE)</p>
         <ul>
         <li>
-        <p>Instant database lookups and manual verifications</p>
+        Instant database lookups and manual verifications
         </li>
         <li>
-        <p>Equifax Employment Insight</p>
+        Equifax Employment Insight
         </li>
         <li>
-        <p>Experian &amp; MCL VOE</p>
+        Experian &amp; MCL VOE
         </li>
         <li>
-        <p>VOEs are processed instantly if the applicant’s employer reports information to automated services like The Work Number. </p>
+        VOEs are processed instantly if the applicant’s employer reports information to automated services like The Work Number. 
         </li>
         <li>
-        <p>For all other employers, the VOE order will be processed manually.</p>
+        For all other employers, the VOE order will be processed manually.
         </li>
         </ul>
         </li>
         <br />
         <li>
-        <p>Undisclosed Debt Notifications</p>
+        Undisclosed Debt Notifications</p>
         <ul>
         <li>
-        <p>A composition of the Equifax Undisclosed Debt Monitoring, Experian Mortgage Watch, and Transunion Pre-Closing Mortgage Notifications products</p>
+        A composition of the Equifax Undisclosed Debt Monitoring, Experian Mortgage Watch, and Transunion Pre-Closing Mortgage Notifications products
         </li>
         <li>
-        <p>via MCL SmartAPI</p>
+        via MCL SmartAPI
         </li>
         </ul>
         </li>
         <br />
         <li>
-        <p>Income Verification</p>
+        Income Verification</p>
         <ul>
         <li>
-        <p>Based on tax return verification from the IRS.</p>
+        Based on tax return verification from the IRS.
         </li>
         <li>
-        <p>Tax Transcript: 4506-C, tax transcripts and other tax-related forms</p>
+        Tax Transcript: 4506-C, tax transcripts and other tax-related forms
         </li>
         <li>
-        <p>via MCL SmartAPI</p>
+        via MCL SmartAPI
         </li>
         </ul>
         </li>
         <br />
         <li>
-        <p>Asset Verification</p>
+        Asset Verification</p>
         <ul>
         <li>
-        <p>Asset verifications through borrower-managed account enrollment. </p>
+        Asset verifications through borrower-managed account enrollment. 
         </li>
         <li>
-        <p>Pull down a report detailing balance and transaction history for all enrolled accounts.</p>
+        Pull down a report detailing balance and transaction history for all enrolled accounts.
         </li>
         <li>
-        <p>via MCL SmartAPI</p>
+        via MCL SmartAPI
         </li>
         </ul>
         </li>
         <br />
         <li>
-        <p>Deposit Verification are manually processed by the verification service provider</p>
+        Deposit Verification are manually processed by the verification service provider</p>
         <ul>
         <li>
-        <p>via MCL SmartAPI</p>
+        via MCL SmartAPI
         </li>
         </ul>
         </li>
         <br />
         <li>
-        <p>Motor Vehicles</p>
+        Motor Vehicles</p>
         <ul>
         <li>
-        <p>Lexis Nexis Motor Vehicle Records (MVR) from all 50 states, the District of Columbia, Puerto Rico and the Canadian province of New Brunswick</p>
+        Lexis Nexis Motor Vehicle Records (MVR) from all 50 states, the District of Columbia, Puerto Rico and the Canadian province of New Brunswick
         </li>
         </ul>
         </li>
         <br />
         <li>
-        <p>Bankruptcy Report</p>
+        Bankruptcy Report</p>
         <ul>
         <li>
-        <p>Lexis Nexis Bankruptcy Reports contain comprehensive, accurate information on the latest bankruptcy case information. </p>
+        Lexis Nexis Bankruptcy Reports contain comprehensive, accurate information on the latest bankruptcy case information. 
         </li>
         </ul>
         </li>
         <br />
         <li>
-        <p>Customizable fraud detection reports: product that supports verification across three types of entities typically involved in a loan: the borrower(s), the subject property, and any non-borrower participants (e.g. loan officer, underwriter, etc). Various services are used to generate these reports, some of which include: Lexis Nexis, Equifax, Experian, MERS, MCL Integration, CreditData and watchlists.</p>
+        Customizable fraud detection reports: product that supports verification across three types of entities typically involved in a loan: the borrower(s), the subject property, and any non-borrower participants (e.g. loan officer, underwriter, etc). Various services are used to generate these reports, some of which include: Lexis Nexis, Equifax, Experian, MERS, MCL Integration, CreditData and watchlists.</p>
         <ul>
         <li>
-        <p>via MCL SmartAPI</p>
+        via MCL SmartAPI
         </li>
         </ul>
         </li>
         <br />
         <li>
-        <p>Mortgage Electronic Registration Systems (MERS) reports, which provide a list of all mortgages associated with a consumer</p>
+        Mortgage Electronic Registration Systems (MERS) reports, which provide a list of all mortgages associated with a consumer</p>
         <ul>
         <li>
-        <p>via LexisNMCL SmartAPI</p>
+        via LexisNMCL SmartAPI
         </li>
         </ul>
         </li>
         <br />
         <li>
-        <p>Mortgage Participant Verification (MPV): to be used to check loan participants (e.g. loan officer, brokerage, appraiser, etc.) against various financial sanctions watchlists</p>
+        Mortgage Participant Verification (MPV): to be used to check loan participants (e.g. loan officer, brokerage, appraiser, etc.) against various financial sanctions watchlists</p>
         <ul>
         <li>
-        <p>via MCL SmartAPI</p>
+        via MCL SmartAPI
         </li>
         </ul>
         </li>
         <br />
         <li>
-        <p>Management of Users</p>
+        Management of Users</p>
         <ul>
         <li>
-        <p>StitchCredit</p>
+        StitchCredit
         </li>
         </ul>
         </li>
@@ -21650,31 +21643,29 @@ tags:
         <h2>TransUnion id-search</h2>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/transunion/id-search">https://mware-dev.crscreditapi.com/api/transunion/id-search</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/transunion/id-search">https://mware-dev.crscreditapi.com/api/transunion/id-search</a>
         </li>
         <li>
-        <p>ID Search is a specialized search based on input name and Social Security number. Input address information is optional. ID Search delivers name and address for up to eight subjects. Additionally, ID Search selects the subject that best matches the input data. ID Search also returns ID Mismatch Alert, TruValidate Fraud Alerts, and Phone Append (if the subscriber is authorized for these services). ID Search can return an FFR or a print image</p>
+        ID Search is a specialized search based on input name and Social Security number. Input address information is optional. ID Search delivers name and address for up to eight subjects. Additionally, ID Search selects the subject that best matches the input data. ID Search also returns ID Mismatch Alert, TruValidate Fraud Alerts, and Phone Append (if the subscriber is authorized for these services). ID Search can return an FFR or a print image
         </li>
         </ul>
         <h2>Experian CrossCore2 Precise ID</h2>
         <p>This product has multiple pieces that can be used individually depending on your requirements.</p>
         <ol>
         <li>
-        <p>One-Time Passcode (OTP)</p>
+        One-Time Passcode (OTP)
         </li>
         <li>
-        <p>Knowledge IQ (KIQ) knowledge-based authentication products where an applicant must answer a series of questions, </p>
+        Knowledge IQ (KIQ) knowledge-based authentication products where an applicant must answer a series of questions, 
         </li>
         <li>
-        <p>Reverse Phone Append (rpa)</p>
+        Reverse Phone Append (rpa)
         </li>
         </ol>
         <h3>Initial Request</h3>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/initial">https://mware-dev.crscreditapi.com/api/experian/cc2/initial</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/initial">https://mware-dev.crscreditapi.com/api/experian/cc2/initial</a>
         </li>
         </ul>
         <p>First send the “Initial" request.</p>
@@ -21682,16 +21673,14 @@ tags:
         <h3>KIQ Request</h3>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/kiq">https://mware-dev.crscreditapi.com/api/experian/cc2/kiq</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/kiq">https://mware-dev.crscreditapi.com/api/experian/cc2/kiq</a>
         </li>
         </ul>
         <p>The questions have 5 answer choices numbers from 1 to 5 (not 0-4 as you might expect).&nbsp;Insert the answers to the questions into the request body of the "Final - KIQ" request. There is a limited amount of time to submit KIQ answers. The available time to complete the questions varies, but it is typically less than 10 minutes. </p>
         <h3>One Time Passcode (OTP)</h3>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/otp">https://mware-dev.crscreditapi.com/api/experian/cc2/otp</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/otp">https://mware-dev.crscreditapi.com/api/experian/cc2/otp</a>
         </li>
         </ul>
         <p>Provide the Session ID and the One-Time-Passcode (OTP)</p>
@@ -21703,8 +21692,7 @@ tags:
         <h3>Reverse Phone Append (RPA)&nbsp;</h3>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/rpa">https://mware-dev.crscreditapi.com/api/experian/rpa</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/rpa">https://mware-dev.crscreditapi.com/api/experian/rpa</a>
         </li>
         </ul>
         <p>Returns a user's name and address based on a US telephone number.&nbsp; This returned information can be used to feed the input to PreciseID.</p>
@@ -21713,44 +21701,38 @@ tags:
         <h4>raw</h4>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/raw">https://mware-dev.crscreditapi.com/api/experian/cc2/raw</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/raw">https://mware-dev.crscreditapi.com/api/experian/cc2/raw</a>
         </li>
         </ul>
         <h4>Screening</h4>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/screening">https://mware-dev.crscreditapi.com/api/experian/cc2/screening</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/screening">https://mware-dev.crscreditapi.com/api/experian/cc2/screening</a>
         </li>
         </ul>
         <h2>LexisNexis</h2>
         <ul>
         <li>
-        <p>Includes endpoints for Consumer Instant ID and Business Instant ID</p>
+        Includes endpoints for Consumer Instant ID and Business Instant ID
         </li>
         </ul>
         <h3>Business Instant ID (BIID)</h3>
         <ul>
         <li>
-        <p>The VFPS Business Instant ID endpoints, <em>/vfps/biid2 </em>and<em> /vfps/biid2/pdf, </em>do not currently have a test case. </p>
+        The VFPS Business Instant ID endpoints, <em>/vfps/biid2 </em>and<em> /vfps/biid2/pdf, </em>do not currently have a test case. 
         </li>
         <li>
-        <p>
         <strong>URL:</strong> <a href="https://mware-dev.crscreditapi.com/api/vfps/biid2">https://mware-dev.crscreditapi.com/api/vfps/biid2</a>
-        </p>
         </li>
         <li>
-        <p>Executes a Business Instant ID2 verification on the provided business and associated subjects</p>
+        Executes a Business Instant ID2 verification on the provided business and associated subjects
         </li>
         <li>
-        <p>
         <strong>URL: </strong>
         <a href="https://mware-dev.crscreditapi.com/api/vfps/biid2/pdf">https://mware-dev.crscreditapi.com/api/vfps/biid2/pdf</a>
-        </p>
         </li>
         <li>
-        <p>Executes a Business Instant ID2 verification on the provided business and associated subjects</p>
+        Executes a Business Instant ID2 verification on the provided business and associated subjects
         </li>
         </ul>
         <h3>Instant ID (IID)</h3>
@@ -21760,13 +21742,13 @@ tags:
         <p>The InstantID results consist of the following numeric output components:&nbsp;</p>
         <ul>
         <li>
-        <p>NAS (name, address, and SSN) index,&nbsp;</p>
+        NAS (name, address, and SSN) index,&nbsp;
         </li>
         <li>
-        <p>NAP (name, address, and phone number) index,&nbsp;</p>
+        NAP (name, address, and phone number) index,&nbsp;
         </li>
         <li>
-        <p>CVI (comprehensive verification index).</p>
+        CVI (comprehensive verification index).
         </li>
         </ul>
         <p>InstantID was developed by LexisNexis to provide financial institutions with a means to compare an identity presented for account opening against all the reported identities from public record, national credit bureaus, utility sources, government sources, and institutional sources through an automated electronic interface. InstantID allows the automation of previously manually-conducted searches against electronic databases, using robust search and matching technology to replace human data entry and search term selection.</p>
@@ -21780,13 +21762,13 @@ tags:
         <p>For example, </p>
         <ul>
         <li>
-        <p>An NAP value of 0 indicates that none of the input identity elements (first name, last name, address, or phone number) could be verified by the sources that report name, address, and phone number.</p>
+        An NAP value of 0 indicates that none of the input identity elements (first name, last name, address, or phone number) could be verified by the sources that report name, address, and phone number.
         </li>
         <li>
-        <p>An NAP value of 1 indicates that the phone number is associated with a different name and address. </p>
+        An NAP value of 1 indicates that the phone number is associated with a different name and address. 
         </li>
         <li>
-        <p>For NAS, if the first name, last name, and address are verified, and the SSN is associated with a different name and address, then the NAS index returns a value of 8. The fact that the SSN is associated with a different name and address is reported through the associated warning codes. </p>
+        For NAS, if the first name, last name, and address are verified, and the SSN is associated with a different name and address, then the NAS index returns a value of 8. The fact that the SSN is associated with a different name and address is reported through the associated warning codes. 
         </li>
         </ul>
         <p>
@@ -21928,39 +21910,31 @@ tags:
         <h2>Equifax Credit Reports</h2>
         <ul>
         <li>
-        <p>
         <em>URL: </em>
         <a href="https://mware-dev.crscreditapi.com/api/equifax/credit-report">
         <em>https://mware-dev.crscreditapi.com/api/equifax/credit-report</em>
         </a>
-        </p>
         </li>
         <li>
-        <p>
         <em>URL: </em>
         <a href="https://mware-dev.crscreditapi.com/api/equifax/pdf-credit-report">
         <em>https://mware-dev.crscreditapi.com/api/equifax/pdf-credit-report</em>
         </a>
-        </p>
         </li>
         <li>
-        <p>
         <em>/equifax/credit-report</em>&nbsp;</p>
         <ul>
         <li>
-        <p>Returns a JSON credit report for the borrower’s identity provided in the request body&nbsp;</p>
+        Returns a JSON credit report for the borrower’s identity provided in the request body&nbsp;
         </li>
         </ul>
         </li>
         <li>
-        <p>
         <em>/equifax/pdf-credit-report</em>
         </p>
         <ul>
         <li>
-        <p>
         <em>Returns a PDF credit report for the borrower’s identity provided in the request body&nbsp;</em>
-        </p>
         </li>
         </ul>
         </li>
@@ -21970,27 +21944,25 @@ tags:
         <h2>TransUnion Credit Reports</h2>
         <ul>
         <li>
-        <p>Only available in the testing environment currently.</p>
+        Only available in the testing environment currently.
         </li>
         </ul>
         <h3>model-report</h3>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/transunion/model-report">https://mware-dev.crscreditapi.com/api/transunion/model-report</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/transunion/model-report">https://mware-dev.crscreditapi.com/api/transunion/model-report</a>
         </li>
         <li>
-        <p>The Model Report is designed for use by subscribers who do not want the detail supplied by the Credit Report and are primarily interested in summary information that helps to automate their decision-making process. Additionally, the Model Report allows the subscriber to define customized messages that are returned on the report. These customized messages are associated with specific thresholds based on the results of one or two models.</p>
+        The Model Report is designed for use by subscribers who do not want the detail supplied by the Credit Report and are primarily interested in summary information that helps to automate their decision-making process. Additionally, the Model Report allows the subscriber to define customized messages that are returned on the report. These customized messages are associated with specific thresholds based on the results of one or two models.
         </li>
         </ul>
         <h3>credit-report</h3>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/transunion/credit-report">https://mware-dev.crscreditapi.com/api/transunion/credit-report</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/transunion/credit-report">https://mware-dev.crscreditapi.com/api/transunion/credit-report</a>
         </li>
         <li>
-        <p>The Credit Report is a compilation of data on an individual that is helpful in making decisions in many types of consumer transactions. The Credit Report contains various data about the consumer, including indicative information (name, addresses, date of birth, and Social Security number), employment information, and the consumer’s credit history. This information is obtained from credit grantors, public records, collection agencies, and employers.</p>
+        The Credit Report is a compilation of data on an individual that is helpful in making decisions in many types of consumer transactions. The Credit Report contains various data about the consumer, including indicative information (name, addresses, date of birth, and Social Security number), employment information, and the consumer’s credit history. This information is obtained from credit grantors, public records, collection agencies, and employers.
         </li>
         </ul>
         <p>
@@ -21998,17 +21970,14 @@ tags:
         <h2>Experian Credit Reports</h2>
         <ul>
         <li>
-        <p>Only available in the testing environment currently.</p>
+        Only available in the testing environment currently.
         </li>
         <li>
-        <p>
         <em>/experian/credit-profile/credit-report</em>
         </p>
         <ul>
         <li>
-        <p>
         <em>Returns a JSON credit report for the borrower’s identity provided in the request body</em>
-        </p>
         </li>
         </ul>
         </li>
@@ -22016,97 +21985,88 @@ tags:
         <h3>Credit Profile</h3>
         <ul>
         <li>
-        <p>If unable to get a credit report from Experian for this consumer, then we will automatically cascade to another view for this consumer and return back available information.</p>
+        If unable to get a credit report from Experian for this consumer, then we will automatically cascade to another view for this consumer and return back available information.
         </li>
         </ul>
         <h3>TEC Connect Credit Profile</h3>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/tec-connect-credit">https://mware-dev.crscreditapi.com/api/experian/credit-profile/tec-connect-credit</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/tec-connect-credit">https://mware-dev.crscreditapi.com/api/experian/credit-profile/tec-connect-credit</a>
         </li>
         <li>
-        <p>TEC Connect is designed to evaluate consumer risk within the telecommunications, energy and cable (TEC) space. An empirically-driven, statistically sound risk prediction model, TEC Connect leverages a consumer's actual service payment history, predicting the likelihood of serious delinquent/derogatory behavior over the next 12 months. Utilizing the latest data assets and Experian's best-in-class analytics, TEC Connect empowers lenders to set security deposits, grant firm credit offers and even pre-screen profitable consumers before the competition. TEC Connect even enables lenders to rank-order consumers by their potential risk for seriously derogatory behavior.</p>
+        TEC Connect is designed to evaluate consumer risk within the telecommunications, energy and cable (TEC) space. An empirically-driven, statistically sound risk prediction model, TEC Connect leverages a consumer's actual service payment history, predicting the likelihood of serious delinquent/derogatory behavior over the next 12 months. Utilizing the latest data assets and Experian's best-in-class analytics, TEC Connect empowers lenders to set security deposits, grant firm credit offers and even pre-screen profitable consumers before the competition. TEC Connect even enables lenders to rank-order consumers by their potential risk for seriously derogatory behavior.
         </li>
         </ul>
         <h3>Healthcare Profile</h3>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/healthcare-credit-profile">https://mware-dev.crscreditapi.com/api/experian/credit-profile/healthcare-credit-profile</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/healthcare-credit-profile">https://mware-dev.crscreditapi.com/api/experian/credit-profile/healthcare-credit-profile</a>
         </li>
         <li>
-        <p>The Healthcare Profile is a credit profile report designed specifically for the healthcare industry. It consists of a standard credit report in which unused fields are suppressed plus an optional Healthcare Summary segment.</p>
+        The Healthcare Profile is a credit profile report designed specifically for the healthcare industry. It consists of a standard credit report in which unused fields are suppressed plus an optional Healthcare Summary segment.
         </li>
         </ul>
         <h3>Automotive Credit Profile</h3>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/automotive-credit">https://mware-dev.crscreditapi.com/api/experian/credit-profile/automotive-credit</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/automotive-credit">https://mware-dev.crscreditapi.com/api/experian/credit-profile/automotive-credit</a>
         </li>
         <li>
-        <p>The Automotive Profile Summary is geared toward helping automotive lenders' and dealers' credit decisions. This feature is available on Experian's Credit Profile and provides a fast at-a-glance analysis of a consumers automotive finance history.</p>
+        The Automotive Profile Summary is geared toward helping automotive lenders' and dealers' credit decisions. This feature is available on Experian's Credit Profile and provides a fast at-a-glance analysis of a consumers automotive finance history.
         </li>
         </ul>
         <h3>Extended View Score Only</h3>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-score">https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-score</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-score">https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-score</a>
         </li>
         <li>
-        <p>Retrieves a credit profile with scores and addons requested. If unable to get a credit report from Experian for this consumer, then we will automatically waterfall to Extended View Scoring for this consumer and return back the Extended View Score.</p>
+        Retrieves a credit profile with scores and addons requested. If unable to get a credit report from Experian for this consumer, then we will automatically waterfall to Extended View Scoring for this consumer and return back the Extended View Score.
         </li>
         </ul>
         <h3>Extended View Attributes Only</h3>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes">https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes">https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes</a>
         </li>
         <li>
-        <p>Retrieves a credit profile with scores and addons requested. If unable to get a credit report from Experian for this consumer, then we will automatically waterfall to Extended View module for this consumer and return back the Extended View Attributes.</p>
+        Retrieves a credit profile with scores and addons requested. If unable to get a credit report from Experian for this consumer, then we will automatically waterfall to Extended View module for this consumer and return back the Extended View Attributes.
         </li>
         </ul>
         <h3>Extended View Attributes Only And Score</h3>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes-and-score">https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes-and-score</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes-and-score">https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes-and-score</a>
         </li>
         <li>
-        <p>Retrieves a credit profile with scores and addons requested. If unable to get a credit report from Experian for this consumer, then we will automatically waterfall to Extended View module for this consumer and return back the Extended View Attributes and Score.</p>
+        Retrieves a credit profile with scores and addons requested. If unable to get a credit report from Experian for this consumer, then we will automatically waterfall to Extended View module for this consumer and return back the Extended View Attributes and Score.
         </li>
         </ul>
         <h3>Employment Insight</h3>
         <ul>
         <li>
-        <p>URL: <a href="#">https://mware-dev.crscreditapi.com/api ​/experian​/credit-profile​/employment-insight</a>
-        </p>
+        URL: <a href="#">https://mware-dev.crscreditapi.com/api ​/experian​/credit-profile​/employment-insight</a>
         </li>
         <li>
-        <p>Employment Insight, a slightly modified version of the Experian Credit Profile report, contains consumer identification, employment history, and credit information used to substantiate information during the hiring or promotion process. As a verification tool, it is used to spot inconsistencies in address and employment information, confirm Social Security numbers, and reveal other names used. Credit information provided may provide insight on an applicant's responsibility toward his/her obligations.</p>
+        Employment Insight, a slightly modified version of the Experian Credit Profile report, contains consumer identification, employment history, and credit information used to substantiate information during the hiring or promotion process. As a verification tool, it is used to spot inconsistencies in address and employment information, confirm Social Security numbers, and reveal other names used. Credit information provided may provide insight on an applicant's responsibility toward his/her obligations.
         </li>
         </ul>
         <h3>Credit Report</h3>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/credit-report">https://mware-dev.crscreditapi.com/api/experian/credit-profile/credit-report</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/credit-report">https://mware-dev.crscreditapi.com/api/experian/credit-profile/credit-report</a>
         </li>
         <li>
-        <p>Retrieves a credit profile with scores and addons requested. This is CR API Version 2.</p>
+        Retrieves a credit profile with scores and addons requested. This is CR API Version 2.
         </li>
         </ul>
         <h3>Connect Check Credit Profile</h3>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/connect-check">https://mware-dev.crscreditapi.com/api/experian/credit-profile/connect-check</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/connect-check">https://mware-dev.crscreditapi.com/api/experian/credit-profile/connect-check</a>
         </li>
         <li>
-        <p>Connect Check is a custom verification process designed specifically to assist the utility, telecommunication and cable industries detect fraud and minimize risk exposure at the time of a service request. Connect Check is focused on the top 100 regulated utility and telecommunications companies that are obligated to 'serve all who apply.' However, Connect Check can also be a valuable tool for smaller market segments. With Connect Check, service representatives, regardless of their level of credit training, can make immediate and informed service decisions while the applicant is still on the line.</p>
+        Connect Check is a custom verification process designed specifically to assist the utility, telecommunication and cable industries detect fraud and minimize risk exposure at the time of a service request. Connect Check is focused on the top 100 regulated utility and telecommunications companies that are obligated to 'serve all who apply.' However, Connect Check can also be a valuable tool for smaller market segments. With Connect Check, service representatives, regardless of their level of credit training, can make immediate and informed service decisions while the applicant is still on the line.
         </li>
         </ul>
         <p>
@@ -22114,8 +22074,7 @@ tags:
         <h2>Credit Reports via Meridian Credit Link (MCL)</h2>
         <ul>
         <li>
-        <p>URL:&nbsp; <a href="https://mware-dev.crscreditapi.com/api/mcl/request">https://mware-dev.crscreditapi.com/api/mcl/request</a>
-        </p>
+        URL:&nbsp; <a href="https://mware-dev.crscreditapi.com/api/mcl/request">https://mware-dev.crscreditapi.com/api/mcl/request</a>
         </li>
         </ul>
         <p>Requests sent to the StitchCredit middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
@@ -22129,16 +22088,13 @@ tags:
         <p>The Postman collection contains sample JSON requests that can be used as templates for MCL.&nbsp; Example requests can be used as templates and for generating client code. </p>
         <ol>
         <li>
-        <p>
-        <strong>User Login: </strong>First send the "User Login" request to receive a token that's required for all subsequent requests to the mware server.</p>
+        <strong>User Login: </strong>First send the "User Login" request to receive a token that's required for all subsequent requests to the mware server.
         </li>
         <li>
-        <p>
-        <strong>Order a report: </strong>Order a credit report, and save the vendorOrderIdentifier from its response. Use it as the vendorOrderIdentifier value in the body of the polling request.&nbsp;</p>
+        <strong>Order a report: </strong>Order a credit report, and save the vendorOrderIdentifier from its response. Use it as the vendorOrderIdentifier value in the body of the polling request.&nbsp;
         </li>
         <li>
-        <p>
-        <strong>Poll for Report:</strong> Send MCL Polling Requests to poll the status of the order using a 4-7 second polling interval until the response has the "statusDescription" value,&nbsp; "READY''. When the "statusDescription" is "READY", then the response will contain the borrower's credit report as JSON, HTML, and base64 encoded PDF. Reports are usually ready after the first polling request, but they can take up to 90 seconds.</p>
+        <strong>Poll for Report:</strong> Send MCL Polling Requests to poll the status of the order using a 4-7 second polling interval until the response has the "statusDescription" value,&nbsp; "READY''. When the "statusDescription" is "READY", then the response will contain the borrower's credit report as JSON, HTML, and base64 encoded PDF. Reports are usually ready after the first polling request, but they can take up to 90 seconds.
         </li>
         </ol>
         <p>
@@ -22150,21 +22106,19 @@ tags:
         <h3>ljs: Liens and Judgements Search</h3>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/ljs">https://mware-dev.crscreditapi.com/api/ljs</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/ljs">https://mware-dev.crscreditapi.com/api/ljs</a>
         </li>
         <li>
-        <p>Send a "Liens and Judgements Search" request </p>
+        Send a "Liens and Judgements Search" request 
         </li>
         </ul>
         <h3>ljr: Liens and Judgements Report</h3>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/ljr">https://mware-dev.crscreditapi.com/api/ljr</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/ljr">https://mware-dev.crscreditapi.com/api/ljr</a>
         </li>
         <li>
-        <p>Retrieve the "Liens and Judgements Report"</p>
+        Retrieve the "Liens and Judgements Report"
         </li>
         </ul>
         <p>
@@ -22172,30 +22126,28 @@ tags:
         <h2>CIC Criminal Reports</h2>
         <ul>
         <li>
-        <p>URL:&nbsp; <a href="https://mware-dev.crscreditapi.com/api/criminal/new-request">https://mware-dev.crscreditapi.com/api/criminal/new-request</a>
-        </p>
+        URL:&nbsp; <a href="https://mware-dev.crscreditapi.com/api/criminal/new-request">https://mware-dev.crscreditapi.com/api/criminal/new-request</a>
         </li>
         <li>
-        <p>"Criminal" post request, which returns a Criminal report.&nbsp;</p>
+        "Criminal" post request, which returns a Criminal report.&nbsp;
         </li>
         <li>
-        <p>The "Criminal Fetch" get request can be used to retrieve orders that are cached on StitchCredit servers. Reports are cached for 24 hours after the order is placed.</p>
+        The "Criminal Fetch" get request can be used to retrieve orders that are cached on StitchCredit servers. Reports are cached for 24 hours after the order is placed.
         </li>
         <li>
-        <p>There is no exhaustive list of possible values for all these fields in the response because this data is reported slightly differently across jurisdictions.</p>
+        There is no exhaustive list of possible values for all these fields in the response because this data is reported slightly differently across jurisdictions.
         </li>
         </ul>
         <h2>CIC Eviction Reports</h2>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/eviction/new-request">https://mware-dev.crscreditapi.com/api/eviction/new-request</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/eviction/new-request">https://mware-dev.crscreditapi.com/api/eviction/new-request</a>
         </li>
         <li>
-        <p>"Eviction" post request, which returns an Eviction report.&nbsp;</p>
+        "Eviction" post request, which returns an Eviction report.&nbsp;
         </li>
         <li>
-        <p>The "Eviction Fetch" get request can be used to retrieve orders that are cached on StitchCredit servers. Reports are cached for 24 hours after the order is placed.</p>
+        The "Eviction Fetch" get request can be used to retrieve orders that are cached on StitchCredit servers. Reports are cached for 24 hours after the order is placed.
         </li>
         </ul>
         <p>
@@ -22203,45 +22155,40 @@ tags:
         <h2>PitchPoint</h2>
         <ul>
         <li>
-        <p>URL: <a href="#">https://mware-dev.crscreditapi.com/api/pp​/property</a>
-        </p>
+        URL: <a href="#">https://mware-dev.crscreditapi.com/api/pp​/property</a>
         </li>
         <li>
-        <p>URL: <a href="#">https://mware-dev.crscreditapi.com/api/pp​/property/pdf</a>
-        </p>
+        URL: <a href="#">https://mware-dev.crscreditapi.com/api/pp​/property/pdf</a>
         </li>
         <li>
-        <p>URL: <a href="#">https://mware-dev.crscreditapi.com/api/pp​/property/data</a>
-        </p>
+        URL: <a href="#">https://mware-dev.crscreditapi.com/api/pp​/property/data</a>
         </li>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/pp/glbblj">https://mware-dev.crscreditapi.com/api/pp/glbblj</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/pp/glbblj">https://mware-dev.crscreditapi.com/api/pp/glbblj</a>
         </li>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/pp/fcrablj">https://mware-dev.crscreditapi.com/api/pp/fcrablj</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/pp/fcrablj">https://mware-dev.crscreditapi.com/api/pp/fcrablj</a>
         </li>
         <li>
-        <p>PitchPoint Property Report that provides property data from a range of leading national property databases, delivering 99% national coverage of residential properties.</p>
+        PitchPoint Property Report that provides property data from a range of leading national property databases, delivering 99% national coverage of residential properties.</p>
         <ul>
         <li>
-        <p>Property Ownership &amp; Foreclosure Information</p>
+        Property Ownership &amp; Foreclosure Information
         </li>
         <li>
-        <p>Subject Property Details</p>
+        Subject Property Details
         </li>
         <li>
-        <p>FEMA Disaster Declarations</p>
+        FEMA Disaster Declarations
         </li>
         <li>
-        <p>Property Voluntary Lien Report</p>
+        Property Voluntary Lien Report
         </li>
         <li>
-        <p>Imaged Deed Search</p>
+        Imaged Deed Search
         </li>
         <li>
-        <p>Automated Valuation Models (AVM)</p>
+        Automated Valuation Models (AVM)
         </li>
         </ul>
         </li>
@@ -22252,11 +22199,10 @@ tags:
         <h3>LexisNexis Search Bridger Insight  (XGS)</h3>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/xgs/search">https://mware-dev.crscreditapi.com/api/xgs/search</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/xgs/search">https://mware-dev.crscreditapi.com/api/xgs/search</a>
         </li>
         <li>
-        <p>LexisNexis Bridger Insight XG allows organizations to perform due diligence related to Bank Secrecy Act, anti-money laundering (AML), foreign corruption and terrorist financing. The tool combine filtering software and financial sanctions watchlist data, including enforcements lists, Politically Exposed Persons (PEP), and adverse media information. </p>
+        LexisNexis Bridger Insight XG allows organizations to perform due diligence related to Bank Secrecy Act, anti-money laundering (AML), foreign corruption and terrorist financing. The tool combine filtering software and financial sanctions watchlist data, including enforcements lists, Politically Exposed Persons (PEP), and adverse media information. 
         </li>
         </ul>
         <p>
@@ -22267,15 +22213,13 @@ tags:
         <h4>mvs: LexisNexis Motor Vehicle search</h4>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/mvs">https://mware-dev.crscreditapi.com/api/mvs</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/mvs">https://mware-dev.crscreditapi.com/api/mvs</a>
         </li>
         </ul>
         <h4>mvr: LexisNexis Motor Vehicle report</h4>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/mvr">https://mware-dev.crscreditapi.com/api/mvr</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/mvr">https://mware-dev.crscreditapi.com/api/mvr</a>
         </li>
         </ul>
         <p>
@@ -22284,20 +22228,18 @@ tags:
         <p>First, run a Bankruptcy Search, which produces the inputs needed to feed into the Bankruptcy report, which contains comprehensive, accurate information on the latest bankruptcy case information. LexisNexis’s databases are updated daily with data sources directly from the courts. Bankruptcy records include the debtor's name, address and social security number, plus crucial information like case number and court chapter, date filed, discharged, dismissed and converted. Information about attorneys, trustees and judges is also available.</p>
         <ul>
         <li>
-        <p>Bankruptcy - Search</p>
+        Bankruptcy - Search</p>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/bankruptcys">https://mware-dev.crscreditapi.com/api/bankruptcys</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/bankruptcys">https://mware-dev.crscreditapi.com/api/bankruptcys</a>
         </li>
         </ul>
         </li>
         <li>
-        <p>Bankruptcy - Report</p>
+        Bankruptcy - Report</p>
         <ul>
         <li>
-        <p>URL: <a href="https://mware-dev.crscreditapi.com/api/bankruptcyr">https://mware-dev.crscreditapi.com/api/bankruptcyr</a>
-        </p>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/bankruptcyr">https://mware-dev.crscreditapi.com/api/bankruptcyr</a>
         </li>
         </ul>
         </li>
@@ -22309,8 +22251,7 @@ tags:
         <h2>Meridian Credit Link (MCL)</h2>
         <ul>
         <li>
-        <p>URL:&nbsp; <a href="https://mware-dev.crscreditapi.com/api/mcl/request">https://mware-dev.crscreditapi.com/api/mcl/request</a>
-        </p>
+        URL:&nbsp; <a href="https://mware-dev.crscreditapi.com/api/mcl/request">https://mware-dev.crscreditapi.com/api/mcl/request</a>
         </li>
         </ul>
         <p>Requests sent to the StitchCredit middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
@@ -22325,63 +22266,63 @@ tags:
         <h3>Reports available from MCL SmartAPI</h3>
         <ul>
         <li>
-        <p>MCL offers various products which can be specified in the request</p>
+        MCL offers various products which can be specified in the request
         </li>
         <li>
-        <p>MeridianLink’s SmartAPI is a single API to request credit verification information from service providers. Via MCL’s API sends a single request and receives a response from the third-party verification service that is appropriate for the request</p>
+        MeridianLink’s SmartAPI is a single API to request credit verification information from service providers. Via MCL’s API sends a single request and receives a response from the third-party verification service that is appropriate for the request
         </li>
         <li>
-        <p>SmartAPI supports verification by:</p>
+        SmartAPI supports verification by:</p>
         <ul>
         <li>
-        <p>Consumer Credit Reports from the three major bureaus: Equifax, Experian, and Transunion</p>
+        Consumer Credit Reports from the three major bureaus: Equifax, Experian, and Transunion
         </li>
         <li>
-        <p>Undisclosed Debt Notifications: a composition of the Equifax Undisclosed Debt Monitoring, Experian Mortgage Watch, and Transunion Pre-Closing Mortgage Notifications products</p>
+        Undisclosed Debt Notifications: a composition of the Equifax Undisclosed Debt Monitoring, Experian Mortgage Watch, and Transunion Pre-Closing Mortgage Notifications products
         </li>
         <li>
-        <p>Business Credit Reports: similar to consumer credit reports, but are used to pull data on legal entities</p>
+        Business Credit Reports: similar to consumer credit reports, but are used to pull data on legal entities
         </li>
         <li>
-        <p>Property Verification: flood determination orders through various providers &amp; automated valuation models: PASS, Home Value Explorer (HVE), IVAL, GeoAVM, and the Property<br>and Market Condition (PMC) reports. </p>
+        Property Verification: flood determination orders through various providers &amp; automated valuation models: PASS, Home Value Explorer (HVE), IVAL, GeoAVM, and the Property<br>and Market Condition (PMC) reports. 
         </li>
         <li>
-        <p>Employment Verification: instant database lookups and manual verifications. VOEs are processed instantly if the applicant’s employer reports information to automated services like The Work Number. For all other employers, the VOE order will be processed manually.</p>
+        Employment Verification: instant database lookups and manual verifications. VOEs are processed instantly if the applicant’s employer reports information to automated services like The Work Number. For all other employers, the VOE order will be processed manually.
         </li>
         <li>
-        <p>Income Verification based on tax return verification from the IRS.</p>
+        Income Verification based on tax return verification from the IRS.</p>
         <ul">
         <li>
-        <p>Tax Transcript: 4506-C, tax transcripts and other tax-related forms</p>
+        Tax Transcript: 4506-C, tax transcripts and other tax-related forms
         </li>
         </ul>
         </li>
         <li>
-        <p>Asset Verification via AccountChek: asset verifications through borrower-managed account enrollment. Pull down a report detailing balance and transaction history for all enrolled accounts.</p>
+        Asset Verification via AccountChek: asset verifications through borrower-managed account enrollment. Pull down a report detailing balance and transaction history for all enrolled accounts.
         </li>
         <li>
-        <p>Deposit Verification are manually processed by the verification service provider</p>
+        Deposit Verification are manually processed by the verification service provider
         </li>
         <li>
-        <p>Identity Verification, Validation, and Authentication: such as SSA-89</p>
+        Identity Verification, Validation, and Authentication: such as SSA-89
         </li>
         <li>
-        <p>Financial Sanctions Watchlist Verification</p>
+        Financial Sanctions Watchlist Verification
         </li>
         <li>
-        <p>Customizable fraud detection reports: product that supports verification across three types of entities typically involved in a loan: the borrower(s), the subject property, and any non-borrower participants (e.g. loan officer, underwriter, etc). Various services are used to generate these reports, some of which include: Lexis Nexis (WsAccurint, WsIdentity, Bridger Insight XG), Equifax Intellireal, Experian Income Insights/Income Insights W2, MERS, MCL Integration (UDN), CreditData and watchlists.</p>
+        Customizable fraud detection reports: product that supports verification across three types of entities typically involved in a loan: the borrower(s), the subject property, and any non-borrower participants (e.g. loan officer, underwriter, etc). Various services are used to generate these reports, some of which include: Lexis Nexis (WsAccurint, WsIdentity, Bridger Insight XG), Equifax Intellireal, Experian Income Insights/Income Insights W2, MERS, MCL Integration (UDN), CreditData and watchlists.
         </li>
         <li>
-        <p>Criminal Record Reports through Contemporary Information Corp (CIC)</p>
+        Criminal Record Reports through Contemporary Information Corp (CIC)
         </li>
         <li>
-        <p>Eviction Reports through Contemporary Information Corp (CIC)</p>
+        Eviction Reports through Contemporary Information Corp (CIC)
         </li>
         <li>
-        <p>MORTGAGE ELECTRONIC REGISTRATION SYSTEMS (MERS) reports, which provide a list of all mortgages associated with a consumer</p>
+        MORTGAGE ELECTRONIC REGISTRATION SYSTEMS (MERS) reports, which provide a list of all mortgages associated with a consumer
         </li>
         <li>
-        <p>MORTGAGE PARTICIPANT VERIFICATION (MPV): to be used to check loan participants (e.g. loan officer, brokerage, appraiser, etc.) against various financial sanctions watchlists</p>
+        MORTGAGE PARTICIPANT VERIFICATION (MPV): to be used to check loan participants (e.g. loan officer, brokerage, appraiser, etc.) against various financial sanctions watchlists
         </li>
         </ul>
         </li>
@@ -22392,31 +22333,31 @@ tags:
         <p>StitchCredit B2B APIs provides endpoints for the management of users.</p>
         <ul>
         <li>
-        <p>​/users</p>
+        ​/users
         </li>
         <li>
-        <p>​/users​/login</p>
+        ​/users​/login
         </li>
         <li>
-        <p>​/users​/{id}</p>
+        ​/users​/{id}
         </li>
         <li>
-        <p>​/users​/retention​/{id}</p>
+        ​/users​/retention​/{id}
         </li>
         <li>
-        <p>​/users​/retention-pdf​/{id}</p>
+        ​/users​/retention-pdf​/{id}
         </li>
         <li>
-        <p>​/users​/logs</p>
+        ​/users​/logs
         </li>
         <li>
-        <p>​/users​/logs​/{id}</p>
+        ​/users​/logs​/{id}
         </li>
         <li>
-        <p>​/users​/logs​/all</p>
+        ​/users​/logs​/all
         </li>
         <li>
-        <p>​/users​/all</p>
+        ​/users​/all
         </li>
         </ul>
         <p>
