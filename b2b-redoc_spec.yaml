@@ -21328,6 +21328,7 @@ tags:
         <p>StitchCredit will help you get up and running more quickly and easily.</p>
 
 - name: B2B reports and verification
+  description: |
         <h2>What we do</h2>
         <p>StitchCredit B2B APIs wrap numerous APIs from Experian + Equifax + TransUnion + LexisNexis + CIC + more. It provides a set of StitchCredit APIs for customers to access features from all vendors. It allows access to numerous verification and report services through a single set of APIs. </p>
         <p>StitchCredit B2B APIs are integrated to request credit verification information from numerous service providers. Via StitchCredit B2B APIs, you send requests to the StitchCredit B2B APIs and receive a response from the third-party verification service that is appropriate for the request. </p>
@@ -22109,27 +22110,6 @@ tags:
 
 - name: Other Reports
   description: |
-        <h2>NOT CURRENTLY SUPPORTED: Experian Liens &amp; Judgements</h2>
-        <h3>ljs: Liens and Judgements Search</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/ljs">https://mware-dev.crscreditapi.com/api/ljs</a>
-        </li>
-        <li>
-        Send a "Liens and Judgements Search" request 
-        </li>
-        </ul>
-        <h3>ljr: Liens and Judgements Report</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/ljr">https://mware-dev.crscreditapi.com/api/ljr</a>
-        </li>
-        <li>
-        Retrieve the "Liens and Judgements Report"
-        </li>
-        </ul>
-        <p>
-        </p>
         <h2>CIC Criminal Reports</h2>
         <ul>
         <li>
@@ -22334,6 +22314,27 @@ tags:
         </ul>
         </li>
         </ul>
+        <h2>NOT CURRENTLY SUPPORTED: Experian Liens &amp; Judgements</h2>
+        <h3>ljs: Liens and Judgements Search</h3>
+        <ul>
+        <li>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/ljs">https://mware-dev.crscreditapi.com/api/ljs</a>
+        </li>
+        <li>
+        Send a "Liens and Judgements Search" request 
+        </li>
+        </ul>
+        <h3>ljr: Liens and Judgements Report</h3>
+        <ul>
+        <li>
+        URL: <a href="https://mware-dev.crscreditapi.com/api/ljr">https://mware-dev.crscreditapi.com/api/ljr</a>
+        </li>
+        <li>
+        Retrieve the "Liens and Judgements Report"
+        </li>
+        </ul>
+        <p>
+        </p>
         
 - name: Management of Users
   description: |
@@ -22408,25 +22409,24 @@ tags:
   description: |
         REST API for MWARE users
 
-- name: Sandbox
+- name: Additional References
   description: |
+        <h2>Sandbox</h2>
         <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the StitchCredit B2B APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
         <p>Sandbox API information has been provided to you as a Postman Collection.</p>
-        <h2>Usage</h2>
+        <h3>Usage</h3>
         <p>Consumer Credit <u>Postman Collections</u> include pre-defined API calls to help you understand and develop your solution. </p>
         <p>To quickly grasp the flow and sequence of API calls, download and import the Postman Collections the Postman environment we provided to you.</p>
-        <h2>Credentials</h2>
+        <h3>Credentials</h3>
         <p>Access Credentials have been sent to you in a Postman Environment upon registration . The Postman Environment is pre-configured to allow you to use the scripts and walk through the Postman Scripts with minimal intervention to aid in understanding the API call structure.</p>
-        <h2>Testing</h2>
+        <h3>Testing</h3>
         <p>It is important to note that some APIs are available <em>
         <strong>only</strong>
         </em> in the <strong>test</strong> environment.</p>
         <p>
         </p>
         <hr>
-
-- name: Security
-  description: |
+        <h2>Security</h2>
         <p>We regularly audit the security details of our implementation, including our certificates. We ensure that consumers and servers interact with StitchCredit APIs over HTTPS.</p>
         <p>Our security token is valid for 15 minutes. With this token, any number of requests can be executed before it expires. In order to stay authenticated, a new token will need to be requested every 15 minutes by resending the “User Login” request.&nbsp;</p>
         <p>
@@ -22439,10 +22439,11 @@ tags:
 
 ## x-tags: what to show, where
 x-tagGroups:
-  - name: Introduction
+  - name: Description
     tags:
       - StitchCredit B2B APIs
       - B2B reports and verification
+      - Integration
       - Identity Verification
       - Credit Reports
       - Other Reports
@@ -22477,8 +22478,27 @@ x-tagGroups:
       - bankruptcy-s-controller
       - bankruptcy-r-controller
       
-  - name: Additional reference
-    tags:
-      - Sandbox
-      - Security
+  - name: Additional References
+    description: |
+        <h2>Sandbox</h2>
+        <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the StitchCredit B2B APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
+        <p>Sandbox API information has been provided to you as a Postman Collection.</p>
+        <h3>Usage</h3>
+        <p>Consumer Credit <u>Postman Collections</u> include pre-defined API calls to help you understand and develop your solution. </p>
+        <p>To quickly grasp the flow and sequence of API calls, download and import the Postman Collections the Postman environment we provided to you.</p>
+        <h3>Credentials</h3>
+        <p>Access Credentials have been sent to you in a Postman Environment upon registration . The Postman Environment is pre-configured to allow you to use the scripts and walk through the Postman Scripts with minimal intervention to aid in understanding the API call structure.</p>
+        <h3>Testing</h3>
+        <p>It is important to note that some APIs are available <em>
+        <strong>only</strong>
+        </em> in the <strong>test</strong> environment.</p>
+        <p>
+        </p>
+        <hr>
+        <h2>Security</h2>
+        <p>We regularly audit the security details of our implementation, including our certificates. We ensure that consumers and servers interact with StitchCredit APIs over HTTPS.</p>
+        <p>Our security token is valid for 15 minutes. With this token, any number of requests can be executed before it expires. In order to stay authenticated, a new token will need to be requested every 15 minutes by resending the “User Login” request.&nbsp;</p>
+        <p>
+        </p>
+        <hr>
 
