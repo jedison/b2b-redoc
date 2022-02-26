@@ -22425,7 +22425,7 @@ tags:
         REST API for MWARE users
 
 - name: Overview of APIs Under Development
-    description: |
+  description: |
         These APIs are currently <em><strong>under development</strong></em> by StitchCredit. You can expect that they will be available soon. If the functionality that is described interests you, please let us know and we can discuss its availability.
         <hr>
 
