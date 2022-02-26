@@ -21332,6 +21332,7 @@ tags:
         <h2>What we do</h2>
         <p>StitchCredit B2B APIs wrap numerous APIs from Experian + Equifax + TransUnion + LexisNexis + CIC + more. It provides a set of StitchCredit APIs for customers to access features from all vendors. It allows access to numerous verification and report services through a single set of APIs. </p>
         <p>StitchCredit B2B APIs are integrated to request credit verification information from numerous service providers. Via StitchCredit B2B APIs, you send requests to the StitchCredit B2B APIs and receive a response from the third-party verification service that is appropriate for the request. </p>
+        <hr>
         <h2>Types of Verification and Reports</h2>
         <p>StitchCredit B2B APIs support reports and verification for various aspects, such as, but not limited to:</p>
         <ul>
@@ -21372,6 +21373,7 @@ tags:
         Mortgage Participant Verification (MPV)
         </li>
         </ul>
+        <hr>
         <h2>Verification and Report Sources</h2>
         <p>StitchCredit B2B APIs support reports and verification by:</p>
         <ul>
@@ -21403,6 +21405,7 @@ tags:
         MCL Undisclosed Debt Notifications, Income Verification, Asset Verification, Deposit Verification, Property Verification, Customizable fraud detection reports, Mortgage Electronic Registration Systems (MERS) reports, and Mortgage Participant Verification (MPV)
         </li>
         </ul>
+        <hr>
         <h2>Types of Requests and Data Sources</h2>
         <ul>
         <li>
@@ -21475,7 +21478,7 @@ tags:
         </li>
         <br />
         <li>
-        Employment Verification (VOE)</p>
+        Employment Verification (VOE)
         <ul>
         <li>
         Instant database lookups and manual verifications
@@ -21496,7 +21499,7 @@ tags:
         </li>
         <br />
         <li>
-        Undisclosed Debt Notifications</p>
+        Undisclosed Debt Notifications
         <ul>
         <li>
         A composition of the Equifax Undisclosed Debt Monitoring, Experian Mortgage Watch, and Transunion Pre-Closing Mortgage Notifications products
@@ -21508,7 +21511,7 @@ tags:
         </li>
         <br />
         <li>
-        Income Verification</p>
+        Income Verification
         <ul>
         <li>
         Based on tax return verification from the IRS.
@@ -21523,7 +21526,7 @@ tags:
         </li>
         <br />
         <li>
-        Asset Verification</p>
+        Asset Verification
         <ul>
         <li>
         Asset verifications through borrower-managed account enrollment. 
@@ -21538,7 +21541,7 @@ tags:
         </li>
         <br />
         <li>
-        Deposit Verification are manually processed by the verification service provider</p>
+        Deposit Verification are manually processed by the verification service provider
         <ul>
         <li>
         via MCL SmartAPI
@@ -21547,7 +21550,7 @@ tags:
         </li>
         <br />
         <li>
-        Motor Vehicles</p>
+        Motor Vehicles
         <ul>
         <li>
         Lexis Nexis Motor Vehicle Records (MVR) from all 50 states, the District of Columbia, Puerto Rico and the Canadian province of New Brunswick
@@ -21556,7 +21559,7 @@ tags:
         </li>
         <br />
         <li>
-        Bankruptcy Report</p>
+        Bankruptcy Report
         <ul>
         <li>
         Lexis Nexis Bankruptcy Reports contain comprehensive, accurate information on the latest bankruptcy case information. 
@@ -21565,7 +21568,7 @@ tags:
         </li>
         <br />
         <li>
-        Customizable fraud detection reports&#58; product that supports verification across three types of entities typically involved in a loan&#58; the borrower(s), the subject property, and any non-borrower participants (e.g. loan officer, underwriter, etc). Various services are used to generate these reports, some of which include&#58; Lexis Nexis, Equifax, Experian, MERS, MCL Integration, CreditData and watchlists.</p>
+        Customizable fraud detection reports&#58; product that supports verification across three types of entities typically involved in a loan&#58; the borrower(s), the subject property, and any non-borrower participants (e.g. loan officer, underwriter, etc). Various services are used to generate these reports, some of which include&#58; Lexis Nexis, Equifax, Experian, MERS, MCL Integration, CreditData and watchlists.
         <ul>
         <li>
         via MCL SmartAPI
@@ -21574,7 +21577,7 @@ tags:
         </li>
         <br />
         <li>
-        Mortgage Electronic Registration Systems (MERS) reports, which provide a list of all mortgages associated with a consumer</p>
+        Mortgage Electronic Registration Systems (MERS) reports, which provide a list of all mortgages associated with a consumer
         <ul>
         <li>
         via LexisNMCL SmartAPI
@@ -21583,7 +21586,7 @@ tags:
         </li>
         <br />
         <li>
-        Mortgage Participant Verification (MPV)&#58; to be used to check loan participants (e.g. loan officer, brokerage, appraiser, etc.) against various financial sanctions watchlists</p>
+        Mortgage Participant Verification (MPV)&#58; to be used to check loan participants (e.g. loan officer, brokerage, appraiser, etc.) against various financial sanctions watchlists
         <ul>
         <li>
         via MCL SmartAPI
@@ -21592,7 +21595,7 @@ tags:
         </li>
         <br />
         <li>
-        Management of Users</p>
+        Management of Users
         <ul>
         <li>
         StitchCredit
@@ -21617,6 +21620,7 @@ tags:
         The Postman Collections include pre-defined API calls to help you understand and develop your solution. </p>
         <h3>Sandbox</h3>
         <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the StitchCredit B2B APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
+        <hr>
         <h2>Integration Authentication</h2>
         <p>Integration is straight-forward. First, the authenticate and obtain and bearer token. Then call the approprirate API to request the product: report or verification.</p>
         <h3>Step 1: Authentication</h3>
@@ -21657,6 +21661,7 @@ tags:
         ID Search is a specialized search based on input name and Social Security number. Input address information is optional. ID Search delivers name and address for up to eight subjects. Additionally, ID Search selects the subject that best matches the input data. ID Search also returns ID Mismatch Alert, TruValidate Fraud Alerts, and Phone Append (if the subscriber is authorized for these services). ID Search can return an FFR or a print image
         </li>
         </ul>
+        <hr>
         <h2>Experian CrossCore2 Precise ID</h2>
         <p>This product has multiple pieces that can be used individually depending on your requirements.</p>
         <ol>
@@ -21718,6 +21723,7 @@ tags:
         URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/screening">https://mware-dev.crscreditapi.com/api/experian/cc2/screening</a>
         </li>
         </ul>
+        <hr>
         <h2>LexisNexis</h2>
         <ul>
         <li>
@@ -21949,6 +21955,7 @@ tags:
         </ul>
         <p>
         </p>
+        <hr>
         <h2>TransUnion Credit Reports</h2>
         <ul>
         <li>
@@ -21975,6 +21982,7 @@ tags:
         </ul>
         <p>
         </p>
+        <hr>
         <h2>Experian Credit Reports</h2>
         <ul>
         <li>
@@ -22079,6 +22087,7 @@ tags:
         </ul>
         <p>
         </p>
+        <hr>
         <h2>Credit Reports via Meridian Credit Link (MCL)</h2>
         <ul>
         <li>
@@ -22125,6 +22134,7 @@ tags:
         There is no exhaustive list of possible values for all these fields in the response because this data is reported slightly differently across jurisdictions.
         </li>
         </ul>
+        <hr>
         <h2>CIC Eviction Reports</h2>
         <ul>
         <li>
@@ -22139,6 +22149,7 @@ tags:
         </ul>
         <p>
         </p>
+        <hr>
         <h2>PitchPoint</h2>
         <ul>
         <li>
@@ -22182,6 +22193,7 @@ tags:
         </ul>
         <p>
         </p>
+        <hr>
         <h2>LexisNexis</h2>
         <h3>LexisNexis Search Bridger Insight  (XGS)</h3>
         <ul>
@@ -22235,6 +22247,7 @@ tags:
         </p>
         <p>
         </p>
+        <hr>
         <h2>Meridian Credit Link (MCL)</h2>
         <ul>
         <li>
@@ -22314,6 +22327,7 @@ tags:
         </ul>
         </li>
         </ul>
+        <hr>
         <h2>NOT CURRENTLY SUPPORTED: Experian Liens &amp; Judgements</h2>
         <h3>ljs: Liens and Judgements Search</h3>
         <ul>
@@ -22439,44 +22453,44 @@ tags:
 
 ## x-tags: what to show, where
 x-tagGroups:
-  - name: Description
-    tags:
-      - StitchCredit B2B APIs
-      - B2B reports and verification
-      - Integration
-      - Identity Verification
-      - Credit Reports
-      - Other Reports
-      - Management of Users
-      
-  # - name: APIs
-  #   description: |
-  #       StitchCredit APIs support both JSON and XML requests as well as JSON and XML responses. 
-  #       For details of the APIs, refer to the endpoints and request/response models in this section.
+  # - name: Description
   #   tags:
-  #     - Equifax
-  #     - Experian
-  #     - Transunion
-  #     - LexisNexis
-  #     - PitchPoint
-  #     - Global WatchList
-  #     - Criminal
-  #     - Eviction
-  #     - User
-  #     - system-controller
-  #     - roles-controller
+  #     - StitchCredit B2B APIs
+  #     - B2B reports and verification
+  #     - Integration
+  #     - Identity Verification
+  #     - Credit Reports
+  #     - Other Reports
+  #     - Management of Users
       
-  # - name: APIs under development
-  #   description: |
-  #       These APIs are currently under development by StitchCredit. You can expect that they will be available soon. If the functionality that is described interests you, please let us know and we can discuss its availability.
-  #   tags:      
-  #     - xgs-controller
-  #     - mvs-controller
-  #     - mvr-controller
-  #     - ljs-controller
-  #     - ljr-controller
-  #     - bankruptcy-s-controller
-  #     - bankruptcy-r-controller
+  - name: APIs
+    description: |
+        StitchCredit APIs support both JSON and XML requests as well as JSON and XML responses. 
+        For details of the APIs, refer to the endpoints and request/response models in this section.
+    tags:
+      - Equifax
+      - Experian
+      - Transunion
+      - LexisNexis
+      - PitchPoint
+      - Global WatchList
+      - Criminal
+      - Eviction
+      - User
+      - system-controller
+      - roles-controller
+      
+  - name: APIs under development
+    description: |
+        These APIs are currently under development by StitchCredit. You can expect that they will be available soon. If the functionality that is described interests you, please let us know and we can discuss its availability.
+    tags:      
+      - xgs-controller
+      - mvs-controller
+      - mvr-controller
+      - ljs-controller
+      - ljr-controller
+      - bankruptcy-s-controller
+      - bankruptcy-r-controller
       
   # - name: Additional References
   #   description: |
