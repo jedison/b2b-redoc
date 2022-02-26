@@ -22390,6 +22390,7 @@ tags:
   description: |
         StitchCredit APIs support both JSON and XML requests as well as JSON and XML responses. 
         For details of the APIs, refer to the endpoints and request/response models in this section.
+        <hr>
 
 - name: Equifax
   description: |
@@ -22423,29 +22424,30 @@ tags:
   description: |
         REST API for MWARE users
 
+- name: Overview of APIs Under Development
+    description: |
+        These APIs are currently <em><strong>under development</strong></em> by StitchCredit. You can expect that they will be available soon. If the functionality that is described interests you, please let us know and we can discuss its availability.
+        <hr>
+
 - name: Sandbox
   description: |
         <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the StitchCredit B2B APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
         <p>Sandbox API information has been provided to you as a Postman Collection.</p>
-        <h3>Usage</h3>
+        <h2>Usage</h2>
         <p>Consumer Credit <u>Postman Collections</u> include pre-defined API calls to help you understand and develop your solution. </p>
         <p>To quickly grasp the flow and sequence of API calls, download and import the Postman Collections the Postman environment we provided to you.</p>
-        <h3>Credentials</h3>
+        <hr>
+        <h2>Credentials</h2>
         <p>Access Credentials have been sent to you in a Postman Environment upon registration . The Postman Environment is pre-configured to allow you to use the scripts and walk through the Postman Scripts with minimal intervention to aid in understanding the API call structure.</p>
-        <h3>Testing</h3>
-        <p>It is important to note that some APIs are available <em>
-        <strong>only</strong>
-        </em> in the <strong>test</strong> environment.</p>
-        <p>
-        </p>
+        <hr>
+        <h2>Testing</h2>
+        <p>It is important to note that some APIs are available <em><strong>only</strong></em> in the <strong>test</strong> environment.</p>
         <hr>
 
 - name: Security
   description: |
         <p>We regularly audit the security details of our implementation, including our certificates. We ensure that consumers and servers interact with StitchCredit APIs over HTTPS.</p>
         <p>Our security token is valid for 15 minutes. With this token, any number of requests can be executed before it expires. In order to stay authenticated, a new token will need to be requested every 15 minutes by resending the “User Login” request.&nbsp;</p>
-        <p>
-        </p>
         <hr>
 
 - name: Users
@@ -22465,10 +22467,8 @@ x-tagGroups:
       - Management of Users
       
   - name: APIs
-    description: |
-        StitchCredit APIs support both JSON and XML requests as well as JSON and XML responses. 
-        For details of the APIs, refer to the endpoints and request/response models in this section.
     tags:
+      - Overview of APIs
       - Equifax
       - Experian
       - Transunion
@@ -22482,9 +22482,8 @@ x-tagGroups:
       - roles-controller
       
   - name: APIs under development
-    description: |
-        These APIs are currently under development by StitchCredit. You can expect that they will be available soon. If the functionality that is described interests you, please let us know and we can discuss its availability.
     tags:      
+      - Overview of APIs Under Development
       - xgs-controller
       - mvs-controller
       - mvr-controller
@@ -22494,8 +22493,6 @@ x-tagGroups:
       - bankruptcy-r-controller
       
   - name: In addition
-    description: |
-        In addition to the API information, please note.
     tags:      
       - Sandbox
       - Security
