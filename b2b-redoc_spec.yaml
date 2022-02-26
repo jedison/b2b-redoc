@@ -22453,15 +22453,15 @@ tags:
 
 ## x-tags: what to show, where
 x-tagGroups:
-  # - name: Description
-  #   tags:
-  #     - StitchCredit B2B APIs
-  #     - B2B reports and verification
-  #     - Integration
-  #     - Identity Verification
-  #     - Credit Reports
-  #     - Other Reports
-  #     - Management of Users
+  - name: Description
+    tags:
+      - StitchCredit B2B APIs
+      - B2B reports and verification
+      - Integration
+      - Identity Verification
+      - Credit Reports
+      - Other Reports
+      - Management of Users
       
   - name: APIs
     description: |
