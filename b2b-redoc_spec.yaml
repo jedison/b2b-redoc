@@ -13,6 +13,7 @@ info:
 
   description: |    
         
+
 servers:
   - url: /api
     description: Generated server url
@@ -22499,6 +22500,10 @@ tags:
         </p>
         <hr>
 
+- name: Users
+  description: |
+    StitchCredit management of Users
+
 ## x-tags: what to show, where
 x-tagGroups:
   - name: StitchCredit B2B APIs
@@ -22541,6 +22546,8 @@ x-tagGroups:
       - roles-controller
       
   - name: APIs under development
+    description: |
+        These APIs are currently under development by StitchCredit. You can expect that they will be available soon. If the functionality that is described interests you, please let us know and we can discuss its availability.
     tags:      
       - xgs-controller
       - mvs-controller
@@ -22554,3 +22561,6 @@ x-tagGroups:
     tags:
       - Sandbox
       - Security
+
+theme:
+  layout: stacked
