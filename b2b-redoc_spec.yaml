@@ -21375,10 +21375,10 @@ tags:
         <p>StitchCredit B2B APIs support reports and verification by:</p>
         <ul>
         <li>
-        LexisNexis Instant ID: both Consumer and Business
+        LexisNexis Instant ID both Consumer and Business
         </li>
         <li>
-        Experian Precise ID: Knowledge-Based Authentication, Reverse Phone Append (RPA), and One-Time Passcodes
+        Experian Precise ID&#58; Knowledge-Based Authentication, Reverse Phone Append (RPA), and One-Time Passcodes
         </li>
         <li>
         TransUnion ID Search
@@ -21405,7 +21405,7 @@ tags:
         <h2>Types of Requests and Data Sources</h2>
         <ul>
         <li>
-        Identity Verification, Validation, and Authentication:
+        Identity Verification, Validation, and Authentication&#58;
         <ul>
         <li>
         LexisNexis InstantID data and report which identity verification and risk assessment with regards to fraud and identity theft.
@@ -21420,13 +21420,13 @@ tags:
         </li>
         <br />
         <li>
-        Credit Reports:
+        Credit Reports&#58;
         <ul>
         <li>
         Consumer credit reports and Business credit reports to pull data on legal entities
         </li>
         <li>
-        Equifax Credit Reports: including TEC Connect Credit, Connect Check Credit, Automotive Credit Profile, and Healthcare Profile
+        Equifax Credit Reports&#58; including TEC Connect Credit, Connect Check Credit, Automotive Credit Profile, and Healthcare Profile
         </li>
         <li>
         Experian Credit Reports
@@ -21438,7 +21438,7 @@ tags:
         </li>
         <br />
         <li>
-        Criminal &amp; Eviction reports:
+        Criminal &amp; Eviction reports&#58;
         <ul>
         <li>
         Contemporary Information Corp (CIC) Criminal Record Reports &amp; Eviction Reports
@@ -21468,7 +21468,7 @@ tags:
         Flood zone determination through various providers
         </li>
         <li>
-        Automated Valuation Models: PASS, Home Value Explorer (HVE), IVAL, GeoAVM, and the Property and Market Condition (PMC) reports. 
+        Automated Valuation Models&#58; PASS, Home Value Explorer (HVE), IVAL, GeoAVM, and the Property and Market Condition (PMC) reports. 
         </li>
         </ul>
         </li>
@@ -21513,7 +21513,7 @@ tags:
         Based on tax return verification from the IRS.
         </li>
         <li>
-        Tax Transcript: 4506-C, tax transcripts and other tax-related forms
+        Tax Transcript&#58; 4506-C, tax transcripts and other tax-related forms
         </li>
         <li>
         via MCL SmartAPI
@@ -21564,7 +21564,7 @@ tags:
         </li>
         <br />
         <li>
-        Customizable fraud detection reports: product that supports verification across three types of entities typically involved in a loan: the borrower(s), the subject property, and any non-borrower participants (e.g. loan officer, underwriter, etc). Various services are used to generate these reports, some of which include: Lexis Nexis, Equifax, Experian, MERS, MCL Integration, CreditData and watchlists.</p>
+        Customizable fraud detection reports&#58; product that supports verification across three types of entities typically involved in a loan&#58; the borrower(s), the subject property, and any non-borrower participants (e.g. loan officer, underwriter, etc). Various services are used to generate these reports, some of which include&#58; Lexis Nexis, Equifax, Experian, MERS, MCL Integration, CreditData and watchlists.</p>
         <ul>
         <li>
         via MCL SmartAPI
@@ -21582,7 +21582,7 @@ tags:
         </li>
         <br />
         <li>
-        Mortgage Participant Verification (MPV): to be used to check loan participants (e.g. loan officer, brokerage, appraiser, etc.) against various financial sanctions watchlists</p>
+        Mortgage Participant Verification (MPV)&#58; to be used to check loan participants (e.g. loan officer, brokerage, appraiser, etc.) against various financial sanctions watchlists</p>
         <ul>
         <li>
         via MCL SmartAPI
