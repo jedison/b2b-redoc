@@ -21285,7 +21285,7 @@ components:
 
 tags:
 #DOCUMENTATION ===============================================
-- name: StitchCredit B2B API
+- name: StitchCredit B2B APIs
   description: |
         <h2>Introduction</h2>
         <p>StitchCredit’s B2B API offering performs credit checks for your company. The B2B API allows you to gain insight into a business’ financial stability, allowing you to make quick and informed business decisions. Get a detailed financial picture of any customer or supplier before you decide to work with them. B2B Credit Checks protect your business from late payments. </p>
@@ -21599,30 +21599,25 @@ tags:
         </ul>
         </li>
         </ul>
-        <hr>
 
-- name: Integration Options
+- name: Integration
   description: |
-        <h2>API Request/Response</h2>
+        <h2Integration Options</h2>
         <p>StitchCredit APIs support both JSON and XML requests as well as JSON and XML responses. &nbsp;For details of the API, refer to the endpoints and request/response models in this documentation.</p>
         <p>Unfortunately, MCL is excluded from this preview due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please contact us and we can provide you with the necessary integration details.</p>
+        <hr>
         <h2>API Endpoints</h2>
         <p>Each StitchCredit B2B API endpoint has a different request/response. However, the integration steps are the same: authentication than request the product.</p>
         <p>
         <hr>
-
-- name: Developer Tools
-  description: |
-        <h2>Postman Collections</h2>
+        <h2>Developer Tools</h2>
+        <h3>Postman Collections</h3>
         <p>The Postman Environment is pre-configured to allow you to use the scripts and walk through the Postman Scripts with minimal intervention to aid in understanding the API call structure.</p>
         The Postman Collections include pre-defined API calls to help you understand and develop your solution. </p>
-        <h2>Sandbox</h2>
+        <h3>Sandbox</h3>
         <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the StitchCredit B2B APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
-        <hr>
-
-- name:  Integration
-  description: |
-        <h2>Required steps</h2>
+        <h2>Integration Authentication</h2>
+        <p>Integration is straight-forward. First, the authenticate and obtain and bearer token. Then call the approprirate API to request the product: report or verification.</p>
         <h3>Step 1: Authentication</h3>
         <p>Authentication returns a Bearer token that can be used for any number of subsequent requests for 15 minutes at which point the token expires, and a new token must be retrieved by sending an Authentication request again.</p>
         <p>The postman test script for this request saves this token as a collection variable that is being used as a bearer authorization header for the other postman requests.</p>
@@ -21632,10 +21627,22 @@ tags:
         <p>StitchCredit B2B API supports reports and verification through various API endpoints. Those endpoint are described below. </p>
         <p>Each API endpoint has a different request/response. However, the integration steps are the same: authentication and then request the product through the specific API endpoint.</p>
         <hr>
-
-- name:  Integration to reports and verification
-  description: |
+        <h2>Integration to reports and verification</h2>
         <p>Different report and verification products can be requested via the StitchCredit B2B API.</p>
+        <hr>
+        <h2>Integration methods</h2>
+        <p>This documentation contains details of all StitchCredit B2B APIs.</p>
+        <p></p>
+        <h3>APIs not included in Swagger documentation</h3>
+        <p>Unfortunately, MCL SmartAPI is excluded from the Swagger documentation due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please contact us and we can provide you with the necessary integration details. </p>
+        <p>Requests sent to the StitchCredit middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
+        <u>https://mware-dev.crscreditapi.com/api/mcl/request</u></a>, will return data from MCL.</p>
+        <p>This endpoint can be used to interact with MCL’s SmartAPI to retrieve MCL products using JSON (for both requests and responses).&nbsp;If you would rather receive XML, then we can provide credentials that can be used to connect directly to MCL’s SmartAPI (not going through StitchCredit API) for XML responses.</p>
+        <p>The MCL SmartAPI documentation can be referenced for basic guidance from <a href="https://docsend.com/view/s/rjsnmxftw59isyiv">SmartAPI documentation</a>. </p>
+        <p>These same principles apply for a JSON-based connection via StitchCredit’s Middleware.&nbsp; </p>
+        <p>
+        </p>
+        <hr>
 
 - name: Identity Verification
   description: |
@@ -22364,21 +22371,6 @@ tags:
         </p>
         <hr>
 
-- name: Integration methods
-  description: |
-        <p>This documentation contains details of all StitchCredit B2B APIs.</p>
-        <p></p>
-        <h3>APIs not included in Swagger documentation</h3>
-        <p>Unfortunately, MCL SmartAPI is excluded from the Swagger documentation due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please contact us and we can provide you with the necessary integration details. </p>
-        <p>Requests sent to the StitchCredit middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
-        <u>https://mware-dev.crscreditapi.com/api/mcl/request</u></a>, will return data from MCL.</p>
-        <p>This endpoint can be used to interact with MCL’s SmartAPI to retrieve MCL products using JSON (for both requests and responses).&nbsp;If you would rather receive XML, then we can provide credentials that can be used to connect directly to MCL’s SmartAPI (not going through StitchCredit API) for XML responses.</p>
-        <p>The MCL SmartAPI documentation can be referenced for basic guidance from <a href="https://docsend.com/view/s/rjsnmxftw59isyiv">SmartAPI documentation</a>. </p>
-        <p>These same principles apply for a JSON-based connection via StitchCredit’s Middleware.&nbsp; </p>
-        <p>
-        </p>
-        <hr>
-
 - name: Overview of APIs
   description: |
         StitchCredit APIs support both JSON and XML requests as well as JSON and XML responses. 
@@ -22447,33 +22439,20 @@ tags:
 
 ## x-tags: what to show, where
 x-tagGroups:
-  - name: StitchCredit B2B APIs
+  - name: Introduction
     tags:
-      - Introduction
-      - Overview
-      - What we do
-      - Types of Verification and Reports
-      - Verification and Report Sources
-      - Types of Requests and Data Sources
-
-  - name: Getting Started
-    tags:
-      - Integration Options
-      - Developer Tools
-      
-  - name: Integration Guide
-    tags:
-      - Integration
-      - Integration to reports and verification
+      - StitchCredit B2B APIs
+      - B2B reports and verification
       - Identity Verification
       - Credit Reports
       - Other Reports
       - Management of Users
-      - Integration methods
       
   - name: APIs
+    description: |
+        StitchCredit APIs support both JSON and XML requests as well as JSON and XML responses. 
+        For details of the APIs, refer to the endpoints and request/response models in this section.
     tags:
-      - Overview of APIs
       - Equifax
       - Experian
       - Transunion
