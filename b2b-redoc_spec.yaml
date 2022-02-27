@@ -25477,7 +25477,10 @@ tags:
         }
         </code></pre>
         </div>
-        <script>doHighlighting();</script>
+        <script>
+            console.log("calling hljs");
+            hljs.highlightAll();
+        </script>
         <hr>
 
 - name: Security
