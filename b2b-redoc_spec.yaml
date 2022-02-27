@@ -22448,7 +22448,7 @@ tags:
   description: |
         <p><strong>Testing StitchCredit Dev Server - anonymized.postman_collection.json</strong></p> <!-- Postman Collections -->
         <p><a href="https://api.redoc.ly/registry/assets/crs-group/B2B/v1/assets%2FTesting%20StitchCredit%20Dev%20Server%20-%20anonymized.postman_collection.json" download>Download here</a></p>
-        <div class="postman_code" style="max-height: 60vh;overflow: scroll;">
+        <div class="postman_code" style="max-height: 60vh;overflow: scroll;" onload="doHighlight();">
         <!-- Testing StitchCredit Dev Server - anonymized.postman_collection.json -->
         <pre><code class="language-json json">
         {
@@ -25477,10 +25477,6 @@ tags:
         }
         </code></pre>
         </div>
-        <script>
-            console.log("calling hljs");
-            hljs.highlightAll();
-        </script>
         <hr>
 
 - name: Security
