@@ -2,7 +2,7 @@
 //Initialise highlight js on <pre></code> blocks
 // hljs.initHighlighting();
 function doHighlight() {
-    console.log("calling hljs");
+    // console.log("calling hljs");
     hljs.highlightAll();
 }
-doHighlight();
+// doHighlight();
