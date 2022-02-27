@@ -22448,7 +22448,7 @@ tags:
         <p><a href="https://api.redoc.ly/registry/assets/crs-group/B2B/v1/assets%2FTesting%20StitchCredit%20Dev%20Server%20-%20anonymized.postman_collection.json">Download here</a></p>
         <div class="postman_code">
         <!-- Testing StitchCredit Dev Server - anonymized.postman_collection.json -->
-        <pre><code data-language="json">
+        <pre><code>
         {
           "info": {
             "_postman_id": "650a4205-b5e0-42a5-92da-468aee8160de",
