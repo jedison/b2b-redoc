@@ -5,4 +5,4 @@ function doHighlight() {
     // console.log("calling hljs");
     hljs.highlightAll();
 }
-// doHighlight();
+doHighlight();
