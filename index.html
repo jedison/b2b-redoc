@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf8" />
+    <title>{{title}}</title>
+    <link rel="icon" type="image/png" href="{{favicon}}">
+    
+    <!-- syntax highlight.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+
+    <!-- needed for adaptive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+    {{{redocHead}}}
+    {{{fonts}}}
+  </head>
+
+  <body>
+    {{{redocHTML}}}
+  </body>
+    <script src="assets/highlight-custom.js"></script> 
+  </html>
