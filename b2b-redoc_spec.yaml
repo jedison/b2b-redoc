@@ -21615,7 +21615,7 @@ tags:
         <h3>Postman Collection</h3>
         <p>The Postman Environment is pre-configured to allow you to use the scripts and walk through the Postman Scripts with minimal intervention to aid in understanding the API call structure.</p>
         The Postman Collection includes pre-defined API calls to help you understand and develop your solution.
-        You can find the <a href="tag/Postman%20Collection">Postman Collection for StitchCredit B2B APIs.</a> later in this documentation</p>
+        You can find the <a href="/tag/Postman-Collection">Postman Collection for StitchCredit B2B APIs.</a> later in this documentation</p>
         <h3>Sandbox</h3>
         <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the StitchCredit B2B APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
         <hr>
@@ -21623,7 +21623,7 @@ tags:
         <p>Integration is straight-forward. First, the authenticate and obtain and bearer token. Then call the approprirate API to request the product: report or verification.</p>
         <h3>Step 1: Authentication</h3>
         <p>Authentication returns a Bearer token that can be used for any number of subsequent requests for 15 minutes at which point the token expires, and a new token must be retrieved by sending an Authentication request again.</p>
-        <p>The <a href="tag/Postman%20Collection">postman test script</a> for this request saves this token as a collection variable that is being used as a bearer authorization header for the other postman requests.</p>
+        <p>The <a href="/tag/Postman-Collection">postman test script</a> for this request saves this token as a collection variable that is being used as a bearer authorization header for the other postman requests.</p>
         <p>The “User Login” request ( /users/login ) returns a token that is required for authenticating all other requests (bearer authentication).&nbsp;</p>
         <p>As mentioned, this token is valid for 15 minutes. With this token, any number of requests can be executed before it expires. In order to stay authenticated a new token will need to be requested every 15 minutes by resending the “User Login” request.&nbsp;</p>
         <h3>Step 2: Request Products</h3>
@@ -21708,7 +21708,8 @@ tags:
         </ul>
         <p>Returns a user's name and address based on a US telephone number.&nbsp; This returned information can be used to feed the input to PreciseID.</p>
         <p>This request attempts to match the provided phone number to return the associated name and address. This endpoint uses live data, so please be judicious.</p>
-        <h3>KEVIN: What are these for? What do they do?</h3>
+        <!-- TODO: What are these for? What do they do? -->
+        <h3>Details of these APIs are not currently available</h3>
         <h4>raw</h4>
         <ul>
         <li>
@@ -22351,6 +22352,7 @@ tags:
 - name: Management of Users
   description: |
         <p>StitchCredit B2B APIs provides endpoints for the management of users.</p>
+        <!-- TODO: Additional details needed -->
         <ul>
         <li>
         ​/users
@@ -22432,7 +22434,7 @@ tags:
         <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the StitchCredit B2B APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
         <p>Sandbox API information has been provided to you as a Postman Collection.</p>
         <h2>Usage</h2>
-        <p><a href="tag/Postman%20Collection">Postman Collections</a> for StitchCredit B2B APIs include pre-defined API calls to help you understand and develop your solution. </p>
+        <p><a href="/tag/Postman-Collection">Postman Collections</a> for StitchCredit B2B APIs include pre-defined API calls to help you understand and develop your solution. </p>
         <p>To quickly grasp the flow and sequence of API calls, download and import the Postman Collections the Postman environment we provided to you.</p>
         <hr>
         <h2>Credentials</h2>
