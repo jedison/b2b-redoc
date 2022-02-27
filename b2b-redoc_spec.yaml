@@ -11,9 +11,6 @@ info:
     url: 'https://user-images.githubusercontent.com/91110885/155860515-f3c84817-628e-427a-9b1c-abf7a735f05a.png'
     altText: CRS logo
 
-  description: |    
-        
-
 servers:
   - url: /api
     description: Generated server url
@@ -21618,7 +21615,7 @@ tags:
         <h3>Postman Collection</h3>
         <p>The Postman Environment is pre-configured to allow you to use the scripts and walk through the Postman Scripts with minimal intervention to aid in understanding the API call structure.</p>
         The Postman Collection includes pre-defined API calls to help you understand and develop your solution.
-        You can find the <a href="tag/Integration#postman_collection">Postman Collection for StitchCredit B2B APIs.</a> later in this documentation</p>
+        You can find the <a href="tag/Postman%20Collection">Postman Collection for StitchCredit B2B APIs.</a> later in this documentation</p>
         <h3>Sandbox</h3>
         <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the StitchCredit B2B APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
         <hr>
@@ -21626,7 +21623,7 @@ tags:
         <p>Integration is straight-forward. First, the authenticate and obtain and bearer token. Then call the approprirate API to request the product: report or verification.</p>
         <h3>Step 1: Authentication</h3>
         <p>Authentication returns a Bearer token that can be used for any number of subsequent requests for 15 minutes at which point the token expires, and a new token must be retrieved by sending an Authentication request again.</p>
-        <p>The <a href="tag/Integration#postman_collection">postman test script</a> for this request saves this token as a collection variable that is being used as a bearer authorization header for the other postman requests.</p>
+        <p>The <a href="tag/Postman%20Collection">postman test script</a> for this request saves this token as a collection variable that is being used as a bearer authorization header for the other postman requests.</p>
         <p>The “User Login” request ( /users/login ) returns a token that is required for authenticating all other requests (bearer authentication).&nbsp;</p>
         <p>As mentioned, this token is valid for 15 minutes. With this token, any number of requests can be executed before it expires. In order to stay authenticated a new token will need to be requested every 15 minutes by resending the “User Login” request.&nbsp;</p>
         <h3>Step 2: Request Products</h3>
@@ -22435,7 +22432,7 @@ tags:
         <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the StitchCredit B2B APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
         <p>Sandbox API information has been provided to you as a Postman Collection.</p>
         <h2>Usage</h2>
-        <p><a href='assets/Testing StitchCredit Dev Server - anonymized.postman_collection.json'>Postman Collections</a> for StitchCredit B2B APIs include pre-defined API calls to help you understand and develop your solution. </p>
+        <p><a href="tag/Postman%20Collection">Postman Collections</a> for StitchCredit B2B APIs include pre-defined API calls to help you understand and develop your solution. </p>
         <p>To quickly grasp the flow and sequence of API calls, download and import the Postman Collections the Postman environment we provided to you.</p>
         <hr>
         <h2>Credentials</h2>
@@ -22444,9 +22441,11 @@ tags:
         <h2>Testing</h2>
         <p>It is important to note that some APIs are available <em><strong>only</strong></em> in the <strong>test</strong> environment.</p>
         <hr>
-        <h2 id="postman_collection">Postman Collection</h2>
-        <p id="test_api_postman_collection"><strong>Testing StitchCredit Dev Server - anonymized.postman_collection.json</strong></p> <!-- Postman Collections -->
-        <p><a href="assets/Testing StitchCredit Dev Server - anonymized.postman_collection.json">Download here</a></p>
+
+- name: Postman Collection
+  description: |
+        <p><strong>Testing StitchCredit Dev Server - anonymized.postman_collection.json</strong></p> <!-- Postman Collections -->
+        <p><a href="https://api.redoc.ly/registry/assets/crs-group/B2B/v1/assets%2FTesting%20StitchCredit%20Dev%20Server%20-%20anonymized.postman_collection.json">Download here</a></p>
         <div class="postman_code">
         <!-- Testing StitchCredit Dev Server - anonymized.postman_collection.json -->
         <pre><code data-language="json">
@@ -25529,5 +25528,6 @@ x-tagGroups:
   - name: In addition
     tags:      
       - Sandbox
+      - Postman Collection
       - Security
 
