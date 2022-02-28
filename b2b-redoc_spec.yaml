@@ -5,7 +5,7 @@ info:
   contact:
     name: API Support
     email: supportapi@crscreditapi.com
-    url: https://mware-dev.crscreditapi.com/api/swagger-ui/index.html?configUrl=/api/mware-docs/swagger-config#/
+    url: https://mware-dev.crscreditapi.com/api
 
   x-logo:
     url: 'https://user-images.githubusercontent.com/91110885/155860515-f3c84817-628e-427a-9b1c-abf7a735f05a.png'
@@ -21612,6 +21612,8 @@ tags:
         <p>
         <hr>
         <h2>Developer Tools</h2>
+        <h3>Swagger Documentation</h3>
+        <p><a href="https://mware-dev.crscreditapi.com/api/swagger-ui/index.html?configUrl=/api/mware-docs/swagger-config#/" target="_blank">Swagger documentation</a> is available, but you will find <a href="/tag/Overview-of-APIs">descriptions of all APIs</a> within this document.</p>
         <h3>Postman Collection</h3>
         <p>The Postman Environment is pre-configured to allow you to use the scripts and walk through the Postman Scripts with minimal intervention to aid in understanding the API call structure.</p>
         The Postman Collection includes pre-defined API calls to help you understand and develop your solution.
@@ -21635,7 +21637,7 @@ tags:
         <hr>
         <h2>Integration methods</h2>
         <p>This documentation contains details of all StitchCredit B2B APIs.</p>
-        <p></p>
+        <p><a href="https://mware-dev.crscreditapi.com/api/swagger-ui/index.html?configUrl=/api/mware-docs/swagger-config#/" target="_blank">Swagger documentation</a> is also available.</p>
         <h3>APIs not included in Swagger documentation</h3>
         <p>Unfortunately, MCL SmartAPI is excluded from the Swagger documentation due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please contact us and we can provide you with the necessary integration details. </p>
         <p>Requests sent to the StitchCredit middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
@@ -22443,6 +22445,11 @@ tags:
         <h2>Testing</h2>
         <p>It is important to note that some APIs are available <em><strong>only</strong></em> in the <strong>test</strong> environment.</p>
         <hr>
+
+
+- name: Swagger Documentation
+  description: |
+        <p><a href="https://mware-dev.crscreditapi.com/api/swagger-ui/index.html?configUrl=/api/mware-docs/swagger-config#/" target="_blank">Swagger documentation</a> is available, but you will find <a href="/tag/Overview-of-APIs">descriptions of all APIs</a> within this document.</p>
 
 - name: Postman Collection
   description: |
@@ -25530,6 +25537,7 @@ x-tagGroups:
   - name: In addition
     tags:      
       - Sandbox
+      - Swagger Documentation
       - Postman Collection
       - Security
 
