@@ -12,8 +12,8 @@ info:
     altText: CRS logo
 
 servers:
-  - url: /api
-    description: Generated server url
+  - url: https://mware-dev.crscreditapi.com/api
+    description: MWare test server url
 
 paths:
   /users:
