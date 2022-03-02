@@ -23,12 +23,13 @@
 {
 	display:block;
 }
-*/
 
 .docs-section h4, .docs-section h6
 {
 	color: #252930;
 }
+*/
+
 .crop div {
 	flex: 50%;
 	padding: 5px;
@@ -92,4 +93,31 @@
 
 pre code.hljs {
     display: unset;
+}
+
+.h1 .h2 .h3 .h4 .h5 {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+
+    /* Gray Shades/bg-900 */
+    color: #32435F;
+}
+.h1  {
+    font-size: 48px;
+    line-height: 57px;
+}
+.h2  {
+    font-size: 38px;
+    line-height: 45px;
+}
+.h3  {
+    font-size: 28px;
+    line-height: 33px;
+}
+.h4  {
+    font-size: 18px;
+    line-height: 21px;
 }
