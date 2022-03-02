@@ -12,7 +12,7 @@ info:
       <p>This guide is to assist you in integrating the Business Credit API into your environment.</p>
 
   x-logo:
-    url: 'https://user-images.githubusercontent.com/91110885/155860515-f3c84817-628e-427a-9b1c-abf7a735f05a.png'
+    url: 'https://api.redoc.ly/registry/assets/crs-group/B2B/v1/assets%2Fimgs%2Fcrs_b2b.svg'
     altText: CRS logo
 
 servers:
