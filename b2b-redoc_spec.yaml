@@ -13,7 +13,7 @@ info:
   x-logo:
     url: 'https://api.redoc.ly/registry/assets/crs-group/B2B/v1/assets%2Fimgs%2Fcrs_b2b.svg'
     altText: CRS logo
-    url: /
+    href: /
 
 servers:
   - url: https://mware-dev.crscreditapi.com/api
