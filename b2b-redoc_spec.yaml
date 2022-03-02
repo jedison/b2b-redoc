@@ -21615,14 +21615,16 @@ tags:
         <p>For more details, please refer to the <a href="/tag/Integration">next section</a>.
         <h3>Step 1: Authentication</h3>
         <p>Authentication returns a Bearer token that can be used for any number of subsequent requests for 15 minutes at which point the token expires, and a new token must be retrieved by sending an Authentication request again.</p>
-        <p>The “User Login” request ( /users/login ) returns a token that is required for authenticating all other requests (bearer authentication).&nbsp;</p>
-        <p>As mentioned, this token is valid for 15 minutes. With this token, any number of requests can be executed before it expires. In order to stay authenticated a new token will need to be requested every 15 minutes by resending the “User Login” request.&nbsp;</p>
-        <h3>Step 2: Request Credit Report</h3>
+        <h3>Step 2: Save the Authentication Token</h3>
+        <p>The “User Login” request ( /users/login ) returns a token that is required for authenticating all other requests (bearer authentication). </p>
+        <p>Save this bearer authentication token for subsequent requests.</p>
+        <p>With this token, any number of requests can be executed before it expires. In order to stay authenticated a new token will need to be requested every 15 minutes by resending the “User Login” request.&nbsp;</p>
+        <h3>Step 3: Request Credit Report</h3>
         <p>In this Quickstart example, we will show how to pull a Credit Report from Equifax - either as a JSON response or PDF.</p>
         <ul>
         <li>
         <em>/equifax/credit-report</em>: Returns a JSON credit report for the borrower’s identity provided in the request body&nbsp;
-        <li>
+        </li>
         <li>
         <em>/equifax/pdf-credit-report</em>: Requests a PDF credit report for the borrower’s identity provided in the request body&nbsp;</em>
         </li>
@@ -21630,34 +21632,32 @@ tags:
         <hr>
 
         <h2>Quickstart APIs</h2>
-        <ol>
-        <li>
-        <p>The User Login request (/users/login) is described in the documentation here: <a href="/tag/User#operation/login">.</p>
-        <p>An example of how to call this endpoint is given in the <a href="/tag/Postman-Collection">Postman Collection</a></p>
-        </li>
-        <li>
+
+        <h3>Step 1: Authentication</h3>
+        <p>The User Login request (/users/login) is described in the documentation <a href="/tag/User#operation/login">here</a>.</p>
+        <p>An example of how to call this endpoint is given in the <a href="/tag/Postman-Collection">Postman Collection</a>.</p>
+
+        <h3>Step 2: Save the Authentication Token</h3>
         <p>The bearer token that is returned from the User Login request should be saved as it will be needed to make subsequent API calls.</p>
-        <p>As mentioned above, the bearer token is valid for 15 minutes. To obtain a new bearer token, call the User Login API again.
-        <p>The Postman Collection is configured to save the bearer token that is returned from the User Login API so that it is easier for you to test.</a>
-        </li>
-        <li>
+        <p>As mentioned above, the bearer token is valid for 15 minutes. To obtain a new bearer token, call the User Login API again.</p>
+        <p>The Postman Collection is configured to save the bearer token that is returned from the User Login API so that it is easier for you to test.</p>
+
+        <h3>Step 3: Request Credit Report</h3>
         <p>Next, call the API to request the corresponding Credit Report, either in JSON or PDF.</p>
         <ul>
           <li>
-            <p>
-            /equifax/credit-report for a JSON credit report, details of which can be found in the <a href="/tag/Equifax#operation/creditReport_2">API documentation</a>.<br>
-            Note that this API immediately returns the Credit Report in JSON.
-            </p>
+            /equifax/credit-report for a JSON credit report, details of which can be found in the <a href="/tag/Equifax#operation/creditReport_2">API documentation</a>.<br>&nbsp;<br>
+            Note that this API immediately returns the Credit Report in JSON.<br>&nbsp;<br>
           </li>
           <li>
-          <p>The PDF Credit Report API is a two-step process: request and retrieve.</p>
+          The PDF Credit Report API is a two-step process: request and retrieve.
           <ol>
             <li>
               /equifax/pdf-credit-report for a PDF credit report - <a href="/tag/Equifax#operation/pdfCreditReport">API documentation</a><br>
             </li>
             <li>
-              Note that this API returns an ID that must be used to retrieve the PDF: /equifax/credit-report/{pdfRequestId}.<br>
-              The API to retrieve the PDF Credit Report is <a href="/tag/Equifax#operation/pdfCreditReport_1">
+              Note that this API returns an ID that must be used to retrieve the PDF: /equifax/credit-report/{pdfRequestId}.<br>&nbsp;<br>
+              The API to retrieve the PDF Credit Report is <a href="/tag/Equifax#operation/pdfCreditReport_1">documented here</a>.
             </li>
           </ol>
         </li>
