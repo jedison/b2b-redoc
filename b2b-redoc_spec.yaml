@@ -5,7 +5,11 @@ info:
   contact:
     name: API Support
     email: supportapi@crscreditapi.com
-    # url: https://mware-dev.crscreditapi.com/api
+    url: /
+
+  description: |
+      <span class="docs-time">Last updated: 2022-02-01</span></h1>
+      <p>This guide is to assist you in integrating the Business Credit API into your environment.</p>
 
   x-logo:
     url: 'https://user-images.githubusercontent.com/91110885/155860515-f3c84817-628e-427a-9b1c-abf7a735f05a.png'
