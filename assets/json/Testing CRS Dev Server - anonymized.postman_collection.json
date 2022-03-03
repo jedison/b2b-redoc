@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "650a4205-b5e0-42a5-92da-468aee8160de",
-		"name": "Testing StitchCredit B2B API Dev Server",
+		"name": "Testing CRS B2B API Dev Server",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -55,7 +55,7 @@
 			]
 		},
 		{
-			"name": "MCL Credit Reports (MCL credentials are configured for each StitchCredit account)",
+			"name": "MCL Credit Reports (MCL credentials are configured for each CRS account)",
 			"item": [
 				{
 					"name": "[Step 1] MCL New Order Request (JSON)",

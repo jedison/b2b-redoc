@@ -7,7 +7,7 @@ info:
     email: supportapi@crscreditapi.com
 
   description: |
-      <span class="docs-time">Last updated: 2022-02-01</span></h1>
+      <span class="docs-time">Last updated: 2022-03-03</span></h1>
       <p>This guide is to assist you in integrating the Business Credit API into your environment.</p>
 
   x-logo:
@@ -21286,10 +21286,10 @@ components:
 
 tags:
 #DOCUMENTATION ===============================================
-- name: StitchCredit B2B APIs
+- name: CRS B2B APIs
   description: |
         <h2>Introduction</h2>
-        <p>StitchCredit’s B2B API offering performs credit checks for your company. The B2B API allows you to gain insight into a business’ financial stability, allowing you to make quick and informed business decisions. Get a detailed financial picture of any customer or supplier before you decide to work with them. B2B Credit Checks protect your business from late payments. </p>
+        <p>CRS’s B2B API offering performs credit checks for your company. The B2B API allows you to gain insight into a business’ financial stability, allowing you to make quick and informed business decisions. Get a detailed financial picture of any customer or supplier before you decide to work with them. B2B Credit Checks protect your business from late payments. </p>
         <p>Organization are unique and there are many factors that combine to create an accurate representation of whether an organization will pay in a timely manner. </p>
         <ul>
         <li>
@@ -21311,7 +21311,7 @@ tags:
         <p>The B2B APIs allow you to make informed decisions that bring value to your business.</p>
         <hr>
         <h2>Overview</h2>
-        <p>StitchCredit B2B API Offering: StitchCredit has created a middleware product to connect to existing Credit Reporting APIs, as well as providing monitoring and business intelligence reports. The StitchCredit B2B API hides the complexity of the underlying API requests and responses. In addition, StitchCredit guides you through the compliance requirements to access the APIs with less regulatory nightmares. </p>
+        <p>CRS B2B API Offering: CRS has created a middleware product to connect to existing Credit Reporting APIs, as well as providing monitoring and business intelligence reports. The CRS B2B API hides the complexity of the underlying API requests and responses. In addition, CRS guides you through the compliance requirements to access the APIs with less regulatory nightmares. </p>
         <ul>
         <li>
         Single Connection to reach all sources
@@ -21326,16 +21326,16 @@ tags:
         Business intelligence: Monitoring of status and reporting of usage
         </li>
         </ul>
-        <p>StitchCredit will help you get up and running more quickly and easily.</p>
+        <p>CRS will help you get up and running more quickly and easily.</p>
 
 - name: B2B reports and verification
   description: |
         <h2>What we do</h2>
-        <p>StitchCredit B2B APIs wrap numerous APIs from Experian + Equifax + TransUnion + LexisNexis + CIC + more. It provides a set of StitchCredit APIs for customers to access features from all vendors. It allows access to numerous verification and report services through a single set of APIs. </p>
-        <p>StitchCredit B2B APIs are integrated to request credit verification information from numerous service providers. Via StitchCredit B2B APIs, you send requests to the StitchCredit B2B APIs and receive a response from the third-party verification service that is appropriate for the request. </p>
+        <p>CRS B2B APIs wrap numerous APIs from Experian + Equifax + TransUnion + LexisNexis + CIC + more. It provides a set of CRS APIs for customers to access features from all vendors. It allows access to numerous verification and report services through a single set of APIs. </p>
+        <p>CRS B2B APIs are integrated to request credit verification information from numerous service providers. Via CRS B2B APIs, you send requests to the CRS B2B APIs and receive a response from the third-party verification service that is appropriate for the request. </p>
         <hr>
         <h2>Types of Verification and Reports</h2>
-        <p>StitchCredit B2B APIs support reports and verification for various aspects, such as, but not limited to:</p>
+        <p>CRS B2B APIs support reports and verification for various aspects, such as, but not limited to:</p>
         <ul>
         <li>
         Identity Verification, Validation, and Authentication
@@ -21376,7 +21376,7 @@ tags:
         </ul>
         <hr>
         <h2>Verification and Report Sources</h2>
-        <p>StitchCredit B2B APIs support reports and verification by:</p>
+        <p>CRS B2B APIs support reports and verification by:</p>
         <ul>
         <li>
         LexisNexis Instant ID both Consumer and Business
@@ -21599,7 +21599,7 @@ tags:
         Management of Users
         <ul>
         <li>
-        StitchCredit
+        CRS
         </li>
         </ul>
         </li>
@@ -21608,10 +21608,10 @@ tags:
 - name: Quickstart
   x-displayName: Quickstart - pulling a credit report
   description: |
-        <p>StitchCredit APIs support both JSON and XML requests as well as JSON and XML responses. Please refer to the <a href="/tag/Integration">next section</a> for details on integration options.</p>
+        <p>CRS APIs support both JSON and XML requests as well as JSON and XML responses. Please refer to the <a href="/tag/Integration">next section</a> for details on integration options.</p>
         <hr>
         <h2>API Endpoints</h2>
-        <p>Each StitchCredit B2B API endpoint has a different request/response. However, the integration <strong>steps</strong> are the same: authentication than request.</p>
+        <p>Each CRS B2B API endpoint has a different request/response. However, the integration <strong>steps</strong> are the same: authentication than request.</p>
         <p>
         <hr>
         <h2>Quickstart Integration</h2>
@@ -21670,11 +21670,11 @@ tags:
 - name: Integration
   description: |
         <h2>Integration Options</h2>
-        <p>StitchCredit APIs support both JSON and XML requests as well as JSON and XML responses. &nbsp;For details of the API, refer to the endpoints and request/response models in this documentation.</p>
+        <p>CRS APIs support both JSON and XML requests as well as JSON and XML responses. &nbsp;For details of the API, refer to the endpoints and request/response models in this documentation.</p>
         <p>Unfortunately, MCL is excluded from this preview due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please contact us and we can provide you with the necessary integration details.</p>
         <hr>
         <h2>API Endpoints</h2>
-        <p>Each StitchCredit B2B API endpoint has a different request/response. However, the integration steps are the same: authentication than request the product.</p>
+        <p>Each CRS B2B API endpoint has a different request/response. However, the integration steps are the same: authentication than request the product.</p>
         <p>
         <hr>
         <h2>Developer Tools</h2>
@@ -21683,9 +21683,9 @@ tags:
         <h3>Postman Collection</h3>
         <p>The Postman Environment is pre-configured to allow you to use the scripts and walk through the Postman Scripts with minimal intervention to aid in understanding the API call structure.</p>
         The Postman Collection includes pre-defined API calls to help you understand and develop your solution.
-        You can find the <a href="/tag/Postman-Collection">Postman Collection for StitchCredit B2B APIs.</a> later in this documentation</p>
+        You can find the <a href="/tag/Postman-Collection">Postman Collection for CRS B2B APIs.</a> later in this documentation</p>
         <h3>Sandbox</h3>
-        <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the StitchCredit B2B APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
+        <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the CRS B2B APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
         <hr>
         <h2>Integration Authentication</h2>
         <p>Integration is straight-forward. First, the authenticate and obtain and bearer token. Then call the appropriate API to request the product: report or verification.</p>
@@ -21695,29 +21695,29 @@ tags:
         <p>The “User Login” request ( /users/login ) returns a token that is required for authenticating all other requests (bearer authentication).&nbsp;</p>
         <p>As mentioned, this token is valid for 15 minutes. With this token, any number of requests can be executed before it expires. In order to stay authenticated a new token will need to be requested every 15 minutes by resending the “User Login” request.&nbsp;</p>
         <h3>Step 2: Request Products</h3>
-        <p>StitchCredit B2B API supports reports and verification through various API endpoints. Those endpoint are described below. </p>
+        <p>CRS B2B API supports reports and verification through various API endpoints. Those endpoint are described below. </p>
         <p>Each API endpoint has a different request/response. However, the integration steps are the same: authentication and then request the product through the specific API endpoint.</p>
         <hr>
         <h2>Integration to reports and verification</h2>
-        <p>Different report and verification products can be requested via the StitchCredit B2B API.</p>
+        <p>Different report and verification products can be requested via the CRS B2B API.</p>
         <hr>
         <h2>Integration methods</h2>
-        <p>This documentation contains details of all StitchCredit B2B APIs.</p>
+        <p>This documentation contains details of all CRS B2B APIs.</p>
         <p><a href="https://mware-dev.crscreditapi.com/api/swagger-ui/index.html?configUrl=/api/mware-docs/swagger-config#/" target="_blank">Swagger documentation</a> is also available.</p>
         <h3>APIs not included in Swagger documentation</h3>
         <p>Unfortunately, MCL SmartAPI is excluded from the Swagger documentation due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please contact us and we can provide you with the necessary integration details. </p>
-        <p>Requests sent to the StitchCredit middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
+        <p>Requests sent to the CRS middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
         <u>https://mware-dev.crscreditapi.com/api/mcl/request</u></a>, will return data from MCL.</p>
-        <p>This endpoint can be used to interact with MCL’s SmartAPI to retrieve MCL products using JSON (for both requests and responses).&nbsp;If you would rather receive XML, then we can provide credentials that can be used to connect directly to MCL’s SmartAPI (not going through StitchCredit API) for XML responses.</p>
+        <p>This endpoint can be used to interact with MCL’s SmartAPI to retrieve MCL products using JSON (for both requests and responses).&nbsp;If you would rather receive XML, then we can provide credentials that can be used to connect directly to MCL’s SmartAPI (not going through CRS API) for XML responses.</p>
         <p>The MCL SmartAPI documentation can be referenced for basic guidance from <a href="https://docsend.com/view/s/rjsnmxftw59isyiv">SmartAPI documentation</a>. </p>
-        <p>These same principles apply for a JSON-based connection via StitchCredit’s Middleware.&nbsp; </p>
+        <p>These same principles apply for a JSON-based connection via CRS’s Middleware.&nbsp; </p>
         <p>
         </p>
         <hr>
 
 - name: Identity Verification
   description: |
-        <p>Currently the Identity Verification options from StitchCredit B2B API are TransUnion, LexisNexis and Experian.</p>
+        <p>Currently the Identity Verification options from CRS B2B API are TransUnion, LexisNexis and Experian.</p>
         <h2>TransUnion id-search</h2>
         <ul>
         <li>
@@ -21817,7 +21817,7 @@ tags:
         </li>
         </ul>
         <h3>Instant ID (IID)</h3>
-        <p>The StitchCredit middleware has the endpoint, <a href="https://mware-dev.crscreditapi.com/iid/new-request">
+        <p>The CRS middleware has the endpoint, <a href="https://mware-dev.crscreditapi.com/iid/new-request">
         <u>https://mware-dev.crscreditapi.com/iid/new-request</u>
         </a>, for retrieving instantID reports as JSON. </p>
         <p>The InstantID results consist of the following numeric output components:&nbsp;</p>
@@ -22161,14 +22161,14 @@ tags:
         URL:&nbsp; <a href="https://mware-dev.crscreditapi.com/api/mcl/request">https://mware-dev.crscreditapi.com/api/mcl/request</a>
         </li>
         </ul>
-        <p>Requests sent to the StitchCredit middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
+        <p>Requests sent to the CRS middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
         <u>https://mware-dev.crscreditapi.com/api/mcl/request</u>
         </a>, will return data from MCL. This endpoint can be used to request Consumer Credit Reports.</p>
         <p>First, order a credit report using the “New Order” request (example provided in the Postman Collection). From the response, save the vendorOrderIdentifier, to retrieve the credit report that was ordered.&nbsp;Next, retrieve the report that is associated with this “vendorOrderIdentifier” by using the "Polling Request'' to poll the status of the order. </p>
         <p>Use a 4-7 second polling interval until the response has the "statusDescription" value,&nbsp; "READY''.&nbsp;When the "statusDescription" is "READY", then the response will also contain the borrower's credit report as JSON, HTML, and base64 encoded PDF. Reports are usually ready after ~6-10 seconds. If a report isn’t ready after 90 seconds, it’s safe to assume the order has timed out.&nbsp;</p>
         <p>The <a href="https://docsend.com/view/s/rjsnmxftw59isyiv">
         <u>SmartAPI documentation</u>
-        </a> documents MCL’s XML interface, but the request structure is the same for the JSON requests through the StitchCredit API, with the exception that there is a different casing convention used for the JSON field names. </p>
+        </a> documents MCL’s XML interface, but the request structure is the same for the JSON requests through the CRS API, with the exception that there is a different casing convention used for the JSON field names. </p>
         <p>The Postman collection contains sample JSON requests that can be used as templates for MCL.&nbsp; Example requests can be used as templates and for generating client code. </p>
         <ol>
         <li>
@@ -22195,7 +22195,7 @@ tags:
         "Criminal" post request, which returns a Criminal report.&nbsp;
         </li>
         <li>
-        The "Criminal Fetch" get request can be used to retrieve orders that are cached on StitchCredit servers. Reports are cached for 24 hours after the order is placed.
+        The "Criminal Fetch" get request can be used to retrieve orders that are cached on CRS servers. Reports are cached for 24 hours after the order is placed.
         </li>
         <li>
         There is no exhaustive list of possible values for all these fields in the response because this data is reported slightly differently across jurisdictions.
@@ -22211,7 +22211,7 @@ tags:
         "Eviction" post request, which returns an Eviction report.&nbsp;
         </li>
         <li>
-        The "Eviction Fetch" get request can be used to retrieve orders that are cached on StitchCredit servers. Reports are cached for 24 hours after the order is placed.
+        The "Eviction Fetch" get request can be used to retrieve orders that are cached on CRS servers. Reports are cached for 24 hours after the order is placed.
         </li>
         </ul>
         <p>
@@ -22321,15 +22321,15 @@ tags:
         URL:&nbsp; <a href="https://mware-dev.crscreditapi.com/api/mcl/request">https://mware-dev.crscreditapi.com/api/mcl/request</a>
         </li>
         </ul>
-        <p>Requests sent to the StitchCredit middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
+        <p>Requests sent to the CRS middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
         <u>https://mware-dev.crscreditapi.com/api/mcl/request</u>
         </a>, will return data from MCL.</p>
         <p>For MCL requests, your MCL credentials are used in the background. An MCL Request can be created to specify any MCL product to which your MCL Credentials allow access. If your MCL credentials had InstantID enabled, you could retrieve InstantID through the middleware but MCL can only give you HTML and/or PDF.</p>
         <h3>Background</h3>
-        <p>This endpoint can be used to interact with MCL’s SmartAPI to retrieve MCL products using JSON (for both requests and responses).&nbsp;If you would rather receive XML, then we can provide credentials that can be used to connect directly to MCL’s SmartAPI (not going through StitchCredit API) for XML responses.</p>
+        <p>This endpoint can be used to interact with MCL’s SmartAPI to retrieve MCL products using JSON (for both requests and responses).&nbsp;If you would rather receive XML, then we can provide credentials that can be used to connect directly to MCL’s SmartAPI (not going through CRS API) for XML responses.</p>
         <p>MCL offers various products that can be specified in the request body according to the permissions set for your credentials. Many MCL products utilize a polling workflow for retrieving data.</p>
         <p>The MCL SmartAPI documentation can be referenced for basic guidance from <a href="https://docsend.com/view/s/rjsnmxftw59isyiv">SmartAPI documentation</a>. </p>
-        <p>These same principles apply for a JSON-based connection via StitchCredit’s Middleware.&nbsp; </p>
+        <p>These same principles apply for a JSON-based connection via CRS’s Middleware.&nbsp; </p>
         <h3>Reports available from MCL SmartAPI</h3>
         <ul>
         <li>
@@ -22419,7 +22419,7 @@ tags:
         
 - name: Management of Users
   description: |
-        <p>StitchCredit B2B APIs provides endpoints for the management of users.</p>
+        <p>CRS B2B APIs provides endpoints for the management of users.</p>
         <!-- TODO: Additional details needed -->
         <ul>
         <li>
@@ -22456,7 +22456,7 @@ tags:
 
 - name: Overview of APIs
   description: |
-        StitchCredit APIs support both JSON and XML requests as well as JSON and XML responses. 
+        CRS APIs support both JSON and XML requests as well as JSON and XML responses. 
         For details of the APIs, refer to the endpoints and request/response models in this section.
         <hr>
 
@@ -22494,15 +22494,15 @@ tags:
 
 - name: Overview of APIs Under Development
   description: |
-        These APIs are currently <em><strong>under development</strong></em> by StitchCredit. You can expect that they will be available soon. If the functionality that is described interests you, please let us know and we can discuss its availability.
+        These APIs are currently <em><strong>under development</strong></em> by CRS. You can expect that they will be available soon. If the functionality that is described interests you, please let us know and we can discuss its availability.
         <hr>
 
 - name: Sandbox
   description: |
-        <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the StitchCredit B2B APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
+        <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the CRS B2B APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
         <p>Sandbox API information has been provided to you as a Postman Collection.</p>
         <h2>Usage</h2>
-        <p><a href="/tag/Postman-Collection">Postman Collections</a> for StitchCredit B2B APIs include pre-defined API calls to help you understand and develop your solution. </p>
+        <p><a href="/tag/Postman-Collection">Postman Collections</a> for CRS B2B APIs include pre-defined API calls to help you understand and develop your solution. </p>
         <p>To quickly grasp the flow and sequence of API calls, download and import the Postman Collections the Postman environment we provided to you.</p>
         <hr>
         <h2>Credentials</h2>
@@ -22519,15 +22519,15 @@ tags:
 
 - name: Postman Collection
   description: |
-        <p><strong>Testing StitchCredit Dev Server - anonymized.postman_collection.json</strong></p> <!-- Postman Collections -->
-        <p><a href="https://api.redoc.ly/registry/assets/crs-group/B2B/v1/assets%2FTesting%20StitchCredit%20Dev%20Server%20-%20anonymized.postman_collection.json" download>Download here</a></p>
+        <p><strong>Testing CRS Dev Server - anonymized.postman_collection.json</strong></p> <!-- Postman Collections -->
+        <p><a href="https://api.redoc.ly/registry/assets/crs-group/B2B/v1/assets%2FTesting%20CRS%20Dev%20Server%20-%20anonymized.postman_collection.json" download>Download here</a></p>
         <div class="postman_code" style="max-height: 60vh;overflow: scroll;" onload="doHighlight();">
-        <!-- Testing StitchCredit Dev Server - anonymized.postman_collection.json -->
+        <!-- Testing CRS Dev Server - anonymized.postman_collection.json -->
         <pre><code class="language-json json">
         {
           "info": {
             "_postman_id": "650a4205-b5e0-42a5-92da-468aee8160de",
-            "name": "Testing StitchCredit B2B API Dev Server",
+            "name": "Testing CRS B2B API Dev Server",
             "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
           },
           "item": [
@@ -22581,7 +22581,7 @@ tags:
               ]
             },
             {
-              "name": "MCL Credit Reports (MCL credentials are configured for each StitchCredit account)",
+              "name": "MCL Credit Reports (MCL credentials are configured for each CRS account)",
               "item": [
                 {
                   "name": "[Step 1] MCL New Order Request (JSON)",
@@ -25554,19 +25554,19 @@ tags:
 
 - name: Security
   description: |
-        <p>We regularly audit the security details of our implementation, including our certificates. We ensure that consumers and servers interact with StitchCredit APIs over HTTPS.</p>
+        <p>We regularly audit the security details of our implementation, including our certificates. We ensure that consumers and servers interact with CRS APIs over HTTPS.</p>
         <p>Our security token is valid for 15 minutes. With this token, any number of requests can be executed before it expires. In order to stay authenticated, a new token will need to be requested every 15 minutes by resending the “User Login” request.&nbsp;</p>
         <hr>
 
 - name: Users
   description: |
-    StitchCredit management of Users
+    CRS management of Users
 
 ## x-tags: what to show, where
 x-tagGroups:
   - name: Description
     tags:
-      - StitchCredit B2B APIs
+      - CRS B2B APIs
       - B2B reports and verification
       - Quickstart
       - Integration
