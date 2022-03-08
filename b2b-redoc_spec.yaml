@@ -21608,10 +21608,10 @@ tags:
 - name: Quickstart
   x-displayName: Quickstart - pulling a credit report
   description: |
-        <p>CRS APIs support both JSON and XML requests as well as JSON and XML responses. Please refer to the <a href="/tag/Integration">next section</a> for details on integration options.</p>
+        <p>CRS APIs support JSON or XML requests and responses. Please refer to the <a href="/tag/Integration">next section</a> for details on integration options.</p>
         <hr>
         <h2>API Endpoints</h2>
-        <p>Each CRS B2B API endpoint has a different request/response. However, the integration <strong>steps</strong> are the same: authentication than request.</p>
+        <p>Each CRS B2B API endpoint has a different request/response. However, the integration <strong>steps</strong> are the same: authentication then request.</p>
         <p>
         <hr>
         <h2>Quickstart Integration</h2>
@@ -21670,7 +21670,7 @@ tags:
 - name: Integration
   description: |
         <h2>Integration Options</h2>
-        <p>CRS APIs support both JSON and XML requests as well as JSON and XML responses. &nbsp;For details of the API, refer to the endpoints and request/response models in this documentation.</p>
+        <p>CRS APIs support JSON or XML requests and responses. &nbsp;For details of the API, refer to the endpoints and request/response models in this documentation.</p>
         <p>Unfortunately, MCL is excluded from this preview due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please contact us and we can provide you with the necessary integration details.</p>
         <hr>
         <h2>API Endpoints</h2>
@@ -22456,7 +22456,7 @@ tags:
 
 - name: Overview of APIs
   description: |
-        CRS APIs support both JSON and XML requests as well as JSON and XML responses. 
+        CRS APIs support JSON or XML requests and responses. 
         For details of the APIs, refer to the endpoints and request/response models in this section.
         <hr>
 
@@ -25564,18 +25564,18 @@ tags:
 
 ## x-tags: what to show, where
 x-tagGroups:
-  - name: Description
+  - name: Guides
     tags:
+      - Quickstart
       - CRS B2B APIs
       - B2B reports and verification
-      - Quickstart
       - Integration
       - Identity Verification
       - Credit Reports
       - Other Reports
       - Management of Users
       
-  - name: APIs
+  - name: API Reference
     tags:
       - Overview of APIs
       - Equifax
