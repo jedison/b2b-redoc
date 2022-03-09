@@ -1,14 +1,14 @@
 openapi: 3.0.1
 info:
-  title: B2B Documentation
+  title: eCredit Data API
   version: v1
   contact:
     name: API Support
-    email: supportapi@crscreditapi.com
+    email: support@crscreditapi.com
 
   description: |
       <span class="docs-time">Last updated: 2022-03-03</span></h1>
-      <p>This guide is to assist you in integrating the Business Credit API into your environment.</p>
+      <p>This guide is to assist you in integrating the eCredit Data API into your environment.</p>
 
   x-logo:
     url: 'https://gist.githubusercontent.com/jedisonbru/ba7eea5123997e646b51a871e8f06cc2/raw/be5c4e7d28aaa0eea68d96e8c273779c8e0ffa0d/crs_b2b.svg'
@@ -21286,20 +21286,23 @@ components:
 
 tags:
 #DOCUMENTATION ===============================================
-- name: CRS B2B APIs
+- name: eCredit Data API
   description: |
         <h2>Introduction</h2>
-        <p>CRS’s B2B API offering performs credit checks for your company. The B2B API allows you to gain insight into a business’ financial stability, allowing you to make quick and informed business decisions. Get a detailed financial picture of any customer or supplier before you decide to work with them. B2B Credit Checks protect your business from late payments. </p>
+        <p>CRS’s eCredit Data API offering performs credit checks for your company. The eCredit Data API allows you to gain insight into a business’ financial stability, allowing you to make quick and informed business decisions. Get a detailed financial picture of any customer or supplier before you decide to work with them. B2B Credit Checks protect your business from late payments. </p>
         <p>Organization are unique and there are many factors that combine to create an accurate representation of whether an organization will pay in a timely manner. </p>
         <ul>
         <li>
-        Get to know an individual’s or company’s credit scores before you make a decision. 
+        Verify an individual’s or company’s identity.
+        </li>
+        <li>
+        Get to know their credit scores before you make a decision. 
         </li>
         <li>
         Understand their payment behavior.
         </li>
         <li>
-        Perform due diligence checks.
+        Perform due diligence and Know Your Customer (KYC) checks.
         </li>
         <li>
         Avoid financial difficulties due to liabilities not being honored on time. 
@@ -21308,10 +21311,15 @@ tags:
         Confirm a company's regulatory compliance. 
         </li>
         </ul>
-        <p>The B2B APIs allow you to make informed decisions that bring value to your business.</p>
+        <p>The eCredit Data APIs allow you to make informed decisions that bring value to your business.</p>
+        <hr>
+        <h2>What we do</h2>
+        <p>eCredit Data APIs wrap numerous APIs from Experian, Equifax, TransUnion, LexisNexis, CIC and more into a single access point without sacrificing features from any of the vendors. 
+        Continue reading to learn more about the numerous identity verification and credit reporting services you now have access to.</p>
+        <p>Via eCredit Data API, you can send requests and receive responses from our third-party data providers to fulfill your requests.</p>
         <hr>
         <h2>Overview</h2>
-        <p>CRS B2B API Offering: CRS has created a middleware product to connect to existing Credit Reporting APIs, as well as providing monitoring and business intelligence reports. The CRS B2B API hides the complexity of the underlying API requests and responses. In addition, CRS guides you through the compliance requirements to access the APIs with less regulatory nightmares. </p>
+        <p>eCredit Data API abstracts complexity of underlying vendor APIs to get you up and running quickly and easily. In addition, the CRS platform and FCRA resources will guide you through the compliance requirements necessary to access the APIs.</p>
         <ul>
         <li>
         Single Connection to reach all sources
@@ -21327,15 +21335,13 @@ tags:
         </li>
         </ul>
         <p>CRS will help you get up and running more quickly and easily.</p>
-
-- name: B2B reports and verification
-  description: |
-        <h2>What we do</h2>
-        <p>CRS B2B APIs wrap numerous APIs from Experian + Equifax + TransUnion + LexisNexis + CIC + more. It provides a set of CRS APIs for customers to access features from all vendors. It allows access to numerous verification and report services through a single set of APIs. </p>
-        <p>CRS B2B APIs are integrated to request credit verification information from numerous service providers. Via CRS B2B APIs, you send requests to the CRS B2B APIs and receive a response from the third-party verification service that is appropriate for the request. </p>
         <hr>
+
+- name: Reports and verification
+   x-displayName: Types of Reports &amp; Verifications
+  description: |
         <h2>Types of Verification and Reports</h2>
-        <p>CRS B2B APIs support reports and verification for various aspects, such as, but not limited to:</p>
+        <p>eCredit Data APIs support reports and verification for various aspects, such as, but not limited to:</p>
         <ul>
         <li>
         Identity Verification, Validation, and Authentication
@@ -21376,7 +21382,7 @@ tags:
         </ul>
         <hr>
         <h2>Verification and Report Sources</h2>
-        <p>CRS B2B APIs support reports and verification by:</p>
+        <p>eCredit Data APIs support reports and verification by:</p>
         <ul>
         <li>
         LexisNexis Instant ID both Consumer and Business
@@ -21608,15 +21614,15 @@ tags:
 - name: Quickstart
   x-displayName: Quickstart - pulling a credit report
   description: |
-        <p>CRS APIs support JSON or XML requests and responses. Please refer to the <a href="/tag/Integration">next section</a> for details on integration options.</p>
+        <p>CRS APIs support JSON or XML requests and responses. Please refer to the <a href="/tag/Integration">Integration section</a> for details on integration options.</p>
         <hr>
-        <h2>API Endpoints</h2>
-        <p>Each CRS B2B API endpoint has a different request/response. However, the integration <strong>steps</strong> are the same: authentication then request.</p>
+        <h2>Integration steps</h2>
+        <p>Each eCredit Data API endpoint has a different request/response. However, the integration <strong>steps</strong> are the same: authentication then request.</p>
         <p>
         <hr>
         <h2>Quickstart Integration</h2>
-        <p>First, the authenticate and obtain and bearer token. Then call the appropriate API to request the product: report or verification.</p>
-        <p>For more details, please refer to the <a href="/tag/Integration">next section</a>.
+        <p>First, authenticate and obtain bearer token. Then, call the appropriate API to request the product: report or verification.</p>
+        <p>For more details, please refer to the <a href="/tag/Integration">Integration section</a>.
         <h3>Step 1: Authentication</h3>
         <p>Authentication returns a Bearer token that can be used for any number of subsequent requests for 15 minutes at which point the token expires, and a new token must be retrieved by sending an Authentication request again.</p>
         <h3>Step 2: Save the Authentication Token</h3>
@@ -21634,18 +21640,14 @@ tags:
         </li>
         </ul>
         <hr>
-
         <h2>Quickstart APIs</h2>
-
         <h3>Step 1: Authentication</h3>
         <p>The User Login request (/users/login) is described in the documentation <a href="/tag/User#operation/login">here</a>.</p>
         <p>An example of how to call this endpoint is given in the <a href="/tag/Postman-Collection">Postman Collection</a>.</p>
-
         <h3>Step 2: Save the Authentication Token</h3>
         <p>The bearer token that is returned from the User Login request should be saved as it will be needed to make subsequent API calls.</p>
         <p>As mentioned above, the bearer token is valid for 15 minutes. To obtain a new bearer token, call the User Login API again.</p>
         <p>The Postman Collection is configured to save the bearer token that is returned from the User Login API so that it is easier for you to test.</p>
-
         <h3>Step 3: Request Credit Report</h3>
         <p>Next, call the API to request the corresponding Credit Report, either in JSON or PDF.</p>
         <ul>
@@ -21671,10 +21673,8 @@ tags:
   description: |
         <h2>Integration Options</h2>
         <p>CRS APIs support JSON or XML requests and responses. &nbsp;For details of the API, refer to the endpoints and request/response models in this documentation.</p>
-        <p>Unfortunately, MCL is excluded from this preview due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please contact us and we can provide you with the necessary integration details.</p>
-        <hr>
-        <h2>API Endpoints</h2>
-        <p>Each CRS B2B API endpoint has a different request/response. However, the integration steps are the same: authentication than request the product.</p>
+        <p>Unfortunately, MCL is excluded from this preview due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please <a href="mailto:support@crscreditapi.com">contact us</a> and we can provide you with the necessary integration details.</p>
+        <p>Each eCredit Data API endpoint has a different request/response. However, the integration steps are the same: authentication than request the product.</p>
         <p>
         <hr>
         <h2>Developer Tools</h2>
@@ -21683,9 +21683,10 @@ tags:
         <h3>Postman Collection</h3>
         <p>The Postman Environment is pre-configured to allow you to use the scripts and walk through the Postman Scripts with minimal intervention to aid in understanding the API call structure.</p>
         The Postman Collection includes pre-defined API calls to help you understand and develop your solution.
-        You can find the <a href="/tag/Postman-Collection">Postman Collection for CRS B2B APIs.</a> later in this documentation</p>
+        You can find the <a href="/tag/Postman-Collection">Postman Collection for eCredit Data APIs.</a> later in this documentation</p>
         <h3>Sandbox</h3>
-        <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the CRS B2B APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
+        <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the eCredit Data APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
+        <p>Please <a href="mailto:support@crscreditapi.com">contact us</a> so that we can provide you with access to the Sandbox.</p>
         <hr>
         <h2>Integration Authentication</h2>
         <p>Integration is straight-forward. First, the authenticate and obtain and bearer token. Then call the appropriate API to request the product: report or verification.</p>
@@ -21695,17 +21696,17 @@ tags:
         <p>The “User Login” request ( /users/login ) returns a token that is required for authenticating all other requests (bearer authentication).&nbsp;</p>
         <p>As mentioned, this token is valid for 15 minutes. With this token, any number of requests can be executed before it expires. In order to stay authenticated a new token will need to be requested every 15 minutes by resending the “User Login” request.&nbsp;</p>
         <h3>Step 2: Request Products</h3>
-        <p>CRS B2B API supports reports and verification through various API endpoints. Those endpoint are described below. </p>
+        <p>eCredit Data API supports reports and verification through various API endpoints. Those endpoint are described below. </p>
         <p>Each API endpoint has a different request/response. However, the integration steps are the same: authentication and then request the product through the specific API endpoint.</p>
         <hr>
         <h2>Integration to reports and verification</h2>
-        <p>Different report and verification products can be requested via the CRS B2B API.</p>
+        <p>Different report and verification products can be requested via the eCredit Data API.</p>
         <hr>
         <h2>Integration methods</h2>
-        <p>This documentation contains details of all CRS B2B APIs.</p>
+        <p>This documentation contains details of all eCredit Data APIs.</p>
         <p><a href="https://mware-dev.crscreditapi.com/api/swagger-ui/index.html?configUrl=/api/mware-docs/swagger-config#/" target="_blank">Swagger documentation</a> is also available.</p>
         <h3>APIs not included in Swagger documentation</h3>
-        <p>Unfortunately, MCL SmartAPI is excluded from the Swagger documentation due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please contact us and we can provide you with the necessary integration details. </p>
+        <p>Unfortunately, MCL SmartAPI is excluded from the Swagger documentation due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please <a href="mailto:support@crscreditapi.com">contact us</a> and we can provide you with the necessary integration details. </p>
         <p>Requests sent to the CRS middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
         <u>https://mware-dev.crscreditapi.com/api/mcl/request</u></a>, will return data from MCL.</p>
         <p>This endpoint can be used to interact with MCL’s SmartAPI to retrieve MCL products using JSON (for both requests and responses).&nbsp;If you would rather receive XML, then we can provide credentials that can be used to connect directly to MCL’s SmartAPI (not going through CRS API) for XML responses.</p>
@@ -21717,7 +21718,7 @@ tags:
 
 - name: Identity Verification
   description: |
-        <p>Currently the Identity Verification options from CRS B2B API are TransUnion, LexisNexis and Experian.</p>
+        <p>Currently the Identity Verification options from eCredit Data API are provided through TransUnion, LexisNexis and Experian.</p>
         <h2>TransUnion id-search</h2>
         <ul>
         <li>
@@ -21777,7 +21778,7 @@ tags:
         <p>Returns a user's name and address based on a US telephone number.&nbsp; This returned information can be used to feed the input to PreciseID.</p>
         <p>This request attempts to match the provided phone number to return the associated name and address. This endpoint uses live data, so please be judicious.</p>
         <!-- TODO: What are these for? What do they do? -->
-        <h3>Details of these APIs are not currently available</h3>
+        <h3>Details of these APIs are coming soon</h3>
         <h4>raw</h4>
         <ul>
         <li>
@@ -22395,7 +22396,7 @@ tags:
         </li>
         </ul>
         <hr>
-        <h2>NOT CURRENTLY SUPPORTED: Experian Liens &amp; Judgements</h2>
+        <h2>COMING SOON: Experian Liens &amp; Judgements</h2>
         <h3>ljs: Liens and Judgements Search</h3>
         <ul>
         <li>
@@ -22419,7 +22420,7 @@ tags:
         
 - name: Management of Users
   description: |
-        <p>CRS B2B APIs provides endpoints for the management of users.</p>
+        <p>eCredit Data APIs provides endpoints for the management of users.</p>
         <!-- TODO: Additional details needed -->
         <ul>
         <li>
@@ -22492,17 +22493,17 @@ tags:
   description: |
         REST API for MWARE users
 
-- name: Overview of APIs Under Development
+- name: Overview of APIs Coming Soon
   description: |
         These APIs are currently <em><strong>under development</strong></em> by CRS. You can expect that they will be available soon. If the functionality that is described interests you, please let us know and we can discuss its availability.
         <hr>
 
 - name: Sandbox
   description: |
-        <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the CRS B2B APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
+        <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the eCredit Data APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
         <p>Sandbox API information has been provided to you as a Postman Collection.</p>
         <h2>Usage</h2>
-        <p><a href="/tag/Postman-Collection">Postman Collections</a> for CRS B2B APIs include pre-defined API calls to help you understand and develop your solution. </p>
+        <p><a href="/tag/Postman-Collection">Postman Collections</a> for eCredit Data APIs include pre-defined API calls to help you understand and develop your solution. </p>
         <p>To quickly grasp the flow and sequence of API calls, download and import the Postman Collections the Postman environment we provided to you.</p>
         <hr>
         <h2>Credentials</h2>
@@ -22527,7 +22528,7 @@ tags:
         <span class="hljs-punctuation">{</span>
           <span class="hljs-attr">"info"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
             <span class="hljs-attr">"_postman_id"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"650a4205-b5e0-42a5-92da-468aee8160de"</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Testing CRS B2B API Dev Server"</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Testing eCredit Data API Dev Server"</span><span class="hljs-punctuation">,</span>
             <span class="hljs-attr">"schema"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://schema.getpostman.com/json/collection/v2.1.0/collection.json"</span>
           <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
           <span class="hljs-attr">"item"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
@@ -25553,7 +25554,7 @@ tags:
         {
           "info": {
             "_postman_id": "650a4205-b5e0-42a5-92da-468aee8160de",
-            "name": "Testing CRS B2B API Dev Server",
+            "name": "Testing eCredit Data API Dev Server",
             "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
           },
           "item": [
@@ -28593,13 +28594,13 @@ x-tagGroups:
   - name: Guides
     tags:
       - Quickstart
-      - CRS B2B APIs
-      - B2B reports and verification
+      - eCredit Data APIs
+      - Reports and verification
       - Integration
       - Identity Verification
       - Credit Reports
       - Other Reports
-      - Management of Users
+      - User Management
       
   - name: API Reference
     tags:
