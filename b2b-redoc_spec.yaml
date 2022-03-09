@@ -21314,7 +21314,7 @@ tags:
         <p>The eCredit Data APIs allow you to make informed decisions that bring value to your business.</p>
         <hr>
         <h2>What we do</h2>
-        <p>eCredit Data APIs wrap numerous APIs from Experian, Equifax, TransUnion, LexisNexis, CIC and more into a single access point without sacrificing features from any of the vendors. 
+        <p>eCredit Data API wraps numerous APIs from Experian, Equifax, TransUnion, LexisNexis, CIC and more into a single access point without sacrificing features from any of the vendors. 
         Continue reading to learn more about the numerous identity verification and credit reporting services you now have access to.</p>
         <p>Via eCredit Data API, you can send requests and receive responses from our third-party data providers to fulfill your requests.</p>
         <hr>
@@ -21338,7 +21338,7 @@ tags:
         <hr>
 
 - name: Reports and verification
-  x-displayName: Types of Reports &amp; Verifications
+  x-displayName: Types of Reports & Verifications
   description: |
         <h2>Types of Verification and Reports</h2>
         <p>eCredit Data APIs support reports and verification for various aspects, such as, but not limited to:</p>
@@ -21422,7 +21422,7 @@ tags:
         LexisNexis InstantID data and report which identity verification and risk assessment with regards to fraud and identity theft.
         </li>
         <li>
-        Experian CrossCore2 (CC2) Precise ID’s Knowledge IQ (KIQ) knowledge-based authentication products where an applicant must answer a series of questions, Reverse Phone Append (rpa), and One-Time Passcode (OTP)
+        Experian CrossCore2 (CC2) Precise ID’s Knowledge IQ (KIQ) knowledge-based authentication products where an applicant must answer a series of questions, Reverse Phone Append (RPA), and One-Time Passcode (OTP)
         </li>
         <li>
         TransUnion ID Search
@@ -21612,9 +21612,9 @@ tags:
         </ul>
 
 - name: Quickstart
-  x-displayName: Quickstart - pulling a credit report
+  x-displayName: Quickstart - Pulling a Report
   description: |
-        <p>CRS APIs support JSON or XML requests and responses. Please refer to the <a href="/tag/Integration">Integration section</a> for details on integration options.</p>
+        <p>eCredit Data API support JSON or XML requests and responses. Please refer to the <a href="/tag/Integration">Integration section</a> for details on integration options.</p>
         <hr>
         <h2>Integration steps</h2>
         <p>Each eCredit Data API endpoint has a different request/response. However, the integration <strong>steps</strong> are the same: authentication then request.</p>
@@ -21628,15 +21628,15 @@ tags:
         <h3>Step 2: Save the Authentication Token</h3>
         <p>The “User Login” request ( /users/login ) returns a token that is required for authenticating all other requests (bearer authentication). </p>
         <p>Save this bearer authentication token for subsequent requests.</p>
-        <p>With this token, any number of requests can be executed before it expires. In order to stay authenticated a new token will need to be requested every 15 minutes by resending the “User Login” request.&nbsp;</p>
+        <p>With this token, any number of requests can be executed before it expires. In order to stay authenticated a new token will need to be requested every 15 minutes by resending the “User Login” request.</p>
         <h3>Step 3: Request Credit Report</h3>
         <p>In this Quickstart example, we will show how to pull a Credit Report from Equifax - either as a JSON response or PDF.</p>
         <ul>
         <li>
-        <em>/equifax/credit-report</em>: Returns a JSON credit report for the borrower’s identity provided in the request body&nbsp;
+        <em>/equifax/credit-report</em>: Returns a JSON credit report for the borrower’s identity provided in the request body
         </li>
         <li>
-        <em>/equifax/pdf-credit-report</em>: Requests a PDF credit report for the borrower’s identity provided in the request body&nbsp;</em>
+        <em>/equifax/pdf-credit-report</em>: Requests a PDF credit report for the borrower’s identity provided in the request body</em>
         </li>
         </ul>
         <hr>
@@ -21672,29 +21672,18 @@ tags:
 - name: Integration
   description: |
         <h2>Integration Options</h2>
-        <p>CRS APIs support JSON or XML requests and responses. &nbsp;For details of the API, refer to the endpoints and request/response models in this documentation.</p>
-        <p>Unfortunately, MCL is excluded from this preview due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please <a href="mailto:support@crscreditapi.com">contact us</a> and we can provide you with the necessary integration details.</p>
+        <p>eCredit Data API support JSON or XML requests and responses. For details of the API, refer to the endpoints and request/response models in this documentation.</p>
+        <p>Unfortunately, MCL is excluded from this preview due to structural issues created by their models. If you would like to access the MCL APIs for particular requests, please <a href="mailto:support@crscreditapi.com">contact us</a> and we can provide you with the necessary integration details.</p>
         <p>Each eCredit Data API endpoint has a different request/response. However, the integration steps are the same: authentication than request the product.</p>
         <p>
-        <hr>
-        <h2>Developer Tools</h2>
-        <h3>Swagger Documentation</h3>
-        <p><a href="https://mware-dev.crscreditapi.com/api/swagger-ui/index.html?configUrl=/api/mware-docs/swagger-config#/" target="_blank">Swagger documentation</a> is available, but you will find <a href="/tag/Overview-of-APIs">descriptions of all APIs</a> within this document.</p>
-        <h3>Postman Collection</h3>
-        <p>The Postman Environment is pre-configured to allow you to use the scripts and walk through the Postman Scripts with minimal intervention to aid in understanding the API call structure.</p>
-        The Postman Collection includes pre-defined API calls to help you understand and develop your solution.
-        You can find the <a href="/tag/Postman-Collection">Postman Collection for eCredit Data APIs.</a> later in this documentation</p>
-        <h3>Sandbox</h3>
-        <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the eCredit Data APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
-        <p>Please <a href="mailto:support@crscreditapi.com">contact us</a> so that we can provide you with access to the Sandbox.</p>
         <hr>
         <h2>Integration Authentication</h2>
         <p>Integration is straight-forward. First, the authenticate and obtain and bearer token. Then call the appropriate API to request the product: report or verification.</p>
         <h3>Step 1: Authentication</h3>
         <p>Authentication returns a Bearer token that can be used for any number of subsequent requests for 15 minutes at which point the token expires, and a new token must be retrieved by sending an Authentication request again.</p>
         <p>The <a href="/tag/Postman-Collection">postman test script</a> for this request saves this token as a collection variable that is being used as a bearer authorization header for the other postman requests.</p>
-        <p>The “User Login” request ( /users/login ) returns a token that is required for authenticating all other requests (bearer authentication).&nbsp;</p>
-        <p>As mentioned, this token is valid for 15 minutes. With this token, any number of requests can be executed before it expires. In order to stay authenticated a new token will need to be requested every 15 minutes by resending the “User Login” request.&nbsp;</p>
+        <p>The “User Login” request ( /users/login ) returns a token that is required for authenticating all other requests (bearer authentication).</p>
+        <p>As mentioned, this token is valid for 15 minutes. With this token, any number of requests can be executed before it expires. In order to stay authenticated a new token will need to be requested every 15 minutes by resending the “User Login” request.</p>
         <h3>Step 2: Request Products</h3>
         <p>eCredit Data API supports reports and verification through various API endpoints. Those endpoint are described below. </p>
         <p>Each API endpoint has a different request/response. However, the integration steps are the same: authentication and then request the product through the specific API endpoint.</p>
@@ -21706,28 +21695,41 @@ tags:
         <p>This documentation contains details of all eCredit Data APIs.</p>
         <p><a href="https://mware-dev.crscreditapi.com/api/swagger-ui/index.html?configUrl=/api/mware-docs/swagger-config#/" target="_blank">Swagger documentation</a> is also available.</p>
         <h3>APIs not included in Swagger documentation</h3>
-        <p>Unfortunately, MCL SmartAPI is excluded from the Swagger documentation due to structural issues created by their models.&nbsp;If you would like to access the MCL APIs for particular requests, please <a href="mailto:support@crscreditapi.com">contact us</a> and we can provide you with the necessary integration details. </p>
+        <p>Unfortunately, MCL SmartAPI is excluded from the Swagger documentation due to structural issues created by their models.</p>
+        <p>If you would like to access the MCL APIs for particular requests, please <a href="mailto:support@crscreditapi.com">contact us</a> and we can provide you with the necessary integration details. </p>
         <p>Requests sent to the CRS middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
         <u>https://mware-dev.crscreditapi.com/api/mcl/request</u></a>, will return data from MCL.</p>
-        <p>This endpoint can be used to interact with MCL’s SmartAPI to retrieve MCL products using JSON (for both requests and responses).&nbsp;If you would rather receive XML, then we can provide credentials that can be used to connect directly to MCL’s SmartAPI (not going through CRS API) for XML responses.</p>
+        <p>This endpoint can be used to interact with MCL’s SmartAPI to retrieve MCL products using JSON (for both requests and responses). If you would rather receive XML, then we can provide credentials that can be used to connect directly to MCL’s SmartAPI (not going through eCredit Data API) for XML responses.</p>
         <p>The MCL SmartAPI documentation can be referenced for basic guidance from <a href="https://docsend.com/view/s/rjsnmxftw59isyiv">SmartAPI documentation</a>. </p>
-        <p>These same principles apply for a JSON-based connection via CRS’s Middleware.&nbsp; </p>
+        <p>These same principles apply for a JSON-based connection via CRS’s Middleware. </p>
         <p>
         </p>
         <hr>
 
+- name: Developer Tools
+  description: |
+        <h2>Swagger Documentation</h2>
+        <p><a href="https://mware-dev.crscreditapi.com/api/swagger-ui/index.html?configUrl=/api/mware-docs/swagger-config#/" target="_blank">Swagger documentation</a> is available, but you will find <a href="/tag/Overview-of-APIs">descriptions of all APIs</a> within this document.</p>
+        <hr>
+        <h2>Postman Collection</h2>
+        <p>The Postman Environment is pre-configured to allow you to use the scripts and walk through the Postman Scripts with minimal intervention to aid in understanding the API call structure.</p>
+        The Postman Collection includes pre-defined API calls to help you understand and develop your solution.
+        You can find the <a href="/tag/Postman-Collection">Postman Collection for eCredit Data APIs</a> later in this documentation</p>
+        <hr>
+        <h2>Sandbox</h2>
+        <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the eCredit Data APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
+        <p>Please <a href="mailto:support@crscreditapi.com">contact us</a> so that we can provide you with access to the Sandbox.</p>
+        <hr>
+
 - name: Identity Verification
   description: |
-        <p>Currently the Identity Verification options from eCredit Data API are provided through TransUnion, LexisNexis and Experian.</p>
+        <p>Currently the Identity Verification options from eCredit Data API are provided through TransUnion, Experian, and LexisNexis.</p>
         <h2>TransUnion id-search</h2>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/transunion/id-search">https://mware-dev.crscreditapi.com/api/transunion/id-search</a>
-        </li>
-        <li>
+        <strong>URL: </strong> <a href="https://mware-dev.crscreditapi.com/api/transunion/id-search">https://mware-dev.crscreditapi.com/api/transunion/id-search</a><br>
+        <p>
         ID Search is a specialized search based on input name and Social Security number. Input address information is optional. ID Search delivers name and address for up to eight subjects. Additionally, ID Search selects the subject that best matches the input data. ID Search also returns ID Mismatch Alert, TruValidate Fraud Alerts, and Phone Append (if the subscriber is authorized for these services). ID Search can return an FFR or a print image
-        </li>
-        </ul>
+        </p>
+        <br>
         <hr>
         <h2>Experian CrossCore2 Precise ID</h2>
         <p>This product has multiple pieces that can be used individually depending on your requirements.</p>
@@ -21739,95 +21741,57 @@ tags:
         Knowledge IQ (KIQ) knowledge-based authentication products where an applicant must answer a series of questions, 
         </li>
         <li>
-        Reverse Phone Append (rpa)
+        Reverse Phone Append (RPA)
         </li>
         </ol>
         <h3>Initial Request</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/initial">https://mware-dev.crscreditapi.com/api/experian/cc2/initial</a>
-        </li>
-        </ul>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/experian/cc2/initial">https://mware-dev.crscreditapi.com/api/experian/cc2/initial</a><br>
         <p>First send the “Initial" request.</p>
-        <p>OTP has a higher success rate, and should be the default flow unless the phone number provided in the "Initial" request can't be verified. If the phone number cannot be verified, the "Initial" response will contain four multiple choice KIQ questions in the "kba" object.&nbsp;</p>
-        <h3>KIQ Request</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/kiq">https://mware-dev.crscreditapi.com/api/experian/cc2/kiq</a>
-        </li>
-        </ul>
-        <p>The questions have 5 answer choices numbers from 1 to 5 (not 0-4 as you might expect).&nbsp;Insert the answers to the questions into the request body of the "Final - KIQ" request. There is a limited amount of time to submit KIQ answers. The available time to complete the questions varies, but it is typically less than 10 minutes. </p>
+        <p>OTP has a high success rate, and should be the default flow unless the phone number provided in the "Initial" request can't be verified. If the phone number cannot be verified, the "Initial" response will contain four multiple choice KIQ questions in the "kba" object.</p>
         <h3>One Time Passcode (OTP)</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/otp">https://mware-dev.crscreditapi.com/api/experian/cc2/otp</a>
-        </li>
-        </ul>
+        <strong>URL: </strong> <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/otp">https://mware-dev.crscreditapi.com/api/experian/cc2/otp</a><br>
         <p>Provide the Session ID and the One-Time-Passcode (OTP)</p>
-        <p>An SMS code is sent to the consumer for them to submit.&nbsp;</p>
-        <p>The Initial PreciseID query results will determine the next step, be it Knowledge IQ (KIQ) or One-Time Passcode (OTP).&nbsp; If the data provided is insufficient to identify an individual and/or generate questions, you will get a final response on this “initial” query.&nbsp; If the data provided is insufficient, you will get many results that you need to "manually" select from.&nbsp;&nbsp;</p>
-        <p>More information equals higher quality results.&nbsp; It is better to add date of birth and/or full or partial Social Security Number (SSN) if multiple results are being returned frequently.&nbsp; </p>
+        <p>An SMS code is sent to the consumer for them to submit.</p>
+        <p>The Initial PreciseID query results will determine the next step, be it Knowledge IQ (KIQ) or One-Time Passcode (OTP).  If the data provided is insufficient to identify an individual and/or generate questions, you will get a final response on this “initial” query. If the data provided is insufficient, you will get many results that you need to "manually" select from.</p>
+        <p>More information equals higher quality results. It is better to add date of birth and/or full or partial Social Security Number (SSN) if multiple results are being returned frequently. </p>
         <p>**OTP ONLY - There will be a query telling PreciseID to send/resend the SMS code.</p>
-        <p>The next query will be a submission of KIQ or OTP. If the results are sufficient, the final response will be returned.&nbsp;If the KIQ results are insufficient, you may be given additional questions to submit again, as well as OTP in the case of an incorrect code.&nbsp;Typically if too many questions are incorrectly answered a “fail” is immediately returned.&nbsp; Missing all the questions is indicative of an issue.&nbsp;For user integrity and integrity of the identity process, questions and answers shouldn't be retained.</p>
-        <h3>Reverse Phone Append (RPA)&nbsp;</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/rpa">https://mware-dev.crscreditapi.com/api/experian/rpa</a>
-        </li>
-        </ul>
-        <p>Returns a user's name and address based on a US telephone number.&nbsp; This returned information can be used to feed the input to PreciseID.</p>
+        <p>The next query will be a submission of KIQ or OTP. If the results are sufficient, the final response will be returned. If the KIQ results are insufficient, you may be given additional questions to submit again, as well as OTP in the case of an incorrect code. Typically if too many questions are incorrectly answered a “fail” is immediately returned. Missing all the questions is indicative of an issue. For user integrity and integrity of the identity process, questions and answers shouldn't be retained.</p>
+        <h3>KIQ Request</h3>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/experian/cc2/kiq">https://mware-dev.crscreditapi.com/api/experian/cc2/kiq</a><br>
+        <p>The questions have 5 answer choices numbers from 1 to 5 (not 0-4 as you might expect). Insert the answers to the questions into the request body of the "Final - KIQ" request. There is a limited amount of time to submit KIQ answers. The available time to complete the questions varies, but it is typically less than 10 minutes. </p>
+        <h3>Reverse Phone Append (RPA)</h3>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/experian/rpa">https://mware-dev.crscreditapi.com/api/experian/rpa</a><br>
+        <p>Returns a user's name and address based on a US telephone number. This returned information can be used to feed the input to PreciseID.</p>
         <p>This request attempts to match the provided phone number to return the associated name and address. This endpoint uses live data, so please be judicious.</p>
         <!-- TODO: What are these for? What do they do? -->
         <h3>Details of these APIs are coming soon</h3>
         <h4>raw</h4>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/raw">https://mware-dev.crscreditapi.com/api/experian/cc2/raw</a>
-        </li>
-        </ul>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/experian/cc2/raw">https://mware-dev.crscreditapi.com/api/experian/cc2/raw</a><br>
         <h4>Screening</h4>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/cc2/screening">https://mware-dev.crscreditapi.com/api/experian/cc2/screening</a>
-        </li>
-        </ul>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/experian/cc2/screening">https://mware-dev.crscreditapi.com/api/experian/cc2/screening</a><br>
         <hr>
         <h2>LexisNexis</h2>
         <ul>
         <li>
-        Includes endpoints for Consumer Instant ID and Business Instant ID
+        Includes endpoints for Business Instant ID and Consumer Instant ID
         </li>
         </ul>
         <h3>Business Instant ID (BIID)</h3>
-        <ul>
-        <li>
-        The VFPS Business Instant ID endpoints, <em>/vfps/biid2 </em>and<em> /vfps/biid2/pdf, </em>do not currently have a test case. 
-        </li>
-        <li>
-        <strong>URL:</strong> <a href="https://mware-dev.crscreditapi.com/api/vfps/biid2">https://mware-dev.crscreditapi.com/api/vfps/biid2</a>
-        </li>
-        <li>
-        Executes a Business Instant ID2 verification on the provided business and associated subjects
-        </li>
-        <li>
-        <strong>URL: </strong>
-        <a href="https://mware-dev.crscreditapi.com/api/vfps/biid2/pdf">https://mware-dev.crscreditapi.com/api/vfps/biid2/pdf</a>
-        </li>
-        <li>
-        Executes a Business Instant ID2 verification on the provided business and associated subjects
-        </li>
-        </ul>
+        <p>BIID executes a Business Instant ID2 verification on the provided business and associated subjects.</p>
+        <p>The VFPS Business Instant ID endpoints, <em>/vfps/biid2 </em>and<em> /vfps/biid2/pdf, </em>do not currently have a test case.</p>
+        <strong>URL:</strong><a href="https://mware-dev.crscreditapi.com/api/vfps/biid2">https://mware-dev.crscreditapi.com/api/vfps/biid2</a> for reports in JSON<br>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/vfps/biid2/pdf">https://mware-dev.crscreditapi.com/api/vfps/biid2/pdf</a> for reports in PDF format<br>
         <h3>Instant ID (IID)</h3>
         <p>The CRS middleware has the endpoint, <a href="https://mware-dev.crscreditapi.com/iid/new-request">
         <u>https://mware-dev.crscreditapi.com/iid/new-request</u>
         </a>, for retrieving instantID reports as JSON. </p>
-        <p>The InstantID results consist of the following numeric output components:&nbsp;</p>
+        <p>The InstantID results consist of the following numeric output components:</p>
         <ul>
         <li>
-        NAS (name, address, and SSN) index,&nbsp;
+        NAS (name, address, and SSN) index,
         </li>
         <li>
-        NAP (name, address, and phone number) index,&nbsp;
+        NAP (name, address, and phone number) index,
         </li>
         <li>
         CVI (comprehensive verification index).
@@ -21837,10 +21801,10 @@ tags:
         <p>
         </p>
         <h4>NAS &amp; NAP Index value</h4>
-        <p>The InstantID NAS index value is a numeric value that ranges from 0 to 12 and explicitly reports which of the following input identity elements were verified with an identity that is on record at LexisNexis: first name, last name, residential address, and SSN.&nbsp;An NAS index value of 12 indicates that all four elements were verified to an identity on record.&nbsp;An NAS index value of 0 indicates that none of the four elements were verified according to an identity on record.&nbsp;NAS reporting sources contributing to LexisNexis’s records include national credit bureau header records, utility source records, and public records.&nbsp;</p>
-        <p>The InstantID NAP index value is also a numeric value that ranges from 0 to 12 and explicitly indicates the level of the match of the submitted name, address, and phone number. Reporting sources contributing to LexisNexis’s records include phone directory and utility records, and can also include contributed inquiry records from the LexisNexis Fraud Defense Network Event Activity data.&nbsp;Note that the NAP index provides very timely updates to name and address verification. While a phone number is also reported as a component of the NAP index, a phone number is not required to verify name and address through these sources. </p>
+        <p>The InstantID NAS index value is a numeric value that ranges from 0 to 12 and explicitly reports which of the following input identity elements were verified with an identity that is on record at LexisNexis: first name, last name, residential address, and SSN. An NAS index value of 12 indicates that all four elements were verified to an identity on record. An NAS index value of 0 indicates that none of the four elements were verified according to an identity on record. NAS reporting sources contributing to LexisNexis’s records include national credit bureau header records, utility source records, and public records.</p>
+        <p>The InstantID NAP index value is also a numeric value that ranges from 0 to 12 and explicitly indicates the level of the match of the submitted name, address, and phone number. Reporting sources contributing to LexisNexis’s records include phone directory and utility records, and can also include contributed inquiry records from the LexisNexis Fraud Defense Network Event Activity data. Note that the NAP index provides very timely updates to name and address verification. While a phone number is also reported as a component of the NAP index, a phone number is not required to verify name and address through these sources. </p>
         <p>NAS uses name, address, and Social Security Number (SSN), while NAP uses name, address and Phone number.</p>
-        <p>The NAS and NAP indices are constructed to return the highest value that can be obtained when attempting to match the input <em>name, address, </em>and<em> SSN</em> (NAS) or Phone Number (NAP) to the identities that are on record.&nbsp;</p>
+        <p>The NAS and NAP indices are constructed to return the highest value that can be obtained when attempting to match the input <em>name, address, </em>and<em> SSN</em> (NAS) or Phone Number (NAP) to the identities that are on record.</p>
         <p>For example, </p>
         <ul>
         <li>
@@ -21855,7 +21819,7 @@ tags:
         </ul>
         <p>
         </p>
-        <p>Meaning of InstantID NAS and NAP index values from 0 to 12:&nbsp;</p>
+        <p>Meaning of InstantID NAS and NAP index values from 0 to 12:</p>
         <table data-number-column="false" data-layout="default" data-autosize="false" data-table-local-id="628849a9-be85-43d3-b21f-acfdab3f65e2">
         <colgroup>
         <col style="width: 116px;">
@@ -21982,204 +21946,110 @@ tags:
         </table>
         <h4>Comprehensive Verification Index (CVI)</h4>
         <p>There are no other embedded risk models. The NAP, NAS, and CVI results are calculated using explicitly documented, rule-based logic, and do not rely on predictive algorithms. InstantID was developed in 2002. An enhanced version of InstantID was released in 2014 that allowed policy modifications to the logic that calculated the CVI. These parameter-based modifications gave the option to increment the CVI values of 10, 20 or 30 by 10 points if the input DOB or the input driver license were matched and verified to identity data on record at LexisNexis. CVI values can only increment by 10 points if the returned value has not been capped or overridden to the value by a high risk condition.</p>
-        <p>A typical financial institution will consider a CVI value of 40 or 50 to be well verified. For this broad sample, 90.9 percent of the applications received a well-verified CVI value of 40 or 50. Most financial institutions consider a CVI value of 40 or higher to be electronically verified and require no additional documentation or authentication.&nbsp;</p>
+        <p>A typical financial institution will consider a CVI value of 40 or 50 to be well verified. For this broad sample, 90.9 percent of the applications received a well-verified CVI value of 40 or 50. Most financial institutions consider a CVI value of 40 or higher to be electronically verified and require no additional documentation or authentication.</p>
         <p>
         </p>
 
 - name: Credit Reports
   description: |
-        <p>Credit Reports from Equifax, Experian, or TransUnion can be requested.</p>
+        <p>Credit Reports from Equifax, TransUnion, or Experian can be requested.</p>
         <h2>Equifax Credit Reports</h2>
-        <ul>
-        <li>
-        <em>URL: </em>
-        <a href="https://mware-dev.crscreditapi.com/api/equifax/credit-report">
-        <em>https://mware-dev.crscreditapi.com/api/equifax/credit-report</em>
-        </a>
-        </li>
-        <li>
-        <em>URL: </em>
-        <a href="https://mware-dev.crscreditapi.com/api/equifax/pdf-credit-report">
-        <em>https://mware-dev.crscreditapi.com/api/equifax/pdf-credit-report</em>
-        </a>
-        </li>
-        <li>
-        <em>/equifax/credit-report</em>&nbsp;</p>
-        <ul>
-        <li>
-        Returns a JSON credit report for the borrower’s identity provided in the request body&nbsp;
-        </li>
-        </ul>
-        </li>
-        <li>
-        <em>/equifax/pdf-credit-report</em>
-        </p>
-        <ul>
-        <li>
-        <em>Returns a PDF credit report for the borrower’s identity provided in the request body&nbsp;</em>
-        </li>
-        </ul>
-        </li>
-        </ul>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/equifax/credit-report">https://mware-dev.crscreditapi.com/api/equifax/credit-report</a><br>
         <p>
+        This endpoint returns a JSON credit report for the borrower’s identity provided in the request body<br>
+        </p>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/equifax/pdf-credit-report">https://mware-dev.crscreditapi.com/api/equifax/pdf-credit-report</a><br>
+        <p>
+        This endpoint returns a PDF credit report for the borrower’s identity provided in the request body<br>
         </p>
         <hr>
         <h2>TransUnion Credit Reports</h2>
-        <ul>
-        <li>
-        Only available in the testing environment currently.
-        </li>
-        </ul>
+        <p>Coming soon to Production.</p>
         <h3>model-report</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/transunion/model-report">https://mware-dev.crscreditapi.com/api/transunion/model-report</a>
-        </li>
-        <li>
-        The Model Report is designed for use by subscribers who do not want the detail supplied by the Credit Report and are primarily interested in summary information that helps to automate their decision-making process. Additionally, the Model Report allows the subscriber to define customized messages that are returned on the report. These customized messages are associated with specific thresholds based on the results of one or two models.
-        </li>
-        </ul>
-        <h3>credit-report</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/transunion/credit-report">https://mware-dev.crscreditapi.com/api/transunion/credit-report</a>
-        </li>
-        <li>
-        The Credit Report is a compilation of data on an individual that is helpful in making decisions in many types of consumer transactions. The Credit Report contains various data about the consumer, including indicative information (name, addresses, date of birth, and Social Security number), employment information, and the consumer’s credit history. This information is obtained from credit grantors, public records, collection agencies, and employers.
-        </li>
-        </ul>
+        <strong>URL: </strong> <a href="https://mware-dev.crscreditapi.com/api/transunion/model-report">https://mware-dev.crscreditapi.com/api/transunion/model-report</a><br>
         <p>
+        The Model Report is designed for use by subscribers who do not want the detail supplied by the Credit Report and are primarily interested in summary information that helps to automate their decision-making process. Additionally, the Model Report allows the subscriber to define customized messages that are returned on the report. These customized messages are associated with specific thresholds based on the results of one or two models.
+        </p>
+        <h3>credit-report</h3>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/transunion/credit-report">https://mware-dev.crscreditapi.com/api/transunion/credit-report</a><br>
+        <p>
+        The Credit Report is a compilation of data on an individual that is helpful in making decisions in many types of consumer transactions. The Credit Report contains various data about the consumer, including indicative information (name, addresses, date of birth, and Social Security number), employment information, and the consumer’s credit history. This information is obtained from credit grantors, public records, collection agencies, and employers.
         </p>
         <hr>
         <h2>Experian Credit Reports</h2>
-        <ul>
-        <li>
-        Only available in the testing environment currently.
-        </li>
-        <li>
-        <em>/experian/credit-profile/credit-report</em>
-        </p>
-        <ul>
-        <li>
-        <em>Returns a JSON credit report for the borrower’s identity provided in the request body</em>
-        </li>
-        </ul>
-        </li>
-        </ul>
-        <h3>Credit Profile</h3>
-        <ul>
-        <li>
-        If unable to get a credit report from Experian for this consumer, then we will automatically cascade to another view for this consumer and return back available information.
-        </li>
-        </ul>
-        <h3>TEC Connect Credit Profile</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/tec-connect-credit">https://mware-dev.crscreditapi.com/api/experian/credit-profile/tec-connect-credit</a>
-        </li>
-        <li>
-        TEC Connect is designed to evaluate consumer risk within the telecommunications, energy and cable (TEC) space. An empirically-driven, statistically sound risk prediction model, TEC Connect leverages a consumer's actual service payment history, predicting the likelihood of serious delinquent/derogatory behavior over the next 12 months. Utilizing the latest data assets and Experian's best-in-class analytics, TEC Connect empowers lenders to set security deposits, grant firm credit offers and even pre-screen profitable consumers before the competition. TEC Connect even enables lenders to rank-order consumers by their potential risk for seriously derogatory behavior.
-        </li>
-        </ul>
-        <h3>Healthcare Profile</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/healthcare-credit-profile">https://mware-dev.crscreditapi.com/api/experian/credit-profile/healthcare-credit-profile</a>
-        </li>
-        <li>
-        The Healthcare Profile is a credit profile report designed specifically for the healthcare industry. It consists of a standard credit report in which unused fields are suppressed plus an optional Healthcare Summary segment.
-        </li>
-        </ul>
-        <h3>Automotive Credit Profile</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/automotive-credit">https://mware-dev.crscreditapi.com/api/experian/credit-profile/automotive-credit</a>
-        </li>
-        <li>
-        The Automotive Profile Summary is geared toward helping automotive lenders' and dealers' credit decisions. This feature is available on Experian's Credit Profile and provides a fast at-a-glance analysis of a consumers automotive finance history.
-        </li>
-        </ul>
-        <h3>Extended View Score Only</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-score">https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-score</a>
-        </li>
-        <li>
-        Retrieves a credit profile with scores and addons requested. If unable to get a credit report from Experian for this consumer, then we will automatically waterfall to Extended View Scoring for this consumer and return back the Extended View Score.
-        </li>
-        </ul>
-        <h3>Extended View Attributes Only</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes">https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes</a>
-        </li>
-        <li>
-        Retrieves a credit profile with scores and addons requested. If unable to get a credit report from Experian for this consumer, then we will automatically waterfall to Extended View module for this consumer and return back the Extended View Attributes.
-        </li>
-        </ul>
-        <h3>Extended View Attributes Only And Score</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes-and-score">https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes-and-score</a>
-        </li>
-        <li>
-        Retrieves a credit profile with scores and addons requested. If unable to get a credit report from Experian for this consumer, then we will automatically waterfall to Extended View module for this consumer and return back the Extended View Attributes and Score.
-        </li>
-        </ul>
-        <h3>Employment Insight</h3>
-        <ul>
-        <li>
-        URL: <a href="#">https://mware-dev.crscreditapi.com/api ​/experian​/credit-profile​/employment-insight</a>
-        </li>
-        <li>
-        Employment Insight, a slightly modified version of the Experian Credit Profile report, contains consumer identification, employment history, and credit information used to substantiate information during the hiring or promotion process. As a verification tool, it is used to spot inconsistencies in address and employment information, confirm Social Security numbers, and reveal other names used. Credit information provided may provide insight on an applicant's responsibility toward his/her obligations.
-        </li>
-        </ul>
-        <h3>Credit Report</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/credit-report">https://mware-dev.crscreditapi.com/api/experian/credit-profile/credit-report</a>
-        </li>
-        <li>
-        Retrieves a credit profile with scores and addons requested. This is CR API Version 2.
-        </li>
-        </ul>
-        <h3>Connect Check Credit Profile</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/connect-check">https://mware-dev.crscreditapi.com/api/experian/credit-profile/connect-check</a>
-        </li>
-        <li>
-        Connect Check is a custom verification process designed specifically to assist the utility, telecommunication and cable industries detect fraud and minimize risk exposure at the time of a service request. Connect Check is focused on the top 100 regulated utility and telecommunications companies that are obligated to 'serve all who apply.' However, Connect Check can also be a valuable tool for smaller market segments. With Connect Check, service representatives, regardless of their level of credit training, can make immediate and informed service decisions while the applicant is still on the line.
-        </li>
-        </ul>
+        <p>Coming soon to Production.</p>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/credit-report">https://mware-dev.crscreditapi.com/api/experian/credit-profile/credit-report</a><br>
         <p>
+        This endpoint returns a JSON credit report for the borrower’s identity provided in the request body<br>
+        </p>
+        <h3>Credit Profile</h3>
+        <p>If unable to get a credit report from Experian for this consumer, then we will automatically cascade to another view for this consumer and return back available information.</p>
+        <h3>TEC Connect Credit Profile</h3>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/tec-connect-credit">https://mware-dev.crscreditapi.com/api/experian/credit-profile/tec-connect-credit</a><br>
+        <p>
+        TEC Connect is designed to evaluate consumer risk within the telecommunications, energy and cable (TEC) space. An empirically-driven, statistically sound risk prediction model, TEC Connect leverages a consumer's actual service payment history, predicting the likelihood of serious delinquent/derogatory behavior over the next 12 months. Utilizing the latest data assets and Experian's best-in-class analytics, TEC Connect empowers lenders to set security deposits, grant firm credit offers and even pre-screen profitable consumers before the competition. TEC Connect even enables lenders to rank-order consumers by their potential risk for seriously derogatory behavior.<br>
+        </p>
+        <h3>Healthcare Profile</h3>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/healthcare-credit-profile">https://mware-dev.crscreditapi.com/api/experian/credit-profile/healthcare-credit-profile</a><br>
+        <p>
+        The Healthcare Profile is a credit profile report designed specifically for the healthcare industry. It consists of a standard credit report in which unused fields are suppressed plus an optional Healthcare Summary segment.<br>
+        </p>
+        <h3>Automotive Credit Profile</h3>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/automotive-credit">https://mware-dev.crscreditapi.com/api/experian/credit-profile/automotive-credit</a><br>
+        <p>
+        The Automotive Profile Summary is geared toward helping automotive lenders' and dealers' credit decisions. This feature is available on Experian's Credit Profile and provides a fast at-a-glance analysis of a consumers automotive finance history.<br>
+        </p>
+        <h3>Extended View Score Only</h3>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-score">https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-score</a><br>
+        <p>
+        Retrieves a credit profile with scores and addons requested. If unable to get a credit report from Experian for this consumer, then we will automatically waterfall to Extended View Scoring for this consumer and return back the Extended View Score.<br>
+        </p>
+        <h3>Extended View Attributes Only</h3>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes">https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes</a><br>
+        <p>
+        Retrieves a credit profile with scores and addons requested. If unable to get a credit report from Experian for this consumer, then we will automatically waterfall to Extended View module for this consumer and return back the Extended View Attributes.<br>
+        </p>
+        <h3>Extended View Attributes Only And Score</h3>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes-and-score">https://mware-dev.crscreditapi.com/api/experian/credit-profile/extended-view-attributes-and-score</a><br>
+        <p>
+        Retrieves a credit profile with scores and addons requested. If unable to get a credit report from Experian for this consumer, then we will automatically waterfall to Extended View module for this consumer and return back the Extended View Attributes and Score.<br>
+        </p>
+        <h3>Employment Insight</h3>
+        <strong>URL: </strong><a href="#">https://mware-dev.crscreditapi.com/api ​/experian​/credit-profile​/employment-insight</a><br>
+        <p>
+        Employment Insight, a slightly modified version of the Experian Credit Profile report, contains consumer identification, employment history, and credit information used to substantiate information during the hiring or promotion process. As a verification tool, it is used to spot inconsistencies in address and employment information, confirm Social Security numbers, and reveal other names used. Credit information provided may provide insight on an applicant's responsibility toward his/her obligations.<br>
+        </p>
+        <h3>Credit Report</h3>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/credit-report">https://mware-dev.crscreditapi.com/api/experian/credit-profile/credit-report</a><br>
+        <p>
+        Retrieves a credit profile with scores and addons requested. This is CR API Version 2.<br>
+        </p>
+        <h3>Connect Check Credit Profile</h3>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/connect-check">https://mware-dev.crscreditapi.com/api/experian/credit-profile/connect-check</a><br>
+        <p>
+        Connect Check is a custom verification process designed specifically to assist the utility, telecommunication and cable industries detect fraud and minimize risk exposure at the time of a service request. Connect Check is focused on the top 100 regulated utility and telecommunications companies that are obligated to 'serve all who apply.' However, Connect Check can also be a valuable tool for smaller market segments. With Connect Check, service representatives, regardless of their level of credit training, can make immediate and informed service decisions while the applicant is still on the line.<br>
         </p>
         <hr>
         <h2>Credit Reports via Meridian Credit Link (MCL)</h2>
-        <ul>
-        <li>
-        URL:&nbsp; <a href="https://mware-dev.crscreditapi.com/api/mcl/request">https://mware-dev.crscreditapi.com/api/mcl/request</a>
-        </li>
-        </ul>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/mcl/request">https://mware-dev.crscreditapi.com/api/mcl/request</a><br>
         <p>Requests sent to the CRS middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
         <u>https://mware-dev.crscreditapi.com/api/mcl/request</u>
         </a>, will return data from MCL. This endpoint can be used to request Consumer Credit Reports.</p>
-        <p>First, order a credit report using the “New Order” request (example provided in the Postman Collection). From the response, save the vendorOrderIdentifier, to retrieve the credit report that was ordered.&nbsp;Next, retrieve the report that is associated with this “vendorOrderIdentifier” by using the "Polling Request'' to poll the status of the order. </p>
-        <p>Use a 4-7 second polling interval until the response has the "statusDescription" value,&nbsp; "READY''.&nbsp;When the "statusDescription" is "READY", then the response will also contain the borrower's credit report as JSON, HTML, and base64 encoded PDF. Reports are usually ready after ~6-10 seconds. If a report isn’t ready after 90 seconds, it’s safe to assume the order has timed out.&nbsp;</p>
+        <p>First, order a credit report using the “New Order” request (example provided in the Postman Collection). From the response, save the vendorOrderIdentifier, to retrieve the credit report that was ordered. Next, retrieve the report that is associated with this “vendorOrderIdentifier” by using the "Polling Request'' to poll the status of the order. </p>
+        <p>Use a 4-7 second polling interval until the response has the "statusDescription" value, "READY''.When the "statusDescription" is "READY", then the response will also contain the borrower's credit report as JSON, HTML, and base64 encoded PDF. Reports are usually ready after ~6-10 seconds. If a report isn’t ready after 90 seconds, it’s safe to assume the order has timed out.</p>
         <p>The <a href="https://docsend.com/view/s/rjsnmxftw59isyiv">
         <u>SmartAPI documentation</u>
-        </a> documents MCL’s XML interface, but the request structure is the same for the JSON requests through the CRS API, with the exception that there is a different casing convention used for the JSON field names. </p>
-        <p>The Postman collection contains sample JSON requests that can be used as templates for MCL.&nbsp; Example requests can be used as templates and for generating client code. </p>
+        </a> documents MCL’s XML interface, but the request structure is the same for the JSON requests through the eCredit Data API, with the exception that there is a different casing convention used for the JSON field names. </p>
+        <p>The Postman collection contains sample JSON requests that can be used as templates for MCL. Example requests can be used as templates and for generating client code. </p>
         <ol>
         <li>
         <strong>User Login: </strong>First send the "User Login" request to receive a token that's required for all subsequent requests to the mware server.
         </li>
         <li>
-        <strong>Order a report: </strong>Order a credit report, and save the vendorOrderIdentifier from its response. Use it as the vendorOrderIdentifier value in the body of the polling request.&nbsp;
+        <strong>Order a report: </strong>Order a credit report, and save the vendorOrderIdentifier from its response. Use it as the vendorOrderIdentifier value in the body of the polling request.
         </li>
         <li>
-        <strong>Poll for Report:</strong> Send MCL Polling Requests to poll the status of the order using a 4-7 second polling interval until the response has the "statusDescription" value,&nbsp; "READY''. When the "statusDescription" is "READY", then the response will contain the borrower's credit report as JSON, HTML, and base64 encoded PDF. Reports are usually ready after the first polling request, but they can take up to 90 seconds.
+        <strong>Poll for Report:</strong> Send MCL Polling Requests to poll the status of the order using a 4-7 second polling interval until the response has the "statusDescription" value, "READY''. When the "statusDescription" is "READY", then the response will contain the borrower's credit report as JSON, HTML, and base64 encoded PDF. Reports are usually ready after the first polling request, but they can take up to 90 seconds.
         </li>
         </ol>
         <p>
@@ -22188,54 +22058,42 @@ tags:
 - name: Other Reports
   description: |
         <h2>CIC Criminal Reports</h2>
-        <ul>
-        <li>
-        URL:&nbsp; <a href="https://mware-dev.crscreditapi.com/api/criminal/new-request">https://mware-dev.crscreditapi.com/api/criminal/new-request</a>
-        </li>
-        <li>
-        "Criminal" post request, which returns a Criminal report.&nbsp;
-        </li>
-        <li>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/criminal/new-request">https://mware-dev.crscreditapi.com/api/criminal/new-request</a>
+        <p>
+        "Criminal" post request, which returns a Criminal report.
+        </p>
+        <p>
         The "Criminal Fetch" get request can be used to retrieve orders that are cached on CRS servers. Reports are cached for 24 hours after the order is placed.
-        </li>
-        <li>
+        </p>
+        <p>
         There is no exhaustive list of possible values for all these fields in the response because this data is reported slightly differently across jurisdictions.
-        </li>
-        </ul>
+        </p>
         <hr>
         <h2>CIC Eviction Reports</h2>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/eviction/new-request">https://mware-dev.crscreditapi.com/api/eviction/new-request</a>
-        </li>
-        <li>
-        "Eviction" post request, which returns an Eviction report.&nbsp;
-        </li>
-        <li>
-        The "Eviction Fetch" get request can be used to retrieve orders that are cached on CRS servers. Reports are cached for 24 hours after the order is placed.
-        </li>
-        </ul>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/eviction/new-request">https://mware-dev.crscreditapi.com/api/eviction/new-request</a>
         <p>
+        "Eviction" post request, which returns an Eviction report.
+        </p>
+        <p>
+        The "Eviction Fetch" get request can be used to retrieve orders that are cached on CRS servers. Reports are cached for 24 hours after the order is placed.
         </p>
         <hr>
         <h2>PitchPoint</h2>
-        <ul>
-        <li>
-        URL: <a href="#">https://mware-dev.crscreditapi.com/api/pp​/property</a>
-        </li>
-        <li>
-        URL: <a href="#">https://mware-dev.crscreditapi.com/api/pp​/property/pdf</a>
-        </li>
-        <li>
-        URL: <a href="#">https://mware-dev.crscreditapi.com/api/pp​/property/data</a>
-        </li>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/pp/glbblj">https://mware-dev.crscreditapi.com/api/pp/glbblj</a>
-        </li>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/pp/fcrablj">https://mware-dev.crscreditapi.com/api/pp/fcrablj</a>
-        </li>
-        <li>
+        <p>
+        <strong>URL: </strong><a href="#">https://mware-dev.crscreditapi.com/api/pp​/property</a>
+        </p>
+        <p>
+        <strong>URL: </strong><a href="#">https://mware-dev.crscreditapi.com/api/pp​/property/pdf</a>
+        </p>
+        <p>
+        <strong>URL: </strong><a href="#">https://mware-dev.crscreditapi.com/api/pp​/property/data</a>
+        </p>
+        <p>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/pp/glbblj">https://mware-dev.crscreditapi.com/api/pp/glbblj</a>
+        </p>
+        <p>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/pp/fcrablj">https://mware-dev.crscreditapi.com/api/pp/fcrablj</a>
+        <p>
         PitchPoint Property Report that provides property data from a range of leading national property databases, delivering 99% national coverage of residential properties.</p>
         <ul>
         <li>
@@ -22259,78 +22117,47 @@ tags:
         </ul>
         </li>
         </ul>
-        <p>
         </p>
         <hr>
         <h2>LexisNexis</h2>
         <h3>LexisNexis Search Bridger Insight  (XGS)</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/xgs/search">https://mware-dev.crscreditapi.com/api/xgs/search</a>
-        </li>
-        <li>
-        LexisNexis Bridger Insight XG allows organizations to perform due diligence related to Bank Secrecy Act, anti-money laundering (AML), foreign corruption and terrorist financing. The tool combine filtering software and financial sanctions watchlist data, including enforcements lists, Politically Exposed Persons (PEP), and adverse media information. 
-        </li>
-        </ul>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/xgs/search">https://mware-dev.crscreditapi.com/api/xgs/search</a>
         <p>
+        LexisNexis Bridger Insight XG allows organizations to perform due diligence related to Bank Secrecy Act, anti-money laundering (AML), foreign corruption and terrorist financing. The tool combine filtering software and financial sanctions watchlist data, including enforcements lists, Politically Exposed Persons (PEP), and adverse media information. 
         </p>
         <h3>mvs: LexisNexis Motor Vehicle search</h3>
         <p>LexisNexis provides Motor Vehicle Records (MVR) from all 50 states, the District of Columbia, Puerto Rico and the Canadian province of New Brunswick.</p>
         <p>First, run a Motor Vehicle Search, which produces the inputs needed to feed into the Motor Vehicle report. Then, retrieve the Motor Vehicle Report using the MVR API.</p>
         <h4>mvs: LexisNexis Motor Vehicle search</h4>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/mvs">https://mware-dev.crscreditapi.com/api/mvs</a>
-        </li>
-        </ul>
-        <h4>mvr: LexisNexis Motor Vehicle report</h4>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/mvr">https://mware-dev.crscreditapi.com/api/mvr</a>
-        </li>
-        </ul>
         <p>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/mvs">https://mware-dev.crscreditapi.com/api/mvs</a>
         </p>
+        <h4>mvr: LexisNexis Motor Vehicle report</h4>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/mvr">https://mware-dev.crscreditapi.com/api/mvr</a>
         <h3>Bankruptcy Search and Report</h3>
         <p>First, run a Bankruptcy Search, which produces the inputs needed to feed into the Bankruptcy report, which contains comprehensive, accurate information on the latest bankruptcy case information. LexisNexis’s databases are updated daily with data sources directly from the courts. Bankruptcy records include the debtor's name, address and social security number, plus crucial information like case number and court chapter, date filed, discharged, dismissed and converted. Information about attorneys, trustees and judges is also available.</p>
         <ul>
         <li>
-        Bankruptcy - Search</p>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/bankruptcys">https://mware-dev.crscreditapi.com/api/bankruptcys</a>
-        </li>
-        </ul>
+        Bankruptcy - Search: <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/bankruptcys">https://mware-dev.crscreditapi.com/api/bankruptcys</a>
         </li>
         <li>
-        Bankruptcy - Report</p>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/bankruptcyr">https://mware-dev.crscreditapi.com/api/bankruptcyr</a>
+        Bankruptcy - Report: <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/bankruptcyr">https://mware-dev.crscreditapi.com/api/bankruptcyr</a>
         </li>
         </ul>
-        </li>
-        </ul>
-        <p>
-        </p>
-        <p>
-        </p>
         <hr>
         <h2>Meridian Credit Link (MCL)</h2>
-        <ul>
-        <li>
-        URL:&nbsp; <a href="https://mware-dev.crscreditapi.com/api/mcl/request">https://mware-dev.crscreditapi.com/api/mcl/request</a>
-        </li>
-        </ul>
+        <p>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/mcl/request">https://mware-dev.crscreditapi.com/api/mcl/request</a>
+        </p>
         <p>Requests sent to the CRS middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
         <u>https://mware-dev.crscreditapi.com/api/mcl/request</u>
         </a>, will return data from MCL.</p>
         <p>For MCL requests, your MCL credentials are used in the background. An MCL Request can be created to specify any MCL product to which your MCL Credentials allow access. If your MCL credentials had InstantID enabled, you could retrieve InstantID through the middleware but MCL can only give you HTML and/or PDF.</p>
         <h3>Background</h3>
-        <p>This endpoint can be used to interact with MCL’s SmartAPI to retrieve MCL products using JSON (for both requests and responses).&nbsp;If you would rather receive XML, then we can provide credentials that can be used to connect directly to MCL’s SmartAPI (not going through CRS API) for XML responses.</p>
+        <p>This endpoint can be used to interact with MCL’s SmartAPI to retrieve MCL products using JSON (for both requests and responses). If you would rather receive XML, then we can provide credentials that can be used to connect directly to MCL’s SmartAPI (not going through eCredit Data API) for XML responses.</p>
         <p>MCL offers various products that can be specified in the request body according to the permissions set for your credentials. Many MCL products utilize a polling workflow for retrieving data.</p>
         <p>The MCL SmartAPI documentation can be referenced for basic guidance from <a href="https://docsend.com/view/s/rjsnmxftw59isyiv">SmartAPI documentation</a>. </p>
-        <p>These same principles apply for a JSON-based connection via CRS’s Middleware.&nbsp; </p>
+        <p>These same principles apply for a JSON-based connection via CRS’s Middleware. </p>
         <h3>Reports available from MCL SmartAPI</h3>
         <ul>
         <li>
@@ -22398,29 +22225,17 @@ tags:
         <hr>
         <h2>COMING SOON: Experian Liens &amp; Judgements</h2>
         <h3>ljs: Liens and Judgements Search</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/ljs">https://mware-dev.crscreditapi.com/api/ljs</a>
-        </li>
-        <li>
-        Send a "Liens and Judgements Search" request 
-        </li>
-        </ul>
-        <h3>ljr: Liens and Judgements Report</h3>
-        <ul>
-        <li>
-        URL: <a href="https://mware-dev.crscreditapi.com/api/ljr">https://mware-dev.crscreditapi.com/api/ljr</a>
-        </li>
-        <li>
-        Retrieve the "Liens and Judgements Report"
-        </li>
-        </ul>
         <p>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/ljs">https://mware-dev.crscreditapi.com/api/ljs</a>: Send a "Liens and Judgements Search" request 
+        </p>
+        <h3>ljr: Liens and Judgements Report</h3>
+        <p>
+        <strong>URL: </strong><a href="https://mware-dev.crscreditapi.com/api/ljr">https://mware-dev.crscreditapi.com/api/ljr</a>: Retrieve the "Liens and Judgements Report"
         </p>
         
-- name: Management of Users
+- name: User Management
   description: |
-        <p>eCredit Data APIs provides endpoints for the management of users.</p>
+        <p>eCredit Data APIs provides endpoints for user management.</p>
         <!-- TODO: Additional details needed -->
         <ul>
         <li>
@@ -22457,7 +22272,7 @@ tags:
 
 - name: Overview of APIs
   description: |
-        CRS APIs support JSON or XML requests and responses. 
+        eCredit Data API support JSON or XML requests and responses. 
         For details of the APIs, refer to the endpoints and request/response models in this section.
         <hr>
 
@@ -28581,8 +28396,8 @@ tags:
 
 - name: Security
   description: |
-        <p>We regularly audit the security details of our implementation, including our certificates. We ensure that consumers and servers interact with CRS APIs over HTTPS.</p>
-        <p>Our security token is valid for 15 minutes. With this token, any number of requests can be executed before it expires. In order to stay authenticated, a new token will need to be requested every 15 minutes by resending the “User Login” request.&nbsp;</p>
+        <p>We regularly audit the security details of our implementation, including our certificates. We ensure that consumers and servers interact with eCredit Data API over HTTPS.</p>
+        <p>Our security token is valid for 15 minutes. With this token, any number of requests can be executed before it expires. In order to stay authenticated, a new token will need to be requested every 15 minutes by resending the “User Login” request.</p>
         <hr>
 
 - name: Users
@@ -28597,6 +28412,7 @@ x-tagGroups:
       - eCredit Data APIs
       - Reports and verification
       - Integration
+      - Developer Tools
       - Identity Verification
       - Credit Reports
       - Other Reports
