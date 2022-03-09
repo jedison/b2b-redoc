@@ -21338,7 +21338,7 @@ tags:
         <hr>
 
 - name: Reports and verification
-   x-displayName: Types of Reports &amp; Verifications
+  x-displayName: Types of Reports &amp; Verifications
   description: |
         <h2>Types of Verification and Reports</h2>
         <p>eCredit Data APIs support reports and verification for various aspects, such as, but not limited to:</p>
