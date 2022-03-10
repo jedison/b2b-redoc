@@ -21280,11 +21280,11 @@ components:
           format: int32
         description:
           type: string
-  securitySchemes:
-    Authorization Token:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
+  # securitySchemes:
+  #   Authorization Token:
+  #     type: http
+  #     scheme: bearer
+  #     bearerFormat: JWT
 
 
 tags:
@@ -28441,7 +28441,7 @@ x-tagGroups:
       - system-controller
       - roles-controller
       # Would it be an option to explicit move this here? 
-      - securitySchemes
+      # - securitySchemes
       
   - name: APIs under development
     tags:      
