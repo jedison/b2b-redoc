@@ -9,6 +9,9 @@ info:
   description: |
       <span class="docs-time">Last updated: 2022-03-03</span></h1>
       <p>This guide is to assist you in integrating the eCredit Data API into your environment.</p>
+      <p>CRS eCredit Data APIs support reports and verification products of various types.</p>
+      <p>We recommend that you start with the <a href="/tag/Quickstart">Quickstart Guide</a> that provides an example of how to integrate and pull a report.</p>
+      <p>Feel free to explore the rest of the documentation as the need arises.</p>
 
   x-logo:
     url: 'https://gist.githubusercontent.com/jedisonbru/ba7eea5123997e646b51a871e8f06cc2/raw/be5c4e7d28aaa0eea68d96e8c273779c8e0ffa0d/crs_b2b.svg'
@@ -21277,11 +21280,11 @@ components:
           format: int32
         description:
           type: string
-  # securitySchemes:
-  #   Authorization Token:
-  #     type: http
-  #     scheme: bearer
-  #     bearerFormat: JWT
+  securitySchemes:
+    Authorization Token:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
 
 
 tags:
@@ -21337,11 +21340,11 @@ tags:
         <p>CRS will help you get up and running more quickly and easily.</p>
         <hr>
 
-- name: Reports and verification
+- name: Reports and Verification
   x-displayName: Types of Reports & Verifications
   description: |
-        <h2>Types of Verification and Reports</h2>
-        <p>eCredit Data APIs support reports and verification for various aspects, such as, but not limited to:</p>
+        <h2>Types of Reports and Verification</h2>
+        <p>eCredit Data APIs support reports and verification products for various aspects, such as, but not limited to:</p>
         <ul>
         <li>
         Identity Verification, Validation, and Authentication
@@ -21381,7 +21384,7 @@ tags:
         </li>
         </ul>
         <hr>
-        <h2>Verification and Report Sources</h2>
+        <h2>Reports and Verification Sources</h2>
         <p>eCredit Data APIs support reports and verification by:</p>
         <ul>
         <li>
@@ -21689,7 +21692,7 @@ tags:
         <p>Each API endpoint has a different request/response. However, the integration steps are the same: authentication and then request the product through the specific API endpoint.</p>
         <hr>
         <h2>Integration to reports and verification</h2>
-        <p>Different report and verification products can be requested via the eCredit Data API.</p>
+        <p>Different reports and verification products can be requested via the eCredit Data API.</p>
         <hr>
         <h2>Integration methods</h2>
         <p>This documentation contains details of all eCredit Data APIs.</p>
@@ -28437,6 +28440,8 @@ x-tagGroups:
       - User
       - system-controller
       - roles-controller
+      # Would it be an option to explicit move this here? 
+      - securitySchemes
       
   - name: APIs under development
     tags:      
