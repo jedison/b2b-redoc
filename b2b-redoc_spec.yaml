@@ -7,11 +7,12 @@ info:
     email: support@crscreditapi.com
 
   description: |
-      <span class="docs-time">Last updated: 2022-03-03</span><br>&nbsp;<br>
+      <span class="docs-time">Last updated: 2022-03-03</span>
+      <br>&nbsp;<br>
       <hr>
       <br>
       <p>This guide is to assist you in integrating the eCredit Data API into your environment.</p>
-      <p>CRS eCredit Data APIs support reports and verification products of various types.</p>
+      <p>CRS eCredit Data API supports reports and verification products of various types.</p>
       <p>We recommend that you start with the <a href="/tag/Quickstart">Quickstart Guide</a> that provides an example of how to integrate and pull a report.</p>
       <p>Feel free to explore the rest of the documentation as the need arises.</p>
       <br>
@@ -21318,7 +21319,7 @@ tags:
         Confirm a company's regulatory compliance. 
         </li>
         </ul>
-        <p>The eCredit Data APIs allow you to make informed decisions that bring value to your business.</p>
+        <p>The eCredit Data API allows you to make informed decisions that bring value to your business.</p>
         <hr>
         <h2>What we do</h2>
         <p>eCredit Data API wraps numerous APIs from Experian, Equifax, TransUnion, LexisNexis, CIC and more into a single access point without sacrificing features from any of the vendors. 
@@ -21348,7 +21349,7 @@ tags:
   x-displayName: Types of Reports & Verifications
   description: |
         <h2>Types of Reports and Verification</h2>
-        <p>eCredit Data APIs support reports and verification products for various aspects, such as, but not limited to:</p>
+        <p>eCredit Data API supports reports and verification products for various aspects, such as, but not limited to:</p>
         <ul>
         <li>
         Identity Verification, Validation, and Authentication
@@ -21389,7 +21390,7 @@ tags:
         </ul>
         <hr>
         <h2>Reports and Verification Sources</h2>
-        <p>eCredit Data APIs support reports and verification by:</p>
+        <p>eCredit Data API supports reports and verification by:</p>
         <ul>
         <li>
         LexisNexis Instant ID both Consumer and Business
@@ -21699,7 +21700,7 @@ tags:
         <p>Different reports and verification products can be requested via the eCredit Data API.</p>
         <hr>
         <h2>Integration methods</h2>
-        <p>This documentation contains details of all eCredit Data APIs.</p>
+        <p>This documentation contains details of all eCredit Data API.</p>
         <p><a href="https://mware-dev.crscreditapi.com/api/swagger-ui/index.html?configUrl=/api/mware-docs/swagger-config#/" target="_blank">Swagger documentation</a> is also available.</p>
         <h3>APIs not included in Swagger documentation</h3>
         <p>Unfortunately, MCL SmartAPI is excluded from the Swagger documentation due to structural issues created by their models.</p>
@@ -21721,10 +21722,10 @@ tags:
         <h2>Postman Collection</h2>
         <p>The Postman Environment is pre-configured to allow you to use the scripts and walk through the Postman Scripts with minimal intervention to aid in understanding the API call structure.</p>
         The Postman Collection includes pre-defined API calls to help you understand and develop your solution.
-        You can find the <a href="/tag/Postman-Collection">Postman Collection for eCredit Data APIs</a> later in this documentation</p>
+        You can find the <a href="/tag/Postman-Collection">Postman Collection for eCredit Data API</a> later in this documentation</p>
         <hr>
         <h2>Sandbox</h2>
-        <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the eCredit Data APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
+        <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the eCredit Data API is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
         <p>Please <a href="mailto:support@crscreditapi.com">contact us</a> so that we can provide you with access to the Sandbox.</p>
         <hr>
 
@@ -22247,7 +22248,7 @@ tags:
         
 - name: User Management
   description: |
-        <p>eCredit Data APIs provides endpoints for user management.</p>
+        <p>eCredit Data API provides endpoints for user management.</p>
         <!-- TODO: Additional details needed -->
         <ul>
         <li>
@@ -22327,10 +22328,10 @@ tags:
 
 - name: Sandbox
   description: |
-        <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the eCredit Data APIs is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
+        <p>The Sandbox is a free and fully-featured environment for application development and testing. All functionality of the eCredit Data API is supported in the Sandbox environment. A variety of scenarios are available to test against, and you can create an unlimited number of test items.</p>
         <p>Sandbox API information has been provided to you as a Postman Collection.</p>
         <h2>Usage</h2>
-        <p><a href="/tag/Postman-Collection">Postman Collections</a> for eCredit Data APIs include pre-defined API calls to help you understand and develop your solution. </p>
+        <p><a href="/tag/Postman-Collection">Postman Collections</a> for eCredit Data API include pre-defined API calls to help you understand and develop your solution. </p>
         <p>To quickly grasp the flow and sequence of API calls, download and import the Postman Collections the Postman environment we provided to you.</p>
         <hr>
         <h2>Credentials</h2>
@@ -28421,7 +28422,7 @@ x-tagGroups:
   - name: Guides
     tags:
       - Quickstart
-      - eCredit Data APIs
+      - eCredit Data API
       - Reports and verification
       - Integration
       - Developer Tools
