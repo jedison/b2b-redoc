@@ -7,11 +7,15 @@ info:
     email: support@crscreditapi.com
 
   description: |
-      <span class="docs-time">Last updated: 2022-03-03</span></h1>
+      <span class="docs-time">Last updated: 2022-03-03</span><br>&nbsp;<br>
+      <hr>
+      <br>
       <p>This guide is to assist you in integrating the eCredit Data API into your environment.</p>
       <p>CRS eCredit Data APIs support reports and verification products of various types.</p>
       <p>We recommend that you start with the <a href="/tag/Quickstart">Quickstart Guide</a> that provides an example of how to integrate and pull a report.</p>
       <p>Feel free to explore the rest of the documentation as the need arises.</p>
+      <br>
+      <hr>
 
   x-logo:
     url: 'https://gist.githubusercontent.com/jedisonbru/ba7eea5123997e646b51a871e8f06cc2/raw/be5c4e7d28aaa0eea68d96e8c273779c8e0ffa0d/crs_b2b.svg'
