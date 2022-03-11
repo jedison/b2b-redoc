@@ -28445,7 +28445,7 @@ x-tagGroups:
       - User
       - system-controller
       - roles-controller
-      # Would it be an option to explicit move this here? 
+      # Would it be an option to explicit move this here? No, does not work.
       # - securitySchemes
       
   - name: APIs under development
