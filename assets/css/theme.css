@@ -124,7 +124,7 @@ h4  {
 
 /* styling for redoc.ly items */
 li.ivSnkP {
-  outline-width: 1px;
+  outline-width: 5px;
   outline-style: outset; /* solid; groove; ridge; outset; inset; */
-  outline-color: #32435F;
+  outline-color: #9395a7;
 }
