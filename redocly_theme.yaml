@@ -1,0 +1,34 @@
+showConsole: true
+menuToggle: true
+pagination: section
+sortOperationsAlphabetically: true
+generateCodeSamples:
+  languages:
+    - lang: curl
+      label: curl
+    - lang: JavaScript
+      label: JavaScript
+    - lang: Python
+      label: Python
+theme:
+  colors:
+    primary:
+      main: '#0065FB'
+  sidebar:
+    spacing:
+      paddingVertical: 8
+  typography:
+    color: '#32435F'
+    heading1:
+      fontSize: 48px
+      lineHeight: 57px
+    heading2:
+      fontSize: 38px
+      lineHeight: 45px
+    heading3:
+      fontSize: 28px
+      lineHeight: 33px
+    heading4:
+      fontSize: 18px
+      lineHeight: 21px
+    fontFamily: 'Rubik, sans-serif'
