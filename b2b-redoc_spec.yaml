@@ -21660,7 +21660,8 @@ tags:
         <p>Next, call the API to request the corresponding Credit Report, either in JSON or PDF.</p>
         <h4>Step 3a: Request Credit Report in JSON</h3>
         <p>
-        Call <strong>URL:</strong> <a href="https://mware-dev.crscreditapi.com/api/equifax/credit-report">https://mware-dev.crscreditapi.com/api/equifax/credit-report</a> for a JSON credit report, details of which can be found in the <a href="/tag/Equifax#operation/creditReport_2">API documentation</a>.<br>&nbsp;<br>
+        Call <strong>URL:</strong> <a href="https://mware-dev.crscreditapi.com/api/equifax/credit-report">https://mware-dev.crscreditapi.com/api/equifax/credit-report</a> for a JSON credit report, details of which can be found in the <a href="/tag/Equifax#operation/creditReport_2">API documentation</a>.
+        <br>&nbsp;<br>
         Note that this API immediately returns the Credit Report in JSON.<br>&nbsp;<br>
         </p>
         <h4>Step 3b: Request Credit Report in PDF</h3>
@@ -21672,6 +21673,7 @@ tags:
             Call <strong>URL:</strong> <a href="https://mware-dev.crscreditapi.com/api/equifax/pdf-credit-report">https://mware-dev.crscreditapi.com/api/equifax/pdf-credit-report</a> to request a PDF credit report.
             <br>&nbsp;<br>
             The API to request the PDF Credit Report is <a href="/tag/Equifax#operation/pdfCreditReport">documented here</a>.
+            <br>&nbsp;<br>
             Note that this API returns an ID that must be used to retrieve the PDF.
             <br>&nbsp;<br>
           </li>
