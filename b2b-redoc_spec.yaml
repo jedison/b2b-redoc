@@ -21658,23 +21658,28 @@ tags:
         <p>The Postman Collection is configured to save the bearer token that is returned from the User Login API so that it is easier for you to test.</p>
         <h3>Step 3: Request Credit Report</h3>
         <p>Next, call the API to request the corresponding Credit Report, either in JSON or PDF.</p>
-        <ul>
+        <h4>Step 3a: Request Credit Report in JSON</h3>
+        <p>
+        Call <strong>URL:</strong> <a href="https://mware-dev.crscreditapi.com/api/equifax/credit-report">https://mware-dev.crscreditapi.com/api/equifax/credit-report</a> for a JSON credit report, details of which can be found in the <a href="/tag/Equifax#operation/creditReport_2">API documentation</a>.<br>&nbsp;<br>
+        Note that this API immediately returns the Credit Report in JSON.<br>&nbsp;<br>
+        </p>
+        <h4>Step 3b: Request Credit Report in PDF</h3>
+        <p>
+        The PDF Credit Report API is a two-step process: request and retrieve.
+        </p>
+        <ol>
           <li>
-            /equifax/credit-report for a JSON credit report, details of which can be found in the <a href="/tag/Equifax#operation/creditReport_2">API documentation</a>.<br>&nbsp;<br>
-            Note that this API immediately returns the Credit Report in JSON.<br>&nbsp;<br>
+            Call <strong>URL:</strong> <a href="https://mware-dev.crscreditapi.com/api/equifax/pdf-credit-report">https://mware-dev.crscreditapi.com/api/equifax/pdf-credit-report</a> to request a PDF credit report.
+            <br>&nbsp;<br>
+            The API to request the PDF Credit Report is <a href="/tag/Equifax#operation/pdfCreditReport">documented here</a>.
+            Note that this API returns an ID that must be used to retrieve the PDF.
+            <br>&nbsp;<br>
           </li>
           <li>
-          The PDF Credit Report API is a two-step process: request and retrieve.
-          <ol>
-            <li>
-              /equifax/pdf-credit-report for a PDF credit report - <a href="/tag/Equifax#operation/pdfCreditReport">API documentation</a><br>
-            </li>
-            <li>
-              Note that this API returns an ID that must be used to retrieve the PDF: /equifax/credit-report/{pdfRequestId}.<br>&nbsp;<br>
-              The API to retrieve the PDF Credit Report is <a href="/tag/Equifax#operation/pdfCreditReport_1">documented here</a>.
-            </li>
-          </ol>
-        </li>
+            Call <strong>URL:</strong> <a href="https://mware-dev.crscreditapi.com/api/equifax/credit-report/{pdfRequestId}">https://mware-dev.crscreditapi.com/api/equifax/credit-report/{pdfRequestId}</a> to retrieve the PDF.
+            <br>&nbsp;<br>
+            The API to retrieve the PDF Credit Report is <a href="/tag/Equifax#operation/pdfCreditReport_1">documented here</a>.
+          </li>
         </ol>
 
 - name: Integration
