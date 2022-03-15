@@ -111,7 +111,7 @@ paths:
     post:
       tags:
         - LexisNexis
-      summary: Business Instant ID2 Data
+      summary: Business Instant ID2 Verification via Data Elements
       description: |
         <h2>/vfps/biid2</h2>
         Executes a Business Instant ID2 verification on the provided business and associated subjects<br>
@@ -204,7 +204,7 @@ paths:
     post:
       tags:
         - LexisNexis
-      summary: Business Instant ID2 Report
+      summary: Business Instant ID2 PDF Report
       description: |
         <h2>/vfps/biid2/pdf</h2>
         Executes a Business Instant ID2 verification on the provided business and associated subjects<br>
@@ -425,7 +425,7 @@ paths:
     post:
       tags:
         - Transunion
-      summary: Identity Manager Verification
+      summary: Identity Manager Verification (basic)
       description: |
         <h2>/transunion/identity-manager-verification/basic</h2>
         Delivers an accurate and comprehensive view of each consumer by linking proprietary data, personal data, device identifiers and online behaviors. Our advanced insights and global network of fraud reporting helps businesses discover anomalies, assess risk and confidently identify good consumers. This allows you to protect your business and focus on offering effective, personalized and friction-right experiences.
@@ -521,10 +521,10 @@ paths:
     post:
       tags:
         - Transunion
-      summary: Credit Report
+      summary: Transunion Credit Report
       description: |
         <h2>/transunion/credit-report</h2>
-        The Credit Report is a compilation of data on an individual that is helpful in making decisions in many types of consumer transactions. The Credit Report contains various data about the consumer, including indicative information (name, addresses, date of birth, and Social Security number), employment information, and the consumer’s credit history. This information is obtained from credit grantors, public records, collection agencies, and employers.
+        The Credit Report is a compilation of data on an individual that is helpful in making decisions in many types of consumer transactions. The Credit Report contains various data about the consumer, including indicative information (name, addresses, date of birth, and Social Security number), employment information, and the consumer's credit history. This information is obtained from credit grantors, public records, collection agencies, and employers.
       operationId: creditReport
       requestBody:
         content:
@@ -933,7 +933,7 @@ paths:
     post:
       tags:
         - Global WatchList
-      summary: OFAC Watchlist Search
+      summary: OFAC Watchlist Search (multiple requests)
       description: |
         <h2>/gwls/ofaclist</h2>
 
@@ -961,7 +961,7 @@ paths:
     post:
       tags:
         - Global WatchList
-      summary: OFAC Watchlist Search
+      summary: OFAC Watchlist Search  (single request)
       description: |
         <h2>/gwls/ofac</h2>
 
@@ -2118,7 +2118,7 @@ paths:
     post:
       tags:
         - Experian
-      summary: Credit Report
+      summary: Experian Credit Report
       description: |
         <h2>/experian/credit-profile/credit-report</h2>
         Retrieves a credit profile with scores and addons requested. This is CR API Version 2.
@@ -2704,7 +2704,7 @@ paths:
     post:
       tags:
         - Experian
-      summary: Cross Core 2 Initial
+      summary: Cross Core 2 Initial with options
       description: |
         <h2>/experian/cc2/{option}</h2>
       operationId: crossCore2Initial
@@ -2739,7 +2739,7 @@ paths:
     post:
       tags:
         - Experian
-      summary: Cross Core 2 One-Time Passcode
+      summary: Cross Core 2 One-Time Passcode with options
       description: |
         <h2>/experian/cc2/{option}/otp</h2>
       operationId: crossCore2OTP
@@ -2838,7 +2838,7 @@ paths:
     post:
       tags:
         - Experian
-      summary: Cross Core 2 One-Time Passcode
+      summary: Cross Core 2 One-Time Passcode (no options)
       description: |
         <h2>/experian/cc2/otp</h2>
       operationId: crossCore2OTP_1
@@ -2896,7 +2896,7 @@ paths:
     post:
       tags:
         - Experian
-      summary: Cross Core 2 Initial
+      summary: Cross Core 2 Initial (no options)
       description: |
         <h2>/experian/cc2/initial</h2>
       operationId: crossCore2Initial_1
@@ -2981,7 +2981,7 @@ paths:
     post:
       tags:
         - Equifax
-      summary: Equifax PDF Credit Report
+      summary: Equifax PDF Credit Report Request
       description: |
         <h2>/equifax/pdf-credit-report</h2>
       operationId: pdfCreditReport
@@ -3125,7 +3125,7 @@ paths:
     post:
       tags:
         - LexisNexis
-      summary: Business Instant ID (BIID)
+      summary: Business Instant ID (BIID) Verification via DTO
       description: |
         <h2>/biid/new-request</h2>
         Executes a Business Instant ID2 verification on the provided business and associated subjects
@@ -3345,7 +3345,7 @@ paths:
     get:
       tags:
         - User
-      summary: User logs
+      summary: User logs (all)
       description: |
         <h2>/users/logs/all</h2>
       operationId: userLogsAll
@@ -3471,7 +3471,7 @@ paths:
     get:
       tags:
         - Equifax
-      summary: Equifax PDF Credit Report
+      summary: Equifax PDF Credit Report Retrieve
       description: |
         <h2>/equifax/credit-report/{pdfRequestId}</h2>
       operationId: pdfCreditReport_1
@@ -21297,11 +21297,11 @@ tags:
 - name: eCredit Data API
   description: |
         <h2>Introduction</h2>
-        <p>CRS’s eCredit Data API offering performs credit checks for your company. The eCredit Data API allows you to gain insight into a business’ financial stability, allowing you to make quick and informed business decisions. Get a detailed financial picture of any customer or supplier before you decide to work with them. B2B Credit Checks protect your business from late payments. </p>
+        <p>CRS's eCredit Data API offering performs credit checks for your company. The eCredit Data API allows you to gain insight into a business' financial stability, allowing you to make quick and informed business decisions. Get a detailed financial picture of any customer or supplier before you decide to work with them. B2B Credit Checks protect your business from late payments. </p>
         <p>Organization are unique and there are many factors that combine to create an accurate representation of whether an organization will pay in a timely manner. </p>
         <ul>
         <li>
-        Verify an individual’s or company’s identity.
+        Verify an individual's or company's identity.
         </li>
         <li>
         Get to know their credit scores before you make a decision. 
@@ -21430,7 +21430,7 @@ tags:
         LexisNexis InstantID data and report which identity verification and risk assessment with regards to fraud and identity theft.
         </li>
         <li>
-        Experian CrossCore2 (CC2) Precise ID’s Knowledge IQ (KIQ) knowledge-based authentication products where an applicant must answer a series of questions, Reverse Phone Append (RPA), and One-Time Passcode (OTP)
+        Experian CrossCore2 (CC2) Precise ID's Knowledge IQ (KIQ) knowledge-based authentication products where an applicant must answer a series of questions, Reverse Phone Append (RPA), and One-Time Passcode (OTP)
         </li>
         <li>
         TransUnion ID Search
@@ -21505,7 +21505,7 @@ tags:
         Experian &amp; MCL VOE
         </li>
         <li>
-        VOEs are processed instantly if the applicant’s employer reports information to automated services like The Work Number. 
+        VOEs are processed instantly if the applicant's employer reports information to automated services like The Work Number. 
         </li>
         <li>
         For all other employers, the VOE order will be processed manually.
@@ -21641,10 +21641,10 @@ tags:
         <p>In this Quickstart example, we will show how to pull a Credit Report from Equifax - either as a JSON response or PDF.</p>
         <ul>
         <li>
-        <em>/equifax/credit-report</em>: Returns a JSON credit report for the borrower’s identity provided in the request body
+        <em>/equifax/credit-report</em>: Returns a JSON credit report for the borrower's identity provided in the request body
         </li>
         <li>
-        <em>/equifax/pdf-credit-report</em>: Requests a PDF credit report for the borrower’s identity provided in the request body</em>
+        <em>/equifax/pdf-credit-report</em>: Requests a PDF credit report for the borrower's identity provided in the request body</em>
         </li>
         </ul>
         <hr>
@@ -21714,9 +21714,9 @@ tags:
         <p>If you would like to access the MCL APIs for particular requests, please <a href="mailto:support@crscreditapi.com">contact us</a> and we can provide you with the necessary integration details. </p>
         <p>Requests sent to the CRS middleware (MWARE) using the URL, <a href="https://mware-dev.crscreditapi.com/api/mcl/request">
         <u>https://mware-dev.crscreditapi.com/api/mcl/request</u></a>, will return data from MCL.</p>
-        <p>This endpoint can be used to interact with MCL’s SmartAPI to retrieve MCL products using JSON (for both requests and responses). If you would rather receive XML, then we can provide credentials that can be used to connect directly to MCL’s SmartAPI (not going through eCredit Data API) for XML responses.</p>
+        <p>This endpoint can be used to interact with MCL's SmartAPI to retrieve MCL products using JSON (for both requests and responses). If you would rather receive XML, then we can provide credentials that can be used to connect directly to MCL's SmartAPI (not going through eCredit Data API) for XML responses.</p>
         <p>The MCL SmartAPI documentation can be referenced for basic guidance from <a href="https://docsend.com/view/s/rjsnmxftw59isyiv">SmartAPI documentation</a>. </p>
-        <p>These same principles apply for a JSON-based connection via CRS’s Middleware. </p>
+        <p>These same principles apply for a JSON-based connection via CRS's Middleware. </p>
         <p>
         </p>
         <hr>
@@ -21818,8 +21818,8 @@ tags:
         <p>
         </p>
         <h4>NAS &amp; NAP Index value</h4>
-        <p>The InstantID NAS index value is a numeric value that ranges from 0 to 12 and explicitly reports which of the following input identity elements were verified with an identity that is on record at LexisNexis: first name, last name, residential address, and SSN. An NAS index value of 12 indicates that all four elements were verified to an identity on record. An NAS index value of 0 indicates that none of the four elements were verified according to an identity on record. NAS reporting sources contributing to LexisNexis’s records include national credit bureau header records, utility source records, and public records.</p>
-        <p>The InstantID NAP index value is also a numeric value that ranges from 0 to 12 and explicitly indicates the level of the match of the submitted name, address, and phone number. Reporting sources contributing to LexisNexis’s records include phone directory and utility records, and can also include contributed inquiry records from the LexisNexis Fraud Defense Network Event Activity data. Note that the NAP index provides very timely updates to name and address verification. While a phone number is also reported as a component of the NAP index, a phone number is not required to verify name and address through these sources. </p>
+        <p>The InstantID NAS index value is a numeric value that ranges from 0 to 12 and explicitly reports which of the following input identity elements were verified with an identity that is on record at LexisNexis: first name, last name, residential address, and SSN. An NAS index value of 12 indicates that all four elements were verified to an identity on record. An NAS index value of 0 indicates that none of the four elements were verified according to an identity on record. NAS reporting sources contributing to LexisNexis's records include national credit bureau header records, utility source records, and public records.</p>
+        <p>The InstantID NAP index value is also a numeric value that ranges from 0 to 12 and explicitly indicates the level of the match of the submitted name, address, and phone number. Reporting sources contributing to LexisNexis's records include phone directory and utility records, and can also include contributed inquiry records from the LexisNexis Fraud Defense Network Event Activity data. Note that the NAP index provides very timely updates to name and address verification. While a phone number is also reported as a component of the NAP index, a phone number is not required to verify name and address through these sources. </p>
         <p>NAS uses name, address, and Social Security Number (SSN), while NAP uses name, address and Phone number.</p>
         <p>The NAS and NAP indices are constructed to return the highest value that can be obtained when attempting to match the input <em>name, address, </em>and<em> SSN</em> (NAS) or Phone Number (NAP) to the identities that are on record.</p>
         <p>For example, </p>
@@ -21974,12 +21974,12 @@ tags:
         <h3>Credit report (JSON)</h3>
         <strong>URL:</strong> <a href="https://mware-dev.crscreditapi.com/api/equifax/credit-report">https://mware-dev.crscreditapi.com/api/equifax/credit-report</a><br>
         <p>
-        This endpoint returns a JSON credit report for the borrower’s identity provided in the request body<br>
+        This endpoint returns a JSON credit report for the borrower's identity provided in the request body<br>
         </p>
         <h3>Credit report (PDF)</h3>
         <strong>URL:</strong> <a href="https://mware-dev.crscreditapi.com/api/equifax/pdf-credit-report">https://mware-dev.crscreditapi.com/api/equifax/pdf-credit-report</a><br>
         <p>
-        This endpoint returns a PDF credit report for the borrower’s identity provided in the request body<br>
+        This endpoint returns a PDF credit report for the borrower's identity provided in the request body<br>
         </p>
         <hr>
         <h2>TransUnion Credit Reports</h2>
@@ -21992,7 +21992,7 @@ tags:
         <h3>credit-report</h3>
         <strong>URL:</strong> <a href="https://mware-dev.crscreditapi.com/api/transunion/credit-report">https://mware-dev.crscreditapi.com/api/transunion/credit-report</a><br>
         <p>
-        The Credit Report is a compilation of data on an individual that is helpful in making decisions in many types of consumer transactions. The Credit Report contains various data about the consumer, including indicative information (name, addresses, date of birth, and Social Security number), employment information, and the consumer’s credit history. This information is obtained from credit grantors, public records, collection agencies, and employers.
+        The Credit Report is a compilation of data on an individual that is helpful in making decisions in many types of consumer transactions. The Credit Report contains various data about the consumer, including indicative information (name, addresses, date of birth, and Social Security number), employment information, and the consumer's credit history. This information is obtained from credit grantors, public records, collection agencies, and employers.
         </p>
         <hr>
         <h2>Experian Credit Reports</h2>
@@ -22000,7 +22000,7 @@ tags:
         <p>Coming soon to Production.</p>
         <strong>URL:</strong> <a href="https://mware-dev.crscreditapi.com/api/experian/credit-profile/credit-report">https://mware-dev.crscreditapi.com/api/experian/credit-profile/credit-report</a><br>
         <p>
-        This endpoint returns a JSON credit report for the borrower’s identity provided in the request body<br>
+        This endpoint returns a JSON credit report for the borrower's identity provided in the request body<br>
         </p>
         <h3>Credit Profile</h3>
         <p>If unable to get a credit report from Experian for this consumer, then we will automatically cascade to another view for this consumer and return back available information.</p>
@@ -22056,10 +22056,10 @@ tags:
         <u>https://mware-dev.crscreditapi.com/api/mcl/request</u>
         </a>, will return data from MCL. This endpoint can be used to request Consumer Credit Reports.</p>
         <p>First, order a credit report using the “New Order” request (example provided in the Postman Collection). From the response, save the vendorOrderIdentifier, to retrieve the credit report that was ordered. Next, retrieve the report that is associated with this “vendorOrderIdentifier” by using the "Polling Request'' to poll the status of the order. </p>
-        <p>Use a 4-7 second polling interval until the response has the "statusDescription" value, "READY''.When the "statusDescription" is "READY", then the response will also contain the borrower's credit report as JSON, HTML, and base64 encoded PDF. Reports are usually ready after ~6-10 seconds. If a report isn’t ready after 90 seconds, it’s safe to assume the order has timed out.</p>
+        <p>Use a 4-7 second polling interval until the response has the "statusDescription" value, "READY''.When the "statusDescription" is "READY", then the response will also contain the borrower's credit report as JSON, HTML, and base64 encoded PDF. Reports are usually ready after ~6-10 seconds. If a report isn't ready after 90 seconds, it's safe to assume the order has timed out.</p>
         <p>The <a href="https://docsend.com/view/s/rjsnmxftw59isyiv">
         <u>SmartAPI documentation</u>
-        </a> documents MCL’s XML interface, but the request structure is the same for the JSON requests through the eCredit Data API, with the exception that there is a different casing convention used for the JSON field names. </p>
+        </a> documents MCL's XML interface, but the request structure is the same for the JSON requests through the eCredit Data API, with the exception that there is a different casing convention used for the JSON field names. </p>
         <p>The Postman collection contains sample JSON requests that can be used as templates for MCL. Example requests can be used as templates and for generating client code. </p>
         <ol>
         <li>
@@ -22155,7 +22155,7 @@ tags:
         <h4>mvr: LexisNexis Motor Vehicle report</h4>
         <strong>URL:</strong> <a href="https://mware-dev.crscreditapi.com/api/mvr">https://mware-dev.crscreditapi.com/api/mvr</a>
         <h3>Bankruptcy Search and Report</h3>
-        <p>First, run a Bankruptcy Search, which produces the inputs needed to feed into the Bankruptcy report, which contains comprehensive, accurate information on the latest bankruptcy case information. LexisNexis’s databases are updated daily with data sources directly from the courts. Bankruptcy records include the debtor's name, address and social security number, plus crucial information like case number and court chapter, date filed, discharged, dismissed and converted. Information about attorneys, trustees and judges is also available.</p>
+        <p>First, run a Bankruptcy Search, which produces the inputs needed to feed into the Bankruptcy report, which contains comprehensive, accurate information on the latest bankruptcy case information. LexisNexis's databases are updated daily with data sources directly from the courts. Bankruptcy records include the debtor's name, address and social security number, plus crucial information like case number and court chapter, date filed, discharged, dismissed and converted. Information about attorneys, trustees and judges is also available.</p>
         <ul>
         <li>
         Bankruptcy - Search: <strong>URL:</strong> <a href="https://mware-dev.crscreditapi.com/api/bankruptcys">https://mware-dev.crscreditapi.com/api/bankruptcys</a>
@@ -22174,17 +22174,17 @@ tags:
         </a>, will return data from MCL.</p>
         <p>For MCL requests, your MCL credentials are used in the background. An MCL Request can be created to specify any MCL product to which your MCL Credentials allow access. If your MCL credentials had InstantID enabled, you could retrieve InstantID through the middleware but MCL can only give you HTML and/or PDF.</p>
         <h3>Background</h3>
-        <p>This endpoint can be used to interact with MCL’s SmartAPI to retrieve MCL products using JSON (for both requests and responses). If you would rather receive XML, then we can provide credentials that can be used to connect directly to MCL’s SmartAPI (not going through eCredit Data API) for XML responses.</p>
+        <p>This endpoint can be used to interact with MCL's SmartAPI to retrieve MCL products using JSON (for both requests and responses). If you would rather receive XML, then we can provide credentials that can be used to connect directly to MCL's SmartAPI (not going through eCredit Data API) for XML responses.</p>
         <p>MCL offers various products that can be specified in the request body according to the permissions set for your credentials. Many MCL products utilize a polling workflow for retrieving data.</p>
         <p>The MCL SmartAPI documentation can be referenced for basic guidance from <a href="https://docsend.com/view/s/rjsnmxftw59isyiv">SmartAPI documentation</a>. </p>
-        <p>These same principles apply for a JSON-based connection via CRS’s Middleware. </p>
+        <p>These same principles apply for a JSON-based connection via CRS's Middleware. </p>
         <h3>Reports available from MCL SmartAPI</h3>
         <ul>
         <li>
         MCL offers various products which can be specified in the request
         </li>
         <li>
-        MeridianLink’s SmartAPI is a single API to request credit verification information from service providers. Via MCL’s API sends a single request and receives a response from the third-party verification service that is appropriate for the request
+        MeridianLink's SmartAPI is a single API to request credit verification information from service providers. Via MCL's API sends a single request and receives a response from the third-party verification service that is appropriate for the request
         </li>
         <li>
         SmartAPI supports verification by:</p>
@@ -22202,7 +22202,7 @@ tags:
         Property Verification: flood determination orders through various providers &amp; automated valuation models: PASS, Home Value Explorer (HVE), IVAL, GeoAVM, and the Property<br>and Market Condition (PMC) reports. 
         </li>
         <li>
-        Employment Verification: instant database lookups and manual verifications. VOEs are processed instantly if the applicant’s employer reports information to automated services like The Work Number. For all other employers, the VOE order will be processed manually.
+        Employment Verification: instant database lookups and manual verifications. VOEs are processed instantly if the applicant's employer reports information to automated services like The Work Number. For all other employers, the VOE order will be processed manually.
         </li>
         <li>
         Income Verification based on tax return verification from the IRS.</p>
