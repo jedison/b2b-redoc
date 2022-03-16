@@ -1,0 +1,90 @@
+  /vfps/biid2:
+    post:
+      tags:
+        - LexisNexis
+      summary: Business Instant ID2 Verification via Data Elements
+
+  /vfps/biid2/pdf:
+    post:
+      tags:
+        - LexisNexis
+      summary: Business Instant ID2 PDF Report
+
+  /transunion/identity-manager-verification/basic:
+    post:
+      tags:
+        - Transunion
+      summary: Identity Manager Verification (basic)
+
+  /transunion/credit-report:
+    post:
+      tags:
+        - Transunion
+      summary: Credit Report
+
+  /gwls/ofaclist:
+    post:
+      tags:
+        - Global WatchList
+      summary: OFAC Watchlist Search (multiple requests)
+
+  /gwls/ofac:
+    post:
+      tags:
+        - Global WatchList
+      summary: OFAC Watchlist Search  (single request)
+
+  /experian/credit-profile/credit-report:
+    post:
+      tags:
+        - Experian
+      summary: Experian Credit Report
+
+  /experian/cc2/{option}:
+    post:
+      tags:
+        - Experian
+      summary: Cross Core 2 Initial with options
+
+  /experian/cc2/{option}/otp:
+    post:
+      tags:
+        - Experian
+      summary: Cross Core 2 One-Time Passcode with options
+
+  /experian/cc2/otp:
+    post:
+      tags:
+        - Experian
+      summary: Cross Core 2 One-Time Passcode (no options)
+
+  /experian/cc2/initial:
+    post:
+      tags:
+        - Experian
+      summary: Cross Core 2 Initial (no options)
+
+  /equifax/pdf-credit-report:
+    post:
+      tags:
+        - Equifax
+      summary: Equifax PDF Credit Report Request
+
+  /biid/new-request:
+    post:
+      tags:
+        - LexisNexis
+      summary: Business Instant ID (BIID) Verification via DTO
+
+  /users/logs/all:
+    get:
+      tags:
+        - User
+      summary: User logs (all)
+
+  /equifax/credit-report/{pdfRequestId}:
+    get:
+      tags:
+        - Equifax
+      summary: Equifax PDF Credit Report Retrieve
+
