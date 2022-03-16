@@ -769,10 +769,10 @@ paths:
     post:
       tags:
         - mvs-controller
-      summary: Motor Vehicle Search Request
+      summary: LexisNexis Motor Vehicle Search Request
       description: |
         <h2>/mvs</h2>
-        This endpoint is for Motor Vehicle Search Request
+        This endpoint is for LexisNexis Motor Vehicle Search Request
       operationId: mvsRequest
       requestBody:
         content:
@@ -797,10 +797,10 @@ paths:
     post:
       tags:
         - mvr-controller
-      summary: Motor Vehicle Report Request
+      summary: LexisNexis Motor Vehicle Report Request
       description: |
         <h2>/mvr</h2>
-        This endpoint is for Motor Vehicle Report Request
+        This endpoint is for LexisNexis Motor Vehicle Report Request
       operationId: mvrRequest
       requestBody:
         content:
@@ -825,10 +825,10 @@ paths:
     post:
       tags:
         - ljs-controller
-      summary: Lien and Judgment Search Request
+      summary: Experian Lien and Judgment Search Request
       description: |
         <h2>/ljs</h2>
-        This endpoint is for Lien and Judgement Search Request
+        This endpoint is for Experian Lien and Judgement Search Request
       operationId: ljsRequest
       requestBody:
         content:
@@ -853,10 +853,10 @@ paths:
     post:
       tags:
         - ljr-controller
-      summary: Lien and Judgment Report Request
+      summary: Experian Lien and Judgment Report Request
       description: |
         <h2>/ljs</h2>
-        This endpoint is for Lien and Judgment Report Request
+        This endpoint is for Experian Lien and Judgment Report Request
       operationId: ljrRequest
       requestBody:
         content:
@@ -3069,7 +3069,7 @@ paths:
     post:
       tags:
         - Criminal
-      summary: Criminal Report Request
+      summary: CIC Criminal Report Request
       description: |
         <h2>/criminal/new-request</h2>
       operationId: newRequest_2
@@ -3149,7 +3149,7 @@ paths:
     post:
       tags:
         - bankruptcy-s-controller
-      summary: Bankruptcy Search
+      summary: LexisNexis Bankruptcy Search
       description: |
         <h2>/bankruptcys</h2>
       operationId: bsRequest
@@ -3176,7 +3176,7 @@ paths:
     post:
       tags:
         - bankruptcy-r-controller
-      summary: Bankruptcy Report
+      summary: LexisNexis Bankruptcy Report
       description: |
         <h2>/bankruptcyr</h2>
       operationId: mvrRequest_1
@@ -3497,7 +3497,7 @@ paths:
     get:
       tags:
         - Criminal
-      summary: Get Criminal Report
+      summary: Get CIC Criminal Report
       description: |
         <h2>/criminal/get-response/{id}</h2>
       operationId: previousRequest_1
@@ -22154,7 +22154,7 @@ tags:
         </p>
         <h4>mvr: LexisNexis Motor Vehicle report</h4>
         <strong>URL:</strong> <a href="https://mware-dev.crscreditapi.com/api/mvr">https://mware-dev.crscreditapi.com/api/mvr</a>
-        <h3>Bankruptcy Search and Report</h3>
+        <h3>LexisNexis Bankruptcy Search and Report</h3>
         <p>First, run a Bankruptcy Search, which produces the inputs needed to feed into the Bankruptcy report, which contains comprehensive, accurate information on the latest bankruptcy case information. LexisNexis's databases are updated daily with data sources directly from the courts. Bankruptcy records include the debtor's name, address and social security number, plus crucial information like case number and court chapter, date filed, discharged, dismissed and converted. Information about attorneys, trustees and judges is also available.</p>
         <ul>
         <li>
@@ -22318,11 +22318,11 @@ tags:
 
 - name: Criminal
   description: |
-      REST API for Criminal data
+      REST API for CIC Criminal data
 
 - name: Eviction
   description: |
-      REST API for Eviction data
+      REST API for CIC Eviction data
 
 - name: User
   description: |
