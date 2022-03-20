@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: eCredit Data API(tm)
+  title: eCredit Data API
   version: v1
   contact:
     name: API Support
