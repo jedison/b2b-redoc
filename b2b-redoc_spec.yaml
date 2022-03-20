@@ -22292,8 +22292,9 @@ tags:
 
 - name: Overview of APIs
   description: |
-        eCredit Data API support JSON or XML requests and responses. 
-        For details of the APIs, refer to the endpoints and request/response models in this section.
+        <p>eCredit Data API support JSON or XML requests and responses. </p>
+        <p>For details of the APIs, refer to the endpoints and request/response models in this section.</p>
+        <p>Please note these APIs are already available in the eCredit Data API.</p>
         <hr>
 
 - name: Equifax
@@ -22330,7 +22331,9 @@ tags:
 
 - name: Overview of APIs Coming Soon
   description: |
-        These APIs are currently <em><strong>under development</strong></em> by CRS. You can expect that they will be available soon. If the functionality that is described interests you, please let us know and we can discuss its availability.
+        <p>These APIs are currently <em><strong>under development</strong></em> by CRS. </p>
+        <p>You can expect that they will be available soon.</p>
+        <p>If the functionality that is described interests you, please let us know and we can discuss its availability.</p>
         <hr>
 
 - name: Sandbox
@@ -28455,9 +28458,9 @@ x-tagGroups:
       # Would it be an option to explicit move this here? No, does not work.
       # - securitySchemes
       
-  - name: APIs under development
+  - name: APIs Coming Soon
     tags:      
-      - Overview of APIs Under Development
+      - Overview of APIs Coming Soon
       - xgs-controller
       - mvs-controller
       - mvr-controller
