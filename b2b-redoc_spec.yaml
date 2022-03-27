@@ -360,7 +360,7 @@ paths:
         -
           'Authorization Token': []
       # TODO: update OAS add summary
-      summary: Equifax Credit Report
+      summary: Equifax Credit Report Request
       tags:
         - Equifax
   /equifax/credit-report/{pdfRequestId}:
@@ -422,7 +422,7 @@ paths:
         -
           'Authorization Token': []
       # TODO: update OAS
-      summary: Equifax PDF Credit Report Retrieve
+      summary: Equifax PDF Credit Report Request
       tags:
         - Equifax
   /eviction/get-response/{id}:
