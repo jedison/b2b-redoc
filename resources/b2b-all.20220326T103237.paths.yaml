@@ -1,0 +1,3902 @@
+paths:
+  /bankruptcyr:
+    post:
+      operationId: mvrRequest_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankruptcyReport2Request'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BankruptcyReport2Request'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankruptcyReport2ResponseEx'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BankruptcyReport2ResponseEx'
+          description: OK
+      tags:
+        - bankruptcy-r-controller
+  /bankruptcys:
+    post:
+      operationId: bsRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankruptcySearch2Request'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BankruptcySearch2Request'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankruptcySearch2ResponseEx'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BankruptcySearch2ResponseEx'
+          description: OK
+      tags:
+        - bankruptcy-s-controller
+  /biid/new-request:
+    post:
+      operationId: newRequest_3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BIIDRequestDTO'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/Product'
+                type: array
+          description: OK
+      tags:
+        - biid-controller
+  /ccc/exp/report:
+    post:
+      description: 'Order an Experian Business Premier Profile Report.'
+      operationId: businessPremierProfileReport
+      requestBody:
+        content:
+          application/json:
+            examples:
+              'Sample 1':
+                description: 'Sample 1'
+                value:
+                  bin: '963129279'
+            schema:
+              $ref: '#/components/schemas/ExpPPR'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoExpPPRResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoExpPPRResponse'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'Experian Business Premier Profile Report'
+      tags:
+        - 'CCC Experian Business Credit'
+  /ccc/exp/score:
+    post:
+      description: 'Order an Experian Intelliscore+ business report.'
+      operationId: businessIntelliScore
+      requestBody:
+        content:
+          application/json:
+            examples:
+              'Sample 1':
+                description: 'Sample 1'
+                value:
+                  bin: '963129279'
+            schema:
+              $ref: '#/components/schemas/ExpIntelliscore'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoExpIntelliscoreResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoExpIntelliscoreResponse'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'Experian Intelliscore+ Business Report'
+      tags:
+        - 'CCC Experian Business Credit'
+  /ccc/exp/search:
+    post:
+      description: 'Perform an Experian US business search to get a list of matching businesses.'
+      operationId: businessSearch
+      requestBody:
+        content:
+          application/json:
+            examples:
+              'Sample 1':
+                description: 'Sample 1'
+                value:
+                  city: BRIDGEPORT
+                  name: 'GODWIN PUMPS OF AMERICA, INC'
+                  state: NJ
+            schema:
+              $ref: '#/components/schemas/ExpBusSearch'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoExpBusSearchResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoExpBusSearchResponse'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'Experian Business Search'
+      tags:
+        - 'CCC Experian Business Credit'
+  /criminal/get-response/{id}:
+    get:
+      operationId: previousRequest_1
+      parameters:
+        -
+          in: path
+          name: id
+          required: '1'
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoCriminalResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoCriminalResponse'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      tags:
+        - Criminal
+  /criminal/new-request:
+    post:
+      operationId: newRequest_2
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Failure:
+                description: Failure
+                value:
+                  reference: myRef123
+                  subjectInfo:
+                    city: Cottonwood
+                    dob: 01-01-1982
+                    first: Jonathan
+                    houseNumber: '1803'
+                    last: Consumer
+                    middle: ''
+                    state: CA
+                    streetName: Norma
+                    zip: '91502'
+              Success:
+                description: Success
+                value:
+                  reference: myRef123
+                  subjectInfo:
+                    city: Cottonwood
+                    dob: 01-01-1982
+                    first: Jonathan
+                    houseNumber: '1803'
+                    last: Consumer
+                    middle: ''
+                    ssn: 666-44-3321
+                    state: CA
+                    streetName: Norma
+                    zip: '91502'
+            schema:
+              $ref: '#/components/schemas/OrderDTO'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoCriminalResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoCriminalResponse'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      tags:
+        - Criminal
+  /equifax/credit-report:
+    post:
+      operationId: creditReport_2
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Success:
+                description: Success
+                value:
+                  consumers:
+                    addresses:
+                      -
+                        city: HOUSTON
+                        houseNumber: '8615'
+                        identifier: current
+                        state: TX
+                        streetName: 'Black Tern'
+                        streetType: LN
+                        zip: '77040'
+                    dateOfBirth: '05061985'
+                    name:
+                      -
+                        firstName: ASAD
+                        identifier: current
+                        lastName: YCSWL
+                    phoneNumbers:
+                      -
+                        identifier: current
+                        number: '7135551212'
+                    socialNum:
+                      -
+                        identifier: current
+                        number: '666176062'
+            schema:
+              $ref: '#/components/schemas/CreditReportRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CreditReportRequest'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditReportResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreditReportResponse'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      tags:
+        - Equifax
+  /equifax/credit-report/{pdfRequestId}:
+    get:
+      operationId: pdfCreditReport_1
+      parameters:
+        -
+          in: path
+          name: pdfRequestId
+          required: '1'
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                items:
+                  format: byte
+                  type: string
+                type: array
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      tags:
+        - Equifax
+  /equifax/pdf-credit-report:
+    post:
+      operationId: pdfCreditReport
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditReportRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CreditReportRequest'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  format: byte
+                  type: string
+                type: array
+            application/xml:
+              schema:
+                items:
+                  format: byte
+                  type: string
+                type: array
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      tags:
+        - Equifax
+  /eviction/get-response/{id}:
+    get:
+      operationId: previousRequest
+      parameters:
+        -
+          in: path
+          name: id
+          required: '1'
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoEvictionResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoEvictionResponse'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      tags:
+        - Eviction
+  /eviction/new-request:
+    post:
+      operationId: newRequest_1
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Failure:
+                description: Failure
+                value:
+                  reference: myRef123
+                  subjectInfo:
+                    city: Cottonwood
+                    dob: 01-01-1982
+                    first: Harold
+                    houseNumber: '1803'
+                    last: Chuang
+                    middle: ''
+                    state: CA
+                    streetName: Norma
+                    zip: '91502'
+              Success:
+                description: Success
+                value:
+                  reference: myRef123
+                  subjectInfo:
+                    city: Cottonwood
+                    dob: 01-01-1982
+                    first: Harold
+                    houseNumber: '1803'
+                    last: Chuang
+                    middle: ''
+                    ssn: 666-44-3321
+                    state: CA
+                    streetName: Norma
+                    zip: '91502'
+            schema:
+              $ref: '#/components/schemas/OrderDTO'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoEvictionResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoEvictionResponse'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      tags:
+        - Eviction
+  /experian/cc2/initial:
+    post:
+      operationId: crossCore2Initial_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CCIdentityRequestDTO'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CCIdentityRequestDTO'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoCrossCoreResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoCrossCoreResponse'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      tags:
+        - Experian
+  /experian/cc2/kiq:
+    post:
+      operationId: crossCore2KIQ_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KBA'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/KBA'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoCrossCoreResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoCrossCoreResponse'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      tags:
+        - Experian
+  /experian/cc2/otp:
+    post:
+      operationId: crossCore2OTP_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OTP'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OTP'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoCrossCoreResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoCrossCoreResponse'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      tags:
+        - Experian
+  /experian/cc2/screening:
+    post:
+      operationId: crossCore2Screening
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CCIdentityRequestDTO'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CCIdentityRequestDTO'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoCrossCoreResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoCrossCoreResponse'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      tags:
+        - Experian
+  /experian/cc2/{option}:
+    post:
+      operationId: crossCore2Initial
+      parameters:
+        -
+          in: path
+          name: option
+          required: '1'
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CCIdentityRequestDTO'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CCIdentityRequestDTO'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoPreciseIDResponseDTO'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoPreciseIDResponseDTO'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      tags:
+        - Experian
+  /experian/cc2/{option}/kiq:
+    post:
+      operationId: crossCore2KIQ
+      parameters:
+        -
+          in: path
+          name: option
+          required: '1'
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KBA'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/KBA'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoPreciseIDResponseDTO'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoPreciseIDResponseDTO'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      tags:
+        - Experian
+  /experian/cc2/{option}/otp:
+    post:
+      operationId: crossCore2OTP
+      parameters:
+        -
+          in: path
+          name: option
+          required: '1'
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OTP'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OTP'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoPreciseIDResponseDTO'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoPreciseIDResponseDTO'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      tags:
+        - Experian
+  /experian/credit-profile/automotive-credit:
+    post:
+      description: "The Automotive Profile Summary is geared toward helping automotive lenders' and dealers' credit decisions. This feature is available on Experian's Credit Profile and provides a fast at-a-glance analysis of a consumers automotive finance history."
+      operationId: automotiveCredit
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Failure:
+                description: Failure
+                value:
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: DECATUR
+                        line1: ' '
+                        state: GA
+                        zipCode: '30033'
+                      dob:
+                        dob: '1948'
+                      name:
+                        firstName: PEGGY
+                        lastName: BOLTON
+                      phone:
+                        -
+                          number: 555-673-1001
+                          type: T
+                      ssn:
+                        ssn: '111111111'
+              'Request Schema':
+                description: 'Request Schema'
+                value:
+                  addOns:
+                    clarityData:
+                      clarityAccountId: string
+                      clarityControlFileName: string
+                      clarityControlFileVersion: string
+                      clarityLocationId: string
+                    clarityEarlyRiskScore: string
+                    consumerIdentCheck:
+                      getUniqueConsumerIdentifier: string
+                      verifyPrimaryConsumerIdentifier: string
+                      verifySecondaryConsumerIdentifier: string
+                    demographics: string
+                    directCheck: string
+                    extendedViewScore: string
+                    fraudShield: string
+                    joint: string
+                    mla: string
+                    ofacmsg: string
+                    paymentHistory84: string
+                    rentBureauData:
+                      primaryApplRentBureauFreezePin: string
+                      secondaryApplRentBureauFreezePin: string
+                    renterRiskScore: string
+                    riskModels:
+                      modelIndicator:
+                        - string
+                      scorePercentile: string
+                    summaries:
+                      summaryType:
+                        - string
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: string
+                        line1: string
+                        line2: string
+                        state: string
+                        zipCode: string
+                      dob:
+                        dob: string
+                      driverslicense:
+                        number: string
+                        state: string
+                      employment:
+                        employerAddress:
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                        employerName: string
+                      name:
+                        firstName: string
+                        generationCode: string
+                        lastName: string
+                        middleName: string
+                      phone:
+                        -
+                          number: string
+                          type: string
+                      previousAddress:
+                        -
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                      ssn:
+                        ssn: string
+                    secondaryApplicant:
+                      dob:
+                        dob: string
+                      driverslicense:
+                        number: string
+                        state: string
+                      employment:
+                        employerAddress:
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                        employerName: string
+                      name:
+                        firstName: string
+                        generationCode: string
+                        lastName: string
+                        middleName: string
+                      phone:
+                        -
+                          number: string
+                          type: string
+                      ssn:
+                        ssn: string
+                  customOptions:
+                    optionId:
+                      - string
+                  freezeOverride:
+                    primaryApplFreezeOverrideCode: string
+                    secondaryApplFreezeOverrideCode: string
+                  vendorData:
+                    vendorNumber: string
+                    vendorVersion: string
+              Success:
+                description: Success
+                value:
+                  addOns:
+                    fraudShield: Y
+                    mla: Y
+                    ofacmsg: Y
+                    paymentHistory84: ''
+                    riskModels:
+                      modelIndicator:
+                        - V4
+                      scorePercentile: ''
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: OREGON
+                        line1: '5046 WYNN PARK DR'
+                        state: OH
+                        zipCode: '43616'
+                      name:
+                        firstName: MICHAEL
+                        lastName: KLEMM
+                      phone:
+                        -
+                          number: '7066632749'
+                      ssn:
+                        ssn: '666630555'
+                  customOptions:
+                    optionId: []
+                  permissiblePurpose:
+                    abbreviatedAmount: '010'
+                    terms: '010'
+                    type: '08'
+                  resellerInfo:
+                    endUserName: 'Tarik N'
+            schema:
+              $ref: '#/components/schemas/AutoCreditProfileRequest'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoCreditProfileResponseForAutomotiveCreditData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoCreditProfileResponseForAutomotiveCreditData'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'Automotive Credit Profile'
+      tags:
+        - Experian
+  /experian/credit-profile/connect-check:
+    post:
+      description: "Connect Check is a custom verification process designed specifically to assist the utility, telecommunication and cable industries detect fraud and minimize risk exposure at the time of a service request. Connect Check is focused on the top 100 regulated utility and telecommunications companies that are obligated to 'serve all who apply.' However, Connect Check can also be a valuable tool for smaller market segments. With Connect Check, service representatives, regardless of their level of credit training, can make immediate and informed service decisions while the applicant is still on the line."
+      operationId: connectCheck
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Failure:
+                description: Failure
+                value:
+                  addOns:
+                    demographics: 'Geocode and Phone'
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: FAIRBORN
+                        line1: '3064 WOLFE DR'
+                        line2: ''
+                        state: OH
+                        zipCode: 45324-2140
+                      dob:
+                        dob: '04181961'
+                      name:
+                        firstName: DANIEL
+                        lastName: COLLINS
+                      previousAddress:
+                        -
+                          city: FAIRBORN
+                          line1: '836 WASHINGTON AVE'
+                          line2: ''
+                          state: OH
+                          zipCode: '453243840'
+                      ssn:
+                        ssn: '111111111'
+              'Request Schema':
+                description: 'Request Schema'
+                value:
+                  addOns:
+                    clarityData:
+                      clarityAccountId: string
+                      clarityControlFileName: string
+                      clarityControlFileVersion: string
+                      clarityLocationId: string
+                    clarityEarlyRiskScore: string
+                    consumerIdentCheck:
+                      getUniqueConsumerIdentifier: string
+                      verifyPrimaryConsumerIdentifier: string
+                      verifySecondaryConsumerIdentifier: string
+                    demographics: string
+                    directCheck: string
+                    fraudShield: string
+                    joint: string
+                    mla: string
+                    ofacmsg: string
+                    paymentHistory84: string
+                    rentBureauData:
+                      primaryApplRentBureauFreezePin: string
+                      secondaryApplRentBureauFreezePin: string
+                    renterRiskScore: string
+                    riskModels:
+                      modelIndicator:
+                        - string
+                      scorePercentile: string
+                    summaries:
+                      summaryType:
+                        - string
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: string
+                        line1: string
+                        line2: string
+                        state: string
+                        zipCode: string
+                      dob:
+                        dob: string
+                      driverslicense:
+                        number: string
+                        state: string
+                      employment:
+                        employerAddress:
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                        employerName: string
+                      name:
+                        firstName: string
+                        generationCode: string
+                        lastName: string
+                        middleName: string
+                      phone:
+                        -
+                          number: string
+                          type: string
+                      previousAddress:
+                        -
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                      ssn:
+                        ssn: string
+                    secondaryApplicant:
+                      dob:
+                        dob: string
+                      driverslicense:
+                        number: string
+                        state: string
+                      employment:
+                        employerAddress:
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                        employerName: string
+                      name:
+                        firstName: string
+                        generationCode: string
+                        lastName: string
+                        middleName: string
+                      phone:
+                        -
+                          number: string
+                          type: string
+                      ssn:
+                        ssn: string
+                  customOptions:
+                    optionId:
+                      - string
+                  freezeOverride:
+                    primaryApplFreezeOverrideCode: string
+                    secondaryApplFreezeOverrideCode: string
+              Success:
+                description: Success
+                value:
+                  addOns:
+                    clarityData:
+                      clarityAccountId: '1234567'
+                      clarityControlFileName: test_file
+                      clarityControlFileVersion: '1234567'
+                      clarityLocationId: '123456'
+                    clarityEarlyRiskScore: Y
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: 'MICHIGAN CITY'
+                        line1: '510 MONDRE ST'
+                        state: IN
+                        zipCode: '46360'
+                      dob:
+                        dob: '1955'
+                      name:
+                        firstName: JOHN
+                        lastName: CANN
+                        middleName: N
+                      phone:
+                        -
+                          number: '1234567890'
+                      ssn:
+                        ssn: '111111111'
+            schema:
+              $ref: '#/components/schemas/ConnectCreditProfileRequest'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoCreditProfileResponseForconnectcheckcreditData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoCreditProfileResponseForconnectcheckcreditData'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'Connect Check Credit Profile'
+      tags:
+        - Experian
+  /experian/credit-profile/credit-report:
+    post:
+      description: 'Retrieves a credit profile with scores and addons requested. This is CR API Version 2.'
+      operationId: creditReport_1
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Failure:
+                description: Failure
+                value:
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: DECATUR
+                        line1: ' '
+                        state: GA
+                        zipCode: '30033'
+                      dob:
+                        dob: '1948'
+                      name:
+                        firstName: PEGGY
+                        lastName: BOLTON
+                      phone:
+                        -
+                          number: 555-673-1001
+                          type: T
+                      ssn:
+                        ssn: '111111111'
+              'Request Schema':
+                description: 'Request Schema'
+                value:
+                  addOns:
+                    clarityAttributes: string
+                    clarityData:
+                      clarityAccountId: string
+                      clarityAttributesControlFileName: string
+                      clarityControlFileName: string
+                      clarityControlFileVersion: string
+                      clarityLocationId: string
+                    clarityEarlyRiskScore: string
+                    consumerIdentCheck:
+                      getUniqueConsumerIdentifier: string
+                      verifyPrimaryConsumerIdentifier: string
+                      verifySecondaryConsumerIdentifier: string
+                    covidSpotlightAttributes: string
+                    demographics: string
+                    directCheck: string
+                    eCBSV: string
+                    eCBSVData:
+                      consentDate: string
+                      consentType: string
+                      employerIdentificationNumber: string
+                    extendedViewScore: string
+                    fcraAttributes: string
+                    fraudShield: string
+                    incomeAndEmploymentReport: string
+                    incomeAndEmploymentReportData:
+                      reportType: string
+                      verifierName: string
+                    joint: string
+                    mlAttributes: string
+                    mla: string
+                    ofacmsg: string
+                    outputType: string
+                    paymentHistory84: string
+                    rentBureauData:
+                      primaryApplRentBureauFreezePin: string
+                      secondaryApplRentBureauFreezePin: string
+                    renterRiskScore: string
+                    riskModels:
+                      modelIndicator:
+                        - string
+                      scorePercentile: string
+                    staggSelect: string
+                    summaries:
+                      summaryType:
+                        - string
+                    sureProfile: string
+                    syntheticId: string
+                    taxRefundLoan: string
+                    trendedData: string
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: string
+                        line1: string
+                        line2: string
+                        state: string
+                        zipCode: string
+                      dob:
+                        dob: string
+                      driverslicense:
+                        number: string
+                        state: string
+                      employment:
+                        employerAddress:
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                        employerName: string
+                      name:
+                        firstName: string
+                        generationCode: string
+                        lastName: string
+                        middleName: string
+                      phone:
+                        -
+                          number: string
+                          type: string
+                      previousAddress:
+                        -
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                      ssn:
+                        ssn: string
+                    secondaryApplicant:
+                      dob:
+                        dob: string
+                      driverslicense:
+                        number: string
+                        state: string
+                      employment:
+                        employerAddress:
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                        employerName: string
+                      name:
+                        firstName: string
+                        generationCode: string
+                        lastName: string
+                        middleName: string
+                      phone:
+                        -
+                          number: string
+                          type: string
+                      ssn:
+                        ssn: string
+                  customOptions:
+                    optionId:
+                      - string
+                  freezeOverride:
+                    primaryApplFreezeOverrideCode: string
+                    secondaryApplFreezeOverrideCode: string
+                  vendorData:
+                    vendorNumber: string
+                    vendorVersion: string
+              Success:
+                description: Success
+                value:
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: 'CALIFORNIA CITY'
+                        line1: '9817 LOOP BLVD'
+                        line2: 'APT G'
+                        state: CA
+                        zipCode: '935051352'
+                      dob:
+                        dob: '02201982'
+                      name:
+                        firstName: LAURIE
+                        lastName: ANDERSON
+                        middleName: ''
+                      ssn:
+                        ssn: '666455730'
+            schema:
+              $ref: '#/components/schemas/CreditProfileRequest'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoCreditProfileResponseForCP'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoCreditProfileResponseForCP'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'Credit Report'
+      tags:
+        - Experian
+  /experian/credit-profile/employment-insight:
+    post:
+      description: "Employment Insight, a slightly modified version of the Experian Credit Profile report, contains consumer identification, employment history, and credit information used to substantiate information during the hiring or promotion process. As a verification tool, it is used to spot inconsistencies in address and employment information, confirm Social Security numbers, and reveal other names used. Credit information provided may provide insight on an applicant's responsibility toward his/her obligations."
+      operationId: extendedViewAttributesAndScore_1
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Failure:
+                description: Failure
+                value:
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: DECATUR
+                        line1: ' '
+                        state: GA
+                        zipCode: '30033'
+                      dob:
+                        dob: '1948'
+                      name:
+                        firstName: PEGGY
+                        lastName: BOLTON
+                      phone:
+                        -
+                          number: 555-673-1001
+                          type: T
+                      ssn:
+                        ssn: '111111111'
+              'Request Schema':
+                description: 'Request Schema'
+                value:
+                  addOns:
+                    consumerIdentCheck:
+                      getUniqueConsumerIdentifier: string
+                      verifyPrimaryConsumerIdentifier: string
+                    demographics: string
+                    directCheck: string
+                    fraudShield: string
+                    ofacmsg: string
+                    paymentHistory84: string
+                    summaries:
+                      summaryType:
+                        - string
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: string
+                        line1: string
+                        line2: string
+                        state: string
+                        zipCode: string
+                      dob:
+                        dob: string
+                      driverslicense:
+                        number: string
+                        state: string
+                      employment:
+                        employerAddress:
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                        employerName: string
+                      name:
+                        firstName: string
+                        generationCode: string
+                        lastName: string
+                        middleName: string
+                      phone:
+                        -
+                          number: string
+                          type: string
+                      previousAddress:
+                        -
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                      ssn:
+                        ssn: string
+                  customOptions:
+                    optionId:
+                      - string
+                  freezeOverride:
+                    primaryApplFreezeOverrideCode: string
+                  vendorData:
+                    vendorNumber: string
+                    vendorVersion: string
+              Success:
+                description: Success
+                value:
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: 'MICHIGAN CITY'
+                        line1: '510 MONROE ST'
+                        state: IN
+                        zipCode: 46360-5040
+                      employment:
+                        employerAddress:
+                          line1: CHECK
+                        employerName: 'NEWENGLAND LIFE'
+                      name:
+                        firstName: JOHN
+                        lastName: CANN
+                        middleName: N
+                      ssn:
+                        ssn: '111111111'
+            schema:
+              $ref: '#/components/schemas/EmploymentInsightRequest'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoCreditProfileResponseForEmploymentInsightData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoCreditProfileResponseForEmploymentInsightData'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'Employment Insight'
+      tags:
+        - Experian
+  /experian/credit-profile/extended-view-attributes:
+    post:
+      description: 'Retrieves a credit profile with scores and addons requested. If unable to get a credit report from Experian for this consumer, then we will automatically waterfall to Extended View module for this consumer and return back the Extended View Attributes.'
+      operationId: extendedViewAttributes
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Failure:
+                description: Failure
+                value:
+                  addOns:
+                    riskModels:
+                      modelIndicator:
+                        - AS
+                      scorePercentile: ''
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: FAIRBORN
+                        line1: '3064 WOLFE DR'
+                        line2: ''
+                        state: OH
+                        zipCode: 45324-2140
+                      dob:
+                        dob: '04181961'
+                      name:
+                        firstName: DANIEL
+                        lastName: COLLINS
+                      previousAddress:
+                        -
+                          city: FAIRBORN
+                          line1: '836 WASHINGTON AVE'
+                          line2: ''
+                          state: OH
+                          zipCode: '453243840'
+                      ssn:
+                        ssn: '111111111'
+                  customOptions:
+                    optionId:
+                      - test
+              'Request Schema':
+                description: 'Request Schema'
+                value:
+                  addOns:
+                    consumerIdentCheck:
+                      getUniqueConsumerIdentifier: string
+                      verifyPrimaryConsumerIdentifier: string
+                      verifySecondaryConsumerIdentifier: string
+                    demographics: string
+                    directCheck: string
+                    fraudShield: string
+                    joint: string
+                    mla: string
+                    ofacmsg: string
+                    paymentHistory84: string
+                    riskModels:
+                      modelIndicator:
+                        - string
+                      scorePercentile: string
+                    summaries:
+                      summaryType:
+                        - string
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: string
+                        line1: string
+                        line2: string
+                        state: string
+                        zipCode: string
+                      dob:
+                        dob: string
+                      driverslicense:
+                        number: string
+                        state: string
+                      employment:
+                        employerAddress:
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                        employerName: string
+                      name:
+                        firstName: string
+                        generationCode: string
+                        lastName: string
+                        middleName: string
+                      phone:
+                        -
+                          number: string
+                          type: string
+                      previousAddress:
+                        -
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                      ssn:
+                        ssn: string
+                    secondaryApplicant:
+                      dob:
+                        dob: string
+                      driverslicense:
+                        number: string
+                        state: string
+                      employment:
+                        employerAddress:
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                        employerName: string
+                      name:
+                        firstName: string
+                        generationCode: string
+                        lastName: string
+                        middleName: string
+                      phone:
+                        -
+                          number: string
+                          type: string
+                      ssn:
+                        ssn: string
+                  customOptions:
+                    optionId:
+                      - string
+                  freezeOverride:
+                    primaryApplFreezeOverrideCode: string
+                    secondaryApplFreezeOverrideCode: string
+                  thinFileIndicator: string
+                  vendorData:
+                    vendorNumber: string
+                    vendorVersion: string
+              Success:
+                description: Success
+                value:
+                  addOns:
+                    consumerIdentCheck:
+                      getUniqueConsumerIdentifier: Y
+                    demographics: 'Geocode and Phone'
+                    directCheck: Y
+                    fraudShield: Y
+                    joint: ''
+                    paymentHistory84: Y
+                    riskModels:
+                      modelIndicator:
+                        - F
+                        - R
+                        - N
+                        - K
+                        - V
+                      scorePercentile: Y
+                    summaries:
+                      summaryType:
+                        - 'Profile Summary'
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: 'MICHIGAN CITY'
+                        line1: '510 MONDRE ST'
+                        state: IN
+                        zipCode: '46360'
+                      driverslicense:
+                        number: A00000000000
+                        state: IN
+                      name:
+                        firstName: JOHN
+                        lastName: CANN
+                        middleName: N
+                      previousAddress:
+                        -
+                          city: 'SAINTE GE NEVIEVE'
+                          line1: '700 N 3RD ST'
+                          state: MO
+                          zipCode: '63670'
+                      ssn:
+                        ssn: '111111111'
+                  customOptions:
+                    optionId:
+                      - ''
+            schema:
+              $ref: '#/components/schemas/CreditProfileRequest'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoCreditProfileResponseForExtendedView'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoCreditProfileResponseForExtendedView'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'Extended View Attributes Only'
+      tags:
+        - Experian
+  /experian/credit-profile/extended-view-attributes-and-score:
+    post:
+      description: 'Retrieves a credit profile with scores and addons requested. If unable to get a credit report from Experian for this consumer, then we will automatically waterfall to Extended View module for this consumer and return back the Extended View Attributes and Score.'
+      operationId: extendedViewAttributesAndScore
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Failure:
+                description: Failure
+                value:
+                  addOns:
+                    riskModels:
+                      modelIndicator:
+                        - AS
+                      scorePercentile: ''
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: FAIRBORN
+                        line1: '3064 WOLFE DR'
+                        line2: ''
+                        state: OH
+                        zipCode: 45324-2140
+                      dob:
+                        dob: '04181961'
+                      name:
+                        firstName: DANIEL
+                        lastName: COLLINS
+                      previousAddress:
+                        -
+                          city: FAIRBORN
+                          line1: '836 WASHINGTON AVE'
+                          line2: ''
+                          state: OH
+                          zipCode: '453243840'
+                      ssn:
+                        ssn: '111111111'
+                  customOptions:
+                    optionId:
+                      - test
+              'Request Schema':
+                description: 'Request Schema'
+                value:
+                  addOns:
+                    consumerIdentCheck:
+                      getUniqueConsumerIdentifier: string
+                      verifyPrimaryConsumerIdentifier: string
+                      verifySecondaryConsumerIdentifier: string
+                    demographics: string
+                    directCheck: string
+                    fraudShield: string
+                    joint: string
+                    mla: string
+                    ofacmsg: string
+                    paymentHistory84: string
+                    riskModels:
+                      modelIndicator:
+                        - string
+                      scorePercentile: string
+                    summaries:
+                      summaryType:
+                        - string
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: string
+                        line1: string
+                        line2: string
+                        state: string
+                        zipCode: string
+                      dob:
+                        dob: string
+                      driverslicense:
+                        number: string
+                        state: string
+                      employment:
+                        employerAddress:
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                        employerName: string
+                      name:
+                        firstName: string
+                        generationCode: string
+                        lastName: string
+                        middleName: string
+                      phone:
+                        -
+                          number: string
+                          type: string
+                      previousAddress:
+                        -
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                      ssn:
+                        ssn: string
+                    secondaryApplicant:
+                      dob:
+                        dob: string
+                      driverslicense:
+                        number: string
+                        state: string
+                      employment:
+                        employerAddress:
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                        employerName: string
+                      name:
+                        firstName: string
+                        generationCode: string
+                        lastName: string
+                        middleName: string
+                      phone:
+                        -
+                          number: string
+                          type: string
+                      ssn:
+                        ssn: string
+                  customOptions:
+                    optionId:
+                      - string
+                  freezeOverride:
+                    primaryApplFreezeOverrideCode: string
+                    secondaryApplFreezeOverrideCode: string
+                  thinFileIndicator: string
+                  vendorData:
+                    vendorNumber: string
+                    vendorVersion: string
+              Success:
+                description: Success
+                value:
+                  addOns:
+                    consumerIdentCheck:
+                      getUniqueConsumerIdentifier: Y
+                    demographics: 'Geocode and Phone'
+                    directCheck: Y
+                    fraudShield: Y
+                    joint: ''
+                    paymentHistory84: Y
+                    riskModels:
+                      modelIndicator:
+                        - F
+                        - R
+                        - N
+                        - K
+                        - V
+                      scorePercentile: Y
+                    summaries:
+                      summaryType:
+                        - 'Profile Summary'
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: 'MICHIGAN CITY'
+                        line1: '510 MONDRE ST'
+                        state: IN
+                        zipCode: '46360'
+                      driverslicense:
+                        number: A00000000000
+                        state: IN
+                      name:
+                        firstName: JOHN
+                        lastName: CANN
+                        middleName: N
+                      previousAddress:
+                        -
+                          city: 'SAINTE GE NEVIEVE'
+                          line1: '700 N 3RD ST'
+                          state: MO
+                          zipCode: '63670'
+                      ssn:
+                        ssn: '111111111'
+                  customOptions:
+                    optionId:
+                      - ''
+            schema:
+              $ref: '#/components/schemas/CreditProfileRequest'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoCreditProfileResponseForExtendedView'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoCreditProfileResponseForExtendedView'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'Extended View Attributes Only And Score'
+      tags:
+        - Experian
+  /experian/credit-profile/extended-view-score:
+    post:
+      description: 'Retrieves a credit profile with scores and addons requested. If unable to get a credit report from Experian for this consumer, then we will automatically waterfall to Extended View Scoring for this consumer and return back the Extended View Score.'
+      operationId: extendedViewScore
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Failure:
+                description: Failure
+                value:
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: DECATUR
+                        line1: ' '
+                        state: GA
+                        zipCode: '30033'
+                      dob:
+                        dob: '1948'
+                      name:
+                        firstName: PEGGY
+                        lastName: BOLTON
+                      phone:
+                        -
+                          number: 555-673-1001
+                          type: T
+                      ssn:
+                        ssn: '111111111'
+              'Request Schema':
+                description: 'Request Schema'
+                value:
+                  addOns:
+                    consumerIdentCheck:
+                      getUniqueConsumerIdentifier: string
+                      verifyPrimaryConsumerIdentifier: string
+                      verifySecondaryConsumerIdentifier: string
+                    demographics: string
+                    directCheck: string
+                    fraudShield: string
+                    joint: string
+                    mla: string
+                    ofacmsg: string
+                    paymentHistory84: string
+                    riskModels:
+                      modelIndicator:
+                        - string
+                      scorePercentile: string
+                    summaries:
+                      summaryType:
+                        - string
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: string
+                        line1: string
+                        line2: string
+                        state: string
+                        zipCode: string
+                      dob:
+                        dob: string
+                      driverslicense:
+                        number: string
+                        state: string
+                      employment:
+                        employerAddress:
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                        employerName: string
+                      name:
+                        firstName: string
+                        generationCode: string
+                        lastName: string
+                        middleName: string
+                      phone:
+                        -
+                          number: string
+                          type: string
+                      previousAddress:
+                        -
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                      ssn:
+                        ssn: string
+                    secondaryApplicant:
+                      dob:
+                        dob: string
+                      driverslicense:
+                        number: string
+                        state: string
+                      employment:
+                        employerAddress:
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                        employerName: string
+                      name:
+                        firstName: string
+                        generationCode: string
+                        lastName: string
+                        middleName: string
+                      phone:
+                        -
+                          number: string
+                          type: string
+                      ssn:
+                        ssn: string
+                  customOptions:
+                    optionId:
+                      - string
+                  freezeOverride:
+                    primaryApplFreezeOverrideCode: string
+                    secondaryApplFreezeOverrideCode: string
+                  thinFileIndicator: string
+                  vendorData:
+                    vendorNumber: string
+                    vendorVersion: string
+              Success:
+                description: Success
+                value:
+                  addOns:
+                    consumerIdentCheck:
+                      getUniqueConsumerIdentifier: Y
+                    demographics: 'Geocode and Phone'
+                    directCheck: Y
+                    fraudShield: Y
+                    joint: ''
+                    paymentHistory84: Y
+                    riskModels:
+                      modelIndicator:
+                        - F
+                        - R
+                        - N
+                        - K
+                        - V
+                      scorePercentile: Y
+                    summaries:
+                      summaryType:
+                        - 'Profile Summary'
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: 'MICHIGAN CITY'
+                        line1: '510 MONDRE ST'
+                        state: IN
+                        zipCode: '46360'
+                      driverslicense:
+                        number: A00000000000
+                        state: IN
+                      name:
+                        firstName: JOHN
+                        lastName: CANN
+                        middleName: N
+                      previousAddress:
+                        -
+                          city: 'SAINTE GE NEVIEVE'
+                          line1: '700 N 3RD ST'
+                          state: MO
+                          zipCode: '63670'
+                      ssn:
+                        ssn: '111111111'
+                  customOptions:
+                    optionId:
+                      - ''
+            schema:
+              $ref: '#/components/schemas/CreditProfileRequest'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoCreditProfileResponseForExtendedView'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoCreditProfileResponseForExtendedView'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'Extended View Score Only'
+      tags:
+        - Experian
+  /experian/credit-profile/healthcare-credit-profile:
+    post:
+      description: 'The Healthcare Profile is a credit profile report designed specifically for the healthcare industry. It consists of a standard credit report in which unused fields are suppressed plus an optional Healthcare Summary segment.'
+      operationId: healthcareCreditProfile
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Failure:
+                description: Failure
+                value:
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: DECATUR
+                        line1: ' '
+                        state: GA
+                        zipCode: '30033'
+                      dob:
+                        dob: '1948'
+                      name:
+                        firstName: PEGGY
+                        lastName: BOLTON
+                      phone:
+                        -
+                          number: 555-673-1001
+                          type: T
+                      ssn:
+                        ssn: '111111111'
+              'Request Schema':
+                description: 'Request Schema'
+                value:
+                  addOns:
+                    clarityData:
+                      clarityAccountId: string
+                      clarityControlFileName: string
+                      clarityControlFileVersion: string
+                      clarityLocationId: string
+                    clarityEarlyRiskScore: string
+                    consumerIdentCheck:
+                      getUniqueConsumerIdentifier: string
+                      verifyPrimaryConsumerIdentifier: string
+                      verifySecondaryConsumerIdentifier: string
+                    demographics: string
+                    directCheck: string
+                    extendedViewScore: string
+                    fraudShield: string
+                    joint: string
+                    mla: string
+                    ofacmsg: string
+                    paymentHistory84: string
+                    riskModels:
+                      modelIndicator:
+                        - string
+                      scorePercentile: string
+                    summaries:
+                      summaryType:
+                        - string
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: string
+                        line1: string
+                        line2: string
+                        state: string
+                        zipCode: string
+                      dob:
+                        dob: string
+                      driverslicense:
+                        number: string
+                        state: string
+                      employment:
+                        employerAddress:
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                        employerName: string
+                      name:
+                        firstName: string
+                        generationCode: string
+                        lastName: string
+                        middleName: string
+                      phone:
+                        -
+                          number: string
+                          type: string
+                      previousAddress:
+                        -
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                      ssn:
+                        ssn: string
+                    secondaryApplicant:
+                      dob:
+                        dob: string
+                      driverslicense:
+                        number: string
+                        state: string
+                      employment:
+                        employerAddress:
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                        employerName: string
+                      name:
+                        firstName: string
+                        generationCode: string
+                        lastName: string
+                        middleName: string
+                      phone:
+                        -
+                          number: string
+                          type: string
+                      ssn:
+                        ssn: string
+                  customOptions:
+                    optionId:
+                      - string
+                  freezeOverride:
+                    primaryApplFreezeOverrideCode: string
+                    secondaryApplFreezeOverrideCode: string
+              Success:
+                description: Success
+                value:
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: 'CALIFORNIA CITY'
+                        line1: '9817 LOOP BLVD'
+                        line2: 'APT G'
+                        state: CA
+                        zipCode: '935051352'
+                      dob:
+                        dob: '02201982'
+                      name:
+                        firstName: LAURIE
+                        lastName: ANDERSON
+                        middleName: ''
+                      ssn:
+                        ssn: '666455730'
+            schema:
+              $ref: '#/components/schemas/HealthcareCreditRequest'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoCreditProfileResponseForHealthcareCreditData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoCreditProfileResponseForHealthcareCreditData'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'Healthcare Profile'
+      tags:
+        - Experian
+  /experian/credit-profile/tec-connect-credit:
+    post:
+      description: "TEC Connect is designed to evaluate consumer risk within the telecommunications, energy and cable (TEC) space. An empirically-driven, statistically sound risk prediction model, TEC Connect leverages a consumer's actual service payment history, predicting the likelihood of serious delinquent/derogatory behavior over the next 12 months. Utilizing the latest data assets and Experian's best-in-class analytics, TEC Connect empowers lenders to set security deposits, grant firm credit offers and even pre-screen profitable consumers before the competition. TEC Connect even enables lenders to rank-order consumers by their potential risk for seriously derogatory behavior."
+      operationId: tecConnectCredit
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Failure:
+                description: Failure
+                value:
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: ' '
+                        line1: '2965 ATTERBERRY CT'
+                        zipCode: ' '
+                      dob:
+                        dob: '1948'
+                      name:
+                        firstName: PEGGY
+                        lastName: '-'
+                      phone:
+                        -
+                          number: 555-673-1001
+                          type: T
+                      ssn:
+                        ssn: '111111111'
+              'Request Schema':
+                description: 'Request Schema'
+                value:
+                  addOns:
+                    clarityData:
+                      clarityAccountId: string
+                      clarityControlFileName: string
+                      clarityControlFileVersion: string
+                      clarityLocationId: string
+                    clarityEarlyRiskScore: string
+                    consumerIdentCheck:
+                      getUniqueConsumerIdentifier: string
+                      verifyPrimaryConsumerIdentifier: string
+                      verifySecondaryConsumerIdentifier: string
+                    demographics: string
+                    directCheck: string
+                    fraudShield: string
+                    joint: string
+                    mla: string
+                    ofacmsg: string
+                    paymentHistory84: string
+                    rentBureauData:
+                      primaryApplRentBureauFreezePin: string
+                      secondaryApplRentBureauFreezePin: string
+                    renterRiskScore: string
+                    riskModels:
+                      modelIndicator:
+                        - string
+                      scorePercentile: string
+                    summaries:
+                      summaryType:
+                        - string
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: string
+                        line1: string
+                        line2: string
+                        state: string
+                        zipCode: string
+                      dob:
+                        dob: string
+                      driverslicense:
+                        number: string
+                        state: string
+                      employment:
+                        employerAddress:
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                        employerName: string
+                      name:
+                        firstName: string
+                        generationCode: string
+                        lastName: string
+                        middleName: string
+                      phone:
+                        -
+                          number: string
+                          type: string
+                      previousAddress:
+                        -
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                      ssn:
+                        ssn: string
+                    secondaryApplicant:
+                      dob:
+                        dob: string
+                      driverslicense:
+                        number: string
+                        state: string
+                      employment:
+                        employerAddress:
+                          city: string
+                          line1: string
+                          line2: string
+                          state: string
+                          zipCode: string
+                        employerName: string
+                      name:
+                        firstName: string
+                        generationCode: string
+                        lastName: string
+                        middleName: string
+                      phone:
+                        -
+                          number: string
+                          type: string
+                      ssn:
+                        ssn: string
+                  customOptions:
+                    optionId:
+                      - string
+                  freezeOverride:
+                    primaryApplFreezeOverrideCode: string
+                    secondaryApplFreezeOverrideCode: string
+              Success:
+                description: Success
+                value:
+                  addOns:
+                    fraudShield: N
+                    mla: N
+                    ofacmsg: N
+                    paymentHistory84: N
+                    riskModels:
+                      modelIndicator:
+                        - ''
+                      scorePercentile: ''
+                  consumerPii:
+                    primaryApplicant:
+                      currentAddress:
+                        city: OREGON
+                        line1: '5046 WYNN PARK DR'
+                        state: OH
+                        zipCode: '43616'
+                      dob:
+                        dob: '1957'
+                      name:
+                        firstName: MICHAEL
+                        lastName: KLEMM
+                      phone:
+                        -
+                          number: '7066632749'
+                      previousAddress:
+                        -
+                          city: 'PINE MOUNTAIN'
+                          line1: '1146 POLE BRIDGE RD '
+                          state: GA
+                          zipCode: '318223817'
+                      ssn:
+                        ssn: '666630555'
+                  customOptions:
+                    optionId:
+                      - ''
+                  resellerInfo:
+                    endUserName: 'Tarik N'
+            schema:
+              $ref: '#/components/schemas/TecCreditProfileRequest'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoCreditProfileResponseForTECCreditData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoCreditProfileResponseForTECCreditData'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'TEC Connect Credit Profile'
+      tags:
+        - Experian
+  /experian/rpa:
+    post:
+      operationId: reversePhoneAppend
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Failure:
+                description: Failure
+                value:
+                  number: '123456789'
+              Successs:
+                description: Successs
+                value:
+                  number: '9167654295'
+            schema:
+              $ref: '#/components/schemas/RpaV1Request'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoRpaV1Response'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoRpaV1Response'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      tags:
+        - Experian
+  /gwls:
+    post:
+      operationId: gwlsRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GWLSRequestDTO'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GWLSRequestDTO'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GlobalWatchListSearchResponseEx'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GlobalWatchListSearchResponseEx'
+          description: OK
+      tags:
+        - gwls-controller
+  /gwls/batch:
+    post:
+      operationId: gwlsRequestList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GWLSRequestsDTO'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GWLSRequestsDTO'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GlobalWatchListSearchResponsesDTO'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GlobalWatchListSearchResponsesDTO'
+          description: OK
+      tags:
+        - gwls-controller
+  /gwls/ofac:
+    post:
+      operationId: ofacRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OFACRequestDTO'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OFACRequestDTO'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GlobalWatchListSearchResponseEx'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GlobalWatchListSearchResponseEx'
+          description: OK
+      tags:
+        - gwls-controller
+  /gwls/ofaclist:
+    post:
+      operationId: ofacRequestList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OFACRequestsDTO'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OFACRequestsDTO'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GlobalWatchListSearchResponsesDTO'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GlobalWatchListSearchResponsesDTO'
+          description: OK
+      tags:
+        - gwls-controller
+  /iid/new-request:
+    post:
+      operationId: newRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IIDRequestDTO'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/Product'
+                type: array
+          description: OK
+      tags:
+        - iid-controller
+  /ljr:
+    post:
+      operationId: ljrRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LienJudgmentReportRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LienJudgmentReportRequest'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LienJudgmentReportResponseEx'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LienJudgmentReportResponseEx'
+          description: OK
+      tags:
+        - ljr-controller
+  /ljs:
+    post:
+      operationId: ljsRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LienJudgmentSearchRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LienJudgmentSearchRequest'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LienJudgmentSearchResponseEx'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LienJudgmentSearchResponseEx'
+          description: OK
+      tags:
+        - ljs-controller
+  /mvr:
+    post:
+      operationId: mvrRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MotorVehicleReport2Request'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MotorVehicleReport2Request'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MotorVehicleReport2ResponseEx'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MotorVehicleReport2ResponseEx'
+          description: OK
+      tags:
+        - mvr-controller
+  /mvs:
+    post:
+      operationId: mvsRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MotorVehicleSearch2Request'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MotorVehicleSearch2Request'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MotorVehicleSearch2ResponseEx'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MotorVehicleSearch2ResponseEx'
+          description: OK
+      tags:
+        - mvs-controller
+  /pp/criminal:
+    post:
+      description: 'This endpoint will retrieve PitchPoint Combined XML + PDF version for crimnal search.'
+      operationId: ppCriminal
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Success:
+                description: Success
+                value:
+                  terms:
+                    term:
+                      -
+                        person:
+                          dob: 01/01/1966
+                          ethnicGroup: ''
+                          eyeColor: ''
+                          firstName: Steven
+                          homePhone: ''
+                          lastName: Pitchersky
+                          ssn: '123456789'
+            schema:
+              $ref: '#/components/schemas/Sami'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MonoSami'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'PitchPoint Criminal Search'
+      tags:
+        - PitchPoint
+  /pp/criminal/data:
+    post:
+      description: 'This endpoint will retrieve PitchPoint XML version for crimnal search.'
+      operationId: ppCriminalData
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Success:
+                description: Success
+                value:
+                  terms:
+                    term:
+                      -
+                        person:
+                          dob: 01/01/1966
+                          ethnicGroup: ''
+                          eyeColor: ''
+                          firstName: Steven
+                          homePhone: ''
+                          lastName: Pitchersky
+                          ssn: '123456789'
+            schema:
+              $ref: '#/components/schemas/Sami'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MonoJsonNode'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'PitchPoint Criminal Search (Data Only)'
+      tags:
+        - PitchPoint
+  /pp/criminal/pdf:
+    post:
+      description: 'This endpoint will retrieve PitchPoint PDF version for crimnal search.'
+      operationId: ppCriminalPDF
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Success:
+                description: Success
+                value:
+                  terms:
+                    term:
+                      -
+                        person:
+                          dob: 01/01/1966
+                          ethnicGroup: ''
+                          eyeColor: ''
+                          firstName: Steven
+                          homePhone: ''
+                          lastName: Pitchersky
+                          ssn: '123456789'
+            schema:
+              $ref: '#/components/schemas/Sami'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MonoByte[]'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'PitchPoint Criminal Search (PDF)'
+      tags:
+        - PitchPoint
+  /pp/fcrablj:
+    post:
+      description: 'This endpoint will retrieve PitchPoint Combined XML + PDF version for bankruptcies, liens, and judgments.'
+      operationId: ppFCRABJL
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Success:
+                description: Success
+                value:
+                  terms:
+                    term:
+                      -
+                        person:
+                          firstName: Kelly
+                          lastName: Russell
+                          ssn: '000111000'
+            schema:
+              $ref: '#/components/schemas/Sami'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MonoSami'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'PitchPoint Bankruptcies, Liens, and Judgments (FCRA)'
+      tags:
+        - PitchPoint
+  /pp/fcrablj/data:
+    post:
+      description: 'This endpoint will retrieve PitchPoint XML version for bankruptcies, liens, and judgments.'
+      operationId: ppFCRABJLData
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Success:
+                description: Success
+                value:
+                  terms:
+                    term:
+                      -
+                        person:
+                          firstName: Kelly
+                          lastName: Russell
+                          ssn: '000111000'
+            schema:
+              $ref: '#/components/schemas/Sami'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MonoJsonNode'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'PitchPoint Bankruptcies, Liens, and Judgments (FCRA) (Data Only)'
+      tags:
+        - PitchPoint
+  /pp/fcrablj/pdf:
+    post:
+      description: 'This endpoint will retrieve PitchPoint PDF version for bankruptcies, liens, and judgments.'
+      operationId: ppFCRABJLPDF
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Success:
+                description: Success
+                value:
+                  terms:
+                    term:
+                      -
+                        person:
+                          firstName: Kelly
+                          lastName: Russell
+                          ssn: '000111000'
+            schema:
+              $ref: '#/components/schemas/Sami'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MonoByte[]'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'PitchPoint Bankruptcies, Liens, and Judgments (FCRA) (PDF)'
+      tags:
+        - PitchPoint
+  /pp/foreclosure:
+    post:
+      description: 'This endpoint will retrieve PitchPoint Combined XML + PDF version for foreclosure search.'
+      operationId: ppForeclosure
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Success:
+                description: Success
+                value:
+                  terms:
+                    term:
+                      -
+                        person:
+                          dob: 02/13/1971
+                          firstName: Laura
+                          lastName: Juarez
+                          ssn: '555110697'
+            schema:
+              $ref: '#/components/schemas/Sami'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MonoSami'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'PitchPoint Foreclosure Search'
+      tags:
+        - PitchPoint
+  /pp/foreclosure/data:
+    post:
+      description: 'This endpoint will retrieve PitchPoint XML version for foreclosure search.'
+      operationId: ppForeclosureData
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Success:
+                description: Success
+                value:
+                  terms:
+                    term:
+                      -
+                        person:
+                          dob: 02/13/1971
+                          firstName: Laura
+                          lastName: Juarez
+                          ssn: '555110697'
+            schema:
+              $ref: '#/components/schemas/Sami'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MonoJsonNode'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'PitchPoint Foreclosure Search (Data Only)'
+      tags:
+        - PitchPoint
+  /pp/foreclosure/pdf:
+    post:
+      description: 'This endpoint will retrieve PitchPoint PDF version for foreclosure search.'
+      operationId: ppForeclosurePDF
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Success:
+                description: Success
+                value:
+                  terms:
+                    term:
+                      -
+                        person:
+                          dob: 02/13/1971
+                          firstName: Laura
+                          lastName: Juarez
+                          ssn: '555110697'
+            schema:
+              $ref: '#/components/schemas/Sami'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MonoByte[]'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'PitchPoint Foreclosure Search (PDF)'
+      tags:
+        - PitchPoint
+  /pp/glbblj:
+    post:
+      description: 'This endpoint will retrieve PitchPoint Combined XML + PDF version for bankruptcies, liens, and judgments.'
+      operationId: ppGLBBJL
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Success:
+                description: Success
+                value:
+                  terms:
+                    term:
+                      -
+                        person:
+                          firstName: Kelly
+                          lastName: Russell
+                          ssn: '000111000'
+            schema:
+              $ref: '#/components/schemas/Sami'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MonoSami'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'PitchPoint Bankruptcies, Liens, and Judgments (GLB)'
+      tags:
+        - PitchPoint
+  /pp/glbblj/data:
+    post:
+      description: 'This endpoint will retrieve PitchPoint XML version for bankruptcies, liens, and judgments.'
+      operationId: ppGLBBJLData
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Success:
+                description: Success
+                value:
+                  terms:
+                    term:
+                      -
+                        person:
+                          firstName: Kelly
+                          lastName: Russell
+                          ssn: '000111000'
+            schema:
+              $ref: '#/components/schemas/Sami'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MonoJsonNode'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'PitchPoint Bankruptcies, Liens, and Judgments (GLB) (Data Only)'
+      tags:
+        - PitchPoint
+  /pp/glbblj/pdf:
+    post:
+      description: 'This endpoint will retrieve PitchPoint PDF version for bankruptcies, liens, and judgments.'
+      operationId: ppGLBBJLPDF
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Success:
+                description: Success
+                value:
+                  terms:
+                    term:
+                      -
+                        person:
+                          firstName: Kelly
+                          lastName: Russell
+                          ssn: '000111000'
+            schema:
+              $ref: '#/components/schemas/Sami'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MonoByte[]'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'PitchPoint Bankruptcies, Liens, and Judgments (GLB) (PDF)'
+      tags:
+        - PitchPoint
+  /pp/property:
+    post:
+      description: 'This endpoint will retrieve PitchPoint Combined XML + PDF version for the property.'
+      operationId: ppProperty
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Failure:
+                description: Failure
+                value:
+                  terms:
+                    term:
+                      -
+                        property:
+                          address:
+                            city: TEST
+                            postalCode: '97062'
+                            state: OR
+              Success:
+                description: Success
+                value:
+                  terms:
+                    term:
+                      -
+                        property:
+                          address:
+                            addressLine1: '22180 SW 106th Ave'
+                            city: Tualatin
+                            postalCode: '97062'
+                            state: OR
+            schema:
+              $ref: '#/components/schemas/Sami'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MonoSami'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'PitchPoint Property Report'
+      tags:
+        - PitchPoint
+  /pp/property/data:
+    post:
+      description: 'This endpoint will retrieve PitchPoint JSON/XML version for the property.'
+      operationId: ppPropertyData
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Failure:
+                description: Failure
+                value:
+                  terms:
+                    term:
+                      -
+                        property:
+                          address:
+                            city: TEST
+                            postalCode: '97062'
+                            state: OR
+              Success:
+                description: Success
+                value:
+                  terms:
+                    term:
+                      -
+                        property:
+                          address:
+                            addressLine1: '22180 SW 106th Ave'
+                            city: Tualatin
+                            postalCode: '97062'
+                            state: OR
+            schema:
+              $ref: '#/components/schemas/Sami'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoJsonNode'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoJsonNode'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'PitchPoint Property Report (Data Only)'
+      tags:
+        - PitchPoint
+  /pp/property/pdf:
+    post:
+      description: 'This endpoint will retrieve PitchPoint PDF version for the property.'
+      operationId: ppPropertyPDF
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Failure:
+                description: Failure
+                value:
+                  terms:
+                    term:
+                      -
+                        property:
+                          address:
+                            city: TEST
+                            postalCode: '97062'
+                            state: OR
+              Success:
+                description: Success
+                value:
+                  terms:
+                    term:
+                      -
+                        property:
+                          address:
+                            addressLine1: '22180 SW 106th Ave'
+                            city: Tualatin
+                            postalCode: '97062'
+                            state: OR
+            schema:
+              $ref: '#/components/schemas/Sami'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/MonoByte[]'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'PitchPoint Property Report (PDF)'
+      tags:
+        - PitchPoint
+  /riskview:
+    post:
+      description: 'Executes a RiskView Request on the provided subjects'
+      operationId: rvRequest
+      requestBody:
+        content:
+          application/json:
+            examples:
+              'Sample 1':
+                description: 'Sample 1'
+                value: {}
+              'Sample 2':
+                description: 'Sample 2'
+                value: {}
+            schema:
+              $ref: '#/components/schemas/RiskView2Request'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoRiskView2ResponseEx'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoRiskView2ResponseEx'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'RiskView Data'
+      tags:
+        - LexisNexis
+  /roles:
+    get:
+      operationId: getRoles
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/Role'
+                type: array
+          description: OK
+      tags:
+        - roles-controller
+  /sys/health:
+    get:
+      operationId: health
+      responses:
+        '200':
+          description: OK
+      tags:
+        - system-controller
+  /transunion/credit-report:
+    post:
+      description: 'The Credit Report is a compilation of data on an individual that is helpful in making decisions in many types of consumer transactions. The Credit Report contains various data about the consumer, including indicative information (name, addresses, date of birth, and Social Security number), employment information, and the consumer’s credit history. This information is obtained from credit grantors, public records, collection agencies, and employers.'
+      operationId: creditReport
+      requestBody:
+        content:
+          application/json:
+            examples:
+              'Example Request':
+                description: 'Example Request'
+                value:
+                  number: '1'
+                  subjectRecords:
+                    -
+                      indicative:
+                        addresses:
+                          -
+                            location:
+                              city: 'FANTASY ISLAND'
+                              state: IL
+                              zipCode: '60750'
+                            residence: ~
+                            status: CURRENT
+                            street:
+                              name: 'E SNOWBILL'
+                              number: '1113'
+                        names:
+                          -
+                            person:
+                              first: FRAZER
+                              last: CRAINE
+                              middle: ~
+                        socialSecurities:
+                          -
+                            '@source': input
+                            number: '666449944'
+            schema:
+              $ref: '#/components/schemas/Subject'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MonoProduct'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'Credit Report'
+      tags:
+        - Transunion
+  /transunion/id-search:
+    post:
+      description: 'ID Search is a specialized search based on input name and Social Security number. Input address information is optional. ID Search delivers name and address for up to eight subjects. Additionally, ID Search selects the subject that best matches the input data. ID Search also returns ID Mismatch Alert, TruValidate Fraud Alerts, and Phone Append (if the subscriber is authorized for these services). ID Search can return an FFR or a print image'
+      operationId: idSearch
+      requestBody:
+        content:
+          application/json:
+            examples:
+              'Example Request':
+                description: 'Example Request'
+                value:
+                  number: '1'
+                  subjectRecords:
+                    -
+                      indicative:
+                        addresses:
+                          -
+                            location:
+                              city: 'FANTASY ISLAND'
+                              state: IL
+                              zipCode: '60750'
+                            residence: ~
+                            status: CURRENT
+                            street:
+                              name: 'E SNOWBILL'
+                              number: '1113'
+                        names:
+                          -
+                            person:
+                              first: FRAZER
+                              last: CRAINE
+                              middle: ~
+                        socialSecurities:
+                          -
+                            '@source': input
+                            number: '666449944'
+            schema:
+              $ref: '#/components/schemas/Subject'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MonoProduct'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'ID Search'
+      tags:
+        - Transunion
+  /transunion/identity-manager-verification:
+    post:
+      description: 'Delivers an accurate and comprehensive view of each consumer by linking proprietary data, personal data, device identifiers and online behaviors. Our advanced insights and global network of fraud reporting helps businesses discover anomalies, assess risk and confidently identify good consumers. This allows you to protect your business and focus on offering effective, personalized and friction-right experiences.'
+      operationId: identityManagerVerification
+      requestBody:
+        content:
+          application/json:
+            examples:
+              'Example Request':
+                description: 'Example Request'
+                value:
+                  number: '1'
+                  subjectRecords:
+                    -
+                      indicative:
+                        addresses:
+                          -
+                            location:
+                              city: RINCON
+                              state: GA
+                              zipCode: '31326'
+                            status: CURRENT
+                            street:
+                              unparsed: '333 DOGWOOD'
+                        names:
+                          -
+                            person:
+                              first: ALEXIA
+                              last: PORTEGE
+                              middle: ~
+                        socialSecurities:
+                          -
+                            number: '666224616'
+            schema:
+              $ref: '#/components/schemas/Subject'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubjectRecord'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SubjectRecord'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/SubjectRecord'
+            text/properties:
+              schema:
+                $ref: '#/components/schemas/SubjectRecord'
+          description: 'Successful Identity Response'
+      security:
+        -
+          'Authorization Token': []
+      summary: 'Identity Manager Verification'
+      tags:
+        - Transunion
+  /transunion/identity-manager-verification/basic:
+    post:
+      description: 'Delivers an accurate and comprehensive view of each consumer by linking proprietary data, personal data, device identifiers and online behaviors. Our advanced insights and global network of fraud reporting helps businesses discover anomalies, assess risk and confidently identify good consumers. This allows you to protect your business and focus on offering effective, personalized and friction-right experiences.'
+      operationId: identityManagerVerification_1
+      requestBody:
+        content:
+          application/json:
+            examples:
+              'Example Request':
+                description: 'Example Request'
+                value:
+                  city: Rincon
+                  firstName: Alexia
+                  lastName: portege
+                  ssn: '666224616'
+                  state: GA
+                  street1: '333 DOGWOOD'
+                  zip: '31326'
+            schema:
+              $ref: '#/components/schemas/CCIdentityRequestDTO'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubjectRecord'
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/SubjectRecord'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SubjectRecord'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/SubjectRecord'
+            text/properties:
+              schema:
+                $ref: '#/components/schemas/SubjectRecord'
+          description: 'Successful Identity Response'
+      security:
+        -
+          'Authorization Token': []
+      summary: 'Identity Manager Verification'
+      tags:
+        - Transunion
+  /transunion/model-report:
+    post:
+      description: 'The Model Report is designed for use by subscribers who do not want the detail supplied by the Credit Report and are primarily interested in summary information that helps to automate their decision-making process. Additionally, the Model Report allows the subscriber to define customized messages that are returned on the report. These customized messages are associated with specific thresholds based on the results of one or two models.'
+      operationId: modelReport
+      requestBody:
+        content:
+          application/json:
+            examples:
+              'Example Request':
+                description: 'Example Request'
+                value:
+                  number: '1'
+                  subjectRecords:
+                    -
+                      indicative:
+                        addresses:
+                          -
+                            location:
+                              city: 'FANTASY ISLAND'
+                              state: IL
+                              zipCode: '60750'
+                            residence: ~
+                            status: CURRENT
+                            street:
+                              name: 'E SNOWBILL'
+                              number: '1113'
+                        names:
+                          -
+                            person:
+                              first: FRAZER
+                              last: CRAINE
+                              middle: ~
+                        socialSecurities:
+                          -
+                            '@source': input
+                            number: '666449944'
+            schema:
+              $ref: '#/components/schemas/Subject'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MonoProduct'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'Model Report'
+      tags:
+        - Transunion
+  /users:
+    get:
+      operationId: user
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRespDTO'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UserRespDTO'
+          description: OK
+      tags:
+        - User
+    post:
+      operationId: newUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserReqDTO'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserRespDTO'
+          description: OK
+      tags:
+        - User
+    put:
+      operationId: updateUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdReqDTO'
+        required: '1'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserRespDTO'
+          description: OK
+      tags:
+        - User
+  /users/all:
+    get:
+      operationId: allUsers
+      parameters:
+        -
+          in: query
+          name: page
+          required: '0'
+          schema:
+            default: 0
+            format: int32
+            minimum: 0
+            type: integer
+        -
+          in: query
+          name: size
+          required: '0'
+          schema:
+            default: 40
+            format: int32
+            minimum: 1
+            type: integer
+        -
+          in: query
+          name: roles
+          required: '0'
+          schema:
+            default: -1
+            format: int32
+            minimum: 0
+            type: integer
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageableResponseDTO'
+          description: OK
+      tags:
+        - User
+  /users/login:
+    post:
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLoginReqDTO'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UserLoginReqDTO'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserLoginRespDTO'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UserLoginRespDTO'
+          description: OK
+      tags:
+        - User
+  /users/logs:
+    get:
+      operationId: userLogs
+      parameters:
+        -
+          in: query
+          name: page
+          required: '0'
+          schema:
+            default: 0
+            format: int32
+            minimum: 0
+            type: integer
+        -
+          in: query
+          name: size
+          required: '0'
+          schema:
+            default: 40
+            format: int32
+            minimum: 1
+            type: integer
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageableResponseDTO'
+          description: OK
+      tags:
+        - User
+  /users/logs/all:
+    get:
+      operationId: userLogsAll
+      parameters:
+        -
+          in: query
+          name: page
+          required: '0'
+          schema:
+            default: 0
+            format: int32
+            minimum: 0
+            type: integer
+        -
+          in: query
+          name: size
+          required: '0'
+          schema:
+            default: 40
+            format: int32
+            minimum: 1
+            type: integer
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageableResponseDTO'
+          description: OK
+      tags:
+        - User
+  /users/logs/{id}:
+    get:
+      operationId: userLogsWithId
+      parameters:
+        -
+          in: query
+          name: page
+          required: '0'
+          schema:
+            default: 0
+            format: int32
+            minimum: 0
+            type: integer
+        -
+          in: query
+          name: size
+          required: '0'
+          schema:
+            default: 40
+            format: int32
+            minimum: 1
+            type: integer
+        -
+          in: path
+          name: id
+          required: '1'
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageableResponseDTO'
+          description: OK
+      tags:
+        - User
+  /users/retention-pdf/{id}:
+    get:
+      operationId: getPDFRetentionLogWithId
+      parameters:
+        -
+          in: path
+          name: id
+          required: '1'
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                items:
+                  format: byte
+                  type: string
+                type: array
+          description: OK
+      tags:
+        - User
+  /users/retention/{id}:
+    get:
+      operationId: getRetentionLogWithId
+      parameters:
+        -
+          in: path
+          name: id
+          required: '1'
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/RequestDetails'
+          description: OK
+      tags:
+        - User
+  /users/{id}:
+    get:
+      operationId: userWithId
+      parameters:
+        -
+          in: path
+          name: id
+          required: '1'
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRespDTO'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UserRespDTO'
+          description: OK
+      tags:
+        - User
+  /vfps/biid2:
+    post:
+      description: 'Executes a Business Instant ID2 verification on the provided business and associated subjects'
+      operationId: biid2Request
+      requestBody:
+        content:
+          application/json:
+            examples:
+              'Sample 1':
+                description: 'Sample 1'
+                value:
+                  searchBy:
+                    authorizedRep1:
+                      address:
+                        city: 'SAN FRANCISCO'
+                        state: CA
+                        streetAddress1: '157 5TH STP AT876'
+                        zip5: '94103'
+                      dob:
+                        day: 14
+                        month: 6
+                        year: 1970
+                      driverLicenseNumber: A65874587
+                      driverLicenseState: CA
+                      name:
+                        first: SMBUSDP
+                        last: ONLINESALES
+                      phone: '4156648888'
+                      sequence: 'true'
+                      ssn: '473688757'
+                    company:
+                      address:
+                        city: 'SAN FRANCISCO'
+                        state: CA
+                        streetAddress1: '157 5TH ST # 90'
+                        zip5: '94103'
+                      companyName: 'SMB TWENTYCHARAT INC'
+                      fein: '473688758'
+                      phone: '4153962921'
+              'Sample 2':
+                description: 'Sample 2'
+                value:
+                  searchBy:
+                    authorizedRep1:
+                      address:
+                        city: 'SAN FRANCISCO'
+                        state: CA
+                        streetAddress1: '29288 5TH ST'
+                        streetAddress2: 'APT 2A'
+                        zip5: '94103'
+                      dob:
+                        day: 3
+                        month: 2
+                        year: 1971
+                      driverLicenseNumber: B15987265
+                      driverLicenseState: CA
+                      name:
+                        first: SPTOMKT
+                        last: SOLEPROPSBD
+                      phone: '4153962928'
+                      sequence: 'true'
+                      ssn: '473688771'
+                    company:
+                      address:
+                        city: 'SAN FRANCISCO'
+                        state: CA
+                        streetAddress1: '29288 5TH ST'
+                        streetAddress2: 'APT 2B'
+                        zip5: '94103'
+                      companyName: 'SMALLBUISNESS SOLE PROPRIETOR FOR ONLINE SALES AND MARKETING SPEED TO MARKET TEAM'
+                      fein: '473688772'
+                      phone: '4153969288'
+            schema:
+              $ref: '#/components/schemas/RpaV1Request'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonoBIID20ResponseEx'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MonoBIID20ResponseEx'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'Business Instant ID2 Data'
+      tags:
+        - LexisNexis
+  /vfps/biid2/pdf:
+    post:
+      description: 'Executes a Business Instant ID2 verification on the provided business and associated subjects'
+      operationId: biid2RequestPDF
+      requestBody:
+        content:
+          application/json:
+            examples:
+              'Sample 1':
+                description: 'Sample 1'
+                value:
+                  searchBy:
+                    authorizedRep1:
+                      address:
+                        city: 'SAN FRANCISCO'
+                        state: CA
+                        streetAddress1: '157 5TH STP AT876'
+                        zip5: '94103'
+                      dob:
+                        day: 14
+                        month: 6
+                        year: 1970
+                      driverLicenseNumber: A65874587
+                      driverLicenseState: CA
+                      name:
+                        first: SMBUSDP
+                        last: ONLINESALES
+                      phone: '4156648888'
+                      sequence: 'true'
+                      ssn: '473688757'
+                    company:
+                      address:
+                        city: 'SAN FRANCISCO'
+                        state: CA
+                        streetAddress1: '157 5TH ST # 90'
+                        zip5: '94103'
+                      companyName: 'SMB TWENTYCHARAT INC'
+                      fein: '473688758'
+                      phone: '4153962921'
+              'Sample 2':
+                description: 'Sample 2'
+                value:
+                  searchBy:
+                    authorizedRep1:
+                      address:
+                        city: 'SAN FRANCISCO'
+                        state: CA
+                        streetAddress1: '29288 5TH ST'
+                        streetAddress2: 'APT 2A'
+                        zip5: '94103'
+                      dob:
+                        day: 3
+                        month: 2
+                        year: 1971
+                      driverLicenseNumber: B15987265
+                      driverLicenseState: CA
+                      name:
+                        first: SPTOMKT
+                        last: SOLEPROPSBD
+                      phone: '4153962928'
+                      sequence: 'true'
+                      ssn: '473688771'
+                    company:
+                      address:
+                        city: 'SAN FRANCISCO'
+                        state: CA
+                        streetAddress1: '29288 5TH ST'
+                        streetAddress2: 'APT 2B'
+                        zip5: '94103'
+                      companyName: 'SMALLBUISNESS SOLE PROPRIETOR FOR ONLINE SALES AND MARKETING SPEED TO MARKET TEAM'
+                      fein: '473688772'
+                      phone: '4153969288'
+            schema:
+              $ref: '#/components/schemas/RpaV1Request'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/MonoResponseEntityByte[]'
+          description: OK
+      security:
+        -
+          'Authorization Token': []
+      summary: 'Business Instant ID2 Report'
+      tags:
+        - LexisNexis
+  /xgs/search:
+    post:
+      operationId: xgsSearch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/XGSRequestDTO'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/XGSRequestDTO'
+        required: '1'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResults'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SearchResults'
+          description: OK
+      tags:
+        - xgs-controller
