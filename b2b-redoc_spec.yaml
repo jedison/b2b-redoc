@@ -65,7 +65,7 @@ paths:
                 $ref: '#/components/schemas/BankruptcyReport2ResponseEx'
           description: OK
       # TODO: Update OAS with summary
-      summary: LexisNexis Bankruptcy Report
+      summary: LexisNexis Bankruptcy Report Retrieve
       tags:
         # TODO: update OAS with generic tag 
         - Bankruptcy
@@ -93,7 +93,7 @@ paths:
                 $ref: '#/components/schemas/BankruptcySearch2ResponseEx'
           description: OK
       # TODO: Update OAS with summary
-      summary: LexisNexis Bankruptcy Search
+      summary: LexisNexis Bankruptcy Search Request
       tags:
         # TODO: update OAS with generic tag 
         - Bankruptcy
@@ -449,7 +449,7 @@ paths:
         -
           'Authorization Token': []
       # TODO: update OAS
-      summary: Get Eviction Report
+      summary: CIC Eviction Report Retrieve
       tags:
         - Eviction
   /eviction/new-request:
@@ -505,7 +505,7 @@ paths:
         -
           'Authorization Token': []
       # TODO: update OAS
-      summary: Eviction Report Request
+      summary: CIC Eviction Report Request
       tags:
         - Eviction
   /experian/cc2/initial:
@@ -22251,7 +22251,7 @@ tags:
     description: |
           LexisNexis Bridger Insight XG allows organizations to perform due diligence related to Bank Secrecy Act, anti-money laundering (AML), foreign corruption and terrorist financing. The tool combine filtering software and financial sanctions watchlist data, including enforcements lists, Politically Exposed Persons (PEP), and adverse media information. 
 
-  - name: eCredit Data API
+  - name: Overview
     description: |
           <h2>Introduction</h2>
           <p>CRS's eCredit Data API offering performs credit checks for your company. The eCredit Data API allows you to gain insight into a business' financial stability, allowing you to make quick and informed business decisions. Get a detailed financial picture of any customer or supplier before you decide to work with them. B2B Credit Checks protect your business from late payments. </p>
@@ -23213,6 +23213,7 @@ tags:
   - name: User Management
     description: |
           <p>eCredit Data API provides endpoints for user management.</p>
+          <p>Please refer to the <a href="/tag/User">API</a> for details.</p>
           <!-- TODO: Additional details needed -->
           <ul>
           <li>
@@ -29404,4 +29405,3 @@ x-tagGroups:
       - Swagger Documentation
       - Postman Collection
       - Security
-
