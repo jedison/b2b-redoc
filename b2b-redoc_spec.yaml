@@ -35,6 +35,12 @@ servers:
   #   url: /api
 
 # FROM JSON CONVERTED TO YAML
+# TODO: required: '1' to required: true
+# TODO: required: ''0'' to required: false
+# TODO: default: true to default: true
+# TODO: default: '0' to default: false
+# TODO: attribute: '1' to attribute: true
+# TODO: ~ to null
 paths:
   /bankruptcyr:
     post:
@@ -47,7 +53,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/BankruptcyReport2Request'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -71,7 +77,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/BankruptcySearch2Request'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -92,7 +98,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/BIIDRequestDTO'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -118,7 +124,7 @@ paths:
                   bin: '963129279'
             schema:
               $ref: '#/components/schemas/ExpPPR'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -151,7 +157,7 @@ paths:
                   bin: '963129279'
             schema:
               $ref: '#/components/schemas/ExpIntelliscore'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -186,7 +192,7 @@ paths:
                   state: NJ
             schema:
               $ref: '#/components/schemas/ExpBusSearch'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -212,7 +218,7 @@ paths:
         -
           in: path
           name: id
-          required: '1'
+          required: true
           schema:
             type: string
       responses:
@@ -268,7 +274,7 @@ paths:
                     zip: '91502'
             schema:
               $ref: '#/components/schemas/OrderDTO'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -323,7 +329,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/CreditReportRequest'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -346,7 +352,7 @@ paths:
         -
           in: path
           name: pdfRequestId
-          required: '1'
+          required: true
           schema:
             type: string
       responses:
@@ -375,7 +381,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/CreditReportRequest'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -404,7 +410,7 @@ paths:
         -
           in: path
           name: id
-          required: '1'
+          required: true
           schema:
             type: string
       responses:
@@ -460,7 +466,7 @@ paths:
                     zip: '91502'
             schema:
               $ref: '#/components/schemas/OrderDTO'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -487,7 +493,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/CCIdentityRequestDTO'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -514,7 +520,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/KBA'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -541,7 +547,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/OTP'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -568,7 +574,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/CCIdentityRequestDTO'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -591,7 +597,7 @@ paths:
         -
           in: path
           name: option
-          required: '1'
+          required: true
           schema:
             type: string
       requestBody:
@@ -602,7 +608,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/CCIdentityRequestDTO'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -625,7 +631,7 @@ paths:
         -
           in: path
           name: option
-          required: '1'
+          required: true
           schema:
             type: string
       requestBody:
@@ -636,7 +642,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/KBA'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -659,7 +665,7 @@ paths:
         -
           in: path
           name: option
-          required: '1'
+          required: true
           schema:
             type: string
       requestBody:
@@ -670,7 +676,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/OTP'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -858,7 +864,7 @@ paths:
                     endUserName: 'Tarik N'
             schema:
               $ref: '#/components/schemas/AutoCreditProfileRequest'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -1042,7 +1048,7 @@ paths:
                         ssn: '111111111'
             schema:
               $ref: '#/components/schemas/ConnectCreditProfileRequest'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -1235,7 +1241,7 @@ paths:
                         ssn: '666455730'
             schema:
               $ref: '#/components/schemas/CreditProfileRequest'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -1365,7 +1371,7 @@ paths:
                         ssn: '111111111'
             schema:
               $ref: '#/components/schemas/EmploymentInsightRequest'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -1568,7 +1574,7 @@ paths:
                       - ''
             schema:
               $ref: '#/components/schemas/CreditProfileRequest'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -1771,7 +1777,7 @@ paths:
                       - ''
             schema:
               $ref: '#/components/schemas/CreditProfileRequest'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -1962,7 +1968,7 @@ paths:
                       - ''
             schema:
               $ref: '#/components/schemas/CreditProfileRequest'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2128,7 +2134,7 @@ paths:
                         ssn: '666455730'
             schema:
               $ref: '#/components/schemas/HealthcareCreditRequest'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2317,7 +2323,7 @@ paths:
                     endUserName: 'Tarik N'
             schema:
               $ref: '#/components/schemas/TecCreditProfileRequest'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2351,7 +2357,7 @@ paths:
                   number: '9167654295'
             schema:
               $ref: '#/components/schemas/RpaV1Request'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2378,7 +2384,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/GWLSRequestDTO'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2402,7 +2408,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/GWLSRequestsDTO'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2426,7 +2432,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/OFACRequestDTO'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2450,7 +2456,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/OFACRequestsDTO'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2471,7 +2477,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/IIDRequestDTO'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2494,7 +2500,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/LienJudgmentReportRequest'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2518,7 +2524,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/LienJudgmentSearchRequest'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2542,7 +2548,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/MotorVehicleReport2Request'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2566,7 +2572,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/MotorVehicleSearch2Request'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2603,7 +2609,7 @@ paths:
                           ssn: '123456789'
             schema:
               $ref: '#/components/schemas/Sami'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2641,7 +2647,7 @@ paths:
                           ssn: '123456789'
             schema:
               $ref: '#/components/schemas/Sami'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2679,7 +2685,7 @@ paths:
                           ssn: '123456789'
             schema:
               $ref: '#/components/schemas/Sami'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2713,7 +2719,7 @@ paths:
                           ssn: '000111000'
             schema:
               $ref: '#/components/schemas/Sami'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2747,7 +2753,7 @@ paths:
                           ssn: '000111000'
             schema:
               $ref: '#/components/schemas/Sami'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2781,7 +2787,7 @@ paths:
                           ssn: '000111000'
             schema:
               $ref: '#/components/schemas/Sami'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2816,7 +2822,7 @@ paths:
                           ssn: '555110697'
             schema:
               $ref: '#/components/schemas/Sami'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2851,7 +2857,7 @@ paths:
                           ssn: '555110697'
             schema:
               $ref: '#/components/schemas/Sami'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2886,7 +2892,7 @@ paths:
                           ssn: '555110697'
             schema:
               $ref: '#/components/schemas/Sami'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2920,7 +2926,7 @@ paths:
                           ssn: '000111000'
             schema:
               $ref: '#/components/schemas/Sami'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2954,7 +2960,7 @@ paths:
                           ssn: '000111000'
             schema:
               $ref: '#/components/schemas/Sami'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -2988,7 +2994,7 @@ paths:
                           ssn: '000111000'
             schema:
               $ref: '#/components/schemas/Sami'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -3035,7 +3041,7 @@ paths:
                             state: OR
             schema:
               $ref: '#/components/schemas/Sami'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -3082,7 +3088,7 @@ paths:
                             state: OR
             schema:
               $ref: '#/components/schemas/Sami'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -3132,7 +3138,7 @@ paths:
                             state: OR
             schema:
               $ref: '#/components/schemas/Sami'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -3162,7 +3168,7 @@ paths:
                 value: {}
             schema:
               $ref: '#/components/schemas/RiskView2Request'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -3222,7 +3228,7 @@ paths:
                               city: 'FANTASY ISLAND'
                               state: IL
                               zipCode: '60750'
-                            residence: ~
+                            residence: null
                             status: CURRENT
                             street:
                               name: 'E SNOWBILL'
@@ -3232,14 +3238,14 @@ paths:
                             person:
                               first: FRAZER
                               last: CRAINE
-                              middle: ~
+                              middle: null
                         socialSecurities:
                           -
                             '@source': input
                             number: '666449944'
             schema:
               $ref: '#/components/schemas/Subject'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -3274,7 +3280,7 @@ paths:
                               city: 'FANTASY ISLAND'
                               state: IL
                               zipCode: '60750'
-                            residence: ~
+                            residence: null
                             status: CURRENT
                             street:
                               name: 'E SNOWBILL'
@@ -3284,14 +3290,14 @@ paths:
                             person:
                               first: FRAZER
                               last: CRAINE
-                              middle: ~
+                              middle: null
                         socialSecurities:
                           -
                             '@source': input
                             number: '666449944'
             schema:
               $ref: '#/components/schemas/Subject'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -3334,13 +3340,13 @@ paths:
                             person:
                               first: ALEXIA
                               last: PORTEGE
-                              middle: ~
+                              middle: null
                         socialSecurities:
                           -
                             number: '666224616'
             schema:
               $ref: '#/components/schemas/Subject'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -3383,7 +3389,7 @@ paths:
                   zip: '31326'
             schema:
               $ref: '#/components/schemas/CCIdentityRequestDTO'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -3430,7 +3436,7 @@ paths:
                               city: 'FANTASY ISLAND'
                               state: IL
                               zipCode: '60750'
-                            residence: ~
+                            residence: null
                             status: CURRENT
                             street:
                               name: 'E SNOWBILL'
@@ -3440,14 +3446,14 @@ paths:
                             person:
                               first: FRAZER
                               last: CRAINE
-                              middle: ~
+                              middle: null
                         socialSecurities:
                           -
                             '@source': input
                             number: '666449944'
             schema:
               $ref: '#/components/schemas/Subject'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -3483,7 +3489,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UserReqDTO'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -3500,7 +3506,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UserUpdReqDTO'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -3517,7 +3523,7 @@ paths:
         -
           in: query
           name: page
-          required: '0'
+          required: false
           schema:
             default: 0
             format: int32
@@ -3526,7 +3532,7 @@ paths:
         -
           in: query
           name: size
-          required: '0'
+          required: false
           schema:
             default: 40
             format: int32
@@ -3535,7 +3541,7 @@ paths:
         -
           in: query
           name: roles
-          required: '0'
+          required: false
           schema:
             default: -1
             format: int32
@@ -3561,7 +3567,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/UserLoginReqDTO'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -3581,7 +3587,7 @@ paths:
         -
           in: query
           name: page
-          required: '0'
+          required: false
           schema:
             default: 0
             format: int32
@@ -3590,7 +3596,7 @@ paths:
         -
           in: query
           name: size
-          required: '0'
+          required: false
           schema:
             default: 40
             format: int32
@@ -3612,7 +3618,7 @@ paths:
         -
           in: query
           name: page
-          required: '0'
+          required: false
           schema:
             default: 0
             format: int32
@@ -3621,7 +3627,7 @@ paths:
         -
           in: query
           name: size
-          required: '0'
+          required: false
           schema:
             default: 40
             format: int32
@@ -3643,7 +3649,7 @@ paths:
         -
           in: query
           name: page
-          required: '0'
+          required: false
           schema:
             default: 0
             format: int32
@@ -3652,7 +3658,7 @@ paths:
         -
           in: query
           name: size
-          required: '0'
+          required: false
           schema:
             default: 40
             format: int32
@@ -3661,7 +3667,7 @@ paths:
         -
           in: path
           name: id
-          required: '1'
+          required: true
           schema:
             format: uuid
             type: string
@@ -3681,7 +3687,7 @@ paths:
         -
           in: path
           name: id
-          required: '1'
+          required: true
           schema:
             format: uuid
             type: string
@@ -3704,7 +3710,7 @@ paths:
         -
           in: path
           name: id
-          required: '1'
+          required: true
           schema:
             format: uuid
             type: string
@@ -3724,7 +3730,7 @@ paths:
         -
           in: path
           name: id
-          required: '1'
+          required: true
           schema:
             format: uuid
             type: string
@@ -3814,7 +3820,7 @@ paths:
                       phone: '4153969288'
             schema:
               $ref: '#/components/schemas/RpaV1Request'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -3905,7 +3911,7 @@ paths:
                       phone: '4153969288'
             schema:
               $ref: '#/components/schemas/RpaV1Request'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -3930,7 +3936,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/XGSRequestDTO'
-        required: '1'
+        required: true
       responses:
         '200':
           content:
@@ -4702,7 +4708,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         value:
           type: string
       type: object
@@ -4766,7 +4772,7 @@ components:
             - NO_HIT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     ArmData:
       properties:
@@ -5585,7 +5591,7 @@ components:
             - HIT_MSGS_WITH_HELD
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     AuthenticationMode:
       properties:
@@ -5666,7 +5672,7 @@ components:
             - AUTO_LOAN_NOT_FOUND_AVAILABLE_CREDIT_FOUND
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     AutoLoanSummary:
       properties:
@@ -5875,7 +5881,7 @@ components:
     BankruptcyReport2Option:
       properties:
         includeAllBankruptcies:
-          default: '0'
+          default: false
           type: boolean
           xml:
             name: IncludeAllBankruptcies
@@ -6130,7 +6136,7 @@ components:
     BankruptcySearch2Option:
       properties:
         includeAlsoFound:
-          default: '0'
+          default: false
           type: boolean
           xml:
             name: IncludeAlsoFound
@@ -6147,12 +6153,12 @@ components:
           xml:
             name: StartingRecord
         useNicknames:
-          default: '0'
+          default: false
           type: boolean
           xml:
             name: UseNicknames
         usePhonetics:
-          default: '0'
+          default: false
           type: boolean
           xml:
             name: UsePhonetics
@@ -6467,7 +6473,7 @@ components:
             - DATA_NOT_AVAILABLE
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         total12Months:
           $ref: '#/components/schemas/AccountHistorySummary'
         total1Month:
@@ -6514,7 +6520,7 @@ components:
             - DATA_NOT_AVAILABLE
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         totalAmount:
           $ref: '#/components/schemas/CvTradeAmountSummary'
         totalPaymentRatioBankcard:
@@ -6563,7 +6569,7 @@ components:
             - TWENTY_FOUR_MONTH
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         revolvingTradeCount:
           type: string
         totalInquiryCount:
@@ -7994,7 +8000,7 @@ components:
             - ZIP_CODE
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         name:
           type: string
         population:
@@ -8022,7 +8028,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         state:
           type: string
       type: object
@@ -8165,7 +8171,7 @@ components:
             - TWENTY_FOUR_MONTH
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         revolvingTradeCount:
           type: string
         totalInquiryCount:
@@ -8619,14 +8625,14 @@ components:
             - NOT_FOUND
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     DebtToIncomePercentage:
       properties:
         calculated:
           type: boolean
           xml:
-            attribute: '1'
+            attribute: true
         value:
           type: string
       type: object
@@ -8659,7 +8665,7 @@ components:
         deceasedFileSearched:
           type: boolean
           xml:
-            attribute: '1'
+            attribute: true
         lastResidency:
           $ref: '#/components/schemas/Address'
         locationOfPayments:
@@ -8683,7 +8689,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     Decision:
       properties:
@@ -8822,7 +8828,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     DistanceAnalysisChoice:
       properties:
@@ -9054,7 +9060,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
             name: source
         standardizationCode:
           type: string
@@ -9154,7 +9160,7 @@ components:
             - DUPLICATE_NOT_FOUND_ARCHIVE
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         standardizedAddresses:
           $ref: '#/components/schemas/StandardizedAddresses'
         subjectDriverRank:
@@ -9290,7 +9296,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         state:
           type: string
         type:
@@ -9420,7 +9426,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         value:
           type: string
       type: object
@@ -9961,7 +9967,7 @@ components:
         priority:
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         value:
           type: string
       type: object
@@ -10106,7 +10112,7 @@ components:
             - POTENTIAL_HIT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     Feature:
       properties:
@@ -10217,7 +10223,7 @@ components:
             - SEARCH_NOT_APPLICABLE
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     FraudPointResults:
       properties:
@@ -10394,7 +10400,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         value:
           enum:
             - MALE
@@ -10420,7 +10426,7 @@ components:
             - NOT_AVAILABLE
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     GlobalWatchListSearchResponse:
       properties:
@@ -10510,7 +10516,7 @@ components:
             - PARTIALLY_AVAILABLE
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     HighRiskFraudAlertSubjectRecord:
       properties:
@@ -10575,7 +10581,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         status:
           enum:
             - CURRENT
@@ -11181,7 +11187,7 @@ components:
             - SEARCH_NOT_APPLICABLE
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     IdManagerVerificationV2AddOn:
       properties:
@@ -11223,7 +11229,7 @@ components:
             - SEARCH_NOT_APPLICABLE
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         verificationAnalysises:
           items:
             $ref: '#/components/schemas/VerificationAnalysis'
@@ -11376,7 +11382,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     IdentificationAnalysis:
       properties:
@@ -11507,7 +11513,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         state:
           type: string
         status:
@@ -11611,7 +11617,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         ytdBaseAmount:
           type: string
         ytdBonusAmount:
@@ -11661,7 +11667,7 @@ components:
             - NO_HIT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     Indicative:
       properties:
@@ -12389,7 +12395,7 @@ components:
             - ERROR
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     InquiryHistory:
       properties:
@@ -12410,7 +12416,7 @@ components:
         timeframe:
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     InquiryRecord:
       properties:
@@ -12496,7 +12502,7 @@ components:
         id:
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         value:
           type: string
       type: object
@@ -12757,7 +12763,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         totalSettlementAmount:
           format: int32
           type: integer
@@ -12781,7 +12787,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         value:
           type: string
       type: object
@@ -12978,7 +12984,7 @@ components:
         countryCode:
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         source:
           enum:
             - INPUT
@@ -12996,11 +13002,11 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         stateCode:
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         value:
           type: string
       type: object
@@ -13199,7 +13205,7 @@ components:
     LienJudgmentReportOption:
       properties:
         returnMultiplePages:
-          default: '1'
+          default: true
           type: boolean
           xml:
             name: ReturnMultiplePages
@@ -13404,7 +13410,7 @@ components:
     LienJudgmentSearchOption:
       properties:
         includeAlsoFound:
-          default: '1'
+          default: true
           type: boolean
           xml:
             name: IncludeAlsoFound
@@ -13826,7 +13832,7 @@ components:
             - ERROR
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     Messages:
       properties:
@@ -13858,7 +13864,7 @@ components:
             - MATCH
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     ModelCharacteristic:
       properties:
@@ -14044,7 +14050,7 @@ components:
     MotorVehicleReport2Option:
       properties:
         includeNonRegulatedVehicleSources:
-          default: '0'
+          default: false
           type: boolean
           xml:
             name: IncludeNonRegulatedVehicleSources
@@ -14252,17 +14258,17 @@ components:
           xml:
             name: DataSource
         includeAlsoFound:
-          default: '0'
+          default: false
           type: boolean
           xml:
             name: IncludeAlsoFound
         includeNonRegulatedVehicleSources:
-          default: '0'
+          default: false
           type: boolean
           xml:
             name: IncludeNonRegulatedVehicleSources
         multiFamilyDwelling:
-          default: '0'
+          default: false
           type: boolean
           xml:
             name: MultiFamilyDwelling
@@ -14289,17 +14295,17 @@ components:
           xml:
             name: StartingRecord
         useNicknames:
-          default: '0'
+          default: false
           type: boolean
           xml:
             name: UseNicknames
         usePhonetics:
-          default: '0'
+          default: false
           type: boolean
           xml:
             name: UsePhonetics
         useTagBlur:
-          default: '0'
+          default: false
           type: boolean
           xml:
             name: UseTagBlur
@@ -14739,7 +14745,7 @@ components:
             - DISCOVERED
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         salutationalSuffix:
           type: string
         unparsed:
@@ -14760,7 +14766,7 @@ components:
         name:
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         value:
           type: string
       type: object
@@ -14971,7 +14977,7 @@ components:
             - UNAVAILABLE
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     OrderDTO:
       properties:
@@ -17510,7 +17516,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         stateTax:
           type: string
         suiOrSDIOrVPDITax:
@@ -17603,7 +17609,7 @@ components:
             - WIRELESS_BUT_SUPPRESSED
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     PhoneMatchAnalysis:
       properties:
@@ -17729,7 +17735,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     Preferences:
       properties:
@@ -18205,7 +18211,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         zipVsCity:
           enum:
             - VALID
@@ -18287,7 +18293,7 @@ components:
             - LESSEE
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         salutationalSuffix:
           type: string
         unparsed:
@@ -19022,7 +19028,7 @@ components:
     RiskView2LiensJudgmentsReportOptions:
       properties:
         attributesOnly:
-          default: '0'
+          default: false
           type: boolean
           xml:
             name: AttributesOnly
@@ -19393,7 +19399,7 @@ components:
         l2CCancel:
           type: boolean
           xml:
-            attribute: '1'
+            attribute: true
             name: l2cCancel
         messages:
           items:
@@ -19413,7 +19419,7 @@ components:
             - SEARCH_NOT_APPLICABLE
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         statements:
           items:
             $ref: '#/components/schemas/Statement'
@@ -19491,7 +19497,7 @@ components:
             - NO_MATCH
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     SocialSecurity:
       properties:
@@ -19502,7 +19508,7 @@ components:
         masked:
           type: boolean
           xml:
-            attribute: '1'
+            attribute: true
         number:
           type: string
         source:
@@ -19522,7 +19528,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
       type: object
     SourceItem:
       properties:
@@ -20673,7 +20679,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         totalRentalRemibursementLimitAmount:
           type: string
         towingLimitAmount:
@@ -20684,7 +20690,7 @@ components:
         vehicleID:
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         vehicleTypeDescription:
           type: string
         vin:
@@ -21099,7 +21105,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         ssnVerification:
           enum:
             - NOT_FOUND
@@ -21988,7 +21994,7 @@ components:
           type: string
         glbPurpose:
           enum:
-            - ~
+            - null
             - '0'
             - '1'
             - '3'
@@ -22031,7 +22037,7 @@ components:
             - ADDRESS
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         source:
           enum:
             - INPUT
@@ -22049,7 +22055,7 @@ components:
             - NON_GOVERNMENT
           type: string
           xml:
-            attribute: '1'
+            attribute: true
         type:
           enum:
             - PO_BOX
