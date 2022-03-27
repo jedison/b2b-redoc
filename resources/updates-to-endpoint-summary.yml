@@ -20,7 +20,7 @@
     post:
       tags:
         - Transunion
-      summary: Credit Report
+      summary: Transunion Credit Report
 
   /gwls/ofaclist:
     post:
@@ -88,3 +88,8 @@
         - Equifax
       summary: Equifax PDF Credit Report Retrieve
 
+  /iid/new-request:
+    post:
+      summary: Instant ID (IID)
+      tags:
+        - LexisNexis

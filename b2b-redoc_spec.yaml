@@ -64,7 +64,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/BankruptcyReport2ResponseEx'
           description: OK
+      # TODO: Update OAS with summary
+      summary: LexisNexis Bankruptcy Report
       tags:
+        # TODO: update OAS with generic tag 
+        - Bankruptcy
         - bankruptcy-r-controller
   /bankruptcys:
     post:
@@ -88,7 +92,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/BankruptcySearch2ResponseEx'
           description: OK
+      # TODO: Update OAS with summary
+      summary: LexisNexis Bankruptcy Search
       tags:
+        # TODO: update OAS with generic tag 
+        - Bankruptcy
         - bankruptcy-s-controller
   /biid/new-request:
     post:
@@ -108,8 +116,12 @@ paths:
                   $ref: '#/components/schemas/Product'
                 type: array
           description: OK
+      # TODO: update OAS Tags and Summary
+      summary: Business Instant ID (BIID) Verification via DTO
+      # tags:
+      #   - biid-controller
       tags:
-        - biid-controller
+        - LexisNexis
   /ccc/exp/report:
     post:
       description: 'Order an Experian Business Premier Profile Report.'
@@ -234,6 +246,8 @@ paths:
       security:
         -
           'Authorization Token': []
+      # TODO: update OAS add summary
+      summary: CIC Criminal Report Retrieve
       tags:
         - Criminal
   /criminal/new-request:
@@ -288,6 +302,8 @@ paths:
       security:
         -
           'Authorization Token': []
+      # TODO: update OAS add summary
+      summary: CIC Criminal Report Request
       tags:
         - Criminal
   /equifax/credit-report:
@@ -343,6 +359,8 @@ paths:
       security:
         -
           'Authorization Token': []
+      # TODO: update OAS add summary
+      summary: Equifax Credit Report
       tags:
         - Equifax
   /equifax/credit-report/{pdfRequestId}:
@@ -368,6 +386,8 @@ paths:
       security:
         -
           'Authorization Token': []
+      # TODO: update OAS
+      summary: Equifax PDF Credit Report Retrieve
       tags:
         - Equifax
   /equifax/pdf-credit-report:
@@ -401,6 +421,8 @@ paths:
       security:
         -
           'Authorization Token': []
+      # TODO: update OAS
+      summary: Equifax PDF Credit Report Retrieve
       tags:
         - Equifax
   /eviction/get-response/{id}:
@@ -426,6 +448,8 @@ paths:
       security:
         -
           'Authorization Token': []
+      # TODO: update OAS
+      summary: Get Eviction Report
       tags:
         - Eviction
   /eviction/new-request:
@@ -480,6 +504,8 @@ paths:
       security:
         -
           'Authorization Token': []
+      # TODO: update OAS
+      summary: Eviction Report Request
       tags:
         - Eviction
   /experian/cc2/initial:
@@ -507,6 +533,8 @@ paths:
       security:
         -
           'Authorization Token': []
+      # TODO: update OAS
+      summary: Cross Core 2 Initial (no options)
       tags:
         - Experian
   /experian/cc2/kiq:
@@ -534,6 +562,8 @@ paths:
       security:
         -
           'Authorization Token': []
+      # TODO: update OAS
+      summary: Cross Core 2 Knowledge IQ
       tags:
         - Experian
   /experian/cc2/otp:
@@ -561,6 +591,8 @@ paths:
       security:
         -
           'Authorization Token': []
+      # TODO: Update OAS
+      summary: Cross Core 2 One-Time Passcode (no options)
       tags:
         - Experian
   /experian/cc2/screening:
@@ -588,6 +620,8 @@ paths:
       security:
         -
           'Authorization Token': []
+      # TODO: update OAS
+      summary: Cross Core 2 Screening
       tags:
         - Experian
   /experian/cc2/{option}:
@@ -622,6 +656,8 @@ paths:
       security:
         -
           'Authorization Token': []
+      # TODO Update OAS
+      summary: Cross Core 2 Initial with options
       tags:
         - Experian
   /experian/cc2/{option}/kiq:
@@ -656,6 +692,8 @@ paths:
       security:
         -
           'Authorization Token': []
+      # TODO: update OAS
+      summary: Cross Core 2 Knowledge IQ (with options)
       tags:
         - Experian
   /experian/cc2/{option}/otp:
@@ -690,6 +728,8 @@ paths:
       security:
         -
           'Authorization Token': []
+      # TODO: update OAS
+      summary: Cross Core 2 One-Time Passcode with options
       tags:
         - Experian
   /experian/credit-profile/automotive-credit:
@@ -1255,7 +1295,9 @@ paths:
       security:
         -
           'Authorization Token': []
-      summary: 'Credit Report'
+      # TODO update OAS
+      # summary: 'Credit Report'
+      summary: 'Experian Credit Report'
       tags:
         - Experian
   /experian/credit-profile/employment-insight:
@@ -1791,7 +1833,7 @@ paths:
       security:
         -
           'Authorization Token': []
-      summary: 'Extended View Attributes Only And Score'
+      summary: 'Extended View Attributes and Score'
       tags:
         - Experian
   /experian/credit-profile/extended-view-score:
@@ -2371,6 +2413,8 @@ paths:
       security:
         -
           'Authorization Token': []
+      # TODO: update OAS add summary
+      summary: Experian Reverse Phone Append
       tags:
         - Experian
   /gwls:
@@ -2395,6 +2439,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/GlobalWatchListSearchResponseEx'
           description: OK
+      # TODO: update OAS with summary
+      summary: Global Watchlist Search
       tags:
         - gwls-controller
   /gwls/batch:
@@ -2419,6 +2465,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/GlobalWatchListSearchResponsesDTO'
           description: OK
+      # TODO: update OAS with summary
+      summary: Global Watchlist Batch
       tags:
         - gwls-controller
   /gwls/ofac:
@@ -2443,6 +2491,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/GlobalWatchListSearchResponseEx'
           description: OK
+      # TODO: add summary to OAS
+      summary: OFAC Watchlist Search (single request)
       tags:
         - gwls-controller
   /gwls/ofaclist:
@@ -2467,6 +2517,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/GlobalWatchListSearchResponsesDTO'
           description: OK
+      # TOD: Add summary to OAS
+      summary: OFAC Watchlist Search (multiple requests)
       tags:
         - gwls-controller
   /iid/new-request:
@@ -2487,7 +2539,10 @@ paths:
                   $ref: '#/components/schemas/Product'
                 type: array
           description: OK
+      # TODO: update OAS add summary and generic tag
+      summary: Instant ID (IID)
       tags:
+        - LexisNexis
         - iid-controller
   /ljr:
     post:
@@ -2511,7 +2566,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/LienJudgmentReportResponseEx'
           description: OK
+      # TODO: Update OAS with summary
+      summary: Experian Lien and Judgment Report Retrieve
       tags:
+        # TODO: update OAS with generic tag 
+        - Experian Lien and Judgment 
         - ljr-controller
   /ljs:
     post:
@@ -2535,7 +2594,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/LienJudgmentSearchResponseEx'
           description: OK
+      # TODO: Update OAS with summary
+      summary: Experian Lien and Judgment Search Request
       tags:
+        # TODO: update OAS with generic tag 
+        - Experian Lien and Judgment 
         - ljs-controller
   /mvr:
     post:
@@ -2559,7 +2622,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/MotorVehicleReport2ResponseEx'
           description: OK
+      # TODO: Update OAS with summary
+      summary: LexisNexis Motor Vehicle Report Retrieve
       tags:
+        # TODO: update OAS with generic tag 
+        - LexisNexis Motor Vehicle Report
         - mvr-controller
   /mvs:
     post:
@@ -2583,7 +2650,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/MotorVehicleSearch2ResponseEx'
           description: OK
+      # TODO: Update OAS with summary
+      summary: LexisNexis Motor Vehicle Search Request
       tags:
+        # TODO: update OAS with generic tag 
+        - LexisNexis Motor Vehicle Report
         - mvs-controller
   /pp/criminal:
     post:
@@ -3197,6 +3268,8 @@ paths:
                   $ref: '#/components/schemas/Role'
                 type: array
           description: OK
+      # TODO: update OAS add summary
+      summary: Get Roles
       tags:
         - roles-controller
   /sys/health:
@@ -3205,6 +3278,8 @@ paths:
       responses:
         '200':
           description: OK
+      # TODO: update OAS add summary
+      summary: System Health
       tags:
         - system-controller
   /transunion/credit-report:
@@ -3256,7 +3331,9 @@ paths:
       security:
         -
           'Authorization Token': []
-      summary: 'Credit Report'
+      # TODO: update OAS
+      # summary: 'Credit Report'
+      summary: 'Transunion Credit Report'
       tags:
         - Transunion
   /transunion/id-search:
@@ -3412,7 +3489,9 @@ paths:
       security:
         -
           'Authorization Token': []
-      summary: 'Identity Manager Verification'
+      # TODO: update OAS
+      # summary: 'Identity Manager Verification'
+      summary: 'Identity Manager Verification (basic)'
       tags:
         - Transunion
   /transunion/model-report:
@@ -3464,7 +3543,9 @@ paths:
       security:
         -
           'Authorization Token': []
-      summary: 'Model Report'
+      # TODO: update OAS summary
+      # summary: 'Model Report'
+      summary: 'Transunion Model Report'
       tags:
         - Transunion
   /users:
@@ -3480,6 +3561,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserRespDTO'
           description: OK
+      # TODO: update OAS add summary
+      summary: User
       tags:
         - User
     post:
@@ -3497,6 +3580,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserRespDTO'
           description: OK
+      # TODO: update OAS add summary
+      summary: New User
       tags:
         - User
     put:
@@ -3514,6 +3599,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserRespDTO'
           description: OK
+      # TODO: update OAS add summary
+      summary: Update User
       tags:
         - User
   /users/all:
@@ -3554,6 +3641,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/PageableResponseDTO'
           description: OK
+      # TODO: update OAS add summary
+      summary: Get All Users
       tags:
         - User
   /users/login:
@@ -3578,6 +3667,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserLoginRespDTO'
           description: OK
+      # TODO: update OAS add summary
+      summary: Login
       tags:
         - User
   /users/logs:
@@ -3609,6 +3700,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/PageableResponseDTO'
           description: OK
+      # TODO: update OAS add summary
+      summary: User logs
       tags:
         - User
   /users/logs/all:
@@ -3640,6 +3733,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/PageableResponseDTO'
           description: OK
+      # TODO: update OAS
+      summary: User logs (all)
       tags:
         - User
   /users/logs/{id}:
@@ -3678,6 +3773,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/PageableResponseDTO'
           description: OK
+      # TODO: update OAS add summary
+      summary: User logs with ID
       tags:
         - User
   /users/retention-pdf/{id}:
@@ -3701,6 +3798,8 @@ paths:
                   type: string
                 type: array
           description: OK
+      # TODO: update OAS add summary
+      summary: Get PDF retention log with User ID
       tags:
         - User
   /users/retention/{id}:
@@ -3721,6 +3820,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/RequestDetails'
           description: OK
+      # TODO: update OAS add summary
+      summary: Get PDF retention log with ID
       tags:
         - User
   /users/{id}:
@@ -3744,6 +3845,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserRespDTO'
           description: OK
+      # TODO: update OAS add summary
+      summary: Get User with ID
       tags:
         - User
   /vfps/biid2:
@@ -3834,7 +3937,9 @@ paths:
       security:
         -
           'Authorization Token': []
-      summary: 'Business Instant ID2 Data'
+      # TODO: Update OAS
+      # summary: 'Business Instant ID2 Data'
+      summary: Business Instant ID2 Verification via Data Elements
       tags:
         - LexisNexis
   /vfps/biid2/pdf:
@@ -3922,7 +4027,9 @@ paths:
       security:
         -
           'Authorization Token': []
-      summary: 'Business Instant ID2 Report'
+      # TODO: Update OAS
+      # summary: 'Business Instant ID2 Report'
+      summary: Business Instant ID2 PDF Report
       tags:
         - LexisNexis
   /xgs/search:
@@ -3947,6 +4054,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/SearchResults'
           description: OK
+      # TODO: update OAS add summary
+      summary: LexisNexis Search Bridger Insight (XGS)
       tags:
         - xgs-controller
 
@@ -22118,11 +22227,29 @@ tags:
   #   description: 'REST API for Experian data'
   #   name: 'CCC Experian Business Credit'
 
+
 # MANUAL DOCUMENTATION ===============================================
 # TODO: NOT USED
   - name: Users
     description: |
       CRS management of Users
+
+  - name: system-controller
+    x-displayName: System Health
+    description: System Healthcheck API
+
+  - name: roles-controller
+    x-displayName: Roles
+    description: Roles API
+
+  - name: gwls-controller
+    x-displayName: Global Watchlist
+    description: Watchlist/OFAC APIs
+
+  - name: xgs-controller
+    x-displayName: LexisNexis Search Bridger Insight (XGS)
+    description: |
+          LexisNexis Bridger Insight XG allows organizations to perform due diligence related to Bank Secrecy Act, anti-money laundering (AML), foreign corruption and terrorist financing. The tool combine filtering software and financial sanctions watchlist data, including enforcements lists, Politically Exposed Persons (PEP), and adverse media information. 
 
   - name: eCredit Data API
     description: |
@@ -29221,6 +29348,7 @@ tags:
           <p>Our security token is valid for 15 minutes. With this token, any number of requests can be executed before it expires. In order to stay authenticated, a new token will need to be requested every 15 minutes by resending the “User Login” request.</p>
           <hr>
 
+
 ## x-tags: what to show, where
 x-tagGroups:
   - name: Guides
@@ -29237,7 +29365,7 @@ x-tagGroups:
       - Identity Verification
       - Credit Reports
       - Other Reports
-      
+
   - name: API Reference
     tags:
       - Overview of APIs
@@ -29246,7 +29374,8 @@ x-tagGroups:
       - Transunion
       - LexisNexis
       - PitchPoint
-      - Global WatchList
+      # - Global WatchList
+      - gwls-controller
       - Criminal
       - Eviction
       - User
@@ -29254,17 +29383,20 @@ x-tagGroups:
       - roles-controller
       # Would it be an option to explicit move this here? No, does not work.
       # - securitySchemes
-      
+
   - name: APIs Coming Soon
     tags:      
       - Overview of APIs Coming Soon
       - xgs-controller
-      - mvs-controller
-      - mvr-controller
-      - ljs-controller
-      - ljr-controller
-      - bankruptcy-s-controller
-      - bankruptcy-r-controller
+      - LexisNexis Motor Vehicle Report
+      # - mvs-controller
+      # - mvr-controller
+      - Experian Lien and Judgment
+      # - ljs-controller
+      # - ljr-controller
+      - Bankruptcy
+      # - bankruptcy-s-controller
+      # - bankruptcy-r-controller
       
   - name: In addition
     tags:      
