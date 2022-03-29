@@ -1,0 +1,292 @@
+openapi: 3.0.1
+info:
+  title: eCredit Data API
+  version: v1
+  # TODO: Correct OAS
+  # title: 'CRS OPEN-API DEFINITION'
+  # version: '1'
+  contact:
+    name: API Support
+    email: support@crscreditapi.com
+
+servers:
+  - url: https://mware-dev.crscreditapi.com/api
+    description: MWare test server url
+  # TODO: Correct OAS
+  # -
+  #   description: 'Default Server URL'
+  #   url: /api
+
+paths:
+  /bankruptcyr:
+      # TODO: Update OAS add summary
+      summary: LexisNexis Bankruptcy Report Retrieve
+      tags:
+        # TODO: update OAS add generic tag 
+        - Bankruptcy
+        - bankruptcy-r-controller
+
+  /bankruptcys:
+      # TODO: Update OAS add summary
+      summary: LexisNexis Bankruptcy Search Request
+      tags:
+        # TODO: update OAS add generic tag 
+        - Bankruptcy
+        - bankruptcy-s-controller
+
+  /biid/new-request:
+      # TODO: update OAS Tags and add summary
+      summary: Business Instant ID (BIID) Verification via DTO
+      # tags:
+      #   - biid-controller
+      tags:
+        - LexisNexis
+
+  /ccc/exp/report:
+      tags:
+        # TODO: Correct OAS, add Experian to tags
+        - Experian
+        - 'CCC Experian Business Credit'
+
+  /ccc/exp/score:
+      tags:
+        # TODO: Correct OAS, add Experian to tags
+        - Experian
+        - 'CCC Experian Business Credit'
+
+  /ccc/exp/search:
+      tags:
+        # TODO: Correct OAS add Experian to tags
+        - Experian
+        - 'CCC Experian Business Credit'
+
+  /criminal/get-response/{id}:
+      # TODO: update OAS add summary
+      summary: CIC Criminal Report Retrieve
+      tags:
+        - Criminal
+
+  /criminal/new-request:
+      # TODO: update OAS add summary
+      summary: CIC Criminal Report Request
+
+  /equifax/credit-report:
+      # TODO: update OAS add summary
+      summary: Equifax Credit Report Request
+
+  /equifax/credit-report/{pdfRequestId}:
+      # TODO: update OAS, update summary
+      summary: Equifax PDF Credit Report Retrieve
+
+  /equifax/pdf-credit-report:
+      # TODO: update OAS update summary
+      summary: Equifax PDF Credit Report Request
+
+  /eviction/get-response/{id}:
+      # TODO: update OAS update summary
+      summary: CIC Eviction Report Retrieve
+
+  /eviction/new-request:
+      # TODO: update OAS update summary
+      summary: CIC Eviction Report Request
+
+  /experian/cc2/initial:
+      # TODO: update OAS udpate summary
+      summary: Cross Core 2 Initial (no options)
+
+  /experian/cc2/kiq:
+      # TODO: update OAS update summary
+      summary: Cross Core 2 Knowledge IQ
+
+  /experian/cc2/otp:
+      # TODO: Update OAS update summary
+      summary: Cross Core 2 One-Time Passcode (no options)
+
+  /experian/cc2/screening:
+      # TODO: update OAS update summary
+      summary: Cross Core 2 Screening
+
+  /experian/cc2/{option}:
+      # TODO Update OAS update summary
+      summary: Cross Core 2 Initial with options
+
+  /experian/cc2/{option}/kiq:
+      # TODO: update OAS update summary
+      summary: Cross Core 2 Knowledge IQ (with options)
+
+  /experian/cc2/{option}/otp:
+      # TODO: update OAS update summary
+      summary: Cross Core 2 One-Time Passcode with options
+
+  /experian/credit-profile/credit-report:
+      # TODO update OAS
+      # summary: 'Credit Report'
+      summary: 'Experian Credit Report'
+
+  /experian/rpa:
+      # TODO: update OAS add summary
+      summary: Experian Reverse Phone Append
+
+  /gwls:
+      # TODO: update OAS add summary
+      summary: Global Watchlist Search
+
+  /gwls/batch:
+      # TODO: update OAS add summary
+      summary: Global Watchlist Batch
+
+  /gwls/ofac:
+      # TODO: update OAS add summary
+      summary: OFAC Watchlist Search (single request)
+
+  /gwls/ofaclist:
+      # TOD: update OAS add summary
+      summary: OFAC Watchlist Search (multiple requests)
+
+  /iid/new-request:
+      # TODO: update OAS add summary and LexisNexis to tags
+      summary: Instant ID (IID)
+      tags:
+        - LexisNexis
+        - iid-controller
+
+  /ljr:
+      # TODO: Update OAS add summary
+      summary: Experian Lien and Judgment Report Retrieve
+      tags:
+        # TODO: update OAS add generic tag 
+        - Experian Lien and Judgment 
+        - ljr-controller
+
+  /ljs:
+      # TODO: Update OAS add summary
+      summary: Experian Lien and Judgment Search Request
+      tags:
+        # TODO: update OAS add generic tag 
+        - Experian Lien and Judgment 
+        - ljs-controller
+
+  /mvr:
+      # TODO: Update OAS add summary
+      summary: LexisNexis Motor Vehicle Report Retrieve
+      tags:
+        # TODO: update OAS add generic tag 
+        - LexisNexis Motor Vehicle Report
+        - mvr-controller
+
+  /mvs:
+      # TODO: Update OAS add summary
+      summary: LexisNexis Motor Vehicle Search Request
+      tags:
+        # TODO: update OAS add generic tag 
+        - LexisNexis Motor Vehicle Report
+        - mvs-controller
+
+
+  /roles:
+      # TODO: update OAS add summary
+      summary: Get Roles
+
+  /sys/health:
+      # TODO: update OAS add summary
+      summary: System Health
+
+  /transunion/credit-report:
+      # TODO: update OAS update summary to be specific
+      # summary: 'Credit Report'
+      summary: 'Transunion Credit Report'
+
+  /transunion/identity-manager-verification/basic:
+      # TODO: update OAS update summary to be specific
+      # summary: 'Identity Manager Verification'
+      summary: 'Identity Manager Verification (basic)'
+
+  /transunion/model-report:
+      # TODO: update OAS update summary to be specific
+      # summary: 'Model Report'
+      summary: 'Transunion Model Report'
+
+  /users:
+    get:
+      # TODO: update OAS add summary
+      summary: User
+    post:
+      # TODO: update OAS add summary
+      summary: New User
+    put:
+      # TODO: update OAS add summary
+      summary: Update User
+
+  /users/all:
+      # TODO: update OAS add summary
+      summary: Get All Users
+
+  /users/login:
+      # TODO: update OAS add summary
+      summary: Login
+
+  /users/logs:
+      # TODO: update OAS add summary
+      summary: User logs
+
+  /users/logs/all:
+      # TODO: update OAS add summary
+      summary: User logs (all)
+
+  /users/logs/{id}:
+      # TODO: update OAS add summary
+      summary: User logs with ID
+
+  /users/retention-pdf/{id}:
+      # TODO: update OAS add summary
+      summary: Get PDF retention log with User ID
+
+  /users/retention/{id}:
+      # TODO: update OAS add summary
+      summary: Get PDF retention log with ID
+
+  /users/{id}:
+      # TODO: update OAS add summary
+      summary: Get User with ID
+
+  /vfps/biid2:
+      # TODO: Update OAS update summary
+      # summary: 'Business Instant ID2 Data'
+      summary: Business Instant ID2 Verification via Data Elements
+
+  /vfps/biid2/pdf:
+      # TODO: Update OAS update summary
+      # summary: 'Business Instant ID2 Report'
+      summary: Business Instant ID2 PDF Report
+
+  /xgs/search:
+      # TODO: update OAS add summary
+      summary: LexisNexis Search Bridger Insight (XGS)
+
+tags:
+  -
+    # TODO: Correct OAS update description
+    # description: 'REST API for Criminal data'
+    description: 'REST API for CIC Criminal data'
+    name: Criminal
+  -
+    # TODO: Correct OAS update description
+    # description: 'REST API for Eviction data'
+    description: 'REST API for CIC Eviction data'
+    name: Eviction
+  -
+    # TODO: Correct OAS update description
+    # description: 'REST API for LexisNexis RiskView'
+    description: 'REST API for LexisNexis'
+    name: LexisNexis
+
+    # TODO: REMOVE FROM OAS
+  # -
+  #   description: 'REST API for LexisNexis VFPS'
+  #   name: LexisNexis
+  -
+    # TODO: REMOVE FROM OAS
+  # -
+  #   description: 'REST API for Experian data'
+  #   name: 'CCC Experian Business Credit'
+
