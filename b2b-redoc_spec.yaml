@@ -65,10 +65,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/BankruptcyReport2ResponseEx'
           description: OK
-      # TODO: Update OAS with summary
+      # TODO: Update OAS add summary
       summary: LexisNexis Bankruptcy Report Retrieve
       tags:
-        # TODO: update OAS with generic tag 
+        # TODO: update OAS add generic tag 
         - Bankruptcy
         - bankruptcy-r-controller
   /bankruptcys:
@@ -93,10 +93,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/BankruptcySearch2ResponseEx'
           description: OK
-      # TODO: Update OAS with summary
+      # TODO: Update OAS add summary
       summary: LexisNexis Bankruptcy Search Request
       tags:
-        # TODO: update OAS with generic tag 
+        # TODO: update OAS add generic tag 
         - Bankruptcy
         - bankruptcy-s-controller
   /biid/new-request:
@@ -117,7 +117,7 @@ paths:
                   $ref: '#/components/schemas/Product'
                 type: array
           description: OK
-      # TODO: update OAS Tags and Summary
+      # TODO: update OAS Tags and add summary
       summary: Business Instant ID (BIID) Verification via DTO
       # tags:
       #   - biid-controller
@@ -153,7 +153,7 @@ paths:
           'Authorization Token': []
       summary: 'Experian Business Premier Profile Report'
       tags:
-        # TODO: Correct OAS
+        # TODO: Correct OAS, add Experian to tags
         - Experian
         - 'CCC Experian Business Credit'
   /ccc/exp/score:
@@ -186,7 +186,7 @@ paths:
           'Authorization Token': []
       summary: 'Experian Intelliscore+ Business Report'
       tags:
-        # TODO: Correct OAS
+        # TODO: Correct OAS, add Experian to tags
         - Experian
         - 'CCC Experian Business Credit'
   /ccc/exp/search:
@@ -221,7 +221,7 @@ paths:
           'Authorization Token': []
       summary: 'Experian Business Search'
       tags:
-        # TODO: Correct OAS
+        # TODO: Correct OAS add Experian to tags
         - Experian
         - 'CCC Experian Business Credit'
   /criminal/get-response/{id}:
@@ -387,7 +387,7 @@ paths:
       security:
         -
           'Authorization Token': []
-      # TODO: update OAS
+      # TODO: update OAS, update summary
       summary: Equifax PDF Credit Report Retrieve
       tags:
         - Equifax
@@ -422,7 +422,7 @@ paths:
       security:
         -
           'Authorization Token': []
-      # TODO: update OAS
+      # TODO: update OAS update summary
       summary: Equifax PDF Credit Report Request
       tags:
         - Equifax
@@ -449,7 +449,7 @@ paths:
       security:
         -
           'Authorization Token': []
-      # TODO: update OAS
+      # TODO: update OAS update summary
       summary: CIC Eviction Report Retrieve
       tags:
         - Eviction
@@ -505,7 +505,7 @@ paths:
       security:
         -
           'Authorization Token': []
-      # TODO: update OAS
+      # TODO: update OAS update summary
       summary: CIC Eviction Report Request
       tags:
         - Eviction
@@ -534,7 +534,7 @@ paths:
       security:
         -
           'Authorization Token': []
-      # TODO: update OAS
+      # TODO: update OAS udpate summary
       summary: Cross Core 2 Initial (no options)
       tags:
         - Experian
@@ -563,7 +563,7 @@ paths:
       security:
         -
           'Authorization Token': []
-      # TODO: update OAS
+      # TODO: update OAS update summary
       summary: Cross Core 2 Knowledge IQ
       tags:
         - Experian
@@ -592,7 +592,7 @@ paths:
       security:
         -
           'Authorization Token': []
-      # TODO: Update OAS
+      # TODO: Update OAS update summary
       summary: Cross Core 2 One-Time Passcode (no options)
       tags:
         - Experian
@@ -621,7 +621,7 @@ paths:
       security:
         -
           'Authorization Token': []
-      # TODO: update OAS
+      # TODO: update OAS update summary
       summary: Cross Core 2 Screening
       tags:
         - Experian
@@ -657,7 +657,7 @@ paths:
       security:
         -
           'Authorization Token': []
-      # TODO Update OAS
+      # TODO Update OAS update summary
       summary: Cross Core 2 Initial with options
       tags:
         - Experian
@@ -693,7 +693,7 @@ paths:
       security:
         -
           'Authorization Token': []
-      # TODO: update OAS
+      # TODO: update OAS update summary
       summary: Cross Core 2 Knowledge IQ (with options)
       tags:
         - Experian
@@ -729,7 +729,7 @@ paths:
       security:
         -
           'Authorization Token': []
-      # TODO: update OAS
+      # TODO: update OAS update summary
       summary: Cross Core 2 One-Time Passcode with options
       tags:
         - Experian
@@ -2440,7 +2440,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GlobalWatchListSearchResponseEx'
           description: OK
-      # TODO: update OAS with summary
+      # TODO: update OAS add summary
       summary: Global Watchlist Search
       tags:
         - gwls-controller
@@ -2466,7 +2466,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GlobalWatchListSearchResponsesDTO'
           description: OK
-      # TODO: update OAS with summary
+      # TODO: update OAS add summary
       summary: Global Watchlist Batch
       tags:
         - gwls-controller
@@ -2492,7 +2492,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GlobalWatchListSearchResponseEx'
           description: OK
-      # TODO: add summary to OAS
+      # TODO: update OAS add summary
       summary: OFAC Watchlist Search (single request)
       tags:
         - gwls-controller
@@ -2518,7 +2518,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GlobalWatchListSearchResponsesDTO'
           description: OK
-      # TOD: Add summary to OAS
+      # TOD: update OAS add summary
       summary: OFAC Watchlist Search (multiple requests)
       tags:
         - gwls-controller
@@ -2540,7 +2540,7 @@ paths:
                   $ref: '#/components/schemas/Product'
                 type: array
           description: OK
-      # TODO: update OAS add summary and generic tag
+      # TODO: update OAS add summary and LexisNexis to tags
       summary: Instant ID (IID)
       tags:
         - LexisNexis
@@ -2567,10 +2567,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/LienJudgmentReportResponseEx'
           description: OK
-      # TODO: Update OAS with summary
+      # TODO: Update OAS add summary
       summary: Experian Lien and Judgment Report Retrieve
       tags:
-        # TODO: update OAS with generic tag 
+        # TODO: update OAS add generic tag 
         - Experian Lien and Judgment 
         - ljr-controller
   /ljs:
@@ -2595,10 +2595,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/LienJudgmentSearchResponseEx'
           description: OK
-      # TODO: Update OAS with summary
+      # TODO: Update OAS add summary
       summary: Experian Lien and Judgment Search Request
       tags:
-        # TODO: update OAS with generic tag 
+        # TODO: update OAS add generic tag 
         - Experian Lien and Judgment 
         - ljs-controller
   /mvr:
@@ -2623,10 +2623,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/MotorVehicleReport2ResponseEx'
           description: OK
-      # TODO: Update OAS with summary
+      # TODO: Update OAS add summary
       summary: LexisNexis Motor Vehicle Report Retrieve
       tags:
-        # TODO: update OAS with generic tag 
+        # TODO: update OAS add generic tag 
         - LexisNexis Motor Vehicle Report
         - mvr-controller
   /mvs:
@@ -2651,10 +2651,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/MotorVehicleSearch2ResponseEx'
           description: OK
-      # TODO: Update OAS with summary
+      # TODO: Update OAS add summary
       summary: LexisNexis Motor Vehicle Search Request
       tags:
-        # TODO: update OAS with generic tag 
+        # TODO: update OAS add generic tag 
         - LexisNexis Motor Vehicle Report
         - mvs-controller
   /pp/criminal:
@@ -3332,7 +3332,7 @@ paths:
       security:
         -
           'Authorization Token': []
-      # TODO: update OAS
+      # TODO: update OAS update summary to be specific
       # summary: 'Credit Report'
       summary: 'Transunion Credit Report'
       tags:
@@ -3490,7 +3490,7 @@ paths:
       security:
         -
           'Authorization Token': []
-      # TODO: update OAS
+      # TODO: update OAS update summary to be specific
       # summary: 'Identity Manager Verification'
       summary: 'Identity Manager Verification (basic)'
       tags:
@@ -3544,7 +3544,7 @@ paths:
       security:
         -
           'Authorization Token': []
-      # TODO: update OAS summary
+      # TODO: update OAS update summary to be specific
       # summary: 'Model Report'
       summary: 'Transunion Model Report'
       tags:
@@ -3734,7 +3734,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PageableResponseDTO'
           description: OK
-      # TODO: update OAS
+      # TODO: update OAS add summary
       summary: User logs (all)
       tags:
         - User
@@ -3938,7 +3938,7 @@ paths:
       security:
         -
           'Authorization Token': []
-      # TODO: Update OAS
+      # TODO: Update OAS update summary
       # summary: 'Business Instant ID2 Data'
       summary: Business Instant ID2 Verification via Data Elements
       tags:
@@ -4028,7 +4028,7 @@ paths:
       security:
         -
           'Authorization Token': []
-      # TODO: Update OAS
+      # TODO: Update OAS update summary
       # summary: 'Business Instant ID2 Report'
       summary: Business Instant ID2 PDF Report
       tags:
@@ -22190,12 +22190,12 @@ components:
 # FROM JSON CONVERTED TO YAML
 tags:
   -
-    # TODO: Correct OAS
+    # TODO: Correct OAS update description
     # description: 'REST API for Criminal data'
     description: 'REST API for CIC Criminal data'
     name: Criminal
   -
-    # TODO: Correct OAS
+    # TODO: Correct OAS update description
     # description: 'REST API for Eviction data'
     description: 'REST API for CIC Eviction data'
     name: Eviction
@@ -22203,7 +22203,7 @@ tags:
     description: 'REST API for Equifax data'
     name: Equifax
   -
-    # TODO: Correct OAS
+    # TODO: Correct OAS update description
     # description: 'REST API for LexisNexis RiskView'
     description: 'REST API for LexisNexis'
     name: LexisNexis
@@ -22641,6 +22641,110 @@ tags:
               The API to retrieve the PDF Credit Report is <a href="/tag/Equifax#operation/pdfCreditReport_1">documented here</a>.
             </li>
           </ol>
+          <hr>
+          <h2>Sample Python Code</h2>
+          <p><a href="https://api.redoc.ly/registry/assets/crs-group/B2B/v1/assets%2Fquickstart.py" download>Download here</a></p>
+          <div style="max-height: 60vh;overflow: scroll;" onload="doHighlight();">
+          <pre><code class="language-python python">
+          import os
+          from datetime import datetime, timedelta, timezone
+
+          import requests
+          from flask import Flask, session, render_template
+
+          app = Flask(__name__)
+          app.secret_key = 'make this a long random string'
+
+          BASE_URL = 'https://mware-dev.crscreditapi.com'
+
+          @app.route('/')
+          def root():
+              if 'token' not in session:
+                  return '<a href="/login">Please login.</a>'
+
+              email = session['email']
+              token = session['token']
+              created_at = datetime.fromisoformat(session['created_at'])
+              expires = session['expires']
+              remaining_time = timedelta(seconds=expires)
+              expires_at = created_at - remaining_time
+              is_valid = expires_at < datetime.now(timezone.utc)
+
+              return render_template('index.html', email=email, token=token, expires_at=expires_at, is_valid=is_valid)
+
+          @app.route('/report')
+          def report():
+              if 'token' not in session:
+                  return '<a href="/login">Please login.</a>'
+
+              payload = {
+                  "consumers": {
+                      "name": [
+                          {
+                              "identifier": "current",
+                              "firstName": "ASAD",
+                              "lastName": "YCSWL"
+                          }
+                      ],
+                      "socialNum": [
+                          {
+                              "identifier": "current",
+                              "number": "666176062"
+                          }
+                      ],
+                      "dateOfBirth": "05061985",
+                      "addresses": [
+                          {
+                              "identifier": "current",
+                              "houseNumber": "8615",
+                              "streetName": "Black Tern",
+                              "streetType": "LN",
+                              "city": "HOUSTON",
+                              "state": "TX",
+                              "zip": "77040"
+                          }
+                      ],
+                      "phoneNumbers": [
+                          {
+                              "identifier": "current",
+                              "number": "7135551212"
+                          }
+                      ]
+                  }
+              }
+              headers = {
+                  "Content-Type": "application/json",
+                  "Authorization": "Bearer " + session['token']
+              }
+              response = requests.post(BASE_URL + '/api/equifax/credit-report', headers=headers, json=payload)
+
+              return response.json()
+
+          @app.route('/login')
+          def login():
+              data = {
+                  "username": os.environ.get("CRS_API_USERNAME"),
+                  "password": os.environ.get("CRS_API_PASSWORD")
+              }
+              headers = {"Content-Type": "application/json"}
+              response = requests.post(BASE_URL + '/api/users/login', headers=headers, json=data)
+
+              response_data = response.json()
+              if 'token' not in response_data:
+                  return response_data
+
+              session['token'] = response_data['token']
+              session['email'] = response_data['email']
+              session['name'] = response_data['name']
+              session['created_at'] = response_data['createdAt']
+              session['expires'] = response_data['expires']
+
+              return response_data, response.status_code
+
+          if __name__ == '__main__':
+              app.run(debug=True)
+          </code></pre>
+          </div>
 
   - name: Integration
     description: |
