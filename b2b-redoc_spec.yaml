@@ -22,7 +22,7 @@ info:
       <hr>
 
   x-logo:
-    url: 'https://api.redocly.com/registry/assets/crs-group/B2B/v1/assets%2Fimgs%2Fcrs_b2b.svg'
+    url: 'https://api.redocly.com/registry/assets/crs-group/B2B/v1/assets/imgs/crs_b2b.svg'
     # url: 'https://gist.githubusercontent.com/jedisonbru/ba7eea5123997e646b51a871e8f06cc2/raw/be5c4e7d28aaa0eea68d96e8c273779c8e0ffa0d/crs_b2b.svg'
     altText: CRS logo
     href: /
@@ -22643,7 +22643,9 @@ tags:
           </ol>
           <hr>
           <h2>Sample Python Code</h2>
-          <p><a href="https://api.redoc.ly/registry/assets/crs-group/B2B/v1/assets%2Fquickstart.py" download>Download here</a></p>
+          <!-- TODO: The asset does not appear to load into redoc.ly
+          <p><a href="https://api.redoc.ly/registry/assets/crs-group/B2B/v1/assets/quickstart.py" download>Download here</a></p>
+          -->
           <div style="max-height: 60vh;overflow: scroll;" onload="doHighlight();">
           <pre><code class="language-python python">
           import os
@@ -23390,7 +23392,7 @@ tags:
   - name: Postman Collection
     description: |
           <p><strong>Testing CRS Dev Server - anonymized.postman_collection.json</strong></p> <!-- Postman Collections -->
-          <p><a href="https://api.redoc.ly/registry/assets/crs-group/B2B/v1/assets%2FTesting%20CRS%20Dev%20Server%20-%20anonymized.postman_collection.json" download>Download here</a></p>
+          <p><a href="https://api.redoc.ly/registry/assets/crs-group/B2B/v1/assets/json/Testing%20CRS%20Dev%20Server%20-%20anonymized.postman_collection.json" download>Download here</a></p>
           <div class="postman_code" style="max-height: 60vh;overflow: scroll;" onload="doHighlight();">
           <!-- Testing CRS Dev Server - anonymized.postman_collection.json -->
           <pre><code class="language-json json hljs">
