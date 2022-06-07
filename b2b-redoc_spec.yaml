@@ -29,7 +29,7 @@ info:
 
 servers:
   - url: https://mware-dev.crscreditapi.com/api
-    description: MWare test server API
+    description: MWare test server url
   # TODO: Correct OAS
   # -
   #   description: 'Default Server URL'

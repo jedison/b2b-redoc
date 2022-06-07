@@ -10,6 +10,5 @@ function getParameterByName(name, url = window.location.href) {
 var token = getParameterByName('token');
 
 if (token) {
-    console.log(token);
     sessionStorage.setItem("redoc.auth.Authorization Token", token)
 }
