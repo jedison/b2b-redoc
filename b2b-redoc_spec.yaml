@@ -22180,11 +22180,11 @@ components:
 
 # FROM JSON CONVERTED TO YAML
 # TODO: COMMENT OUT
-  # securitySchemes:
-  #   Authorization Token:
-  #     type: http
-  #     scheme: bearer
-  #     bearerFormat: JWT
+  securitySchemes:
+    Authorization Token:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
 
 
 # FROM JSON CONVERTED TO YAML
