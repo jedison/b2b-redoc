@@ -11,4 +11,5 @@ var token = getParameterByName('token');
 
 if (token) {
     sessionStorage.setItem("redoc.auth.Authorization Token", token)
+    window.history.replaceState(null, null, window.location.pathname)
 }
