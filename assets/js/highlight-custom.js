@@ -6,3 +6,4 @@ function doHighlight() {
     hljs.highlightAll();
 }
 doHighlight();
+console.log("HAJLAJT UPDATE")
