@@ -23251,7 +23251,7 @@ tags:
           MeridianLink's SmartAPI is a single API to request credit verification information from service providers. Via MCL's API sends a single request and receives a response from the third-party verification service that is appropriate for the request
           </li>
           <li>
-          SmartAPI supports verification by:</p>
+          SmartAPI supports verification by:
           <ul>
           <li>
           Consumer Credit Reports from the three major bureaus: Equifax, Experian, and Transunion
@@ -23269,7 +23269,7 @@ tags:
           Employment Verification: instant database lookups and manual verifications. VOEs are processed instantly if the applicant's employer reports information to automated services like The Work Number. For all other employers, the VOE order will be processed manually.
           </li>
           <li>
-          Income Verification based on tax return verification from the IRS.</p>
+          Income Verification based on tax return verification from the IRS.
           <ul">
           <li>
           Tax Transcript: 4506-C, tax transcripts and other tax-related forms
