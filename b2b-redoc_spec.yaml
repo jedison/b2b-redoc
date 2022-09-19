@@ -28,9 +28,8 @@ servers:
 tags:
   - name: Equifax
     description: REST API for Equifax data
-  - name: Global Watchlist
-    description: Watchlist/OFAC APIs
   - name: LexisNexis Motor Vehicle Report
+  - name: LexisNexis Lien and Judgment
   - name: Transunion
     description: REST API for Transunion data
   - name: LexisNexis
@@ -55,7 +54,8 @@ tags:
       terrorist financing. The tool combine filtering software and financial sanctions
       watchlist data, including enforcements lists, Politically Exposed Persons (PEP),
       and adverse media information.
-  - name: Experian Lien and Judgment
+  - name: LexisNexis Global Watchlist
+    description: Watchlist/OFAC APIs
 # REDOC TAGS
   - name: Overview
     description: |
@@ -7286,7 +7286,7 @@ x-tagGroups:
       - Transunion
       - LexisNexis
       - PitchPoint
-      - Global Watchlist
+      - LexisNexis Global Watchlist
       - Criminal
       - Eviction
       - User
@@ -7301,7 +7301,7 @@ x-tagGroups:
       - LexisNexis Motor Vehicle Report
       # - mvs-controller
       # - mvr-controller
-      - Experian Lien and Judgment
+      - LexisNexis Lien and Judgment
       # - ljs-controller
       # - ljr-controller
       - Bankruptcy
@@ -7763,6 +7763,35 @@ paths:
                 "$ref": "#/components/schemas/BIID20ResponseEx"
       security:
       - Authorization Token: []
+  "/users/unlockip/{ip}":
+    post:
+      tags:
+      - User
+      operationId: unblockIp
+      parameters:
+      - name: ip
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  "/users/unlockid/{id}":
+    post:
+      tags:
+      - User
+      operationId: unblockId
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
   "/users/login":
     post:
       tags:
@@ -7838,6 +7867,152 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Product"
+      security:
+      - Authorization Token: []
+  "/transunion/identity-manager-verification/mobile-dv/{blackboxId}/{ip}":
+    post:
+      tags:
+      - Transunion
+      summary: Device Verification
+      description: Accesses risk of a mobile-based device.
+      operationId: mobileDeviceVerification
+      parameters:
+      - name: blackboxId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: ip
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Customer"
+            examples:
+              Example Request:
+                description: Example Request
+                value:
+                  Addresses:
+                  - Address1: 300 CHAMBLEE
+                    City: Atlanta
+                    State: GA
+                    FirstName: Christopher
+                    LastName: Testc
+                    IsDefault: true
+                    Type: 0
+                  DateOfBirth: '1972-04-17'
+                  FirstName: Christopher
+                  LastName: Testc
+                  SocialSecurityNumber: '666010003'
+        required: true
+      responses:
+        '200':
+          description: Successful Identity Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/DetailedDecisionResponse"
+            application/xml:
+              schema:
+                "$ref": "#/components/schemas/DetailedDecisionResponse"
+      security:
+      - Authorization Token: []
+  "/transunion/identity-manager-verification/dv/{sessionId}":
+    post:
+      tags:
+      - Transunion
+      summary: Device Verification
+      description: Accesses risk of a web-based device.
+      operationId: deviceVerification
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Customer"
+            examples:
+              Example Request:
+                description: Example Request
+                value:
+                  Addresses:
+                  - Address1: 300 CHAMBLEE
+                    City: Atlanta
+                    State: GA
+                    FirstName: Christopher
+                    LastName: Testc
+                    IsDefault: true
+                    Type: 0
+                  DateOfBirth: '1972-04-17'
+                  FirstName: Christopher
+                  LastName: Testc
+                  SocialSecurityNumber: '666010003'
+        required: true
+      responses:
+        '200':
+          description: Successful Identity Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/DetailedDecisionResponse"
+            application/xml:
+              schema:
+                "$ref": "#/components/schemas/DetailedDecisionResponse"
+      security:
+      - Authorization Token: []
+  "/transunion/identity-manager-verification/direct-mobile-dv/{blackboxId}":
+    post:
+      tags:
+      - Transunion
+      summary: Device Verification
+      description: Accesses risk of a mobile-based device.
+      operationId: mobileDeviceVerificationDirect
+      parameters:
+      - name: blackboxId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Customer"
+            examples:
+              Example Request:
+                description: Example Request
+                value:
+                  Addresses:
+                  - Address1: 300 CHAMBLEE
+                    City: Atlanta
+                    State: GA
+                    FirstName: Christopher
+                    LastName: Testc
+                    IsDefault: true
+                    Type: 0
+                  DateOfBirth: '1972-04-17'
+                  FirstName: Christopher
+                  LastName: Testc
+                  SocialSecurityNumber: '666010003'
+        required: true
+      responses:
+        '200':
+          description: Successful Identity Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/DetailedDecisionResponse"
+            application/xml:
+              schema:
+                "$ref": "#/components/schemas/DetailedDecisionResponse"
       security:
       - Authorization Token: []
   "/transunion/identity-manager-verification/basic":
@@ -7950,6 +8125,200 @@ paths:
             application/pdf:
               schema:
                 "$ref": "#/components/schemas/SubjectRecord"
+      security:
+      - Authorization Token: []
+  "/transunion/identity-manager-verification/auth":
+    post:
+      tags:
+      - Transunion
+      summary: Initiate Authentication
+      description: Start End User Authentication Process
+      operationId: initiateAuth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Customer"
+            examples:
+              Example Request:
+                description: Example Request
+                value:
+                  Addresses:
+                  - Address1: 300 CHAMBLEE
+                    City: Atlanta
+                    State: GA
+                    FirstName: Christopher
+                    LastName: Testc
+                    IsDefault: true
+                    Type: 0
+                  DateOfBirth: '1972-04-17'
+                  FirstName: Christopher
+                  LastName: Testc
+                  SocialSecurityNumber: '666010003'
+        required: true
+      responses:
+        '200':
+          description: Successful Identity Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/DetailedDecisionResponse"
+            application/xml:
+              schema:
+                "$ref": "#/components/schemas/DetailedDecisionResponse"
+      security:
+      - Authorization Token: []
+  "/transunion/identity-manager-verification/auth/otp/{caseId}":
+    post:
+      tags:
+      - Transunion
+      summary: Validate OTP Passcode
+      description: Validate OTP Passcode
+      operationId: sendOTP
+      parameters:
+      - name: caseId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful Identity Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/DetailedDecisionResponse"
+            application/xml:
+              schema:
+                "$ref": "#/components/schemas/DetailedDecisionResponse"
+      security:
+      - Authorization Token: []
+  "/transunion/identity-manager-verification/auth/otp/{caseId}/{passcode}":
+    post:
+      tags:
+      - Transunion
+      summary: Validate OTP Passcode
+      description: Validate OTP Passcode
+      operationId: validateOTP
+      parameters:
+      - name: caseId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: passcode
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Successful Identity Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/OTP"
+            application/xml:
+              schema:
+                "$ref": "#/components/schemas/OTP"
+      security:
+      - Authorization Token: []
+  "/transunion/identity-manager-verification/auth/kba/{caseId}":
+    post:
+      tags:
+      - Transunion
+      summary: Verify KBA Responses
+      description: Verify KBA Responses
+      operationId: validateKBV
+      parameters:
+      - name: caseId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/KBV"
+            examples:
+              Example Request:
+                description: Example Request
+                value:
+                  AnswerUrl:
+                  MultiPassQuestions: []
+                  MultiPassStatus: 0
+                  Questions:
+                  - Choices:
+                    - Answer: false
+                      ChoiceText: "$16000"
+                      Id: 0
+                    - Answer: false
+                      ChoiceText: "$25000"
+                      Id: 1
+                    - Answer: false
+                      ChoiceText: "$9000"
+                      Id: 2
+                    - Answer: false
+                      ChoiceText: "$31000"
+                      Id: 3
+                    - Answer: true
+                      ChoiceText: None of the Above
+                      Id: 4
+                    Id: 23
+                    QuestionText: If you have a current auto loan or lease, what was
+                      the original amount financed?
+                  - Choices:
+                    - Answer: false
+                      ChoiceText: '338'
+                      Id: 0
+                    - Answer: false
+                      ChoiceText: '123'
+                      Id: 1
+                    - Answer: true
+                      ChoiceText: '511'
+                      Id: 2
+                    - Answer: false
+                      ChoiceText: '409'
+                      Id: 3
+                    - Answer: false
+                      ChoiceText: None of the Above
+                      Id: 4
+                    Id: 14
+                    QuestionText: Which of the following is the street number of your
+                      most recent previous address?
+                  - Choices:
+                    - Answer: true
+                      ChoiceText: Glen Rock
+                      Id: 0
+                    - Answer: false
+                      ChoiceText: Jackson
+                      Id: 1
+                    - Answer: false
+                      ChoiceText: Denver
+                      Id: 2
+                    - Answer: false
+                      ChoiceText: Highland
+                      Id: 3
+                    - Answer: false
+                      ChoiceText: None of the Above
+                      Id: 4
+                    Id: 9
+                    QuestionText: In which city does James Smith live or own property?
+                  Status: 0
+                  Timestamp: '0001-01-01T00:00:00Z'
+        required: true
+      responses:
+        '200':
+          description: Successful Identity Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/DetailedDecisionResponse"
+            application/xml:
+              schema:
+                "$ref": "#/components/schemas/DetailedDecisionResponse"
       security:
       - Authorization Token: []
   "/transunion/identity-manager-verification/{config}":
@@ -8141,7 +8510,7 @@ paths:
         is helpful in making decisions in many types of consumer transactions. The
         Credit Report contains various data about the consumer, including indicative
         information (name, addresses, date of birth, and Social Security number),
-        employment information, and the consumerâ€™s credit history. This information
+        employment information, and the consumer’s credit history. This information
         is obtained from credit grantors, public records, collection agencies, and
         employers.
       operationId: creditReport
@@ -8187,7 +8556,7 @@ paths:
         is helpful in making decisions in many types of consumer transactions. The
         Credit Report contains various data about the consumer, including indicative
         information (name, addresses, date of birth, and Social Security number),
-        employment information, and the consumerâ€™s credit history. This information
+        employment information, and the consumer’s credit history. This information
         is obtained from credit grantors, public records, collection agencies, and
         employers.
       operationId: creditReport_1
@@ -8233,7 +8602,7 @@ paths:
         is helpful in making decisions in many types of consumer transactions. The
         Credit Report contains various data about the consumer, including indicative
         information (name, addresses, date of birth, and Social Security number),
-        employment information, and the consumerâ€™s credit history. This information
+        employment information, and the consumer’s credit history. This information
         is obtained from credit grantors, public records, collection agencies, and
         employers.
       operationId: creditReport_2
@@ -8292,7 +8661,7 @@ paths:
         is helpful in making decisions in many types of consumer transactions. The
         Credit Report contains various data about the consumer, including indicative
         information (name, addresses, date of birth, and Social Security number),
-        employment information, and the consumerâ€™s credit history. This information
+        employment information, and the consumer’s credit history. This information
         is obtained from credit grantors, public records, collection agencies, and
         employers.
       operationId: creditReport_3
@@ -9834,8 +10203,8 @@ paths:
   "/ljs":
     post:
       tags:
-      - Experian Lien and Judgment
-      summary: Experian Lien and Judgment Search Request
+      - LexisNexis Lien and Judgment
+      summary: LexisNexis Lien and Judgment Search Request
       operationId: ljsRequest
       requestBody:
         content:
@@ -9852,15 +10221,15 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/LienJudgmentSearchResponseEx"
+                "$ref": "#/components/schemas/MonoLienJudgmentSearchResponseEx"
             application/xml:
               schema:
-                "$ref": "#/components/schemas/LienJudgmentSearchResponseEx"
+                "$ref": "#/components/schemas/MonoLienJudgmentSearchResponseEx"
   "/ljr":
     post:
       tags:
-      - Experian Lien and Judgment
-      summary: Experian Lien and Judgment Report Retrieve
+      - LexisNexis Lien and Judgment
+      summary: LexisNexis Lien and Judgment Report Retrieve
       operationId: ljrRequest
       requestBody:
         content:
@@ -9877,10 +10246,10 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/LienJudgmentReportResponseEx"
+                "$ref": "#/components/schemas/MonoLienJudgmentReportResponseEx"
             application/xml:
               schema:
-                "$ref": "#/components/schemas/LienJudgmentReportResponseEx"
+                "$ref": "#/components/schemas/MonoLienJudgmentReportResponseEx"
   "/iid/new-request":
     post:
       tags:
@@ -9908,6 +10277,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Product"
+      deprecated: true
   "/iid/new-request/{config}":
     post:
       tags:
@@ -9935,10 +10305,11 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Product"
+      deprecated: true
   "/gwls/ofaclist":
     post:
       tags:
-      - Global Watchlist
+      - LexisNexis Global Watchlist
       summary: OFAC Watchlist Search (multiple request)
       operationId: ofacRequestList
       parameters:
@@ -9969,7 +10340,7 @@ paths:
   "/gwls/ofaclist/{config}":
     post:
       tags:
-      - Global Watchlist
+      - LexisNexis Global Watchlist
       summary: OFAC Watchlist Search (multiple request)
       operationId: ofacRequestList_1
       parameters:
@@ -10000,7 +10371,7 @@ paths:
   "/gwls/ofac/{config}":
     post:
       tags:
-      - Global Watchlist
+      - LexisNexis Global Watchlist
       summary: OFAC Watchlist Search (single request)
       operationId: ofacRequest
       parameters:
@@ -10031,7 +10402,7 @@ paths:
   "/gwls/ofac":
     post:
       tags:
-      - Global Watchlist
+      - LexisNexis Global Watchlist
       summary: OFAC Watchlist Search (single request)
       operationId: ofacRequest_1
       parameters:
@@ -10062,7 +10433,7 @@ paths:
   "/gwls/batch":
     post:
       tags:
-      - Global Watchlist
+      - LexisNexis Global Watchlist
       summary: Global Watchlist Search Batch
       operationId: gwlsRequestList
       parameters:
@@ -10093,7 +10464,7 @@ paths:
   "/gwls/batch/{config}":
     post:
       tags:
-      - Global Watchlist
+      - LexisNexis Global Watchlist
       summary: Global Watchlist Search Batch
       operationId: gwlsRequestList_1
       parameters:
@@ -10124,7 +10495,7 @@ paths:
   "/gwls":
     post:
       tags:
-      - Global Watchlist
+      - LexisNexis Global Watchlist
       summary: Global Watchlist Search
       operationId: gwlsRequest
       parameters:
@@ -10155,7 +10526,7 @@ paths:
   "/gwls/{config}":
     post:
       tags:
-      - Global Watchlist
+      - LexisNexis Global Watchlist
       summary: Global Watchlist Search
       operationId: gwlsRequest_1
       parameters:
@@ -10183,12 +10554,54 @@ paths:
             application/xml:
               schema:
                 "$ref": "#/components/schemas/GlobalWatchListSearchResponseEx"
-  "/experian/rpa":
+  "/experian/rpa/{config}":
     post:
       tags:
       - Experian
       summary: Experian Reverse Phone Append
       operationId: reversePhoneAppend
+      parameters:
+      - name: config
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/RpaV1Request"
+            examples:
+              Successs:
+                description: Successs
+                value:
+                  number: '9167654295'
+              Failure:
+                description: Failure
+                value:
+                  number: '123456789'
+        required: true
+      responses:
+        '200':
+          description: Successful Experian Reverse Phone Append Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/RpaV1Response"
+      security:
+      - Authorization Token: []
+  "/experian/rpa":
+    post:
+      tags:
+      - Experian
+      summary: Experian Reverse Phone Append
+      operationId: reversePhoneAppend_1
+      parameters:
+      - name: config
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -10954,126 +11367,22 @@ paths:
               Request Schema:
                 description: Request Schema
                 value:
-                  consumerPii:
-                    primaryApplicant:
-                      name:
-                        lastName: string
-                        firstName: string
-                        middleName: string
-                        generationCode: string
-                      dob:
-                        dob: string
-                      ssn:
-                        ssn: string
-                      driverslicense:
-                        number: string
-                        state: string
-                      phone:
-                      - number: string
-                        type: string
-                      employment:
-                        employerName: string
-                        employerAddress:
-                          line1: string
-                          line2: string
-                          city: string
-                          state: string
-                          zipCode: string
-                      currentAddress:
-                        line1: string
-                        line2: string
-                        city: string
-                        state: string
-                        zipCode: string
-                      previousAddress:
-                      - line1: string
-                        line2: string
-                        city: string
-                        state: string
-                        zipCode: string
-                    secondaryApplicant:
-                      name:
-                        lastName: string
-                        firstName: string
-                        middleName: string
-                        generationCode: string
-                      dob:
-                        dob: string
-                      ssn:
-                        ssn: string
-                      driverslicense:
-                        number: string
-                        state: string
-                      phone:
-                      - number: string
-                        type: string
-                      employment:
-                        employerName: string
-                        employerAddress:
-                          line1: string
-                          line2: string
-                          city: string
-                          state: string
-                          zipCode: string
-                  freezeOverride:
-                    primaryApplFreezeOverrideCode: string
-                    secondaryApplFreezeOverrideCode: string
-                  vendorData:
-                    vendorNumber: string
-                    vendorVersion: string
-                  addOns:
-                    directCheck: string
-                    demographics: string
-                    extendedViewScore: string
-                    clarityEarlyRiskScore: string
-                    clarityAttributes: string
-                    clarityData:
-                      clarityAccountId: string
-                      clarityLocationId: string
-                      clarityControlFileName: string
-                      clarityControlFileVersion: string
-                      clarityAttributesControlFileName: string
-                    eCBSV: string
-                    eCBSVData:
-                      employerIdentificationNumber: string
-                      consentDate: string
-                      consentType: string
-                    renterRiskScore: string
-                    rentBureauData:
-                      primaryApplRentBureauFreezePin: string
-                      secondaryApplRentBureauFreezePin: string
-                    riskModels:
-                      modelIndicator:
-                      - string
-                      scorePercentile: string
-                    summaries:
-                      summaryType:
-                      - string
-                    fraudShield: string
-                    mla: string
-                    ofacmsg: string
-                    consumerIdentCheck:
-                      getUniqueConsumerIdentifier: string
-                      verifyPrimaryConsumerIdentifier: string
-                      verifySecondaryConsumerIdentifier: string
-                    joint: string
-                    paymentHistory84: string
-                    syntheticId: string
-                    taxRefundLoan: string
-                    sureProfile: string
-                    trendedData: string
-                    fcraAttributes: string
-                    outputType: string
-                    covidSpotlightAttributes: string
-                    staggSelect: string
-                    incomeAndEmploymentReport: string
-                    incomeAndEmploymentReportData:
-                      verifierName: string
-                      reportType: string
-                    mlAttributes: string
-                  customOptions:
-                    optionId:
-                    - string
+                  firstName:
+                    type: string
+                  lastName:
+                    type: string
+                  street1:
+                    type: string
+                  street2:
+                    type: string
+                  city:
+                    type: string
+                  state:
+                    type: string
+                  zip:
+                    type: string
+                  ssn:
+                    type: string
               Success:
                 description: Success
                 value:
@@ -11129,126 +11438,22 @@ paths:
               Request Schema:
                 description: Request Schema
                 value:
-                  consumerPii:
-                    primaryApplicant:
-                      name:
-                        lastName: string
-                        firstName: string
-                        middleName: string
-                        generationCode: string
-                      dob:
-                        dob: string
-                      ssn:
-                        ssn: string
-                      driverslicense:
-                        number: string
-                        state: string
-                      phone:
-                      - number: string
-                        type: string
-                      employment:
-                        employerName: string
-                        employerAddress:
-                          line1: string
-                          line2: string
-                          city: string
-                          state: string
-                          zipCode: string
-                      currentAddress:
-                        line1: string
-                        line2: string
-                        city: string
-                        state: string
-                        zipCode: string
-                      previousAddress:
-                      - line1: string
-                        line2: string
-                        city: string
-                        state: string
-                        zipCode: string
-                    secondaryApplicant:
-                      name:
-                        lastName: string
-                        firstName: string
-                        middleName: string
-                        generationCode: string
-                      dob:
-                        dob: string
-                      ssn:
-                        ssn: string
-                      driverslicense:
-                        number: string
-                        state: string
-                      phone:
-                      - number: string
-                        type: string
-                      employment:
-                        employerName: string
-                        employerAddress:
-                          line1: string
-                          line2: string
-                          city: string
-                          state: string
-                          zipCode: string
-                  freezeOverride:
-                    primaryApplFreezeOverrideCode: string
-                    secondaryApplFreezeOverrideCode: string
-                  vendorData:
-                    vendorNumber: string
-                    vendorVersion: string
-                  addOns:
-                    directCheck: string
-                    demographics: string
-                    extendedViewScore: string
-                    clarityEarlyRiskScore: string
-                    clarityAttributes: string
-                    clarityData:
-                      clarityAccountId: string
-                      clarityLocationId: string
-                      clarityControlFileName: string
-                      clarityControlFileVersion: string
-                      clarityAttributesControlFileName: string
-                    eCBSV: string
-                    eCBSVData:
-                      employerIdentificationNumber: string
-                      consentDate: string
-                      consentType: string
-                    renterRiskScore: string
-                    rentBureauData:
-                      primaryApplRentBureauFreezePin: string
-                      secondaryApplRentBureauFreezePin: string
-                    riskModels:
-                      modelIndicator:
-                      - string
-                      scorePercentile: string
-                    summaries:
-                      summaryType:
-                      - string
-                    fraudShield: string
-                    mla: string
-                    ofacmsg: string
-                    consumerIdentCheck:
-                      getUniqueConsumerIdentifier: string
-                      verifyPrimaryConsumerIdentifier: string
-                      verifySecondaryConsumerIdentifier: string
-                    joint: string
-                    paymentHistory84: string
-                    syntheticId: string
-                    taxRefundLoan: string
-                    sureProfile: string
-                    trendedData: string
-                    fcraAttributes: string
-                    outputType: string
-                    covidSpotlightAttributes: string
-                    staggSelect: string
-                    incomeAndEmploymentReport: string
-                    incomeAndEmploymentReportData:
-                      verifierName: string
-                      reportType: string
-                    mlAttributes: string
-                  customOptions:
-                    optionId:
-                    - string
+                  firstName:
+                    type: string
+                  lastName:
+                    type: string
+                  street1:
+                    type: string
+                  street2:
+                    type: string
+                  city:
+                    type: string
+                  state:
+                    type: string
+                  zip:
+                    type: string
+                  ssn:
+                    type: string
               Success:
                 description: Success
                 value:
@@ -12133,102 +12338,6 @@ paths:
                 "$ref": "#/components/schemas/PreciseIDResponseDTO"
       security:
       - Authorization Token: []
-  "/experian/cc2/screening":
-    post:
-      tags:
-      - Experian
-      summary: Cross Core 2 Screening
-      operationId: crossCore2Screening
-      requestBody:
-        content:
-          application/json:
-            schema:
-              "$ref": "#/components/schemas/CCIdentityRequestDTO"
-          application/xml:
-            schema:
-              "$ref": "#/components/schemas/CCIdentityRequestDTO"
-        required: true
-      responses:
-        '200':
-          description: Successful Cross Core 2 Screening Response
-          content:
-            application/json:
-              schema:
-                "$ref": "#/components/schemas/CrossCoreResponse"
-      security:
-      - Authorization Token: []
-  "/experian/cc2/otp":
-    post:
-      tags:
-      - Experian
-      summary: Cross Core 2 One-Time Passcode (no options)
-      operationId: crossCore2OTP_1
-      requestBody:
-        content:
-          application/json:
-            schema:
-              "$ref": "#/components/schemas/OTP"
-          application/xml:
-            schema:
-              "$ref": "#/components/schemas/OTP"
-        required: true
-      responses:
-        '200':
-          description: Successful Cross Core 2 One-Time Passcode (no options) Response
-          content:
-            application/json:
-              schema:
-                "$ref": "#/components/schemas/CrossCoreResponse"
-      security:
-      - Authorization Token: []
-  "/experian/cc2/kiq":
-    post:
-      tags:
-      - Experian
-      summary: Cross Core 2 Knowledge IQ
-      operationId: crossCore2KIQ_1
-      requestBody:
-        content:
-          application/json:
-            schema:
-              "$ref": "#/components/schemas/KBA"
-          application/xml:
-            schema:
-              "$ref": "#/components/schemas/KBA"
-        required: true
-      responses:
-        '200':
-          description: Successful Cross Core 2 Knowledge IQ Response
-          content:
-            application/json:
-              schema:
-                "$ref": "#/components/schemas/CrossCoreResponse"
-      security:
-      - Authorization Token: []
-  "/experian/cc2/initial":
-    post:
-      tags:
-      - Experian
-      summary: Cross Core 2 Initial (no options)
-      operationId: crossCore2Initial_1
-      requestBody:
-        content:
-          application/json:
-            schema:
-              "$ref": "#/components/schemas/CCIdentityRequestDTO"
-          application/xml:
-            schema:
-              "$ref": "#/components/schemas/CCIdentityRequestDTO"
-        required: true
-      responses:
-        '200':
-          description: Successful Cross Core 2 Initial (no options) Response
-          content:
-            application/json:
-              schema:
-                "$ref": "#/components/schemas/CrossCoreResponse"
-      security:
-      - Authorization Token: []
   "/eviction/new-request/{config}":
     post:
       tags:
@@ -12813,6 +12922,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Product"
+      deprecated: true
   "/biid/new-request":
     post:
       tags:
@@ -12840,6 +12950,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Product"
+      deprecated: true
   "/bankruptcys":
     post:
       tags:
@@ -12861,16 +12972,16 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/BankruptcySearch2ResponseEx"
+                "$ref": "#/components/schemas/MonoBankruptcySearch2ResponseEx"
             application/xml:
               schema:
-                "$ref": "#/components/schemas/BankruptcySearch2ResponseEx"
+                "$ref": "#/components/schemas/MonoBankruptcySearch2ResponseEx"
   "/bankruptcyr":
     post:
       tags:
       - LexisNexis Bankruptcy
       summary: LexisNexis Bankruptcy Report Retrieve
-      operationId: mvrRequest_1
+      operationId: brRequest
       requestBody:
         content:
           application/json:
@@ -12886,10 +12997,10 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/BankruptcyReport2ResponseEx"
+                "$ref": "#/components/schemas/MonoBankruptcyReport2ResponseEx"
             application/xml:
               schema:
-                "$ref": "#/components/schemas/BankruptcyReport2ResponseEx"
+                "$ref": "#/components/schemas/MonoBankruptcyReport2ResponseEx"
   "/users":
     get:
       tags:
@@ -12969,6 +13080,95 @@ paths:
                 items:
                   type: string
                   format: byte
+  "/sys/status-codes/{status}":
+    get:
+      tags:
+      - System Health
+      summary: Echo Status Code
+      operationId: monitoring
+      parameters:
+      - name: status
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                type: string
+                enum:
+                - 100 CONTINUE
+                - 101 SWITCHING_PROTOCOLS
+                - 102 PROCESSING
+                - 103 CHECKPOINT
+                - 200 OK
+                - 201 CREATED
+                - 202 ACCEPTED
+                - 203 NON_AUTHORITATIVE_INFORMATION
+                - 204 NO_CONTENT
+                - 205 RESET_CONTENT
+                - 206 PARTIAL_CONTENT
+                - 207 MULTI_STATUS
+                - 208 ALREADY_REPORTED
+                - 226 IM_USED
+                - 300 MULTIPLE_CHOICES
+                - 301 MOVED_PERMANENTLY
+                - 302 FOUND
+                - 302 MOVED_TEMPORARILY
+                - 303 SEE_OTHER
+                - 304 NOT_MODIFIED
+                - 305 USE_PROXY
+                - 307 TEMPORARY_REDIRECT
+                - 308 PERMANENT_REDIRECT
+                - 400 BAD_REQUEST
+                - 401 UNAUTHORIZED
+                - 402 PAYMENT_REQUIRED
+                - 403 FORBIDDEN
+                - 404 NOT_FOUND
+                - 405 METHOD_NOT_ALLOWED
+                - 406 NOT_ACCEPTABLE
+                - 407 PROXY_AUTHENTICATION_REQUIRED
+                - 408 REQUEST_TIMEOUT
+                - 409 CONFLICT
+                - 410 GONE
+                - 411 LENGTH_REQUIRED
+                - 412 PRECONDITION_FAILED
+                - 413 PAYLOAD_TOO_LARGE
+                - 413 REQUEST_ENTITY_TOO_LARGE
+                - 414 URI_TOO_LONG
+                - 414 REQUEST_URI_TOO_LONG
+                - 415 UNSUPPORTED_MEDIA_TYPE
+                - 416 REQUESTED_RANGE_NOT_SATISFIABLE
+                - 417 EXPECTATION_FAILED
+                - 418 I_AM_A_TEAPOT
+                - 419 INSUFFICIENT_SPACE_ON_RESOURCE
+                - 420 METHOD_FAILURE
+                - 421 DESTINATION_LOCKED
+                - 422 UNPROCESSABLE_ENTITY
+                - 423 LOCKED
+                - 424 FAILED_DEPENDENCY
+                - 425 TOO_EARLY
+                - 426 UPGRADE_REQUIRED
+                - 428 PRECONDITION_REQUIRED
+                - 429 TOO_MANY_REQUESTS
+                - 431 REQUEST_HEADER_FIELDS_TOO_LARGE
+                - 451 UNAVAILABLE_FOR_LEGAL_REASONS
+                - 500 INTERNAL_SERVER_ERROR
+                - 501 NOT_IMPLEMENTED
+                - 502 BAD_GATEWAY
+                - 503 SERVICE_UNAVAILABLE
+                - 504 GATEWAY_TIMEOUT
+                - 505 HTTP_VERSION_NOT_SUPPORTED
+                - 506 VARIANT_ALSO_NEGOTIATES
+                - 507 INSUFFICIENT_STORAGE
+                - 508 LOOP_DETECTED
+                - 509 BANDWIDTH_LIMIT_EXCEEDED
+                - 510 NOT_EXTENDED
+                - 511 NETWORK_AUTHENTICATION_REQUIRED
   "/sys/health":
     get:
       tags:
@@ -13792,13 +13992,13 @@ components:
           type: string
           xml:
             name: MatchType
-          default: FuzzyCCYYMMDD
           enum:
           - FUZZY_CCYYMMDD
           - FUZZY_CCYYMM
           - RADIUS_CCYY
           - EXACT_CCYYMMDD
           - EXACT_CCYYMM
+          default: FuzzyCCYYMMDD
         matchYearRadius:
           type: integer
           format: int32
@@ -13988,28 +14188,30 @@ components:
     Name:
       type: object
       properties:
-        id:
+        full:
           type: string
-        type:
+          xml:
+            name: Full
+        first:
           type: string
-        title:
+          xml:
+            name: First
+        middle:
           type: string
-        firstName:
+          xml:
+            name: Middle
+        last:
           type: string
-        middleNames:
+          xml:
+            name: Last
+        suffix:
           type: string
-        initials:
+          xml:
+            name: Suffix
+        prefix:
           type: string
-        surName:
-          type: string
-        namePrefix:
-          type: string
-        nameSuffix:
-          type: string
-        nameCode:
-          type: string
-        surnName2:
-          type: string
+          xml:
+            name: Prefix
     Names:
       type: object
       properties:
@@ -14265,12 +14467,12 @@ components:
           "$ref": "#/components/schemas/BIID20ConsumerInstantIDAddressRisk"
         decedentInfo:
           "$ref": "#/components/schemas/DecedentInfo"
+        ssnfoundForLexID:
+          type: boolean
         dobmatchLevel:
           type: string
         ssninfo:
           "$ref": "#/components/schemas/BIID20ConsumerInstantIDSSNInfo"
-        ssnfoundForLexID:
-          type: boolean
         akas:
           "$ref": "#/components/schemas/AKAs"
     BIID20BusinessAddressRisk:
@@ -14335,10 +14537,10 @@ components:
           "$ref": "#/components/schemas/BIID20Compliance"
         addressRisk:
           "$ref": "#/components/schemas/BIID20BusinessAddressRisk"
-        feinmatchResults:
-          "$ref": "#/components/schemas/FEINMatchResults"
         ofacwatchLists:
           "$ref": "#/components/schemas/OFACWatchLists"
+        feinmatchResults:
+          "$ref": "#/components/schemas/FEINMatchResults"
         sbfeverification:
           "$ref": "#/components/schemas/BIID20SBFEVerification"
     BIID20Compliance:
@@ -14370,13 +14572,13 @@ components:
           "$ref": "#/components/schemas/BIID20ParentCompany"
         authorizedRepTitles:
           "$ref": "#/components/schemas/BIID20PersonRoleAuthorizedRep"
+        naicsdescription:
+          type: string
         siccode:
           type: string
         sicdescription:
           type: string
         naicscode:
-          type: string
-        naicsdescription:
           type: string
         sosfilingName:
           type: string
@@ -14826,6 +15028,15 @@ components:
           "$ref": "#/components/schemas/Date"
         dob:
           "$ref": "#/components/schemas/Date"
+    Exceptions:
+      type: object
+      properties:
+        item:
+          type: array
+          xml:
+            name: Item
+          items:
+            "$ref": "#/components/schemas/WsException"
     FEINMatchResults:
       type: object
       properties:
@@ -14908,25 +15119,25 @@ components:
     ResponseHeader:
       type: object
       properties:
-        tenantID:
+        status:
+          type: integer
+          format: int32
+          xml:
+            name: Status
+        message:
           type: string
-        requestType:
+          xml:
+            name: Message
+        queryId:
           type: string
-        clientReferenceId:
+          xml:
+            name: QueryId
+        transactionId:
           type: string
-        expRequestId:
-          type: string
-        messageTime:
-          type: string
-          format: date-time
-        overallResponse:
-          "$ref": "#/components/schemas/OverallResponse"
-        responseCode:
-          type: string
-        responseType:
-          type: string
-        responseMessage:
-          type: string
+          xml:
+            name: TransactionId
+        exceptions:
+          "$ref": "#/components/schemas/Exceptions"
     RiskIndicator:
       type: object
       properties:
@@ -15020,39 +15231,20 @@ components:
     WatchList:
       type: object
       properties:
-        table:
-          type: string
-          xml:
-            name: Table
-        recordNumber:
-          type: string
-          xml:
-            name: RecordNumber
-        name:
-          "$ref": "#/components/schemas/UnicodeName"
-        address:
-          "$ref": "#/components/schemas/Address"
-        country:
-          type: string
-          xml:
-            name: Country
-        entityName:
-          type: string
-          xml:
-            name: EntityName
-        sequence:
-          type: integer
-          format: int32
-          xml:
-            name: Sequence
-        program:
-          type: string
-          xml:
-            name: Program
-        repWLNumWithName:
-          type: string
-          xml:
-            name: RepWLNumWithName
+        WasAccountNumberHit:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        WasBinHit:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        WasCustomerIdHit:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        WasEmailDomainHit:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        WasFullEmailAddressHit:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        WasIPHit:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        WasPostCodeHit:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
     WatchLists:
       type: object
       properties:
@@ -15062,6 +15254,26 @@ components:
             name: WatchList
           items:
             "$ref": "#/components/schemas/WatchList"
+    WsException:
+      type: object
+      properties:
+        source:
+          type: string
+          xml:
+            name: Source
+        code:
+          type: integer
+          format: int32
+          xml:
+            name: Code
+        location:
+          type: string
+          xml:
+            name: Location
+        message:
+          type: string
+          xml:
+            name: Message
     UserLoginReqDTO:
       type: object
       properties:
@@ -16417,26 +16629,14 @@ components:
     Contact:
       type: object
       properties:
-        id:
+        prefix:
           type: string
-        person:
-          "$ref": "#/components/schemas/Person"
-        addresses:
-          type: array
-          items:
-            "$ref": "#/components/schemas/Address"
-        telephones:
-          type: array
-          items:
-            "$ref": "#/components/schemas/Telephone"
-        emails:
-          type: array
-          items:
-            "$ref": "#/components/schemas/Email"
-        identityDocuments:
-          type: array
-          items:
-            "$ref": "#/components/schemas/IdentityDocument"
+        first:
+          type: string
+        middle:
+          type: string
+        last:
+          type: string
     ContactServicesAddonProduct:
       type: object
       properties:
@@ -17070,14 +17270,39 @@ components:
           - GOVERNMENT
           - NON_GOVERNMENT
     Decision:
+      required:
+      - category
+      - levelCode
+      - levelNumber
       type: object
       properties:
-        element:
+        category:
+          "$ref": "#/components/schemas/DecisionCategory"
+        levelNumber:
           type: string
-        value:
+        levelCode:
           type: string
-        reason:
+    DecisionCategory:
+      required:
+      - code
+      - name
+      type: object
+      properties:
+        code:
           type: string
+          enum:
+          - A
+          - D
+          - R
+          - X
+        name:
+          type: string
+          enum:
+          - PASS
+          - COMPLETE
+          - REVIEW
+          - NONE
+          - DECLINE
     DistanceAnalysis:
       type: object
       properties:
@@ -17418,6 +17643,66 @@ components:
             name: driverViolation
           items:
             "$ref": "#/components/schemas/DriverViolation"
+    DriversLicensePremium:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - CHAUFFEUR
+          - CHAUFFEUR_MC
+          - COMMERCIAL
+          - I_D
+          - LEARNERS
+          - MC_PERMIT
+          - MOPED
+          - NOT_LICENSED
+          - PERMIT
+          - PROBATIONARY
+          - REGULAR
+          - REGULAR_MC
+          - RESTRICTED
+          - SCHOOL_BUS
+          - UNKNOWN
+          - MISCELLANEOUS
+        number:
+          type: string
+        newNumber:
+          type: string
+        state:
+          type: string
+        issueDate:
+          "$ref": "#/components/schemas/Date"
+        originalIssueDate:
+          "$ref": "#/components/schemas/Date"
+        expirationDate:
+          "$ref": "#/components/schemas/Date"
+        motorcycleCode:
+          type: string
+        restrictions:
+          type: string
+        endorsements:
+          type: string
+        dateReported:
+          "$ref": "#/components/schemas/Date"
+        source:
+          type: string
+          xml:
+            attribute: true
+          enum:
+          - INPUT
+          - FILE
+          - VENDOR_FILE
+          - BEST_MATCH
+          - NON_CREDIT_FILE
+          - RPA_FILE
+          - CONSUMER_INQUIRY
+          - VENDOR_AGGREGATED
+          - SUGGESTED_VALUE
+          - APPLICATION
+          - VENDOR_2_FILE
+          - GOVERNMENT
+          - NON_GOVERNMENT
     Duration:
       type: object
       properties:
@@ -17551,6 +17836,18 @@ components:
           type: string
           xml:
             attribute: true
+    Factor:
+      required:
+      - code
+      - rank
+      type: object
+      properties:
+        rank:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
     FdcpaCaseSearch:
       type: object
       properties:
@@ -17782,6 +18079,60 @@ components:
           type: string
         calculated:
           type: boolean
+    HouseHoldAddress:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - CURRENT
+          - ALTERNATE_CURRENT
+          - PREVIOUS
+          - UNIDENTIFIED
+        addressType:
+          type: string
+          enum:
+          - APARTMENT
+          - FIRM
+          - MULTIUNIT
+          - PO_BOX
+          - STREET
+          - RURAL_ROUTE
+          - HIGH_RISE
+          - UNKNOWN
+        searchIndicator:
+          type: integer
+          format: int32
+        classification:
+          "$ref": "#/components/schemas/AddressClassification"
+        street:
+          "$ref": "#/components/schemas/Street"
+        location:
+          "$ref": "#/components/schemas/Location"
+        residence:
+          "$ref": "#/components/schemas/Residence"
+        dateReported:
+          "$ref": "#/components/schemas/Date"
+        duration:
+          "$ref": "#/components/schemas/Duration"
+        source:
+          type: string
+          xml:
+            attribute: true
+          enum:
+          - INPUT
+          - FILE
+          - VENDOR_FILE
+          - BEST_MATCH
+          - NON_CREDIT_FILE
+          - RPA_FILE
+          - CONSUMER_INQUIRY
+          - VENDOR_AGGREGATED
+          - SUGGESTED_VALUE
+          - APPLICATION
+          - VENDOR_2_FILE
+          - GOVERNMENT
+          - NON_GOVERNMENT
     HouseHoldPrefill:
       type: object
       properties:
@@ -18365,16 +18716,48 @@ components:
     Individual:
       type: object
       properties:
-        individualReferenceNumber:
+        names:
+          type: array
+          xml:
+            name: name
+          items:
+            "$ref": "#/components/schemas/NameType"
+        phones:
+          type: array
+          xml:
+            name: phone
+          items:
+            "$ref": "#/components/schemas/Phone"
+        driversLicenses:
+          type: array
+          xml:
+            name: driversLicense
+          items:
+            "$ref": "#/components/schemas/DriversLicensePremium"
+        youthful:
           type: string
-        fullName1:
+        age:
           type: string
-        fullName2:
+        dateOfBirth:
           type: string
-        fullName3:
+        gender:
           type: string
-        fullName4:
+          enum:
+          - MALE
+          - FEMALE
+          - UNKNOWN
+        occupancyOrder:
           type: string
+        addresses:
+          type: array
+          xml:
+            name: address
+          items:
+            "$ref": "#/components/schemas/HouseHoldAddress"
+        occupancy:
+          "$ref": "#/components/schemas/Occupancy"
+        consumerAttributes:
+          "$ref": "#/components/schemas/ConsumerAttributes"
     IndividualMonitoringAction:
       required:
       - fileStatus
@@ -19073,6 +19456,34 @@ components:
           "$ref": "#/components/schemas/ElementMatchAnalysis"
         lastNameMatchAnalysis:
           "$ref": "#/components/schemas/ElementMatchAnalysis"
+    NameType:
+      type: object
+      properties:
+        unparsed:
+          type: string
+        first:
+          type: string
+        middle:
+          type: string
+        last:
+          type: string
+        prefix:
+          type: string
+        generationalSuffix:
+          type: string
+        salutationalSuffix:
+          type: string
+        maternal:
+          type: string
+        order:
+          type: string
+        qualifier:
+          type: string
+          xml:
+            attribute: true
+          enum:
+          - MATCHED
+          - DISCOVERED
     NamedValue:
       type: object
       properties:
@@ -19089,6 +19500,24 @@ components:
           type: string
         lastNumber:
           type: string
+    Occupancy:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - MOST_RECENT_ADDRESS
+          - ALTERNATE_MOST_RECENT
+          - PREVIOUS_ADDRESS
+          - UNKNOWN
+        dateFirstReported:
+          "$ref": "#/components/schemas/Date"
+        dateEndReported:
+          "$ref": "#/components/schemas/Date"
+        dateLastReported:
+          "$ref": "#/components/schemas/Date"
+        ownsInputProperty:
+          type: boolean
     OfacNameScreen:
       type: object
       properties:
@@ -19846,13 +20275,39 @@ components:
     Score:
       type: object
       properties:
-        name:
+        results:
           type: string
-        type:
+        derogatoryAlert:
+          type: boolean
+        fileInquiriesImpactedScore:
+          type: boolean
+        noScoreReason:
           type: string
-        score:
-          type: integer
-          format: int32
+          enum:
+          - SUBJECT_DECEASED
+          - INSUFFICIENT_CREDIT
+          - NOT_PROCESSED
+          - REQUIREMENTS_NOT_MET
+          - CASCADING_MODEL
+          - MISSING_REQUIRED_RISK_MODELS
+          - COMPLIANCE_REQUIREMENTS_NOT_MET
+        factors:
+          "$ref": "#/components/schemas/ScoreFactors"
+        scoreCard:
+          type: string
+        product:
+          "$ref": "#/components/schemas/ScoreProduct"
+    ScoreFactors:
+      required:
+      - factors
+      type: object
+      properties:
+        factors:
+          type: array
+          xml:
+            name: factor
+          items:
+            "$ref": "#/components/schemas/Factor"
     ScoreModel:
       type: object
       properties:
@@ -19916,6 +20371,11 @@ components:
           xml:
             name: l2cCancel
             attribute: true
+    ScoreProduct:
+      type: object
+      properties:
+        code:
+          type: string
     ScoreResult:
       type: object
       properties:
@@ -22315,6 +22775,1288 @@ components:
       properties:
         vendorData:
           type: string
+    Customer:
+      type: object
+      properties:
+        AccountNumber:
+          type: string
+        Addresses:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Address"
+        DateOfBirth:
+          type: string
+          format: date
+        Emails:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Email"
+        FirstName:
+          type: string
+        LastName:
+          type: string
+        PhoneNumber:
+          type: string
+        SocialSecurityNumber:
+          type: string
+    Email:
+      type: object
+      properties:
+        EmailAddress:
+          type: string
+        IsDefault:
+          type: boolean
+    App:
+      type: object
+      properties:
+        BundleId:
+          type: string
+        Debug:
+          type: boolean
+        ExeName:
+          type: string
+        MarketId:
+          type: string
+        Name:
+          type: string
+        Orientation:
+          type: string
+          enum:
+          - portrait
+          - right
+          - left
+        ProcName:
+          type: string
+        SignerId:
+          type: string
+        VendorId:
+          type: string
+          format: uuid
+        Version:
+          type: string
+    Authentication:
+      type: object
+      properties:
+        OTP:
+          "$ref": "#/components/schemas/OTP"
+        KBA:
+          "$ref": "#/components/schemas/KBV"
+        DocumentAuthentication:
+          "$ref": "#/components/schemas/DocAuth"
+        Timestamp:
+          type: string
+          format: date-time
+    BIN:
+      type: object
+      properties:
+        Bank:
+          type: string
+        Brand:
+          type: string
+        CardType:
+          type: string
+          enum:
+          - DEBIT
+          - CREDIT
+        CountryISO3166_Code2:
+          type: string
+          enum:
+          - AF
+          - AN
+          - DZ
+          - AD
+          - AO
+          - Al
+          - AG
+          - AT
+          - RM
+          - AW
+          - AS
+          - AU
+          - DF
+          - AJ
+          - AX
+          - BS
+          - BH
+          - BD
+          - BB
+          - BL
+          - BE
+          - BZ
+          - BJ
+          - BU
+          - BM
+          - BO
+          - BX
+          - BW
+          - BR
+          - VG
+          - BN
+          - BG
+          - BF
+          - BI
+          - KA
+          - CM
+          - CN
+          - CV
+          - CU
+          - CI
+          - CF
+          - CD
+          - CL
+          - CP
+          - CB
+          - CJ
+          - CG
+          - CC
+          - CR
+          - HX
+          - HR
+          - CY
+          - CZ
+          - ZR
+          - DK
+          - DJ
+          - DM
+          - DO
+          - EM
+          - EC
+          - EG
+          - SV
+          - GQ
+          - ER
+          - SU
+          - ET
+          - FA
+          - FE
+          - FJ
+          - FI
+          - FR
+          - GF
+          - FP
+          - GB
+          - GM
+          - DW
+          - GH
+          - GI
+          - GD
+          - GR
+          - GE
+          - GP
+          - GT
+          - GG
+          - GN
+          - GW
+          - GY
+          - HA
+          - HN
+          - HU
+          - IS
+          - IB
+          - IF
+          - IR
+          - IQ
+          - IE
+          - IG
+          - IT
+          - IC
+          - JM
+          - JP
+          - JE
+          - JO
+          - KZ
+          - KE
+          - KI
+          - KX
+          - KR
+          - KW
+          - KG
+          - LO
+          - LX
+          - LB
+          - LE
+          - LS
+          - LR
+          - LV
+          - CH
+          - LT
+          - LU
+          - MJ
+          - MH
+          - MG
+          - MB
+          - MW
+          - MY
+          - MV
+          - ML
+          - MF
+          - MQ
+          - MR
+          - MU
+          - MX
+          - LD
+          - AC
+          - MC
+          - MM
+          - MK
+          - RC
+          - MZ
+          - NB
+          - NA
+          - NP
+          - NN
+          - NL
+          - NW
+          - NZ
+          - NI
+          - NR
+          - NG
+          - 'NO'
+          - OM
+          - PK
+          - PM
+          - PG
+          - PY
+          - PU
+          - PH
+          - PS
+          - PL
+          - PT
+          - QA
+          - GX
+          - RE
+          - RO
+          - RU
+          - RW
+          - SH
+          - KN
+          - LC
+          - SP
+          - SF
+          - SM
+          - ST
+          - MP
+          - SA
+          - SN
+          - SX
+          - YC
+          - SL
+          - SG
+          - VK
+          - XN
+          - SI
+          - SO
+          - ZA
+          - ES
+          - LK
+          - SB
+          - SR
+          - SZ
+          - SE
+          - SW
+          - SY
+          - TK
+          - TW
+          - TZ
+          - TH
+          - TG
+          - TA
+          - TT
+          - TD
+          - TU
+          - TR
+          - TM
+          - TC
+          - TV
+          - UG
+          - UA
+          - BK
+          - UM
+          - UK
+          - US
+          - UY
+          - UZ
+          - VU
+          - VC
+          - VE
+          - VN
+          - WT
+          - WS
+          - YE
+          - ZM
+          - ZW
+    BINRisk:
+      type: object
+      properties:
+        DoesMatchCustomerBillingAddressCountry:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        DoesMatchCustomerDeliveryAddressCountry:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        DoesMatchIPCountry:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        DoesMatchTransactionBillingAddressCountry:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        DoesMatchTransactionDeliveryAddressCountry:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        IsCountryDomestic:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+    BlackboxMetadata:
+      type: object
+      properties:
+        Age:
+          type: integer
+          format: int64
+        Timestamp:
+          type: string
+          format: date-time
+    BotNet:
+      type: object
+      properties:
+        Score:
+          type: integer
+          format: int32
+        Intensity:
+          type: integer
+          format: int32
+        Lastseen:
+          type: string
+          format: date-time
+    Browser:
+      type: object
+      properties:
+        Charset:
+          type: string
+        CookiesEnabled:
+          type: boolean
+        ConfiguredLanguage:
+          type: string
+        Language:
+          type: string
+        Type:
+          type: string
+        Timezone:
+          type: string
+        Version:
+          type: string
+    Build:
+      type: object
+      properties:
+        Device:
+          type: string
+        Product:
+          type: string
+    Choice:
+      type: object
+      properties:
+        Answer:
+          type: boolean
+        ChoiceText:
+          type: string
+        Id:
+          type: integer
+          format: int32
+    ComputedData:
+      type: object
+      properties:
+        BlackList:
+          "$ref": "#/components/schemas/WatchList"
+        GreyList:
+          "$ref": "#/components/schemas/WatchList"
+        WhiteList:
+          "$ref": "#/components/schemas/WatchList"
+        Customer:
+          "$ref": "#/components/schemas/CustomerRisk"
+        Location:
+          "$ref": "#/components/schemas/LocationRisk"
+        Phone:
+          "$ref": "#/components/schemas/PhoneRisk"
+        Transaction:
+          "$ref": "#/components/schemas/TransactionRisk"
+        Velocity:
+          "$ref": "#/components/schemas/VelocityRisk"
+    CustomerRisk:
+      type: object
+      properties:
+        email:
+          "$ref": "#/components/schemas/EmailRisk"
+        HasBadHistory:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        HasGoodHistory:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        HasSuspiciousHistory:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        IsNameAddressCombinationValid:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        IsIDMBMatchingSummaryRiskHigh:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        IsIDMBMatchingSummaryRiskMedium:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        IsIDMBMatchingSummaryRiskLow:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        IsReturningToPlatform:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+    DetailedDecisionResponse:
+      type: object
+      properties:
+        CaseId:
+          type: string
+        CaseNumber:
+          type: string
+        Id:
+          type: string
+        Timestamp:
+          type: string
+          format: date-time
+        SessionId:
+          type: string
+        IdentityVerificationPayloadUrl:
+          type: string
+        ComputedData:
+          "$ref": "#/components/schemas/ComputedData"
+        RawData:
+          "$ref": "#/components/schemas/RawData"
+        Comment:
+          type: string
+        Confidence:
+          type: integer
+          format: int32
+        Result:
+          type: string
+          enum:
+          - '1'
+          - '2'
+          - '3'
+        Score:
+          type: integer
+          format: int32
+        ExtendedDeviceInformation:
+          "$ref": "#/components/schemas/ExtendedDevice"
+        Authentication:
+          "$ref": "#/components/schemas/Authentication"
+    Details:
+      type: object
+      properties:
+        Device:
+          "$ref": "#/components/schemas/Device"
+        MachineLearning:
+          "$ref": "#/components/schemas/MachineLearning"
+        RealIp:
+          "$ref": "#/components/schemas/IP"
+        RuleResults:
+          "$ref": "#/components/schemas/RuleResults"
+        StatedIp:
+          "$ref": "#/components/schemas/IP"
+    Device:
+      type: object
+      properties:
+        Alias:
+          type: integer
+          format: int64
+        BlackBoxMetaData:
+          "$ref": "#/components/schemas/BlackboxMetadata"
+        Browser:
+          "$ref": "#/components/schemas/Browser"
+        FirstSeen:
+          type: string
+          format: date-time
+        IsNew:
+          type: boolean
+        Mobile:
+          "$ref": "#/components/schemas/Mobile"
+        Os:
+          type: string
+        RegistrationResult:
+          "$ref": "#/components/schemas/RegistrationResult"
+        Screen:
+          type: string
+        RecognitionSource:
+          type: string
+        Type:
+          type: string
+          enum:
+          - MAC
+          - PC
+          - iOS
+          - ANDROID
+          - BLACKBERRY
+          - CHROMEOS
+          - HANDHELD_OTHER
+          - IPHONE
+          - IPOD
+          - IPAD
+          - LINUX
+          - NINTENDO
+          - PLAYSTATION
+          - UNIX
+          - UNKNOWN
+          - WINDOWS
+          - WINDOWS_MOBILE
+          - XBOX
+          - N/A
+    DocAuth:
+      type: object
+      properties:
+        Url:
+          type: string
+        Status:
+          "$ref": "#/components/schemas/JsonNullableObject"
+        OCRDataStatus:
+          type: integer
+          format: int32
+    EmailRisk:
+      type: object
+      properties:
+        ContainsDomainIssue:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        ContainsMailboxIssue:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        ContainsSyntaxIssue:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        IsAgeHigh:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        IsAgeLow:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        IsAgeMedium:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        IsDisposable:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        IsDomainNotAllowed:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        IsPopularityHigh:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        IsPopularityLow:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        IsPopularityMedium:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        IsUserNameNotAllowed:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        IsVelocityHigh:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        IsVelocityLow:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+        IsVelocityMedium:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+    ExtendedDevice:
+      type: object
+      properties:
+        AccountCode:
+          type: string
+        Details:
+          "$ref": "#/components/schemas/Details"
+        Id:
+          type: string
+          format: uuid
+        Reason:
+          type: string
+        Result:
+          type: string
+          enum:
+          - A
+          - D
+          - R
+        StatedIp:
+          type: string
+        TrackingNumber:
+          type: integer
+          format: int64
+    IP:
+      type: object
+      properties:
+        Address:
+          type: string
+        BotNet:
+          "$ref": "#/components/schemas/BotNet"
+        Isp:
+          type: string
+        Loc:
+          "$ref": "#/components/schemas/IPLocation"
+        Org:
+          type: string
+        Proxy:
+          type: string
+        Source:
+          type: string
+          enum:
+          - iovation
+          - subscriber
+    IPAddress:
+      type: object
+      properties:
+        AnonymizerStats:
+          type: string
+          enum:
+          - private
+          - active
+          - suspect
+          - inactive
+          - unknown
+        ClientIp:
+          type: string
+        ConnectionType:
+          type: string
+          enum:
+          - ocx
+          - tx
+          - consumer satellite
+          - framerelay
+          - dsl
+          - cable
+          - isdn
+          - dialup
+          - fixed wireless
+          - mobile wireless
+          - unknown low
+          - unknown medium
+          - unknown high
+        Continent:
+          type: string
+        Country:
+          type: string
+        CountryCode:
+          type: string
+        State:
+          type: string
+        City:
+          type: string
+        HostingFacility:
+          type: boolean
+        LineSpeed:
+          type: string
+          enum:
+          - high
+          - medium
+          - low
+        ProxyType:
+          type: string
+        RoutingType:
+          type: string
+          enum:
+          - fixed
+          - aol
+          - aolpop
+          - aoldialup
+          - aolproxy
+          - pop
+          - superpop
+          - satellite
+          - cache proxy
+          - international proxy
+          - regional proxy
+          - mobile gateway
+        SLD:
+          type: string
+        TLD:
+          type: string
+    IPLocation:
+      type: object
+      properties:
+        City:
+          type: string
+        Country:
+          type: string
+        CountryCode:
+          type: string
+          enum:
+          - AF
+          - AN
+          - DZ
+          - AD
+          - AO
+          - Al
+          - AG
+          - AT
+          - RM
+          - AW
+          - AS
+          - AU
+          - DF
+          - AJ
+          - AX
+          - BS
+          - BH
+          - BD
+          - BB
+          - BL
+          - BE
+          - BZ
+          - BJ
+          - BU
+          - BM
+          - BO
+          - BX
+          - BW
+          - BR
+          - VG
+          - BN
+          - BG
+          - BF
+          - BI
+          - KA
+          - CM
+          - CN
+          - CV
+          - CU
+          - CI
+          - CF
+          - CD
+          - CL
+          - CP
+          - CB
+          - CJ
+          - CG
+          - CC
+          - CR
+          - HX
+          - HR
+          - CY
+          - CZ
+          - ZR
+          - DK
+          - DJ
+          - DM
+          - DO
+          - EM
+          - EC
+          - EG
+          - SV
+          - GQ
+          - ER
+          - SU
+          - ET
+          - FA
+          - FE
+          - FJ
+          - FI
+          - FR
+          - GF
+          - FP
+          - GB
+          - GM
+          - DW
+          - GH
+          - GI
+          - GD
+          - GR
+          - GE
+          - GP
+          - GT
+          - GG
+          - GN
+          - GW
+          - GY
+          - HA
+          - HN
+          - HU
+          - IS
+          - IB
+          - IF
+          - IR
+          - IQ
+          - IE
+          - IG
+          - IT
+          - IC
+          - JM
+          - JP
+          - JE
+          - JO
+          - KZ
+          - KE
+          - KI
+          - KX
+          - KR
+          - KW
+          - KG
+          - LO
+          - LX
+          - LB
+          - LE
+          - LS
+          - LR
+          - LV
+          - CH
+          - LT
+          - LU
+          - MJ
+          - MH
+          - MG
+          - MB
+          - MW
+          - MY
+          - MV
+          - ML
+          - MF
+          - MQ
+          - MR
+          - MU
+          - MX
+          - LD
+          - AC
+          - MC
+          - MM
+          - MK
+          - RC
+          - MZ
+          - NB
+          - NA
+          - NP
+          - NN
+          - NL
+          - NW
+          - NZ
+          - NI
+          - NR
+          - NG
+          - 'NO'
+          - OM
+          - PK
+          - PM
+          - PG
+          - PY
+          - PU
+          - PH
+          - PS
+          - PL
+          - PT
+          - QA
+          - GX
+          - RE
+          - RO
+          - RU
+          - RW
+          - SH
+          - KN
+          - LC
+          - SP
+          - SF
+          - SM
+          - ST
+          - MP
+          - SA
+          - SN
+          - SX
+          - YC
+          - SL
+          - SG
+          - VK
+          - XN
+          - SI
+          - SO
+          - ZA
+          - ES
+          - LK
+          - SB
+          - SR
+          - SZ
+          - SE
+          - SW
+          - SY
+          - TK
+          - TW
+          - TZ
+          - TH
+          - TG
+          - TA
+          - TT
+          - TD
+          - TU
+          - TR
+          - TM
+          - TC
+          - TV
+          - UG
+          - UA
+          - BK
+          - UM
+          - UK
+          - US
+          - UY
+          - UZ
+          - VU
+          - VC
+          - VE
+          - VN
+          - WT
+          - WS
+          - YE
+          - ZM
+          - ZW
+        Latitude:
+          type: number
+          format: float
+        Longitude:
+          type: number
+          format: float
+        Region:
+          type: string
+    JsonNullableBoolean:
+      type: object
+      properties:
+        present:
+          type: boolean
+    JsonNullableObject:
+      type: object
+      properties:
+        present:
+          type: boolean
+    KBV:
+      type: object
+      properties:
+        AnswerUrl:
+          type: string
+        MultiPassQuestions:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Question"
+        MultiPassStatus:
+          type: integer
+          format: int32
+        Questions:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Question"
+        Timestamp:
+          type: string
+          format: date-time
+        Status:
+          type: string
+          enum:
+          - "-1"
+          - '0'
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+    LocationRisk:
+      type: object
+      properties:
+        BIN:
+          "$ref": "#/components/schemas/BINRisk"
+        IsIPCountryDomestic:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+    MLValue1:
+      type: object
+      properties:
+        Value:
+          type: integer
+          format: int32
+    MachineLearning:
+      type: object
+      properties:
+        MLValue1:
+          "$ref": "#/components/schemas/MLValue1"
+    Mobile:
+      type: object
+      properties:
+        App:
+          "$ref": "#/components/schemas/App"
+        Brand:
+          type: string
+        Build:
+          "$ref": "#/components/schemas/Build"
+        Charging:
+          type: boolean
+        Imei:
+          type: string
+        Location:
+          "$ref": "#/components/schemas/Location"
+        Manufacturer:
+          type: string
+        Model:
+          type: string
+        Orientation:
+          type: string
+        ScreenResolution:
+          type: string
+        System:
+          "$ref": "#/components/schemas/System"
+    OTP:
+      type: object
+      properties:
+        AuthURL:
+          type: string
+        Timestamp:
+          type: string
+          format: date-time
+        DeliveryType:
+          type: string
+          enum:
+          - '0'
+          - '1'
+        Language:
+          type: string
+          enum:
+          - '0'
+        Passcode:
+          type: integer
+          format: int32
+        Status:
+          type: string
+          enum:
+          - '0'
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+          - '7'
+    PhoneRisk:
+      type: object
+      properties:
+        IsPhoneRisky:
+          "$ref": "#/components/schemas/JsonNullableBoolean"
+    Question:
+      type: object
+      properties:
+        Choices:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Choice"
+        Id:
+          type: integer
+          format: int32
+        QuestionText:
+          type: string
+    RawData:
+      type: object
+      properties:
+        TrustevCustomerId:
+          type: string
+        BINInformation:
+          "$ref": "#/components/schemas/BIN"
+        Browser:
+          type: string
+        DeviceTag:
+          type: string
+        IPAddresses:
+          type: array
+          items:
+            "$ref": "#/components/schemas/IPAddress"
+        Location:
+          "$ref": "#/components/schemas/Location"
+        NavigatorLanguage:
+          type: string
+        NavigatorOscpu:
+          type: string
+        NavigatorPlugins:
+          type: string
+        OS:
+          type: string
+        ScreenColorDepth:
+          type: string
+        ScreenHeight:
+          type: string
+        ScreenWidth:
+          type: string
+    RegistrationResult:
+      type: object
+      properties:
+        MatchStatus:
+          type: string
+        MeasureOfChange:
+          type: string
+    Rule:
+      type: object
+      properties:
+        Type:
+          type: string
+        Reason:
+          type: string
+        Score:
+          type: integer
+          format: int32
+    RuleResults:
+      type: object
+      properties:
+        Score:
+          type: integer
+          format: int32
+        RulesMatched:
+          type: integer
+          format: int32
+        Rules:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Rule"
+    System:
+      type: object
+      properties:
+        AllowUnknownStore:
+          type: boolean
+        AndroidSDKLevel:
+          type: string
+        BuildFingerprint:
+          type: string
+        Carrier:
+          type: string
+        CarrierCountryCode:
+          type: string
+        CellularNetwork:
+          type: string
+        Hostname:
+          type: string
+        JailrootDetected:
+          type: boolean
+        LocaleCurrency:
+          type: string
+        LocaleLang:
+          type: string
+        NetworkOperatorCountry:
+          type: string
+        NetworkOperatorName:
+          type: string
+        OsVersion:
+          type: string
+        RootDetectionDisabled:
+          type: boolean
+        Simulator:
+          type: boolean
+        Uptime:
+          type: string
+        VoipAllowed:
+          type: boolean
+    TransactionRisk:
+      type: object
+      properties:
+        Email:
+          "$ref": "#/components/schemas/EmailRisk"
+    VelocityRisk:
+      type: object
+      properties:
+        DecisionsWithin1Hour:
+          type: integer
+          format: int32
+        DecisionsWithin24Hours:
+          type: integer
+          format: int32
+        DecisionsWithin30Days:
+          type: integer
+          format: int32
+        DecisionsWithin7Days:
+          type: integer
+          format: int32
+        IsConsumerIdVelocityHigh:
+          "$ref": "#/components/schemas/VelocityRiskIsConsumerIdVelocityHigh"
+        IsConsumerIdSsnVelocityHigh:
+          "$ref": "#/components/schemas/VelocityRiskIsConsumerIdSsnVelocityHigh"
+        IsConsumerIdPostCodeVelocityHigh:
+          "$ref": "#/components/schemas/VelocityRiskIsConsumerIdPostCodeVelocityHigh"
+        IsConsumerIdPhoneNumberVelocityHigh:
+          "$ref": "#/components/schemas/VelocityRiskIsConsumerIdPhoneNumberVelocityHigh"
+        IsConsumerIdIPVelocityHigh:
+          "$ref": "#/components/schemas/VelocityRiskIsConsumerIdIPVelocityHigh"
+        IsConsumerIdEmailVelocityHigh:
+          "$ref": "#/components/schemas/VelocityRiskIsConsumerIdEmailVelocityHigh"
+        IsConsumerIdDeviceIdVelocityHigh:
+          "$ref": "#/components/schemas/VelocityRiskIsConsumerIdDeviceIdVelocityHigh"
+        IsConsumerIdAddressLine1VelocityHigh:
+          "$ref": "#/components/schemas/VelocityRiskIsConsumerIdAddressLine1VelocityHigh"
+        IsConsumerIdAccountNumberVelocityHigh:
+          "$ref": "#/components/schemas/VelocityRiskIsConsumerIdAccountNumberVelocityHigh"
+        IsSsnVelocityHigh:
+          "$ref": "#/components/schemas/VelocityRiskIsSsnVelocityHigh"
+        IsPostCodeVelocityHigh:
+          "$ref": "#/components/schemas/VelocityRiskIsPostCodeVelocityHigh"
+        IsPhoneNumberVelocityHigh:
+          "$ref": "#/components/schemas/VelocityRiskIsPhoneNumberVelocityHigh"
+        IsIPVelocityHigh:
+          "$ref": "#/components/schemas/VelocityRiskIsIPVelocityHigh"
+        IsEmailVelocityHigh:
+          "$ref": "#/components/schemas/VelocityRiskIsEmailVelocityHigh"
+        IsDeviceIdVelocityHigh:
+          "$ref": "#/components/schemas/VelocityRiskIsDeviceIdVelocityHigh"
+        IsAddressLine1VelocityHigh:
+          "$ref": "#/components/schemas/VelocityRiskIsAddressLine1VelocityHigh"
+        IsAccountNumberVelocityHigh:
+          "$ref": "#/components/schemas/VelocityRiskIsAccountNumberVelocityHigh"
+    VelocityRiskIsAccountNumberVelocityHigh:
+      type: object
+      properties:
+        Result:
+          type: boolean
+    VelocityRiskIsAddressLine1VelocityHigh:
+      type: object
+      properties:
+        Result:
+          type: boolean
+    VelocityRiskIsConsumerIdAccountNumberVelocityHigh:
+      type: object
+      properties:
+        Result:
+          type: boolean
+    VelocityRiskIsConsumerIdAddressLine1VelocityHigh:
+      type: object
+      properties:
+        Result:
+          type: boolean
+    VelocityRiskIsConsumerIdDeviceIdVelocityHigh:
+      type: object
+      properties:
+        Result:
+          type: boolean
+    VelocityRiskIsConsumerIdEmailVelocityHigh:
+      type: object
+      properties:
+        Result:
+          type: boolean
+    VelocityRiskIsConsumerIdIPVelocityHigh:
+      type: object
+      properties:
+        Result:
+          type: boolean
+    VelocityRiskIsConsumerIdPhoneNumberVelocityHigh:
+      type: object
+      properties:
+        Result:
+          type: boolean
+    VelocityRiskIsConsumerIdPostCodeVelocityHigh:
+      type: object
+      properties:
+        Result:
+          type: boolean
+    VelocityRiskIsConsumerIdSsnVelocityHigh:
+      type: object
+      properties:
+        Result:
+          type: boolean
+    VelocityRiskIsConsumerIdVelocityHigh:
+      type: object
+      properties:
+        Result:
+          type: boolean
+    VelocityRiskIsDeviceIdVelocityHigh:
+      type: object
+      properties:
+        Result:
+          type: boolean
+    VelocityRiskIsEmailVelocityHigh:
+      type: object
+      properties:
+        Result:
+          type: boolean
+    VelocityRiskIsIPVelocityHigh:
+      type: object
+      properties:
+        Result:
+          type: boolean
+    VelocityRiskIsPhoneNumberVelocityHigh:
+      type: object
+      properties:
+        Result:
+          type: boolean
+    VelocityRiskIsPostCodeVelocityHigh:
+      type: object
+      properties:
+        Result:
+          type: boolean
+    VelocityRiskIsSsnVelocityHigh:
+      type: object
+      properties:
+        Result:
+          type: boolean
     TURequestDTO:
       required:
       - city
@@ -23605,6 +25347,8 @@ components:
     Attr:
       type: object
       properties:
+        schemaTypeInfo:
+          "$ref": "#/components/schemas/TypeInfo"
         specified:
           type: boolean
         ownerElement:
@@ -23615,41 +25359,39 @@ components:
           type: string
         value:
           type: string
-        schemaTypeInfo:
-          "$ref": "#/components/schemas/TypeInfo"
-        prefix:
+        textContent:
           type: string
-        attributes:
-          "$ref": "#/components/schemas/NamedNodeMap"
+        lastChild:
+          "$ref": "#/components/schemas/Node"
         nodeName:
           type: string
         nodeValue:
           type: string
-        nodeType:
-          type: integer
-          format: int32
         parentNode:
           "$ref": "#/components/schemas/Node"
-        childNodes:
-          "$ref": "#/components/schemas/NodeList"
         firstChild:
-          "$ref": "#/components/schemas/Node"
-        lastChild:
-          "$ref": "#/components/schemas/Node"
-        previousSibling:
           "$ref": "#/components/schemas/Node"
         nextSibling:
           "$ref": "#/components/schemas/Node"
-        ownerDocument:
-          "$ref": "#/components/schemas/Document"
-        namespaceURI:
-          type: string
-        localName:
-          type: string
+        previousSibling:
+          "$ref": "#/components/schemas/Node"
         baseURI:
           type: string
-        textContent:
+        namespaceURI:
           type: string
+        nodeType:
+          type: integer
+          format: int32
+        prefix:
+          type: string
+        ownerDocument:
+          "$ref": "#/components/schemas/Document"
+        localName:
+          type: string
+        childNodes:
+          "$ref": "#/components/schemas/NodeList"
+        attributes:
+          "$ref": "#/components/schemas/NamedNodeMap"
     BankAccount:
       type: object
       properties:
@@ -23725,154 +25467,265 @@ components:
         length:
           type: integer
           format: int32
+    Declarations:
+      type: object
+      properties:
+        alimonyChildSupportObligationIndicator:
+          type: boolean
+          xml:
+            name: AlimonyChildSupportObligationIndicator
+        borrowedDownPaymentIndicator:
+          type: boolean
+          xml:
+            name: BorrowedDownPaymentIndicator
+        citizenshipResidencyType:
+          type: string
+          xml:
+            name: CitizenshipResidencyType
+        coMakerEndorserOfNoteIndicator:
+          type: boolean
+          xml:
+            name: CoMakerEndorserOfNoteIndicator
+        homeownerPastThreeYearsIndicator:
+          type: boolean
+          xml:
+            name: HomeownerPastThreeYearsIndicator
+        intentToOccupyIndicator:
+          type: boolean
+          xml:
+            name: IntentToOccupyIndicator
+        loanForeclosureOrJudgementIndicator:
+          type: boolean
+          xml:
+            name: LoanForeclosureOrJudgementIndicator
+        outstandingJudgementsIndicator:
+          type: boolean
+          xml:
+            name: OutstandingJudgementsIndicator
+        partyToLawsuitIndicator:
+          type: boolean
+          xml:
+            name: PartyToLawsuitIndicator
+        presentlyDelinquentIndicator:
+          type: boolean
+          xml:
+            name: PresentlyDelinquentIndicator
+        priorPropertyTitleType:
+          type: string
+          xml:
+            name: PriorPropertyTitleType
+        priorPropertyUsageType:
+          type: string
+          xml:
+            name: PriorPropertyUsageType
+        priorPropertyUsageTypeOtherDescription:
+          type: string
+          xml:
+            name: PriorPropertyUsageTypeOtherDescription
+        propertyForeclosedPastSevenYearsIndicator:
+          type: boolean
+          xml:
+            name: PropertyForeclosedPastSevenYearsIndicator
+        borrowerFirstTimeHomebuyerIndicator:
+          type: boolean
+          xml:
+            name: BorrowerFirstTimeHomebuyerIndicator
     Document:
       type: object
       properties:
-        documentElement:
-          "$ref": "#/components/schemas/Element"
-        inputEncoding:
-          type: string
-        implementation:
-          "$ref": "#/components/schemas/DOMImplementation"
-        doctype:
-          "$ref": "#/components/schemas/DocumentType"
-        xmlEncoding:
-          type: string
-        xmlStandalone:
-          type: boolean
         xmlVersion:
           type: string
         strictErrorChecking:
           type: boolean
-        domConfig:
-          "$ref": "#/components/schemas/DOMConfiguration"
         documentURI:
           type: string
-        prefix:
+        xmlStandalone:
+          type: boolean
+        doctype:
+          "$ref": "#/components/schemas/DocumentType"
+        inputEncoding:
           type: string
-        attributes:
-          "$ref": "#/components/schemas/NamedNodeMap"
+        xmlEncoding:
+          type: string
+        domConfig:
+          "$ref": "#/components/schemas/DOMConfiguration"
+        implementation:
+          "$ref": "#/components/schemas/DOMImplementation"
+        documentElement:
+          "$ref": "#/components/schemas/Element"
+        textContent:
+          type: string
+        lastChild:
+          "$ref": "#/components/schemas/Node"
         nodeName:
           type: string
         nodeValue:
           type: string
-        nodeType:
-          type: integer
-          format: int32
         parentNode:
           "$ref": "#/components/schemas/Node"
-        childNodes:
-          "$ref": "#/components/schemas/NodeList"
         firstChild:
-          "$ref": "#/components/schemas/Node"
-        lastChild:
-          "$ref": "#/components/schemas/Node"
-        previousSibling:
           "$ref": "#/components/schemas/Node"
         nextSibling:
           "$ref": "#/components/schemas/Node"
-        ownerDocument:
-          "$ref": "#/components/schemas/Document"
-        namespaceURI:
-          type: string
-        localName:
-          type: string
+        previousSibling:
+          "$ref": "#/components/schemas/Node"
         baseURI:
           type: string
-        textContent:
+        namespaceURI:
           type: string
+        nodeType:
+          type: integer
+          format: int32
+        prefix:
+          type: string
+        ownerDocument:
+          "$ref": "#/components/schemas/Document"
+        localName:
+          type: string
+        childNodes:
+          "$ref": "#/components/schemas/NodeList"
+        attributes:
+          "$ref": "#/components/schemas/NamedNodeMap"
     DocumentType:
       type: object
       properties:
-        entities:
+        notations:
           "$ref": "#/components/schemas/NamedNodeMap"
         internalSubset:
           type: string
+        entities:
+          "$ref": "#/components/schemas/NamedNodeMap"
         publicId:
           type: string
         systemId:
           type: string
         name:
           type: string
-        notations:
-          "$ref": "#/components/schemas/NamedNodeMap"
-        prefix:
+        textContent:
           type: string
-        attributes:
-          "$ref": "#/components/schemas/NamedNodeMap"
+        lastChild:
+          "$ref": "#/components/schemas/Node"
         nodeName:
           type: string
         nodeValue:
           type: string
-        nodeType:
-          type: integer
-          format: int32
         parentNode:
           "$ref": "#/components/schemas/Node"
-        childNodes:
-          "$ref": "#/components/schemas/NodeList"
         firstChild:
-          "$ref": "#/components/schemas/Node"
-        lastChild:
-          "$ref": "#/components/schemas/Node"
-        previousSibling:
           "$ref": "#/components/schemas/Node"
         nextSibling:
           "$ref": "#/components/schemas/Node"
-        ownerDocument:
-          "$ref": "#/components/schemas/Document"
-        namespaceURI:
-          type: string
-        localName:
-          type: string
+        previousSibling:
+          "$ref": "#/components/schemas/Node"
         baseURI:
           type: string
-        textContent:
+        namespaceURI:
           type: string
+        nodeType:
+          type: integer
+          format: int32
+        prefix:
+          type: string
+        ownerDocument:
+          "$ref": "#/components/schemas/Document"
+        localName:
+          type: string
+        childNodes:
+          "$ref": "#/components/schemas/NodeList"
+        attributes:
+          "$ref": "#/components/schemas/NamedNodeMap"
     Element:
       type: object
       properties:
-        tagName:
-          type: string
-        schemaTypeInfo:
-          "$ref": "#/components/schemas/TypeInfo"
         attributeNodeNS:
           "$ref": "#/components/schemas/Attr"
         attributeNode:
           "$ref": "#/components/schemas/Attr"
-        prefix:
+        tagName:
           type: string
-        attributes:
-          "$ref": "#/components/schemas/NamedNodeMap"
+        schemaTypeInfo:
+          "$ref": "#/components/schemas/TypeInfo"
+        textContent:
+          type: string
+        lastChild:
+          "$ref": "#/components/schemas/Node"
         nodeName:
           type: string
         nodeValue:
           type: string
-        nodeType:
-          type: integer
-          format: int32
         parentNode:
           "$ref": "#/components/schemas/Node"
-        childNodes:
-          "$ref": "#/components/schemas/NodeList"
         firstChild:
-          "$ref": "#/components/schemas/Node"
-        lastChild:
-          "$ref": "#/components/schemas/Node"
-        previousSibling:
           "$ref": "#/components/schemas/Node"
         nextSibling:
           "$ref": "#/components/schemas/Node"
-        ownerDocument:
-          "$ref": "#/components/schemas/Document"
-        namespaceURI:
-          type: string
-        localName:
-          type: string
+        previousSibling:
+          "$ref": "#/components/schemas/Node"
         baseURI:
           type: string
-        textContent:
+        namespaceURI:
           type: string
+        nodeType:
+          type: integer
+          format: int32
+        prefix:
+          type: string
+        ownerDocument:
+          "$ref": "#/components/schemas/Document"
+        localName:
+          type: string
+        childNodes:
+          "$ref": "#/components/schemas/NodeList"
+        attributes:
+          "$ref": "#/components/schemas/NamedNodeMap"
+    Employer:
+      type: object
+      properties:
+        name:
+          type: string
+          xml:
+            name: Name
+        phone:
+          type: string
+          xml:
+            name: Phone
+        ein:
+          type: string
+          xml:
+            name: EIN
+        monthlyIncome:
+          type: string
+          xml:
+            name: MonthlyIncome
+        monthsOnJob:
+          type: string
+          xml:
+            name: MonthsOnJob
+        yearsOnJob:
+          type: string
+          xml:
+            name: YearsOnJob
+        address:
+          "$ref": "#/components/schemas/Address"
+        currentIndicator:
+          type: boolean
+          xml:
+            name: CurrentIndicator
+        selfEmployedIndicator:
+          type: boolean
+          xml:
+            name: SelfEmployedIndicator
+    Employers:
+      required:
+      - employer
+      type: object
+      properties:
+        employer:
+          type: array
+          xml:
+            name: Employer
+          items:
+            "$ref": "#/components/schemas/Employer"
     Extension:
       type: object
       properties:
@@ -24020,49 +25873,49 @@ components:
     NamedNodeMap:
       type: object
       properties:
-        length:
-          type: integer
-          format: int32
         namedItem:
           "$ref": "#/components/schemas/Node"
         namedItemNS:
           "$ref": "#/components/schemas/Node"
+        length:
+          type: integer
+          format: int32
     Node:
       type: object
       properties:
-        prefix:
+        textContent:
           type: string
-        attributes:
-          "$ref": "#/components/schemas/NamedNodeMap"
+        lastChild:
+          "$ref": "#/components/schemas/Node"
         nodeName:
           type: string
         nodeValue:
           type: string
-        nodeType:
-          type: integer
-          format: int32
         parentNode:
           "$ref": "#/components/schemas/Node"
-        childNodes:
-          "$ref": "#/components/schemas/NodeList"
         firstChild:
-          "$ref": "#/components/schemas/Node"
-        lastChild:
-          "$ref": "#/components/schemas/Node"
-        previousSibling:
           "$ref": "#/components/schemas/Node"
         nextSibling:
           "$ref": "#/components/schemas/Node"
-        ownerDocument:
-          "$ref": "#/components/schemas/Document"
-        namespaceURI:
-          type: string
-        localName:
-          type: string
+        previousSibling:
+          "$ref": "#/components/schemas/Node"
         baseURI:
           type: string
-        textContent:
+        namespaceURI:
           type: string
+        nodeType:
+          type: integer
+          format: int32
+        prefix:
+          type: string
+        ownerDocument:
+          "$ref": "#/components/schemas/Document"
+        localName:
+          type: string
+        childNodes:
+          "$ref": "#/components/schemas/NodeList"
+        attributes:
+          "$ref": "#/components/schemas/NamedNodeMap"
     NodeList:
       type: object
       properties:
@@ -24116,16 +25969,54 @@ components:
     Person:
       type: object
       properties:
-        typeOfPerson:
+        firstName:
           type: string
-        personIdentifier:
+          xml:
+            name: FirstName
+        middleName:
           type: string
-        personDetails:
-          "$ref": "#/components/schemas/PersonDetails"
-        names:
-          type: array
-          items:
-            "$ref": "#/components/schemas/Name"
+          xml:
+            name: MiddleName
+        lastName:
+          type: string
+          xml:
+            name: LastName
+        ssn:
+          type: string
+          xml:
+            name: SSN
+        dob:
+          type: string
+          xml:
+            name: DOB
+        yob:
+          type: string
+          xml:
+            name: YOB
+        gender:
+          type: string
+          xml:
+            name: Gender
+        homePhone:
+          type: string
+          xml:
+            name: HomePhone
+        residences:
+          "$ref": "#/components/schemas/Residences"
+        employers:
+          "$ref": "#/components/schemas/Employers"
+        ethnicGroup:
+          type: string
+          xml:
+            name: EthnicGroup
+        eyeColor:
+          type: string
+          xml:
+            name: EyeColor
+        bankAccounts:
+          "$ref": "#/components/schemas/BankAccounts"
+        declarations:
+          "$ref": "#/components/schemas/Declarations"
     Preferences:
       required:
       - preference
@@ -24211,6 +26102,17 @@ components:
           type: string
           xml:
             name: TotalPriorLienPayoffAmount
+    Residences:
+      required:
+      - residence
+      type: object
+      properties:
+        residence:
+          type: array
+          xml:
+            name: Residence
+          items:
+            "$ref": "#/components/schemas/Residence"
     Sami:
       type: object
       properties:
@@ -24443,11 +26345,11 @@ components:
           type: string
           xml:
             name: DataSource
-          default: Local
           enum:
           - ALL
           - LOCAL
           - REAL_TIME
+          default: Local
         realTimePermissibleUse:
           type: string
           xml:
@@ -24528,11 +26430,11 @@ components:
           type: string
           xml:
             name: DataSource
-          default: Local
           enum:
           - ALL
           - LOCAL
           - REAL_TIME
+          default: Local
         nonDMVSource:
           type: boolean
           xml:
@@ -24917,11 +26819,11 @@ components:
           type: string
           xml:
             name: DataSource
-          default: Local
           enum:
           - ALL
           - LOCAL
           - REAL_TIME
+          default: Local
     MotorVehicleReport2Option:
       type: object
       properties:
@@ -25289,322 +27191,8 @@ components:
           "$ref": "#/components/schemas/LienJudgmentSearchOption"
       xml:
         name: LienJudgmentSearchRequest
-    Addresses:
+    MonoLienJudgmentSearchResponseEx:
       type: object
-      properties:
-        address:
-          type: array
-          xml:
-            name: Address
-          items:
-            "$ref": "#/components/schemas/Address"
-    Creditors:
-      type: object
-      properties:
-        creditor:
-          type: array
-          xml:
-            name: Creditor
-          items:
-            "$ref": "#/components/schemas/LienJudgmentCreditor"
-    DebtorAttorneys:
-      type: object
-      properties:
-        attorney:
-          type: array
-          xml:
-            name: Attorney
-          items:
-            "$ref": "#/components/schemas/LienJudgmentDebtorAttorney"
-    Debtors:
-      type: object
-      properties:
-        debtor:
-          type: array
-          xml:
-            name: Debtor
-          items:
-            "$ref": "#/components/schemas/LienJudgmentDebtor"
-    Filings:
-      type: object
-      properties:
-        filing:
-          type: array
-          xml:
-            name: Filing
-          items:
-            "$ref": "#/components/schemas/LienJudgmentFiling"
-    LienJudgmentCreditor:
-      type: object
-      properties:
-        name:
-          type: string
-          xml:
-            name: Name
-        address:
-          "$ref": "#/components/schemas/Address"
-        addresses:
-          "$ref": "#/components/schemas/Addresses"
-        phones:
-          "$ref": "#/components/schemas/Phones"
-        parsedParties:
-          "$ref": "#/components/schemas/ParsedParties"
-    LienJudgmentDebtor:
-      type: object
-      properties:
-        originName:
-          type: string
-          xml:
-            name: OriginName
-        addresses:
-          "$ref": "#/components/schemas/Addresses"
-        phones:
-          "$ref": "#/components/schemas/Phones"
-        parsedParties:
-          "$ref": "#/components/schemas/ParsedParties"
-    LienJudgmentDebtorAttorney:
-      type: object
-      properties:
-        name:
-          type: string
-          xml:
-            name: Name
-        address:
-          "$ref": "#/components/schemas/Address"
-        phone:
-          type: string
-          xml:
-            name: Phone
-        timeZone:
-          type: string
-          xml:
-            name: TimeZone
-        addresses:
-          "$ref": "#/components/schemas/Addresses"
-        phones:
-          "$ref": "#/components/schemas/Phones"
-        parsedParties:
-          "$ref": "#/components/schemas/ParsedParties"
-    LienJudgmentFiling:
-      type: object
-      properties:
-        number:
-          type: string
-          xml:
-            name: Number
-        type:
-          type: string
-          xml:
-            name: Type
-        date:
-          "$ref": "#/components/schemas/Date"
-        originFilingDate:
-          "$ref": "#/components/schemas/Date"
-        book:
-          type: string
-          xml:
-            name: Book
-        page:
-          type: string
-          xml:
-            name: Page
-        agency:
-          type: string
-          xml:
-            name: Agency
-        agencyCity:
-          type: string
-          xml:
-            name: AgencyCity
-        agencyState:
-          type: string
-          xml:
-            name: AgencyState
-        agencyCounty:
-          type: string
-          xml:
-            name: AgencyCounty
-        filingStatus:
-          type: string
-          xml:
-            name: FilingStatus
-        filingDescription:
-          type: string
-          xml:
-            name: FilingDescription
-        filingTime:
-          type: string
-          xml:
-            name: FilingTime
-    LienJudgmentParty:
-      type: object
-      properties:
-        businessIds:
-          "$ref": "#/components/schemas/BusinessIdentity"
-        idValue:
-          type: string
-          xml:
-            name: IdValue
-        name:
-          "$ref": "#/components/schemas/Name"
-        companyName:
-          type: string
-          xml:
-            name: CompanyName
-        uniqueId:
-          type: string
-          xml:
-            name: UniqueId
-        businessId:
-          type: string
-          xml:
-            name: BusinessId
-        ssn:
-          type: string
-          xml:
-            name: SSN
-        fein:
-          type: string
-          xml:
-            name: FEIN
-        personFilterId:
-          type: string
-          xml:
-            name: PersonFilterId
-        taxId:
-          type: string
-          xml:
-            name: TaxId
-    LienJudgmentSearchResponse:
-      type: object
-      properties:
-        header:
-          "$ref": "#/components/schemas/ResponseHeader"
-        recordCount:
-          type: integer
-          format: int32
-          xml:
-            name: RecordCount
-        records:
-          "$ref": "#/components/schemas/Records"
-        pdf:
-          type: string
-          xml:
-            name: Pdf
-    LienJudgmentSearchResponseEx:
-      type: object
-      properties:
-        response:
-          "$ref": "#/components/schemas/LienJudgmentSearchResponse"
-      xml:
-        name: LienJudgmentSearchResponseEx
-    LienJudgmentThirdParty:
-      type: object
-      properties:
-        originName:
-          type: string
-          xml:
-            name: OriginName
-        address:
-          "$ref": "#/components/schemas/Address"
-        addresses:
-          "$ref": "#/components/schemas/Addresses"
-        phones:
-          "$ref": "#/components/schemas/Phones"
-        parsedParties:
-          "$ref": "#/components/schemas/ParsedParties"
-    MatchedParty:
-      type: object
-      properties:
-        partyType:
-          type: string
-          xml:
-            name: PartyType
-        uniqueId:
-          type: string
-          xml:
-            name: UniqueId
-        originName:
-          type: string
-          xml:
-            name: OriginName
-        parsedParty:
-          "$ref": "#/components/schemas/NameAndCompany"
-        address:
-          "$ref": "#/components/schemas/Address"
-    NameAndCompany:
-      type: object
-      properties:
-        full:
-          type: string
-          xml:
-            name: Full
-        first:
-          type: string
-          xml:
-            name: First
-        middle:
-          type: string
-          xml:
-            name: Middle
-        last:
-          type: string
-          xml:
-            name: Last
-        suffix:
-          type: string
-          xml:
-            name: Suffix
-        prefix:
-          type: string
-          xml:
-            name: Prefix
-        companyName:
-          type: string
-          xml:
-            name: CompanyName
-    ParsedParties:
-      type: object
-      properties:
-        party:
-          type: array
-          xml:
-            name: Party
-          items:
-            "$ref": "#/components/schemas/LienJudgmentParty"
-    PhoneTimeZone:
-      type: object
-      properties:
-        phone10:
-          type: string
-          xml:
-            name: Phone10
-        fax:
-          type: string
-          xml:
-            name: Fax
-        timeZone:
-          type: string
-          xml:
-            name: TimeZone
-    Phones:
-      type: object
-      properties:
-        phone:
-          type: array
-          xml:
-            name: Phone
-          items:
-            "$ref": "#/components/schemas/PhoneTimeZone"
-    ThirdParties:
-      type: object
-      properties:
-        thirdParty:
-          type: array
-          xml:
-            name: ThirdParty
-          items:
-            "$ref": "#/components/schemas/LienJudgmentThirdParty"
     LienJudgmentReportBy:
       type: object
       properties:
@@ -25641,138 +27229,8 @@ components:
           "$ref": "#/components/schemas/LienJudgmentReportBy"
       xml:
         name: LienJudgmentReportRequest
-    LienJudgmentReportRecord:
+    MonoLienJudgmentReportResponseEx:
       type: object
-      properties:
-        businessIds:
-          "$ref": "#/components/schemas/BusinessIdentity"
-        idValue:
-          type: string
-          xml:
-            name: IdValue
-        originFilingTime:
-          type: string
-          xml:
-            name: OriginFilingTime
-        taxCode:
-          type: string
-          xml:
-            name: TaxCode
-        judge:
-          type: string
-          xml:
-            name: Judge
-        externalKey:
-          type: string
-          xml:
-            name: ExternalKey
-        matchedParty:
-          "$ref": "#/components/schemas/MatchedParty"
-        originFilingNumber:
-          type: string
-          xml:
-            name: OriginFilingNumber
-        originFilingType:
-          type: string
-          xml:
-            name: OriginFilingType
-        originFilingDate:
-          "$ref": "#/components/schemas/Date"
-        caseNumber:
-          type: string
-          xml:
-            name: CaseNumber
-        eviction:
-          type: string
-          xml:
-            name: Eviction
-        amount:
-          type: string
-          xml:
-            name: Amount
-        filingJurisdiction:
-          type: string
-          xml:
-            name: FilingJurisdiction
-        filingJurisdictionName:
-          type: string
-          xml:
-            name: FilingJurisdictionName
-        filingState:
-          type: string
-          xml:
-            name: FilingState
-        filingStatus:
-          type: string
-          xml:
-            name: FilingStatus
-        certificateNumber:
-          type: string
-          xml:
-            name: CertificateNumber
-        multipleDefendant:
-          type: string
-          xml:
-            name: MultipleDefendant
-        judgeSatisfiedDate:
-          "$ref": "#/components/schemas/Date"
-        suitDate:
-          "$ref": "#/components/schemas/Date"
-        judgeVacatedDate:
-          "$ref": "#/components/schemas/Date"
-        releaseDate:
-          "$ref": "#/components/schemas/Date"
-        legalLot:
-          type: string
-          xml:
-            name: LegalLot
-        legalBlock:
-          type: string
-          xml:
-            name: LegalBlock
-        debtors:
-          "$ref": "#/components/schemas/Debtors"
-        thirdParties:
-          "$ref": "#/components/schemas/ThirdParties"
-        creditors:
-          "$ref": "#/components/schemas/Creditors"
-        debtorAttorneys:
-          "$ref": "#/components/schemas/DebtorAttorneys"
-        filings:
-          "$ref": "#/components/schemas/Filings"
-        rmsid:
-          type: string
-        irsserialNumber:
-          type: string
-        tmsid:
-          type: string
-    LienJudgmentReportResponse:
-      type: object
-      properties:
-        header:
-          "$ref": "#/components/schemas/ResponseHeader"
-        lienJudgments:
-          "$ref": "#/components/schemas/LienJudgments"
-        pdf:
-          type: string
-          xml:
-            name: Pdf
-    LienJudgmentReportResponseEx:
-      type: object
-      properties:
-        response:
-          "$ref": "#/components/schemas/LienJudgmentReportResponse"
-      xml:
-        name: LienJudgmentReportResponseEx
-    LienJudgments:
-      type: object
-      properties:
-        lienJudgment:
-          type: array
-          xml:
-            name: LienJudgment
-          items:
-            "$ref": "#/components/schemas/LienJudgmentReportRecord"
     IIDRequestDTO:
       type: object
       properties:
@@ -25795,14 +27253,6 @@ components:
       type: object
       properties:
         ssn:
-          type: string
-    Value:
-      type: object
-      properties:
-        value:
-          type: integer
-          format: int32
-        unit:
           type: string
     OFACNameDTO:
       type: object
@@ -27884,13 +29334,6 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/PreciseIDQuestionDTO"
-    OTP:
-      type: object
-      properties:
-        sessionId:
-          type: string
-        code:
-          type: string
     KBA:
       type: object
       properties:
@@ -27964,1793 +29407,6 @@ components:
         userDefinedText3:
           type: string
         userDefinedText4:
-          type: string
-    Amount:
-      type: object
-      properties:
-        amount:
-          type: integer
-          format: int32
-        currencyCode:
-          type: string
-    Applicant:
-      type: object
-      properties:
-        id:
-          type: string
-        contactId:
-          type: string
-        type:
-          type: string
-        applicantType:
-          type: string
-        consent:
-          type: boolean
-        knownCustomer:
-          type: boolean
-        roleInAccident:
-          type: string
-        vehicleId:
-          type: string
-        consentId:
-          type: string
-        consentTimeStamp:
-          type: string
-        assetId:
-          type: string
-        applicantReference:
-          type: string
-    Application:
-      type: object
-      properties:
-        originalRequestTime:
-          type: string
-        utcOffset:
-          type: string
-        type:
-          type: string
-        durationInMillis:
-          type: integer
-          format: int64
-        status:
-          type: string
-        notificationRequired:
-          type: string
-        brand:
-          type: string
-        sourceOfIntroduction:
-          type: string
-        financialAccountIds:
-          type: string
-        contractIds:
-          type: string
-        productDetails:
-          "$ref": "#/components/schemas/ProductDetails"
-        policyDetails:
-          "$ref": "#/components/schemas/PolicyDetails"
-        claimDetails:
-          "$ref": "#/components/schemas/ClaimDetails"
-        applicants:
-          type: array
-          items:
-            "$ref": "#/components/schemas/Applicant"
-        applicationEntities:
-          type: array
-          items:
-            "$ref": "#/components/schemas/ApplicationEntity"
-        memo:
-          type: string
-        oneTimePasscode:
-          type: string
-        messageTime:
-          type: string
-        expReference:
-          type: string
-        aps:
-          type: string
-        apsUserId:
-          type: string
-        operatorId:
-          type: string
-        operatorName:
-          type: string
-        creditProtection:
-          type: string
-        branchName:
-          type: string
-        leadGen:
-          type: string
-        otpMsgType:
-          type: string
-        dealerId:
-          type: string
-        dealerName:
-          type: string
-        applicationId:
-          type: string
-        clientApplicationNumber:
-          type: string
-    ApplicationEntity:
-      type: object
-      properties:
-        entityType:
-          type: string
-        contactId:
-          type: string
-        approvedSupplier:
-          type: boolean
-        roleInAccident:
-          type: string
-        vehicleId:
-          type: string
-        assetId:
-          type: string
-    ChipData:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        data:
-          type: array
-          items:
-            type: string
-            format: byte
-    ClaimDetails:
-      type: object
-      properties:
-        claimStatus:
-          type: string
-        finalLoss:
-          "$ref": "#/components/schemas/Amount"
-        reason:
-          type: string
-        claimType:
-          type: string
-        causeOfLoss:
-          type: string
-        noOfClaimants:
-          type: integer
-          format: int32
-        damageExtent:
-          type: string
-        totalLoss:
-          type: boolean
-        salvageCode:
-          type: string
-        description:
-          type: string
-        incidentTime:
-          type: string
-        causeNature:
-          type: string
-        emergencyServices:
-          type: string
-        speed:
-          "$ref": "#/components/schemas/Value"
-        dates:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PolicyDetailsDates"
-        liability:
-          type: string
-        liabilityAccept:
-          type: boolean
-        injuryDescription:
-          type: string
-    ControlItem:
-      type: object
-      properties:
-        option:
-          type: string
-        value:
-          type: string
-    CrossCoreResponse:
-      type: object
-      properties:
-        originalRequestData:
-          "$ref": "#/components/schemas/Payload"
-        responseHeader:
-          "$ref": "#/components/schemas/ResponseHeader"
-        clientResponsePayload:
-          "$ref": "#/components/schemas/ResponsePayload"
-    DataCount:
-      type: object
-      properties:
-        name:
-          type: string
-        value:
-          type: integer
-          format: int32
-    DecisionElement:
-      type: object
-      properties:
-        applicantId:
-          type: string
-        serviceName:
-          type: string
-        decision:
-          type: string
-        score:
-          type: integer
-          format: int32
-        decisionText:
-          type: string
-        decisionReason:
-          type: string
-        appReference:
-          type: string
-        decisions:
-          type: array
-          items:
-            "$ref": "#/components/schemas/Decision"
-        rules:
-          type: array
-          items:
-            "$ref": "#/components/schemas/Rule"
-        matches:
-          type: array
-          items:
-            "$ref": "#/components/schemas/Match"
-        scores:
-          type: array
-          items:
-            "$ref": "#/components/schemas/Score"
-        dataCounts:
-          type: array
-          items:
-            "$ref": "#/components/schemas/DataCount"
-        warningsErrors:
-          type: array
-          items:
-            "$ref": "#/components/schemas/WarningsError"
-        records:
-          type: array
-          items:
-            "$ref": "#/components/schemas/Record"
-        otherData:
-          "$ref": "#/components/schemas/OtherData"
-    Email:
-      type: object
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-        email:
-          type: string
-        status:
-          type: string
-    Encoding:
-      type: object
-      properties:
-        encoding:
-          type: string
-        data:
-          type: string
-    ExternalData:
-      type: object
-      properties:
-        fieldName:
-          type: string
-        fieldValue:
-          type: string
-        externalDataName:
-          type: string
-        externalDataElements:
-          type: array
-          items:
-            "$ref": "#/components/schemas/ExternalData1"
-    ExternalData1:
-      type: object
-      properties:
-        fieldName:
-          type: string
-        fieldValue:
-          type: string
-        externalDataName:
-          type: string
-        externalDataElements:
-          type: array
-          items:
-            "$ref": "#/components/schemas/ExternalData2"
-    ExternalData2:
-      type: object
-      properties:
-        fieldName:
-          type: string
-        fieldValue:
-          type: string
-        externalDataName:
-          type: string
-    ExternalLookup:
-      type: object
-      properties:
-        source:
-          type: string
-        parameter:
-          type: string
-        contactId:
-          type: string
-        addressId:
-          type: string
-        externalData:
-          type: array
-          items:
-            "$ref": "#/components/schemas/ExternalData"
-        link:
-          "$ref": "#/components/schemas/Link"
-    FraudProducts:
-      type: object
-      properties:
-        preciseIDServer:
-          "$ref": "#/components/schemas/PreciseIDServer"
-    FraudResponse:
-      type: object
-      properties:
-        products:
-          "$ref": "#/components/schemas/FraudProducts"
-    FraudSolutions:
-      type: object
-      properties:
-        response:
-          "$ref": "#/components/schemas/FraudResponse"
-    IdentityDocument:
-      type: object
-      properties:
-        id:
-          type: string
-        documentNumber:
-          type: string
-        hashedDocumentNumber:
-          type: string
-        documentType:
-          type: string
-        validFromDate:
-          type: string
-        expiresDate:
-          type: string
-        personalNumber:
-          type: string
-        nationalityCountryCode:
-          type: string
-        issueCountryCode:
-          type: string
-        stateProvinceCode:
-          type: string
-        issueAuthority:
-          type: string
-        MRZLine1:
-          type: string
-        MRZLine2:
-          type: string
-        MRZLine3:
-          type: string
-        placeOfBirth:
-          type: string
-        countryOfBirth:
-          type: string
-        documentName:
-          "$ref": "#/components/schemas/ReferenceName"
-        documentDateOfBirth:
-          type: string
-        mrzName:
-          "$ref": "#/components/schemas/ReferenceName"
-        documentAddressId:
-          type: string
-        images:
-          type: array
-          items:
-            "$ref": "#/components/schemas/Image"
-        encodedData:
-          "$ref": "#/components/schemas/Encoding"
-        placeOfIssue:
-          type: string
-        subType:
-          type: string
-        mrtdChipData:
-          type: array
-          items:
-            "$ref": "#/components/schemas/ChipData"
-        individuals:
-          "$ref": "#/components/schemas/Individual"
-        idType:
-          type: string
-        status:
-          type: string
-    Image:
-      type: object
-      properties:
-        id:
-          type: string
-        imageData:
-          type: array
-          items:
-            type: string
-            format: byte
-        fileName:
-          type: string
-        fileType:
-          type: string
-        documentPart:
-          type: string
-    JsonData:
-      type: object
-      properties:
-        fraudSolutions:
-          "$ref": "#/components/schemas/FraudSolutions"
-    Link:
-      type: object
-      properties:
-        url:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-    Match:
-      type: object
-      properties:
-        name:
-          type: string
-        value:
-          type: string
-    MortgageRentalPayment:
-      type: object
-      properties:
-        amount:
-          type: integer
-          format: int32
-        currencyCode:
-          type: string
-        frequency:
-          type: string
-        type:
-          type: string
-    OrchestrationDecision:
-      type: object
-      properties:
-        sequenceId:
-          type: string
-        decisionSource:
-          type: string
-        decision:
-          type: string
-        decisionReasons:
-          type: array
-          items:
-            type: string
-        score:
-          type: integer
-          format: int32
-        decisionText:
-          type: string
-        nextAction:
-          type: string
-        appReference:
-          type: string
-        decisionTime:
-          type: string
-    OtherData:
-      type: object
-      properties:
-        json:
-          "$ref": "#/components/schemas/JsonData"
-    OverallResponse:
-      type: object
-      properties:
-        decision:
-          type: string
-        score:
-          type: integer
-          format: int32
-        decisionText:
-          type: string
-        decisionReasons:
-          type: array
-          items:
-            type: string
-        recommendedNextActions:
-          type: array
-          items:
-            type: string
-        spareObjects:
-          type: array
-          items:
-            type: string
-    Payload:
-      type: object
-      properties:
-        control:
-          type: array
-          items:
-            "$ref": "#/components/schemas/ControlItem"
-        source:
-          type: string
-        contacts:
-          type: array
-          items:
-            "$ref": "#/components/schemas/Contact"
-        kba:
-          "$ref": "#/components/schemas/KBA"
-        application:
-          "$ref": "#/components/schemas/Application"
-    PersonDetails:
-      type: object
-      properties:
-        dateOfBirth:
-          type: string
-          format: date
-        yearOfBirth:
-          type: string
-        age:
-          type: integer
-          format: int32
-        gender:
-          type: string
-        placeOfBirth:
-          type: string
-        countryOfBirth:
-          type: string
-        nationalityCountryCode:
-          type: string
-        dateOfDeath:
-          type: string
-          format: date
-        mothersMaidenName:
-          type: string
-        spouseName:
-          type: string
-        noOfDependents:
-          type: integer
-          format: int32
-        occupancyStatus:
-          type: string
-        maritalStatus:
-          type: string
-        dateOfBirthType:
-          type: string
-        qualificationType:
-          type: string
-        firstTimeBuyer:
-          type: string
-        isBankrupt:
-          type: string
-        mortgageRentalPayment:
-          "$ref": "#/components/schemas/MortgageRentalPayment"
-        outstandingMortgage:
-          "$ref": "#/components/schemas/Amount"
-        relationshipType:
-          type: string
-        principalRole:
-          type: string
-        ownerSince:
-          type: string
-        ownerShare:
-          type: string
-        mothersFullName:
-          type: string
-        occupation:
-          type: string
-        politicallyExposed:
-          type: string
-        fathersFullName:
-          type: string
-        noOfDrivingConvictions:
-          type: integer
-          format: int32
-        noOfYearsDriving:
-          type: integer
-          format: int32
-        noOfAccidents:
-          type: integer
-          format: int32
-        noOfPreviousClaims:
-          type: integer
-          format: int32
-        noOfNonFaultClaims:
-          type: integer
-          format: int32
-        noOfFaultClaims:
-          type: integer
-          format: int32
-        previousClaims:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreviousClaim"
-        pepsSanctionsFlag:
-          type: string
-        previousDateOfBirth:
-          type: string
-          format: date
-    PolicyDetails:
-      type: object
-      properties:
-        vehicleIds:
-          type: array
-          items:
-            type: string
-        coverType:
-          type: string
-        policyNumber:
-          type: string
-        policyStatus:
-          type: string
-        premium:
-          "$ref": "#/components/schemas/Amount"
-        sumInsured:
-          "$ref": "#/components/schemas/Amount"
-        policyPaymentMethod:
-          type: string
-        policyExcess:
-          "$ref": "#/components/schemas/Amount"
-        noOfYearsNoClaimsDiscount:
-          type: integer
-          format: int32
-        noClaimFreeYears:
-          type: integer
-          format: int32
-        noOfPreviousClaims:
-          type: integer
-          format: int32
-        noOfDrivingConvictions:
-          type: integer
-          format: int32
-        yearsDriverLicenseHeld:
-          type: integer
-          format: int32
-        policyOptions:
-          type: array
-          items:
-            type: string
-        dates:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PolicyDetailsDates"
-        travelDestination:
-          type: string
-        permanentUkResident:
-          type: boolean
-        existingMedicalConditions:
-          type: array
-          items:
-            type: string
-        petDetails:
-          "$ref": "#/components/schemas/PolicyDetailsPetDetails"
-        annualMileage:
-          type: integer
-          format: int32
-        noOfPolicyPrevVoided:
-          type: integer
-          format: int32
-        quoteRefNumber:
-          type: string
-        cancellationReason:
-          type: string
-        brokerReference:
-          type: string
-    PolicyDetailsDates:
-      type: object
-      properties:
-        dateType:
-          type: string
-        date:
-          type: string
-          format: date
-    PolicyDetailsPetDetails:
-      type: object
-      properties:
-        name:
-          type: string
-        age:
-          type: integer
-          format: int32
-        gender:
-          type: string
-        type:
-          type: string
-        isPedigree:
-          type: boolean
-        spayedOrNeutered:
-          type: string
-        breed:
-          type: string
-        purchasePrice:
-          "$ref": "#/components/schemas/Amount"
-    PreciseIDServer:
-      type: object
-      properties:
-        pidxmlversion:
-          type: string
-        sessionID:
-          type: string
-        onFileSSN:
-          type: string
-        header:
-          "$ref": "#/components/schemas/PreciseIDServerHeader"
-        messages:
-          "$ref": "#/components/schemas/PreciseIDServerMessages"
-        summary:
-          "$ref": "#/components/schemas/PreciseIDServerSummary"
-        preciseMatch:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatch"
-        kba:
-          "$ref": "#/components/schemas/PreciseIDServerKBA"
-        fcraDetail:
-          "$ref": "#/components/schemas/PreciseIDServerFCRADetail"
-        glbDetail:
-          "$ref": "#/components/schemas/PreciseIDServerGLBDetail"
-        additionalAddresses:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchAdditionalAddresses"
-        ccNumerics:
-          "$ref": "#/components/schemas/PreciseIDServerCcNumerics"
-        ccStrings:
-          "$ref": "#/components/schemas/PreciseIDServerCcStrings"
-        ipAddress:
-          "$ref": "#/components/schemas/PreciseIDServerIPAddress"
-    PreciseIDServerCcNumerics:
-      type: object
-      properties:
-        ccNumeric:
-          type: array
-          items:
-            type: string
-    PreciseIDServerCcStrings:
-      type: object
-      properties:
-        ccString:
-          type: array
-          items:
-            type: string
-    PreciseIDServerConsumerStatement:
-      type: object
-      properties:
-        number:
-          type: string
-        text:
-          type: string
-    PreciseIDServerFCRADetail:
-      type: object
-      properties:
-        fraudShield:
-          "$ref": "#/components/schemas/PreciseIDServerFCRADetailFraudShield"
-        fcrarules:
-          "$ref": "#/components/schemas/PreciseIDServerFCRADetailFcrarules"
-        adverseActions:
-          "$ref": "#/components/schemas/PreciseIDServerFCRADetailAdverseActions"
-    PreciseIDServerFCRADetailAdverseActions:
-      type: object
-      properties:
-        adverseAction:
-          type: array
-          items:
-            "$ref": "#/components/schemas/CodeValue"
-    PreciseIDServerFCRADetailFcrarules:
-      type: object
-      properties:
-        fcrarule:
-          type: array
-          items:
-            "$ref": "#/components/schemas/CodeValue"
-    PreciseIDServerFCRADetailFraudShield:
-      type: object
-      properties:
-        indicator:
-          type: array
-          items:
-            "$ref": "#/components/schemas/CodeValue"
-    PreciseIDServerGLBDetail:
-      type: object
-      properties:
-        fraudShield:
-          "$ref": "#/components/schemas/PreciseIDServerFCRADetailFraudShield"
-        glbRules:
-          "$ref": "#/components/schemas/PreciseIDServerGLBDetailGlbRules"
-    PreciseIDServerGLBDetailGlbRules:
-      type: object
-      properties:
-        glbRule:
-          type: array
-          items:
-            "$ref": "#/components/schemas/CodeValue"
-    PreciseIDServerHeader:
-      type: object
-      properties:
-        reportDate:
-          type: string
-        reportTime:
-          type: string
-        productOption:
-          type: string
-        subcode:
-          type: string
-        referenceNumber:
-          type: string
-    PreciseIDServerIPAddress:
-      type: object
-      properties:
-        ipAddressMatchCountry:
-          "$ref": "#/components/schemas/CodeValue"
-        ipAddressCountry:
-          type: string
-        ipAddressMatchState:
-          "$ref": "#/components/schemas/CodeValue"
-        ipAddressState:
-          type: string
-        ipAddressMatchCity:
-          "$ref": "#/components/schemas/CodeValue"
-        ipAddressCity:
-          type: string
-        ipAddressMatchZipCode:
-          "$ref": "#/components/schemas/CodeValue"
-        ipAddressZipCode:
-          type: string
-        ipAddressMSA:
-          type: string
-        ipAddressLatitude:
-          type: string
-        ipAddressLongitude:
-          type: string
-    PreciseIDServerKBA:
-      type: object
-      properties:
-        general:
-          "$ref": "#/components/schemas/PreciseIDServerKBAGeneral"
-        questionSet:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerKBAQuestionSet"
-        creditQuestionSet:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerKBACreditQuestionSet"
-        nonCreditQuestionSet:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerKBACreditQuestionSet"
-    PreciseIDServerKBACreditQuestionSet:
-      type: object
-      properties:
-        relativeOrder:
-          type: integer
-          format: int32
-        questionType:
-          type: string
-        questionText:
-          type: string
-        questionSelect:
-          "$ref": "#/components/schemas/PreciseIDServerKBAQuestionSelect"
-    PreciseIDServerKBAGeneral:
-      type: object
-      properties:
-        sessionID:
-          type: string
-        numberOfQuestions:
-          type: integer
-          format: int32
-        kbaresultCode:
-          type: integer
-          format: int32
-        kbaresultCodeDescription:
-          type: string
-    PreciseIDServerKBAQuestionSelect:
-      type: object
-      properties:
-        questionChoice:
-          type: array
-          items:
-            type: string
-    PreciseIDServerKBAQuestionSet:
-      type: object
-      properties:
-        questionType:
-          type: string
-        questionText:
-          type: string
-        questionSelect:
-          "$ref": "#/components/schemas/PreciseIDServerKBAQuestionSelect"
-    PreciseIDServerMessage:
-      type: object
-      properties:
-        number:
-          type: string
-        text:
-          type: string
-        addrMismatch:
-          type: string
-    PreciseIDServerMessages:
-      type: object
-      properties:
-        message:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerMessage"
-        consumerStatement:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerConsumerStatement"
-    PreciseIDServerPreciseMatch:
-      type: object
-      properties:
-        version:
-          type: string
-        responseStatusCode:
-          "$ref": "#/components/schemas/CodeValue"
-        preciseMatchTransactionID:
-          type: string
-        preciseMatchScore:
-          type: string
-        preciseMatchDecision:
-          "$ref": "#/components/schemas/CodeValue"
-        addresses:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchAddresses"
-        phones:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchPhones"
-        consumerID:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchConsumerID"
-        dateOfBirth:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchDateOfBirth"
-        driverLicense:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchDriverLicense"
-        changeOfAddresses:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchChangeOfAddresses"
-        ofac:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchOFAC"
-        previousAddresses:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchPreviousAddresses"
-        ssnfinder:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchSSNFinder"
-        ipAddresses:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchIPAddresses"
-    PreciseIDServerPreciseMatchAdditionalAddresses:
-      type: object
-      properties:
-        addressInformation:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchAdditionalAddressesAddressInformation"
-    PreciseIDServerPreciseMatchAdditionalAddressesAddressInformation:
-      type: object
-      properties:
-        reportedDate:
-          type: string
-        lastUpdatedDate:
-          type: string
-        streetPrefix:
-          type: string
-        streetName:
-          type: string
-        streetSuffix:
-          type: string
-        unitType:
-          type: string
-        unitID:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zip:
-          type: string
-    PreciseIDServerPreciseMatchAddress:
-      type: object
-      properties:
-        summary:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchAddressSummary"
-        detail:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchAddressDetail"
-    PreciseIDServerPreciseMatchAddressDetail:
-      type: object
-      properties:
-        standardizedAddressRcd:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchRcd"
-        residentialAddressRcd:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchRcd"
-        highRiskAddressRcd:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchRcd"
-        highRiskAddressDescription:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchAddressDetailHighRiskAddressDescription"
-        businessAddressRcd:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchRcd"
-    PreciseIDServerPreciseMatchAddressDetailHighRiskAddressDescription:
-      type: object
-      properties:
-        highRiskDescription:
-          type: string
-    PreciseIDServerPreciseMatchAddressSummary:
-      type: object
-      properties:
-        verificationResult:
-          "$ref": "#/components/schemas/CodeValue"
-        type:
-          "$ref": "#/components/schemas/CodeValue"
-        unitMismatchResult:
-          "$ref": "#/components/schemas/CodeValue"
-        highRiskResult:
-          "$ref": "#/components/schemas/CodeValue"
-        corroborationCount:
-          type: integer
-          format: int32
-        counts:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchAddressSummaryCounts"
-    PreciseIDServerPreciseMatchAddressSummaryCounts:
-      type: object
-      properties:
-        standardizedAddressReturnCount:
-          type: integer
-          format: int32
-        residentialAddressMatchCount:
-          type: integer
-          format: int32
-        residentialAddressReturnCount:
-          type: integer
-          format: int32
-        highRiskAddressReturnCount:
-          type: integer
-          format: int32
-        businessAddressMatchCount:
-          type: integer
-          format: int32
-        businessAddressReturnCount:
-          type: integer
-          format: int32
-    PreciseIDServerPreciseMatchAddresses:
-      type: object
-      properties:
-        address:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchAddress"
-    PreciseIDServerPreciseMatchChangeOfAddresses:
-      type: object
-      properties:
-        changeOfAddress:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchChangeOfAddressesChangeOfAddress"
-    PreciseIDServerPreciseMatchChangeOfAddressesChangeOfAddress:
-      type: object
-      properties:
-        summary:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchChangeOfAddressesSummary"
-        detail:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchChangeOfAddressesDetail"
-    PreciseIDServerPreciseMatchChangeOfAddressesDetail:
-      type: object
-      properties:
-        changeOfAddressRcd:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchChangeOfAddressesDetailChangeOfAddressRcd"
-    PreciseIDServerPreciseMatchChangeOfAddressesDetailChangeOfAddressRcd:
-      type: object
-      properties:
-        name:
-          type: string
-        aliasName:
-          type: string
-        address:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zipCode:
-          type: string
-        zipPlus4:
-          type: string
-        reportedDate:
-          type: string
-        lastUpdatedDate:
-          type: string
-    PreciseIDServerPreciseMatchChangeOfAddressesSummary:
-      type: object
-      properties:
-        verificationResult:
-          "$ref": "#/components/schemas/CodeValue"
-        corroborationCount:
-          type: integer
-          format: int32
-        counts:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchChangeOfAddressesSummaryCounts"
-    PreciseIDServerPreciseMatchChangeOfAddressesSummaryCounts:
-      type: object
-      properties:
-        changeOfAddressMatchCount:
-          type: integer
-          format: int32
-        changeOfAddressReturnCount:
-          type: integer
-          format: int32
-    PreciseIDServerPreciseMatchConsumerID:
-      type: object
-      properties:
-        summary:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchConsumerIDSummary"
-        detail:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchConsumerIDDetail"
-    PreciseIDServerPreciseMatchConsumerIDDetail:
-      type: object
-      properties:
-        consumerIDRcd:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchRcd"
-    PreciseIDServerPreciseMatchConsumerIDSummary:
-      type: object
-      properties:
-        verificationResult:
-          "$ref": "#/components/schemas/CodeValue"
-        deceasedResult:
-          "$ref": "#/components/schemas/CodeValue"
-        formatResult:
-          "$ref": "#/components/schemas/CodeValue"
-        issueResult:
-          "$ref": "#/components/schemas/CodeValue"
-        issueState:
-          type: string
-        issueStartRange:
-          type: string
-        issueEndRange:
-          type: string
-        corroborationCount:
-          type: string
-        counts:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchConsumerIDSummaryCounts"
-    PreciseIDServerPreciseMatchConsumerIDSummaryCounts:
-      type: object
-      properties:
-        consumerIDReturnCount:
-          type: integer
-          format: int32
-        consumerIDMatchCount:
-          type: integer
-          format: int32
-    PreciseIDServerPreciseMatchDateOfBirth:
-      type: object
-      properties:
-        summary:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchDateOfBirthSummary"
-        detail:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchDateOfBirthDetail"
-    PreciseIDServerPreciseMatchDateOfBirthDetail:
-      type: object
-      properties:
-        dateOfBirthRcd:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchDateOfBirthDetailDateOfBirthRcd"
-    PreciseIDServerPreciseMatchDateOfBirthDetailDateOfBirthRcd:
-      type: object
-      properties:
-        surname:
-          type: string
-        firstName:
-          type: string
-        middle:
-          type: string
-        aliasName:
-          type: string
-        address:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zipCode:
-          type: string
-        zipPlus4:
-          type: string
-        areaCode:
-          type: string
-        phone:
-          type: string
-        monthOfBirth:
-          type: string
-        dayOfBirth:
-          type: string
-        yearOfBirth:
-          type: string
-        otherHouseholdMembers:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchRcdOtherHouseholdMembers"
-        reportedDate:
-          type: string
-        lastUpdatedDate:
-          type: string
-    PreciseIDServerPreciseMatchDateOfBirthSummary:
-      type: object
-      properties:
-        matchResult:
-          "$ref": "#/components/schemas/CodeValue"
-        monthOfBirth:
-          type: string
-        dayOfBirth:
-          type: string
-        yearOfBirth:
-          type: string
-        corroborationCount:
-          type: integer
-          format: int32
-        counts:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchDateOfBirthSummaryCounts"
-    PreciseIDServerPreciseMatchDateOfBirthSummaryCounts:
-      type: object
-      properties:
-        dateOfBirthMatchCount:
-          type: integer
-          format: int32
-        dateOfBirthReturnCount:
-          type: integer
-          format: int32
-    PreciseIDServerPreciseMatchDriverLicense:
-      type: object
-      properties:
-        summary:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchDriverLicenseSummary"
-        detail:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchDriverLicenseDetail"
-    PreciseIDServerPreciseMatchDriverLicenseDetail:
-      type: object
-      properties:
-        dateOfBirthRcd:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchDriverLicenseDetailDateOfBirthRcd"
-    PreciseIDServerPreciseMatchDriverLicenseDetailDateOfBirthRcd:
-      type: object
-      properties:
-        surname:
-          type: string
-        firstName:
-          type: string
-        middle:
-          type: string
-        aliasName:
-          type: string
-        address:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zipCode:
-          type: string
-        zipPlus4:
-          type: string
-        areaCode:
-          type: string
-        phone:
-          type: string
-        driverLicense:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchDriverLicenseDetailDriverLicense"
-        otherHouseholdMembers:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchRcdOtherHouseholdMembers"
-        reportedDate:
-          type: string
-        lastUpdatedDate:
-          type: string
-    PreciseIDServerPreciseMatchDriverLicenseDetailDriverLicense:
-      type: object
-      properties:
-        state:
-          type: string
-        number:
-          type: string
-        eyeColor:
-          type: string
-        height:
-          type: string
-        expireDate:
-          type: string
-        status:
-          type: string
-    PreciseIDServerPreciseMatchDriverLicenseSummary:
-      type: object
-      properties:
-        verificationResult:
-          "$ref": "#/components/schemas/CodeValue"
-        formatValidation:
-          "$ref": "#/components/schemas/CodeValue"
-        corroborationCount:
-          type: integer
-          format: int32
-        counts:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchDriverLicenseSummaryCounts"
-    PreciseIDServerPreciseMatchDriverLicenseSummaryCounts:
-      type: object
-      properties:
-        driverLicenseMatchCount:
-          type: integer
-          format: int32
-        driverLicenseReturnCount:
-          type: integer
-          format: int32
-    PreciseIDServerPreciseMatchIPAddresses:
-      type: object
-      properties:
-        ipAddress:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchIPAddressesIpAddress"
-    PreciseIDServerPreciseMatchIPAddressesDetail:
-      type: object
-      properties:
-        ipAddressRcd:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchIPAddressesDetailIpAddressRcd"
-    PreciseIDServerPreciseMatchIPAddressesDetailIpAddressRcd:
-      type: object
-      properties:
-        matchCountry:
-          "$ref": "#/components/schemas/CodeValue"
-        country:
-          type: string
-        matchState:
-          "$ref": "#/components/schemas/CodeValue"
-        state:
-          type: string
-        matchCity:
-          "$ref": "#/components/schemas/CodeValue"
-        city:
-          type: string
-        matchZipCode:
-          "$ref": "#/components/schemas/CodeValue"
-        zipCode:
-          type: string
-        msa:
-          type: string
-        latitude:
-          type: string
-        longitude:
-          type: string
-    PreciseIDServerPreciseMatchIPAddressesIpAddress:
-      type: object
-      properties:
-        summary:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchIPAddressesSummary"
-        detail:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchIPAddressesDetail"
-    PreciseIDServerPreciseMatchIPAddressesSummary:
-      type: object
-      properties:
-        verificationResult:
-          "$ref": "#/components/schemas/CodeValue"
-        validation:
-          "$ref": "#/components/schemas/CodeValue"
-    PreciseIDServerPreciseMatchOFAC:
-      type: object
-      properties:
-        summary:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchOFACSummary"
-        detail:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchOFACDetail"
-    PreciseIDServerPreciseMatchOFACDetail:
-      type: object
-      properties:
-        ofacRecord:
-          type: array
-          items:
-            type: string
-    PreciseIDServerPreciseMatchOFACSummary:
-      type: object
-      properties:
-        verificationResult:
-          "$ref": "#/components/schemas/CodeValue"
-        corroborationCount:
-          type: integer
-          format: int32
-        counts:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchOFACSummaryCounts"
-    PreciseIDServerPreciseMatchOFACSummaryCounts:
-      type: object
-      properties:
-        ofacMatchCount:
-          type: integer
-          format: int32
-        ofacReturnCount:
-          type: integer
-          format: int32
-    PreciseIDServerPreciseMatchPhone:
-      type: object
-      properties:
-        summary:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchPhoneSummary"
-        detail:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchPhoneDetail"
-    PreciseIDServerPreciseMatchPhoneDetail:
-      type: object
-      properties:
-        residentialPhoneRcd:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchRcd"
-        phoneHighRiskRcd:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchRcd"
-        highRiskPhoneDescription:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchAddressDetailHighRiskAddressDescription"
-        businessPhoneRcd:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchRcd"
-    PreciseIDServerPreciseMatchPhoneSummary:
-      type: object
-      properties:
-        verificationResult:
-          "$ref": "#/components/schemas/CodeValue"
-        classification:
-          "$ref": "#/components/schemas/CodeValue"
-        highRiskResult:
-          "$ref": "#/components/schemas/CodeValue"
-        corroborationCount:
-          type: integer
-          format: int32
-        counts:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchPhoneSummaryCounts"
-    PreciseIDServerPreciseMatchPhoneSummaryCounts:
-      type: object
-      properties:
-        residentialPhoneMatchCount:
-          type: integer
-          format: int32
-        residentialPhoneReturnCount:
-          type: integer
-          format: int32
-        highRiskPhoneReturnCount:
-          type: integer
-          format: int32
-        businessPhoneMatchCount:
-          type: integer
-          format: int32
-        businessPhoneReturnCount:
-          type: integer
-          format: int32
-    PreciseIDServerPreciseMatchPhones:
-      type: object
-      properties:
-        phone:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchPhone"
-    PreciseIDServerPreciseMatchPreviousAddresses:
-      type: object
-      properties:
-        previousAddress:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchPreviousAddressesPreviousAddress"
-    PreciseIDServerPreciseMatchPreviousAddressesDetail:
-      type: object
-      properties:
-        previousAddressRcd:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchRcd"
-    PreciseIDServerPreciseMatchPreviousAddressesPreviousAddress:
-      type: object
-      properties:
-        summary:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchPreviousAddressesSummary"
-        detail:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchPreviousAddressesDetail"
-    PreciseIDServerPreciseMatchPreviousAddressesSummary:
-      type: object
-      properties:
-        counts:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchPreviousAddressesSummaryCounts"
-    PreciseIDServerPreciseMatchPreviousAddressesSummaryCounts:
-      type: object
-      properties:
-        previousAddressReturnCount:
-          type: integer
-          format: int32
-    PreciseIDServerPreciseMatchRcd:
-      type: object
-      properties:
-        surname:
-          type: string
-        firstName:
-          type: string
-        middle:
-          type: string
-        aliasName:
-          type: array
-          items:
-            type: string
-        address:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zipCode:
-          type: string
-        zipPlus4:
-          type: string
-        areaCode:
-          type: string
-        phone:
-          type: string
-        businessName:
-          type: string
-        reportedDate:
-          type: string
-        lastUpdatedDate:
-          type: string
-        monthsAtResidence:
-          type: integer
-          format: int32
-        otherHouseholdMembers:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchRcdOtherHouseholdMembers"
-    PreciseIDServerPreciseMatchRcdOtherHouseholdMembers:
-      type: object
-      properties:
-        name:
-          type: array
-          items:
-            type: string
-    PreciseIDServerPreciseMatchSSNFinder:
-      type: object
-      properties:
-        summary:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchSSNFinderSummary"
-        detail:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchSSNFinderDetail"
-    PreciseIDServerPreciseMatchSSNFinderDetail:
-      type: object
-      properties:
-        ssnfinderRcd:
-          type: array
-          items:
-            "$ref": "#/components/schemas/PreciseIDServerPreciseMatchSSNFinderDetailSsnfinderRcd"
-    PreciseIDServerPreciseMatchSSNFinderDetailSsnfinderRcd:
-      type: object
-      properties:
-        surname:
-          type: string
-        firstName:
-          type: string
-        middle:
-          type: string
-        aliasName:
-          type: string
-        address:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zipCode:
-          type: string
-        zipPlus4:
-          type: string
-        areaCode:
-          type: string
-        phone:
-          type: string
-        monthOfBirth:
-          type: string
-        dayOfBirth:
-          type: string
-        yearOfBirth:
-          type: string
-        dateOfBirthMatchCode:
-          "$ref": "#/components/schemas/CodeValue"
-        inputSSN:
-          type: string
-        ssnonFile:
-          type: string
-        ssnresultCode:
-          "$ref": "#/components/schemas/CodeValue"
-        reportedDate:
-          type: string
-        lastUpdatedDate:
-          type: string
-    PreciseIDServerPreciseMatchSSNFinderSummary:
-      type: object
-      properties:
-        counts:
-          "$ref": "#/components/schemas/PreciseIDServerPreciseMatchSSNFinderSummaryCounts"
-    PreciseIDServerPreciseMatchSSNFinderSummaryCounts:
-      type: object
-      properties:
-        ssnfinderReturnCount:
-          type: integer
-          format: int32
-    PreciseIDServerSummary:
-      type: object
-      properties:
-        transactionID:
-          type: string
-        initialDecision:
-          type: string
-        finalDecision:
-          type: string
-        decisionOverride:
-          type: string
-        scores:
-          "$ref": "#/components/schemas/PreciseIDServerSummaryScores"
-    PreciseIDServerSummaryScoreReasons:
-      type: object
-      properties:
-        reason:
-          type: array
-          items:
-            "$ref": "#/components/schemas/CodeValue"
-    PreciseIDServerSummaryScores:
-      type: object
-      properties:
-        preciseIDScore:
-          type: string
-        preciseIDScorecard:
-          type: string
-        validationScore:
-          type: string
-        validationScorecard:
-          type: string
-        verificationScore:
-          type: string
-        verificationScorecard:
-          type: string
-        complianceIndicator:
-          type: string
-        complianceDescription:
-          type: string
-        fpdscore:
-          type: string
-        fpdscorecard:
-          type: string
-        reasons:
-          "$ref": "#/components/schemas/PreciseIDServerSummaryScoreReasons"
-    PreviousClaim:
-      type: object
-      properties:
-        claimLossDate:
-          type: string
-          format: date
-        typeOfFault:
-          type: string
-        typeOfClaim:
-          type: string
-    ProductDetails:
-      type: object
-      properties:
-        productType:
-          type: string
-        productAmount:
-          "$ref": "#/components/schemas/Amount"
-        depositAmount:
-          "$ref": "#/components/schemas/Amount"
-        abbreviatedAmount:
-          "$ref": "#/components/schemas/Amount"
-        interestRate:
-          type: number
-          format: float
-        maturityDate:
-          type: string
-        lendingTerm:
-          "$ref": "#/components/schemas/ProductDetailsLendingTerm"
-        purposeOfLoan:
-          type: string
-        ltv:
-          type: number
-          format: float
-        productCode:
-          type: string
-        loanReference:
-          type: string
-        assetValue:
-          "$ref": "#/components/schemas/Amount"
-        originalAssetValue:
-          "$ref": "#/components/schemas/Amount"
-        productSubchannel:
-          type: string
-        productDescription:
-          type: string
-        instantCreditAmount:
-          "$ref": "#/components/schemas/Amount"
-        noOfBalanceTransfers:
-          type: integer
-          format: int32
-    ProductDetailsLendingTerm:
-      type: object
-      properties:
-        duration:
-          type: integer
-          format: int32
-        unit:
-          type: string
-    Record:
-      type: object
-      properties:
-        contacts:
-          type: array
-          items:
-            "$ref": "#/components/schemas/Contact"
-        deviceIdentifiers:
-          type: array
-          items:
-            type: string
-        externalLookups:
-          type: array
-          items:
-            "$ref": "#/components/schemas/ExternalLookup"
-    ReferenceName:
-      type: object
-      properties:
-        firstName:
-          type: string
-        middleNames:
-          type: string
-        initials:
-          type: string
-        surName:
-          type: string
-    ResponsePayload:
-      type: object
-      properties:
-        orchestrationDecisions:
-          type: array
-          items:
-            "$ref": "#/components/schemas/OrchestrationDecision"
-        decisionElements:
-          type: array
-          items:
-            "$ref": "#/components/schemas/DecisionElement"
-    Rule:
-      type: object
-      properties:
-        ruleName:
-          type: string
-        ruleId:
-          type: string
-        ruleScore:
-          type: integer
-          format: int32
-        ruleText:
-          type: string
-    Telephone:
-      type: object
-      properties:
-        id:
-          type: string
-        number:
-          type: string
-        type:
-          type: string
-        areaCode:
-          type: string
-        internationalCode:
-          type: string
-        provider:
-          type: string
-        phoneIdentifier:
-          type: string
-        stdCode:
-          type: string
-        extension:
-          type: string
-        status:
-          type: string
-    WarningsError:
-      type: object
-      properties:
-        responseCode:
-          type: string
-        responseType:
-          type: string
-        responseMessage:
           type: string
     OrderDTO:
       type: object
@@ -33202,29 +32858,8 @@ components:
           "$ref": "#/components/schemas/BankruptcySearch2Option"
       xml:
         name: BankruptcySearch2Request
-    BankruptcySearch2Response:
+    MonoBankruptcySearch2ResponseEx:
       type: object
-      properties:
-        header:
-          "$ref": "#/components/schemas/ResponseHeader"
-        recordCount:
-          type: integer
-          format: int32
-          xml:
-            name: RecordCount
-        records:
-          "$ref": "#/components/schemas/Records"
-        pdf:
-          type: string
-          xml:
-            name: Pdf
-    BankruptcySearch2ResponseEx:
-      type: object
-      properties:
-        response:
-          "$ref": "#/components/schemas/BankruptcySearch2Response"
-      xml:
-        name: BankruptcySearch2ResponseEx
     BankruptcyReport2By:
       type: object
       properties:
@@ -33257,313 +32892,8 @@ components:
           "$ref": "#/components/schemas/BankruptcyReport2By"
       xml:
         name: BankruptcyReport2Request
-    Attorneys:
+    MonoBankruptcyReport2ResponseEx:
       type: object
-      properties:
-        attorney:
-          type: array
-          xml:
-            name: Attorney
-          items:
-            "$ref": "#/components/schemas/BankruptcyPerson2"
-    Bankruptcy2Meeting:
-      type: object
-      properties:
-        date:
-          "$ref": "#/components/schemas/Date"
-        time:
-          type: string
-          xml:
-            name: Time
-        address:
-          type: string
-          xml:
-            name: Address
-    BankruptcyComment:
-      type: object
-      properties:
-        description:
-          type: string
-          xml:
-            name: Description
-        filingDate:
-          "$ref": "#/components/schemas/Date"
-    BankruptcyPerson2:
-      type: object
-      properties:
-        businessIds:
-          "$ref": "#/components/schemas/BusinessIdentity"
-        idValue:
-          type: string
-          xml:
-            name: IdValue
-        names:
-          "$ref": "#/components/schemas/Names"
-        addresses:
-          "$ref": "#/components/schemas/Addresses"
-        phones:
-          "$ref": "#/components/schemas/Phones"
-        emails:
-          "$ref": "#/components/schemas/Emails"
-        uniqueId:
-          type: string
-          xml:
-            name: UniqueId
-        businessId:
-          type: string
-          xml:
-            name: BusinessId
-        ssn:
-          type: string
-          xml:
-            name: SSN
-        appendedSSN:
-          type: string
-          xml:
-            name: AppendedSSN
-        taxId:
-          type: string
-          xml:
-            name: TaxId
-        appendedTaxId:
-          type: string
-          xml:
-            name: AppendedTaxId
-    BankruptcyReport2Record:
-      type: object
-      properties:
-        businessIds:
-          "$ref": "#/components/schemas/BusinessIdentity"
-        idValue:
-          type: string
-          xml:
-            name: IdValue
-        corpFlag:
-          type: string
-          xml:
-            name: CorpFlag
-        filingType:
-          type: string
-          xml:
-            name: FilingType
-        filerType:
-          type: string
-          xml:
-            name: FilerType
-        filingJurisdiction:
-          type: string
-          xml:
-            name: FilingJurisdiction
-        caseType:
-          type: string
-          xml:
-            name: CaseType
-        caseNumber:
-          type: string
-          xml:
-            name: CaseNumber
-        filingDate:
-          "$ref": "#/components/schemas/Date"
-        originalFilingDate:
-          "$ref": "#/components/schemas/Date"
-        closedDate:
-          "$ref": "#/components/schemas/Date"
-        reopenDate:
-          "$ref": "#/components/schemas/Date"
-        convertedDate:
-          "$ref": "#/components/schemas/Date"
-        chapter:
-          type: string
-          xml:
-            name: Chapter
-        originalChapter:
-          type: string
-          xml:
-            name: OriginalChapter
-        courtName:
-          type: string
-          xml:
-            name: CourtName
-        courtLocation:
-          type: string
-          xml:
-            name: CourtLocation
-        judgeName:
-          type: string
-          xml:
-            name: JudgeName
-        judgeIdentification:
-          type: string
-          xml:
-            name: JudgeIdentification
-        claimsDeadline:
-          "$ref": "#/components/schemas/Date"
-        complaintDeadline:
-          "$ref": "#/components/schemas/Date"
-        filingStatus:
-          type: string
-          xml:
-            name: FilingStatus
-        courtCode:
-          type: string
-          xml:
-            name: CourtCode
-        dischargeDate:
-          "$ref": "#/components/schemas/Date"
-        disposition:
-          type: string
-          xml:
-            name: Disposition
-        liabilities:
-          type: string
-          xml:
-            name: Liabilities
-        assets:
-          type: string
-          xml:
-            name: Assets
-        meeting:
-          "$ref": "#/components/schemas/Bankruptcy2Meeting"
-        selfRepresented:
-          type: string
-          xml:
-            name: SelfRepresented
-          enum:
-          - U
-          - Y
-          - N
-        assetsForUnsecured:
-          type: string
-          xml:
-            name: AssetsForUnsecured
-          enum:
-          - U
-          - Y
-          - N
-        methodDismiss:
-          type: string
-          xml:
-            name: MethodDismiss
-        caseStatus:
-          type: string
-          xml:
-            name: CaseStatus
-        splitCase:
-          type: string
-          xml:
-            name: SplitCase
-        filedInError:
-          type: string
-          xml:
-            name: FiledInError
-          enum:
-          - U
-          - Y
-          - N
-        dateReclosed:
-          "$ref": "#/components/schemas/Date"
-        trusteeId:
-          type: string
-          xml:
-            name: TrusteeId
-        caseId:
-          type: string
-          xml:
-            name: CaseId
-        barDate:
-          "$ref": "#/components/schemas/Date"
-        transferIn:
-          type: string
-          xml:
-            name: TransferIn
-        deleteFlag:
-          type: boolean
-          xml:
-            name: DeleteFlag
-        statusHistory:
-          "$ref": "#/components/schemas/StatusHistory"
-        comments:
-          "$ref": "#/components/schemas/Comments"
-        debtors:
-          "$ref": "#/components/schemas/Debtors"
-        attorneys:
-          "$ref": "#/components/schemas/Attorneys"
-        trustees:
-          "$ref": "#/components/schemas/Trustees"
-    BankruptcyReport2Response:
-      type: object
-      properties:
-        header:
-          "$ref": "#/components/schemas/ResponseHeader"
-        bankruptcyReportRecords:
-          "$ref": "#/components/schemas/BankruptcyReportRecords"
-        pdf:
-          type: string
-          xml:
-            name: Pdf
-    BankruptcyReport2ResponseEx:
-      type: object
-      properties:
-        response:
-          "$ref": "#/components/schemas/BankruptcyReport2Response"
-      xml:
-        name: BankruptcyReport2ResponseEx
-    BankruptcyReportRecords:
-      type: object
-      properties:
-        bankruptcyReportRecord:
-          type: array
-          xml:
-            name: BankruptcyReportRecord
-          items:
-            "$ref": "#/components/schemas/BankruptcyReport2Record"
-    BankruptcyStatus:
-      type: object
-      properties:
-        type:
-          type: string
-          xml:
-            name: Type
-        date:
-          "$ref": "#/components/schemas/Date"
-    Comments:
-      type: object
-      properties:
-        comment:
-          type: array
-          xml:
-            name: Comment
-          items:
-            "$ref": "#/components/schemas/BankruptcyComment"
-    Emails:
-      type: object
-      properties:
-        email:
-          type: array
-          xml:
-            name: Email
-          items:
-            type: string
-            xml:
-              name: Email
-    StatusHistory:
-      type: object
-      properties:
-        status:
-          type: array
-          xml:
-            name: Status
-          items:
-            "$ref": "#/components/schemas/BankruptcyStatus"
-    Trustees:
-      type: object
-      properties:
-        trustee:
-          type: array
-          xml:
-            name: Trustee
-          items:
-            "$ref": "#/components/schemas/BankruptcyPerson2"
     UserRespDTO:
       type: object
       properties:
@@ -33700,6 +33030,18 @@ components:
           - TU_V
           - TU_V_R
           - TU_V_F
+          - TRU_DV
+          - TRU_DV_R
+          - TRU_DV_F
+          - TRU_AUTH
+          - TRU_AUTH_R
+          - TRU_AUTH_F
+          - TRU_OTP
+          - TRU_OTP_R
+          - TRU_OTP_F
+          - TRU_KIQ
+          - TRU_KIQ_R
+          - TRU_KIQ_F
           - EXP_CP
           - EXP_CP_F
           - EXP_CP_R
@@ -33755,6 +33097,12 @@ components:
           - CCC_PPR
           - CCC_PPR_R
           - CCC_PPR_F
+          - BR2
+          - BR2_R
+          - BR2_F
+          - BS2
+          - BS2_R
+          - BS2_F
         document:
           type: string
           format: binary
